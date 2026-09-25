@@ -1,0 +1,10 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://example.com/#org",
+  "name": "Site Name",
+  "url": "https://example.com",
+  "logo": "https://example.com/icon.png",
+  "email": "hello@example.com",
+  "sameAs": []
+}

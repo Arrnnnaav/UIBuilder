@@ -1,0 +1,56 @@
+{
+  "agent": "growth",
+  "status": "complete",
+  "stage": "S1",
+  "inputs_used": [
+    "docs/PRODUCT.md",
+    "docs/CONTENT_SOURCE.md",
+    "pipelines/portfolio/PIPELINE.md",
+    "pipelines/portfolio/PAGES.md",
+    "brain/seo-rules/aeo-geo.json",
+    "content/seo/crawlers.json (starter)",
+    "WebSearch SERP checks 2026-09-25: \"Arnav Khandelwal\", Arnav Khandelwal MNIT Jaipur, Arnav Khandelwal software engineer backend AI FastAPI, Arrnnnaav github, backend AI engineer portfolio FastAPI local LLM, and one query per flagship project"
+  ],
+  "decisions": [
+    "Primary entity is Person with @id {SITE_URL}/#person, defined once in content/schema/person.json (replaces the starter organization.json) and referenced by @id everywhere.",
+    "Disambiguation is the core strategy: the 'Arnav Khandelwal' SERP is held by namesakes (ZoomInfo x3, 40+ LinkedIn profiles, FIDE). Canonical descriptor 'Arnav Khandelwal, backend and AI engineer, MNIT Jaipur' is used in the home title, Person description, llms.txt and OG image; alumniOf MNIT Jaipur is linked to its Wikipedia page.",
+    "sameAs ships with GitHub only (verified). LinkedIn stays TODO: the bare arnav-khandelwal handle is unverified and may belong to a namesake.",
+    "Proposed slugs: /work/edge-node, /work/cited-researcher, /work/ledgerbridge, /work/ghostcursor, /work/neuroux, /work/studyos.",
+    "Schema plan: layout Person + WebSite; / WebPage + FAQPage; /about ProfilePage + BreadcrumbList + FAQPage; /work CollectionPage + ItemList; /work/[slug] SoftwareSourceCode + Article (author -> #person) + BreadcrumbList (+ optional FAQPage); /contact ContactPage.",
+    "FAQ files planned: home.json (5 Qs), about.json (3), contact.json (1), optional work-<slug>.json (1-2 each). Availability answer is blocked until the owner states it.",
+    "Crawler policy: keep the starter default (allow GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, PerplexityBot, Google-Extended, Applebot-Extended; deny CCBot; disallow /styleguide, /e2e-error). No change needed in S4.",
+    "Unconfirmed claims are excluded from schema/llms.txt: Dehurdle name (until consent), Cited Researcher 152s->26s ([R only]), BusinessHQ numbers, email, location display."
+  ],
+  "files_created": [
+    "docs/SEO_STRATEGY.md",
+    "docs/handoff/growth.json"
+  ],
+  "resources_used": ["WebSearch"],
+  "patterns_used": ["faq-answer-first"],
+  "risks": [
+    "Name collision: without off-site identity fixes (GitHub bio/blog/location, profile README, LinkedIn website field) the site may not rank for 'Arnav Khandelwal' even with perfect on-page SEO.",
+    "GhostCursor collides with the popular ghost-cursor npm/Puppeteer library; titles must lead with 'local AI desktop guide'.",
+    "No domain yet: canonical URLs, @ids, sitemap and seo.manifest.json site.url cannot be finalised in S4 without one (a *.vercel.app fallback works but is a weaker entity signal).",
+    "No headshot: Person schema ships without image; OG images must be typographic.",
+    "SERP shows github.com/Arrnnnaav/smb-safeops and /BuisnessHQ as indexed although CONTENT_SOURCE lists them as private; owner should verify repo visibility.",
+    "Only StudyOS is currently found by search/answer engines (via its GitHub repo); AI answers cannot identify the person at all today."
+  ],
+  "open_questions": [
+    "Owner: real email address?",
+    "Owner: own LinkedIn URL (paste it; do not assume arnav-khandelwal)?",
+    "Owner: availability for internships / full-time roles, start date, remote/relocation? (blocks FAQ 'Is Arnav available?')",
+    "Owner: may Dehurdle be named publicly?",
+    "Owner: display location 'Jaipur, India'?",
+    "Owner: domain name?",
+    "Owner: accept 'resume-attested' labelling for [R only] numbers?",
+    "Owner (off-site, recommended): set GitHub name/bio/location/blog, create Arrnnnaav/Arrnnnaav profile README linking the site, add the site URL to LinkedIn."
+  ],
+  "next_agent": "ux",
+  "next_instructions": [
+    "ux (S2): IA.md is still the template. Adopt or adjust the proposed /work/<slug> slugs and give each route the primary query from SEO_STRATEGY.md §Intent map. Include visible breadcrumbs on /about, /work, /work/[slug], /contact.",
+    "ux (S2): every page with a FAQ renders each question as an h2/h3 heading followed immediately by the 40-60 word answer paragraph (audit rule no-answer-first-block). Home needs a FAQ section.",
+    "ux (S2): internal links per SEO_STRATEGY.md §Internal linking plan: prev/next + 1-2 related case studies, repo link, closing /contact CTA on every case study.",
+    "frontend (S4 handoff, code not owned by growth): social links in footer and /about need rel=\"me\"; Person + WebSite JSON-LD injected from content/schema in the root layout; per-route JSON-LD for ProfilePage, CollectionPage/ItemList, SoftwareSourceCode + Article, BreadcrumbList, ContactPage; FAQPage generated from content/faq/<page>.json; sitemap lastmod from content dates; exclude /styleguide and /e2e-error from sitemap.",
+    "growth (S4): replace content/schema/organization.json with person.json; fill routes.json for every route, faq/*.json, public/llms.txt, site.json and seo.manifest.json site.url once the domain and owner confirmations arrive."
+  ]
+}

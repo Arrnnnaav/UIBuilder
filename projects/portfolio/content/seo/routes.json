@@ -1,0 +1,21 @@
+{
+  "/": {
+    "title": "Site Name — outcome-first headline under 60 chars",
+    "description": "A 120–155 character description that says who this is for, the outcome they get, and one proof point.",
+    "canonical": "/",
+    "robots": "index,follow",
+    "og": { "title": "Site Name", "description": "Outcome-first one-liner.", "image": "/opengraph-image" }
+  },
+  "/contact": {
+    "title": "Contact — Site Name",
+    "description": "Get in touch with Site Name. Tell us what you are building and we will reply within two business days.",
+    "canonical": "/contact",
+    "robots": "index,follow"
+  },
+  "/styleguide": {
+    "title": "Styleguide — Site Name",
+    "description": "Design tokens, type scale and components for Site Name, rendered live.",
+    "canonical": "/styleguide",
+    "robots": "noindex,nofollow"
+  }
+}

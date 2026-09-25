@@ -1,0 +1,7 @@
+allowBuilds:
+  sharp: true
+  unrs-resolver: true
+  core-js: false
+  "@sentry/cli": true
+overrides:
+  tmp: ">=0.2.6"

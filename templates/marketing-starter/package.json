@@ -1,0 +1,52 @@
+{
+  "name": "marketing-starter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "content:index": "node scripts/gen-content-index.mjs",
+    "predev": "node scripts/gen-content-index.mjs",
+    "dev": "next dev",
+    "prebuild": "node scripts/gen-content-index.mjs && node scripts/validate-content.mjs",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "node scripts/gen-content-index.mjs && next typegen && tsc --noEmit",
+    "lint": "eslint",
+    "lint:tokens": "node scripts/lint-tokens.mjs",
+    "validate:content": "node scripts/validate-content.mjs",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "seo:audit": "node scripts/seo-audit.mjs",
+    "lhci": "lhci autorun",
+    "check": "pnpm typecheck && pnpm lint && pnpm lint:tokens && pnpm test && pnpm build && pnpm test:e2e && pnpm seo:audit",
+    "perf": "node scripts/perf.mjs"
+  },
+  "dependencies": {
+    "@sentry/nextjs": "^11.0.0",
+    "motion": "^13.4.2",
+    "next": "16.3.6",
+    "posthog-js": "^1.434.11",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "resend": "^6.28.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.63.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.6",
+    "lighthouse": "^12.6.1",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vitest": "^5.0.1"
+  },
+  "packageManager": "pnpm@12.4.2",
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://example.com/#website",
+  "name": "Site Name",
+  "url": "https://example.com",
+  "publisher": { "@id": "https://example.com/#org" }
+}

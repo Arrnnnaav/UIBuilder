@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "required": ["agent", "status", "inputs_used", "decisions", "files_created", "risks", "next_agent", "next_instructions"],
+  "properties": {
+    "agent": { "type": "string", "enum": ["orchestrator", "research", "ux", "design-director", "frontend", "backend", "growth", "ship"] },
+    "status": { "type": "string", "enum": ["complete", "blocked", "partial"] },
+    "inputs_used": { "type": "array", "items": { "type": "string" } },
+    "decisions": { "type": "array", "items": { "type": "string" } },
+    "files_created": { "type": "array", "items": { "type": "string" } },
+    "resources_used": { "type": "array", "items": { "type": "string" } },
+    "patterns_used": { "type": "array", "items": { "type": "string" } },
+    "risks": { "type": "array", "items": { "type": "string" } },
+    "open_questions": { "type": "array", "items": { "type": "string" } },
+    "next_agent": { "type": ["string", "null"] },
+    "next_instructions": { "type": "array", "items": { "type": "string" } }
+  }
+}

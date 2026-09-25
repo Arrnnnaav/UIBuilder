@@ -1,0 +1,9 @@
+allowBuilds:
+  sharp: true
+  unrs-resolver: true
+  core-js: false
+  "@sentry/cli": true
+  esbuild: set this to true or false
+  workerd: set this to true or false
+overrides:
+  tmp: ">=0.2.6"

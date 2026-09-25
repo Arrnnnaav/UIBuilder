@@ -1,0 +1,95 @@
+{
+  "agent": "design-director",
+  "status": "complete",
+  "stage": "S3-critic",
+  "inputs_used": [
+    "docs/directions/A.md",
+    "docs/directions/B.md",
+    "docs/directions/C.md",
+    "docs/PRODUCT.md (G1 decisions)",
+    "docs/WIREFRAMES.md",
+    "docs/IA.md",
+    "docs/CONTENT_SOURCE.md (Edge Node source precision)",
+    "docs/SEO_STRATEGY.md (number formatting check)",
+    "brain/preferences.md",
+    "pipelines/portfolio/DESIGN.base.md",
+    "templates/docs/DESIGN.md",
+    "templates/docs/MOTION.md",
+    "google/fonts ofl/archivo + ofl/martianmono (OFL.txt, METADATA.pb, variable TTFs parsed for GSUB features, fvar axes, cmap glyphs)",
+    "node_modules/next/dist/compiled/@next/font/dist/google/font-data.json (Archivo wdth 62-125, Martian Mono axes)"
+  ],
+  "decisions": [
+    "[lineage: B] Type family: Archivo (Google Fonts, OFL) for all text and numerals, loaded via next/font/google with axes ['wdth']; width axis is the system (wide 112% = who, normal 100% = reading, narrow 75% = numerals >= text-2xl). Extremes from B (wdth 125/800, wdth 62) clamped to 112/75 by critic. Verified in font file: tnum, pnum, lnum, zero, case present; glyphs → − × ≈ present.",
+    "[lineage: B+C family, A usage rule] Mono: Martian Mono 400 (OFL), preload false, used only for literal code and filenames; never for labels, tags, deltas or n/method.",
+    "[lineage: critic] Newsreader serif (C) cut: slower to skim for recruiters and the editorial-serif cliché C flagged itself. Switzer (A) cut: Fontshare self-hosting and unverified tnum, while Archivo has tnum and ships via next/font/google.",
+    "[lineage: critic] ↗ glyph is missing from both fonts; external-link marker is the Phosphor ArrowUpRight icon (@phosphor-icons/react, frontend installs) with sr-only '(opens in a new tab)'.",
+    "[lineage: A] Type scale: major third 1.25 on a 17px base, fluid rem clamps 390 -> 1440; one off-scale 15px step for captions. Display 48 -> 92px (home name), CTA 42 -> 128px (footer).",
+    "[lineage: critic] No italic loaded or used; no uppercase/tracked labels; no eyebrows (A/B/C consensus on the latter).",
+    "[lineage: A/B/C consensus] Palette: cool blue-grey paper oklch(0.975 0.004 247) + blue-black ink oklch(0.21 0.02 262), muted, border, rule; dark scheme via prefers-color-scheme, no toggle; light is canonical.",
+    "[lineage: B+C colour, C usage, A meaning] Single accent = highlighter mark yellow oklch(0.91 0.16 100) light / oklch(0.87 0.16 100) dark, used only as a fill behind ink text: one resting mark per page on the headline measured result, plus hover/focus/:target citation sweeps and ::selection. Never text, button fill, border or background.",
+    "[lineage: critic] A's cobalt accent cut (SaaS-blue risk); B's yellow plates and full-bleed yellow footer cut (warning-sign read, dilutes the mark).",
+    "[lineage: critic, computed] Contrast verified by OKLab -> sRGB script: fg/bg 16.50 (dark 16.12), muted/bg 6.92 (8.38), marked text 13.67 (12.68), danger/bg 6.16 (7.02), input border 3.99/3.65 (4.01/3.68). All ratios listed in DESIGN.md.",
+    "[lineage: A+B+C convergent] Primary signature hook 'the retract': solid after-bar contracts from before length to true ratio (Edge Node 18.17%) in 720ms on cubic-bezier(0.2,0,0,1); SSR renders settled, JS only arms off-screen rows; numbers never move.",
+    "[lineage: critic] The retract ends with the highlighter mark sweeping behind the after value (240ms, starting at 640ms), tying primary and secondary into one 'this number is sourced' grammar.",
+    "[lineage: C] Secondary hook 'checked against source': citation markers [n], Tufte sidenotes, end Sources list, CSS :has() twin highlight scoped to .case/.ledger, no JS.",
+    "[lineage: critic] Cut B's 'to scale' numerals (double-encodes the retract ratio, works on 2/6 rows, 176px numeral enters the LCP race) and B's Probe cursor island (third interaction, JS cost; DESIGN.base allows one signature).",
+    "[lineage: C] Booktabs tables (1.5px top, 0.75px under header, 1.5px bottom; no row borders) for every ledger, timeline and data table.",
+    "[lineage: C pattern, A outline] Before/after bars differ by pattern not colour: before = 45° muted hatch with 1px border outline, after = solid fg; no background track.",
+    "[lineage: B] Shape: 2px radius on every control, 0 on tables/figures/images; no shadows, no cards, no gradients (hatch is the only repeating-linear-gradient, as a data encoding).",
+    "[lineage: A/B] Grid 12/8/4 columns, gutters 24/20/16, margin clamp(20px, 4.44vw, 64px), 1312px max content; nav 64px; hero top padding 64/32px.",
+    "[lineage: B/C] Section gap 128px desktop / 80px mobile (A's 160 cut as too long).",
+    "[lineage: A] Hero: asymmetric split, cols 1-7 static H1 (LCP) + descriptor span + G1 subline + 'Contact Arnav' + 'See the measured work'; cols 9-12 one-row ledger specimen bottom-aligned to the CTA row. Wireframe's H1 line stagger declined.",
+    "[lineage: C] Case study: three zones at >=1280 (front-matter rail cols 1-3 sticky, text cols 4-9, sidenotes cols 10-12); collapses to rail-above + inline notes at 768, summary block + Sources list at 390.",
+    "[lineage: A/B/C consensus] Work index preview docks in cols 9-12 and slides on translateY to the hovered/focused row; no cursor-follow; touch uses inline disclosure.",
+    "[lineage: B] Home 'More work' teaser: inline underlined links, not chips.",
+    "[lineage: C] /work more-work as an appendix-style definition list (no card chrome); /about timeline in booktabs grammar and skills as a back-of-book index.",
+    "[lineage: critic, resolving flagged conflict] Scroll reveals: none anywhere; the only viewport-triggered motion is the retract. Overrides the wireframe's optional motion-scroll-reveal-restrained; components/motion/Reveal.tsx is not to be used on content.",
+    "[lineage: critic, resolving flagged conflict] Contact intent has one label, 'Contact Arnav', in nav, hero and footer big CTA on every page (supersedes 'Let's talk' and the case-aware CTA); /contact footer uses 'See the work'.",
+    "[lineage: A/B/C consensus] Ledger caption: 'Measured results. Each one links to its source.' (em dash removed).",
+    "[lineage: A, extended by critic] Edge Node precision: full source precision 5.356 s -> 0.973 s everywhere (UI, prose, FAQ, meta, OG, llms.txt); derived values computed at build time and rounded (-82%, 5.5×). Supersedes rounded 5.36/0.97 in SEO_STRATEGY and WIREFRAMES.",
+    "[lineage: A/B/C consensus] Motion: transform/opacity only; house curve cubic-bezier(0.2,0,0,1); durations 120/180/240/300/720ms; no bounce, loops, count-ups, parallax, marquee, custom cursor or smooth-scroll hijack; every animation has a reduced-motion static fallback.",
+    "[lineage: critic] Tokens: app/styles/tokens.css rewritten (template names kept; added --color-rule, --radius-control, --rule-heavy/light, --section-gap, --page-margin, --content-max, --gutter, --text-xs/2xl/3xl/cta, --stretch-*, --tracking-*, --ease-settle/mark, --duration-*); globals.css @theme extended, focus ring switched to fg, button to fg fill 2px radius 48px, ::selection = mark.",
+    "[lineage: critic] Fonts wired in app/layout.tsx (Archivo with wdth axis, Martian Mono weight 400 preload false); OG image recoloured to paper/ink/muted with one mark behind '0.973 s'."
+  ],
+  "files_created": [
+    "docs/DESIGN.md",
+    "docs/MOTION.md",
+    "app/styles/tokens.css",
+    "app/globals.css (updated @theme, focus, button, inputs, selection)",
+    "app/layout.tsx (fonts)",
+    "app/opengraph-image.tsx (colours)",
+    "docs/handoff/design-director.json"
+  ],
+  "resources_used": [
+    "Archivo (Google Fonts, OFL 1.1, Omnibus-Type)",
+    "Martian Mono (Google Fonts, OFL 1.1, Evil Martians)",
+    "@phosphor-icons/react (to be installed by frontend; MIT)"
+  ],
+  "patterns_used": [
+    "hero-oversized-type-split",
+    "work-grid-hover-reveal (docked variant)",
+    "case-study-sticky-meta (three-zone variant)",
+    "faq-answer-first",
+    "footer-big-cta",
+    "nav-minimal-overlay",
+    "new:metric-ledger (booktabs + retract)",
+    "new:evidence-figure (pattern-not-colour series)"
+  ],
+  "risks": [
+    "Resolved: next build emits @font-face with font-stretch: 62% 125% for Archivo, so font-stretch drives the wdth axis. Preloaded latin woff2 = 90 KB.",
+    "Archivo variable with wdth axis is a larger download than a static cut; only latin is subset and only Archivo is preloaded. Measure font bytes in S5 (target <= 110 KB total).",
+    "Name at 112% width may overflow at 360px; DESIGN.md prescribes dropping to 100% width below 400px rather than shrinking.",
+    "OG image uses Satori's default font; confirm the → glyph renders (replace with 'to' if not).",
+    "Monochrome + one mark could read as plain if the frontend under-delivers type scale contrast; S5 review must judge 'looks templated' as a fail.",
+    "SEO data files and llms.txt drafts may carry the rounded 5.36/0.97 values; growth must switch to 5.356/0.973."
+  ],
+  "open_questions": [
+    "Owner consent to name Dehurdle in the hero credit line (still gated as in PRODUCT.md)."
+  ],
+  "next_agent": "orchestrator",
+  "next_instructions": [
+    "Present DESIGN.md + MOTION.md at gate G2 for user approval.",
+    "After G2: frontend installs @phosphor-icons/react, builds /styleguide from tokens first, implements the retract (RetractObserver client leaf <1 KB) and :has() citation sweep per MOTION.md, and removes Reveal usage from content.",
+    "After G2: growth updates content/seo/routes.json, FAQ seeds and public/llms.txt to full precision 5.356 s -> 0.973 s and the single contact label 'Contact Arnav'."
+  ]
+}

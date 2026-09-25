@@ -1,0 +1,13 @@
+# PRODUCT — demo
+- **Type:** portfolio | company-site | saas
+- **One line:**
+- **Owner / client:**
+- **Audience (primary / secondary):**
+- **Job to be done:** what a visitor must be able to do or decide
+- **Primary conversion:** contact, call, hire, or buy
+- **Pages:**
+- **Content inventory:** what exists and what is missing
+- **Tone (3 words):**
+- **Must avoid:**
+- **Constraints:** budget, host, domain, deadline
+- **Success metrics:** e.g. contact submissions per month, Lighthouse ≥ 90

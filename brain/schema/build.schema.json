@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "required": ["slug", "pipeline", "project_type", "started", "resources_used", "patterns_used", "lineage", "scores", "feedback"],
+  "properties": {
+    "slug": { "type": "string" },
+    "pipeline": { "type": "string" },
+    "project_type": { "type": "string" },
+    "started": { "type": "string" },
+    "finished": { "type": ["string", "null"] },
+    "live_url": { "type": ["string", "null"] },
+    "design_direction": { "type": "string" },
+    "resources_used": { "type": "array", "items": { "type": "string" } },
+    "patterns_used": { "type": "array", "items": { "type": "string" } },
+    "lineage": { "type": "array", "items": { "type": "object", "required": ["section", "sources"] } },
+    "scores": { "type": "object" },
+    "feedback": { "type": "array", "items": { "type": "object", "required": ["target", "verdict"] } },
+    "worked": { "type": "array", "items": { "type": "string" } },
+    "failed": { "type": "array", "items": { "type": "string" } }
+  }
+}

@@ -1,0 +1,40 @@
+# Local agent and test state
+/.playwright-mcp/
+/.ruff_cache/
+/.git-metadata-backup/
+
+# Vendored skill files without redistribution terms
+/.claude/skills/website-to-code/
+/.claude/skills/web-design-guidelines/
+
+# Dependencies and generated output
+**/node_modules/
+**/.next/
+**/out/
+**/build/
+**/dist/
+**/coverage/
+**/test-results/
+**/playwright-report/
+**/.lighthouse/
+**/.lighthouseci/
+**/.vercel/
+**/lib/generated/
+**/next-env.d.ts
+*.tsbuildinfo
+
+# Local configuration and credentials
+**/.env
+**/.env.*
+!**/.env.example
+*.pem
+*.key
+*.p12
+
+# Logs and editor/OS files
+*.log
+*.log.*
+.DS_Store
+Thumbs.db
+/.vscode/
+/.idea/

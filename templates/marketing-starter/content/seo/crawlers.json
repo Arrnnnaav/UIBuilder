@@ -1,0 +1,16 @@
+{
+  "_doc": "AI crawler policy. true = allow. Owner-editable via BusinessOS (crawler_policy).",
+  "default": true,
+  "bots": {
+    "GPTBot": true,
+    "OAI-SearchBot": true,
+    "ChatGPT-User": true,
+    "ClaudeBot": true,
+    "Claude-SearchBot": true,
+    "PerplexityBot": true,
+    "Google-Extended": true,
+    "Applebot-Extended": true,
+    "CCBot": false
+  },
+  "disallowPaths": ["/styleguide", "/e2e-error"]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Site Name",
+  "shortName": "Site",
+  "url": "https://example.com",
+  "locale": "en_US",
+  "description": "One sentence that says who this is for and what they get.",
+  "email": "hello@example.com",
+  "socials": {
+    "github": "",
+    "linkedin": "",
+    "x": ""
+  }
+}

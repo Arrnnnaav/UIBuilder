@@ -1,0 +1,50 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm lint:tokens
+      - run: pnpm validate:content
+      - run: pnpm test
+      - run: pnpm audit --audit-level high
+      - run: pnpm build
+        env:
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: 1x00000000000000000000AA
+      - run: pnpm exec playwright install --with-deps chromium webkit
+      - run: pnpm test:e2e --update-snapshots=missing
+        env:
+          E2E_SKIP_BUILD: "1"
+      - name: SEO / AEO / GEO audit
+        run: |
+          pnpm start --port 3000 &
+          npx wait-on http://localhost:3000
+          pnpm seo:audit http://localhost:3000
+      - run: pnpm lhci
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: reports
+          path: |
+            playwright-report
+            test-results
+            .lighthouseci

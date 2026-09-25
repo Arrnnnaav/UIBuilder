@@ -1,0 +1,85 @@
+{
+  "agent": "ux",
+  "status": "complete",
+  "stage": "S2",
+  "inputs_used": [
+    "docs/PRODUCT.md",
+    "docs/SEO_STRATEGY.md",
+    "docs/CONTENT_SOURCE.md",
+    "docs/handoff/growth.json",
+    "pipelines/portfolio/PAGES.md",
+    "brain/patterns/hero.json",
+    "brain/patterns/sections.json",
+    "brain/preferences.md",
+    "scripts/gate.mjs (G1 IA/wireframe parser)"
+  ],
+  "decisions": [
+    "Adopted SEO_STRATEGY slugs unchanged: /work/edge-node, /work/cited-researcher, /work/ledgerbridge, /work/ghostcursor, /work/neuroux, /work/studyos. BusinessHQ gets no route in V1.",
+    "IA routes: /, /work, 6 case studies, /about, /contact, /resume (conditional on PDF), /styleguide and /e2e-error (noindex utilities). 404 and error boundary wireframed but not IA routes.",
+    "Evidence differentiator is a reusable section new:metric-ledger (before -> after, computed delta, n/method, source link, source-type tag committed benchmark | README | resume-attested). It is used in the home hero (one row), the home ledger (6 rows) and every case study Result. All numbers come from one data source, content/evidence/<slug>.json, shared with FAQ, OG and llms.txt.",
+    "Numbers never animate (no count-up). Missing n is displayed as 'n not reported'. Resume-attested rows are rendered only if the owner approves (OQ6) and never reach JSON-LD or llms.txt.",
+    "Missing media: new:evidence-figure with supplied | rendered | diagram states. The per-case default diagram is specified from real benchmark numbers: Edge Node latency bars + pipeline; Cited Researcher agent topology with a fact/comparison toggle; LedgerBridge rendered demo_dashboard.html or a 77-cell 62/15 grid + 3-pass funnel; GhostCursor 27/30 grid + 0/60 strip + guide loop; NeuroUX self-hosted demo.mp4 (click-to-play) + log-scale time chart; StudyOS learning-loop + delivery-pipeline diagrams (no invented metrics).",
+    "Case studies follow case-study-sticky-meta: header, rail (role, dates, stack, outcome, repo, author line -> /about), Problem, Approach (3 beats), Result (ledger + figure), optional case FAQ, Links, related x2 + prev/next ring, case-aware closing CTA.",
+    "'More work' is 6 grouped tiles (new:work-group-tiles) on /work#more-work covering 18 repos, with the 9 mid-2025 CV repos as one tile; a compact teaser on home.",
+    "The hero uses hero-oversized-type-split with a metric-ledger row as the offset asset instead of a headshot. H1 carries the disambiguating descriptor. No medium perf patterns anywhere; hero-interactive-object rejected.",
+    "motion-scroll-reveal-restrained is used only on below-the-fold sections; the first viewport is SSR-visible (no opacity-0 starts).",
+    "Nav: Work, About, GitHub (rel=me) + Contact CTA. On /contact, the footer big CTA switches to 'See the work' to avoid a self-link; form success state has next steps.",
+    "Answer-first FAQs: home (4 shown, availability omitted until stated), about (3), contact (1), case FAQs on edge-node, ledgerbridge, ghostcursor, neuroux; always expanded, never behind an accordion."
+  ],
+  "files_created": [
+    "docs/USER_FLOW.md",
+    "docs/IA.md",
+    "docs/WIREFRAMES.md",
+    "docs/handoff/ux.json"
+  ],
+  "resources_used": [],
+  "patterns_used": [
+    "nav-minimal-overlay",
+    "hero-oversized-type-split",
+    "work-grid-hover-reveal",
+    "case-study-sticky-meta",
+    "faq-answer-first",
+    "contact-inline-form",
+    "footer-big-cta",
+    "motion-scroll-reveal-restrained",
+    "new:metric-ledger",
+    "new:evidence-figure",
+    "new:work-group-tiles",
+    "new:breadcrumb-trail",
+    "new:page-intro",
+    "new:bio-teaser",
+    "new:timeline-ledger",
+    "new:skills-evidence-map",
+    "new:related-cases",
+    "new:profile-links",
+    "new:error-recovery",
+    "new:resume-html",
+    "new:styleguide-gallery"
+  ],
+  "risks": [
+    "Several brain patterns used are trust NEW (work-grid-hover-reveal, nav-minimal-overlay, footer-big-cta) or REVIEWED (hero-oversized-type-split, case-study-sticky-meta). They are the recipe defaults from PAGES.md, but G1 approval is effectively their promotion.",
+    "The evidence-figure diagrams must be generated from content/evidence data at build time; if frontend hand-draws them, numbers can drift from the ledger. Lint or unit-test that every figure mark maps to an evidence value.",
+    "The NeuroUX demo.mp4 should be self-hosted (copied from the owner's repo), not hot-linked to raw.githubusercontent; file size and poster are needed to keep Lighthouse >= 90.",
+    "The StudyOS live demo uptime is unverified; the link and the 'live' wording depend on a check at build time.",
+    "The Cited Researcher case has a weak ledger if the 152s->26s resume-attested number is refused (README has no timings or judge scores).",
+    "Hover-preview thumbnails on home and /work are diagram thumbnails until screenshots exist; design-director must make them read as intentional, not placeholders.",
+    "More-work repos with hygiene issues (placeholder clone URLs, a committed book PDF in DocCluster) are listed unlinked until the owner confirms."
+  ],
+  "open_questions": [
+    "Owner: approve 'resume-attested' labelling (OQ6)? It decides the Cited Researcher headline and the Edge Node Q4_K_M row.",
+    "Owner: may Dehurdle be named (OQ4)? It affects the hero row credit, the Edge Node rail and the about timeline.",
+    "Owner: StudyOS solo or team (OQ8)? Cited Researcher date (OQ7)?",
+    "Owner: résumé PDF? If none, /resume is dropped from IA, footer and /about.",
+    "Owner: may we capture a screenshot of LedgerBridge's committed demo_dashboard.html and self-host neuroux docs/demo.mp4?",
+    "Owner: availability statement for home FAQ Q3?"
+  ],
+  "next_agent": "design-director",
+  "next_instructions": [
+    "design-director (S3): style the metric-ledger as the site's visual signature (benchmark report / diff vocabulary, per PRODUCT) without a hacker cliché; it must work as a desktop table and as mobile stacked records, and carry the three source-type tags legibly.",
+    "design-director: design the evidence-figure diagram language (bars, unit grids, topology/loop/pipeline diagrams, log-scale chart) as one consistent system; these are the only imagery at launch.",
+    "design-director: the hero has no headshot; the offset asset is a single ledger row. The H1 is the LCP element and must not start at opacity 0.",
+    "frontend (S4): build one MetricLedger and one EvidenceFigure component driven by content/evidence/<slug>.json; compute deltas; no count-up; <table> with caption; no nested links.",
+    "frontend (S4): FAQ answers always rendered expanded; visible breadcrumbs mirror BreadcrumbList; /contact footer CTA variant; rail author line -> /about.",
+    "growth (S4): content/evidence/*.json is the single source for numbers also used in faq/*.json and llms.txt; keep résumé-attested values out of schema and llms.txt."
+  ]
+}

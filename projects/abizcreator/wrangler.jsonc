@@ -1,0 +1,13 @@
+{
+  // Cloudflare Workers static assets — free tier, commercial use allowed.
+  // Deploy into the CLIENT-OWNED Cloudflare account (DECISIONS D3). Connect the GitHub repo
+  // with Workers Builds so every branch/PR gets a preview URL (BusinessOS relies on it).
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "abizcreator",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}

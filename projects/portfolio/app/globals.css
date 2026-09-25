@@ -1,0 +1,148 @@
+@import "tailwindcss";
+@import "./styles/tokens.css";
+
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-fg: var(--color-fg);
+  --color-muted: var(--color-muted);
+  --color-border: var(--color-border);
+  --color-accent: var(--color-accent);
+  --color-accent-fg: var(--color-accent-fg);
+  --color-rule: var(--color-rule);
+  --color-danger: var(--color-danger);
+  --color-success: var(--color-success);
+  --radius-control: var(--radius-control);
+  --ease-settle: var(--ease-settle);
+  --ease-mark: var(--ease-mark);
+  --font-sans: var(--font-sans-family);
+  --font-mono: var(--font-mono-family);
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans-family), system-ui, sans-serif;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums lining-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-accent-fg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-fg);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: -100px;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-fg);
+  color: var(--color-bg);
+  border-radius: var(--radius-sm);
+  z-index: 100;
+}
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+.container {
+  width: min(100% - 2 * var(--page-margin), var(--content-max));
+  margin-inline: auto;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  padding: 0 var(--space-6);
+  border-radius: var(--radius-control);
+  background: var(--color-fg);
+  color: var(--color-bg);
+  font-weight: 500;
+  white-space: nowrap;
+  text-underline-offset: 0.2em;
+  transition: transform var(--duration-press) var(--ease-settle);
+}
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+    text-decoration: underline 1px;
+  }
+}
+.button:active {
+  transform: scale(0.98);
+}
+.button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.contact-form {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 36rem;
+}
+.field {
+  display: grid;
+  gap: var(--space-1);
+}
+.field input,
+.field textarea {
+  min-height: 48px;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  color: var(--color-fg);
+}
+.field-error,
+.form-error {
+  color: var(--color-danger);
+  font-size: var(--text-sm);
+}
+.contact-success {
+  color: var(--color-success);
+}
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.faq {
+  display: grid;
+  gap: var(--space-6);
+  max-width: var(--measure);
+}
+.faq h3 {
+  font-weight: 600;
+  font-size: var(--text-lg);
+}
+.faq p {
+  color: var(--color-muted);
+  margin-top: var(--space-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

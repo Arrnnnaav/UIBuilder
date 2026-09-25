@@ -1,0 +1,83 @@
+{
+  "agent": "research",
+  "status": "complete",
+  "inputs_used": [
+    "projects/portfolio/docs/PRODUCT.md",
+    "projects/portfolio/docs/CONTENT_SOURCE.md",
+    "projects/portfolio/docs/SEO_STRATEGY.md (present, not needed for references)",
+    "pipelines/portfolio/PIPELINE.md",
+    "brain/resources.json",
+    "brain/patterns/hero.json",
+    "brain/patterns/sections.json",
+    "brain/preferences.md",
+    "templates/docs/INSPIRATION.md",
+    "templates/docs/HANDOFF.schema.json"
+  ],
+  "decisions": [
+    "Slot picks, one per slot (research selection only; design decisions stay with design-director): Layout=airborne-studio, Type=noth, Motion=elu-dev, Components=planetscale-benchmarks (NEW), Conversion=meinhard-taxer.",
+    "Added 2 NEW brain resources with provenance type research_agent: planetscale-benchmarks (methodology-first benchmark presentation) and samwho-dev (technical writing plus accessible latency charts).",
+    "samwho-dev, moah-studio, poch-studio and k95 were measured and are recorded as alternates in REFERENCE_BREAKDOWN.md, not in the five.",
+    "bruno-simon, lexspace/laxspace and brik were not opened: they are out of the slot budget and are 3D/dark product storytelling that does not serve the evidence positioning.",
+    "Skipped CLIENT_SITE.md (no client site). COMPETITORS.md is a short peer-portfolio note, as instructed."
+  ],
+  "files_created": [
+    "projects/portfolio/docs/INSPIRATION.md",
+    "projects/portfolio/docs/REFERENCE_BREAKDOWN.md",
+    "projects/portfolio/docs/COMPETITORS.md",
+    "projects/portfolio/docs/research/airborne-1440-hero.png",
+    "projects/portfolio/docs/research/airborne-1440-case-card.png",
+    "projects/portfolio/docs/research/airborne-390.png",
+    "projects/portfolio/docs/research/noth-1440.png",
+    "projects/portfolio/docs/research/noth-390.png",
+    "projects/portfolio/docs/research/elu-dev-1440-hero.png",
+    "projects/portfolio/docs/research/elu-dev-1440-stats.png",
+    "projects/portfolio/docs/research/elu-dev-390.png",
+    "projects/portfolio/docs/research/planetscale-bench-1440.png",
+    "projects/portfolio/docs/research/planetscale-bench-chart-1440.png",
+    "projects/portfolio/docs/research/planetscale-bench-390.png",
+    "projects/portfolio/docs/research/meinhard-taxer-1440-header.png",
+    "projects/portfolio/docs/research/meinhard-taxer-390-top.png",
+    "projects/portfolio/docs/research/samwho-loadbalancing-1440-chart.png",
+    "projects/portfolio/docs/research/moah-studio-1440.png",
+    "projects/portfolio/docs/research/poch-studio-1440.png",
+    "projects/portfolio/docs/research/k95-1440.png",
+    "brain/resources.json (appended planetscale-benchmarks, samwho-dev; annotated elu-dev notes)",
+    "projects/portfolio/docs/handoff/research.json"
+  ],
+  "resources_used": [
+    "airborne-studio",
+    "noth",
+    "elu-dev",
+    "planetscale-benchmarks",
+    "meinhard-taxer",
+    "samwho-dev",
+    "moah-studio",
+    "poch-studio",
+    "k95"
+  ],
+  "patterns_used": [
+    "hero-proof-first",
+    "footer-big-cta",
+    "motion-scroll-reveal-restrained",
+    "case-study-sticky-meta"
+  ],
+  "risks": [
+    "All selected references are NEW or REVIEWED; none is APPROVED/TRUSTED. AGENTS.md section 7 uses APPROVED/TRUSTED by default, so the user should confirm them at G1.",
+    "elu-dev is currently a product marketing site (Elu, 'Make your software improve itself'), not a developer portfolio, so its brain best_for may be stale. The brain notes are updated.",
+    "A 1vw root font (noth) needs a floor/clamp and a WCAG 1.4.4 resize check; noth itself resets to 16px below 992px.",
+    "An odometer or large-numeral treatment (elu) is only honest with sourced numbers. Three resume numbers are unsourced (CONTENT_SOURCE section 6 item 8).",
+    "A mailto marquee (meinhard) needs reduced-motion pause and aria-hidden duplicates. The owner email is still unconfirmed (PRODUCT open question 1).",
+    "The meinhard closing marquee could not be screenshotted (a covered reveal under Lenis). Its numbers come from computed styles only.",
+    "k95 and bruno-simon-style WebGL conflict with LCP < 2.5s and mobile Lighthouse >= 90; they are kept only as alternates."
+  ],
+  "open_questions": [
+    "Does the owner admire any specific engineer portfolios? If so, a peer pass can measure them.",
+    "Should samwho-dev replace or supplement planetscale-benchmarks for case-study body pages? That is design-director's call."
+  ],
+  "next_agent": "design-director",
+  "next_instructions": [
+    "Read INSPIRATION.md for the five slots, then REFERENCE_BREAKDOWN.md for the measured numbers (grid, scale, easing, durations). Use these as mechanism options only; never copy assets, fonts or copy.",
+    "Evidence mechanisms to consider across directions: a methodology-first result block (planetscale), a mono label over a large accessible numeral (elu), and dash-pattern series with inline legend tokens (samwho alternate).",
+    "Keep each Design Council fork isolated. Each fork may draw on any slot; the critic sees all three."
+  ]
+}

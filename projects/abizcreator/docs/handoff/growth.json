@@ -1,0 +1,57 @@
+{
+  "agent": "growth",
+  "status": "complete",
+  "inputs_used": [
+    "docs/PRODUCT.md",
+    "docs/CLIENT_SITE.md (§6 SEO snapshot, §7 redirects)",
+    "docs/COMPETITORS.md",
+    "brain/seo-rules/aeo-geo.json",
+    "WebSearch + tvly search SERP checks 2026-09-25 (12 service/local queries, brand query, Hindi query, 2 AI-answer proxy queries)"
+  ],
+  "decisions": [
+    "S1 only: SEO_STRATEGY.md written; no data files (routes.json, schema, faq, llms.txt, crawlers) until S4",
+    "Entity type ProfessionalService (valid LocalBusiness subtype; schema.org has no PrintShop), @id https://abizcreator.com/#business; fallback [LocalBusiness, ProfessionalService]",
+    "sameAs: facebook.com/abizcreator, instagram.com/abizcreator, linkedin.com/company/87384536, Justdial listing; GBP TODO",
+    "Omit foundingDate, aggregateRating, review, priceRange, openingHours, geo, taxID until owner confirms; Justdial 4.9/~358 not used as on-site aggregateRating",
+    "Proposed service routes: visiting-card-printing, offset-printing, nfc-business-cards, social-media-marketing, google-facebook-ads, website-development, logo-branding; bulk WhatsApp/SMS and mobile apps as sections, not pages",
+    "No locality doorway pages; Vaishali Nagar/Nursery Circle carried by copy + schema address",
+    "No Hindi pages/hreflang at launch; use roman Hinglish phrasing in FAQ questions and 'visiting card' terminology; revisit on GSC data",
+    "Crawler default: allow GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, Claude-User, PerplexityBot, Perplexity-User, Google-Extended, Applebot-Extended; deny CCBot",
+    "Canonical: no trailing slash; full 301/410 redirect map in SEO_STRATEGY.md §Redirect map",
+    "Price/turnaround questions are 'ask' FAQ items only — no numbers invented"
+  ],
+  "files_created": [
+    "docs/SEO_STRATEGY.md",
+    "docs/handoff/growth.json"
+  ],
+  "risks": [
+    "Google local pack not directly observed (SERP HTML JS-gated; tools return organic only) — assumed present; verify manually with gl=in",
+    "Founding year conflicts publicly (site 2001 / '15 years', Sulekha registration 2018-11-29, Justdial '27 yrs'); AI answers already repeat the contradiction",
+    "Competitor Brandizz Global owns the AI answer for 'printing and digital marketing under one roof in Jaipur' — ABizCreator's exact positioning",
+    "ABizCreator not cited in AI answers for 'best printing shop Vaishali Nagar' (Print X Press, Navpack & Print cited)",
+    "Duplicate Facebook page facebook.com/ABCABizCreator splits the entity",
+    "NAP inconsistency across Sulekha/Justdial address strings",
+    "Cloudflare Workers static _redirects cannot return 410 or match query strings (?p=, ?portfolio-filter=) — needs Worker/middleware code",
+    "WordPress staging (D15) must be noindex + robots-disallowed on its own host at cutover or it duplicates the new site",
+    "GBP existence/claim unknown — biggest local-pack lever is off-site"
+  ],
+  "open_questions": [
+    "Is there a Google Business Profile? Send the cid/maps URL; is it claimed and categorised?",
+    "Which founding year does the owner stand by?",
+    "Confirm hours (Justdial says 09:00-18:00) and walk-ins",
+    "Which Facebook page is official (abizcreator vs ABCABizCreator)?",
+    "Are wedding cards / screen printing / calendar printing real services (Justdial lists them)?",
+    "Final domain: apex vs www",
+    "May the Justdial rating be quoted in copy (with link)?",
+    "Is bulk WhatsApp/SMS done with DLT-registered templates and opt-in?"
+  ],
+  "next_agent": "ux",
+  "next_instructions": [
+    "ux (S2): IA.md is empty — use the SEO_STRATEGY intent map routes/slugs as the starting IA; one primary query per route; keep keyword-bearing slugs listed above unless the owner reorders services",
+    "ux: include NAP + hours + map link + tel:/mailto:/WhatsApp on /contact and in the footer; FAQ blocks on home and every service page (question headings followed by answer-first paragraph)",
+    "ux: internal-link plan per SEO_STRATEGY §Internal linking (sibling cross-sell links, work->service links, descriptive anchors)",
+    "frontend/ship (S4/S6): implement redirect map; 410s and query-string redirects need Worker/middleware; trailing-slash 301s; www/apex 301",
+    "Orchestrator: add GBP, founding year, hours, duplicate FB page, extra print services to G1 owner questions",
+    "growth (S4): write routes.json, content/schema/*.json (ProfessionalService #business, WebSite, Service, BreadcrumbList, FAQPage), content/faq/*.json, public/llms.txt, content/seo/crawlers.json; resolve geo from maps link"
+  ]
+}

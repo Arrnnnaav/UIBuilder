@@ -1,0 +1,204 @@
+{
+  "patterns": [
+    {
+      "id": "case-study-sticky-meta",
+      "category": "case-study",
+      "name": "Case study with a sticky meta rail",
+      "mechanism": "The left rail stays sticky and shows role, stack, year and outcome. The right column scrolls through Problem, Approach, Result, and Images. The page ends with next/previous project links.",
+      "good_for": [
+        "portfolio",
+        "company-site"
+      ],
+      "bad_for": [],
+      "perf_cost": "none",
+      "sources": [
+        {
+          "resource": "airborne-studio",
+          "confidence": 0.6,
+          "observed_at": "2026-09-25"
+        },
+        {
+          "resource": "poch-studio",
+          "confidence": 0.5,
+          "observed_at": "2026-09-25"
+        }
+      ],
+      "scores": {},
+      "trust": "REVIEWED"
+    },
+    {
+      "id": "work-grid-hover-reveal",
+      "category": "layout",
+      "name": "Work index with a hover preview",
+      "mechanism": "Projects are listed as full-width rows (title, discipline, year). On hover, a preview image follows the cursor with a spring (stiffness 300, damping 30). On touch, each row expands inline instead.",
+      "good_for": [
+        "portfolio",
+        "studio"
+      ],
+      "bad_for": [
+        "e-commerce"
+      ],
+      "perf_cost": "low",
+      "sources": [
+        {
+          "resource": "moah-studio",
+          "confidence": 0.5,
+          "observed_at": "2026-09-25"
+        },
+        {
+          "resource": "sondaven",
+          "confidence": 0.4,
+          "observed_at": "2026-09-25"
+        }
+      ],
+      "scores": {},
+      "trust": "NEW"
+    },
+    {
+      "id": "faq-answer-first",
+      "category": "faq",
+      "name": "Answer-first FAQ (AEO)",
+      "mechanism": "Each question is written the way a buyer would ask it, as an H3. The answer that follows opens with a direct 40–60 word reply before any detail. The whole block is sourced from content/faq/*.json and emitted as FAQPage JSON-LD.",
+      "good_for": [
+        "company-site",
+        "portfolio",
+        "saas"
+      ],
+      "bad_for": [],
+      "perf_cost": "none",
+      "sources": [
+        {
+          "resource": "web-design-guidelines",
+          "confidence": 0.4,
+          "observed_at": "2026-09-25"
+        }
+      ],
+      "scores": {},
+      "trust": "APPROVED"
+    },
+    {
+      "id": "services-numbered-list",
+      "category": "services",
+      "name": "Numbered services with outcomes",
+      "mechanism": "Services are numbered (01, 02, 03) and each gets one outcome sentence and a 3-item deliverables list. Expanding one uses a layout animation. Each service links to its own page for SEO.",
+      "good_for": [
+        "company-site",
+        "studio"
+      ],
+      "bad_for": [],
+      "perf_cost": "none",
+      "sources": [
+        {
+          "resource": "moah-studio",
+          "confidence": 0.4,
+          "observed_at": "2026-09-25"
+        }
+      ],
+      "scores": {},
+      "trust": "NEW"
+    },
+    {
+      "id": "contact-inline-form",
+      "category": "contact",
+      "name": "Inline short contact form",
+      "mechanism": "Name, email and message only. It uses a server action with a Turnstile check. On success the page shows an inline confirmation instead of redirecting, and the direct email appears next to the form as an alternative.",
+      "good_for": [
+        "portfolio",
+        "company-site"
+      ],
+      "bad_for": [],
+      "perf_cost": "none",
+      "sources": [
+        {
+          "resource": "collectui",
+          "confidence": 0.4,
+          "observed_at": "2026-09-25"
+        }
+      ],
+      "scores": {},
+      "trust": "APPROVED"
+    },
+    {
+      "id": "nav-minimal-overlay",
+      "category": "nav",
+      "name": "Minimal top bar with a full-screen overlay menu",
+      "mechanism": "The top bar holds only the logo, 3 or fewer links and a CTA. On mobile, the menu opens as a full-screen overlay with large type and staggered links. It traps focus and closes on Esc.",
+      "good_for": [
+        "portfolio",
+        "company-site"
+      ],
+      "bad_for": [
+        "docs",
+        "app"
+      ],
+      "perf_cost": "none",
+      "sources": [
+        {
+          "resource": "noth",
+          "confidence": 0.4,
+          "observed_at": "2026-09-25"
+        }
+      ],
+      "scores": {},
+      "trust": "NEW"
+    },
+    {
+      "id": "footer-big-cta",
+      "category": "footer",
+      "name": "Footer with an oversized CTA",
+      "mechanism": "The footer opens with a huge 'Let's talk' link to email or contact, followed by a sitemap in columns, socials, and a local time/location stamp.",
+      "good_for": [
+        "portfolio",
+        "studio",
+        "company-site"
+      ],
+      "bad_for": [],
+      "perf_cost": "none",
+      "sources": [
+        {
+          "resource": "meinhard-taxer",
+          "confidence": 0.4,
+          "observed_at": "2026-09-25"
+        }
+      ],
+      "scores": {},
+      "trust": "NEW"
+    },
+    {
+      "id": "motion-scroll-reveal-restrained",
+      "category": "motion",
+      "name": "Restrained scroll reveals",
+      "mechanism": "Content reveals once, on entering the viewport: opacity 0→1 and y 16→0 over 500ms with ease [0.22,1,0.36,1]. Items stagger by 40ms. There are no parallax stacks. Under reduced motion content appears instantly. Never on content that can sit in the first viewport at any breakpoint: initial opacity 0 until hydration pushed starter mobile LCP from 2.46s to 3.9s (observed 2026-09-25, marketing-starter).",
+      "good_for": [
+        "portfolio",
+        "company-site",
+        "saas"
+      ],
+      "bad_for": [
+        "above-the-fold content"
+      ],
+      "perf_cost": "low",
+      "sources": [
+        {
+          "resource": "motion",
+          "confidence": 0.8,
+          "observed_at": "2026-09-25"
+        }
+      ],
+      "scores": {},
+      "trust": "APPROVED"
+    },
+    {
+      "id": "motion-scroll-scrub-cinematic",
+      "category": "motion",
+      "name": "Scroll driven cinematic sequence",
+      "mechanism": "Pre-render scene clips with frame-identical seams and map scroll progress to playback time. Keep the narrative and fallback readable without video.",
+      "good_for": ["media-led launch pages with a tested lightweight fallback"],
+      "bad_for": ["content-first portfolios", "low-bandwidth or low-motion contexts"],
+      "perf_cost": "high",
+      "sources": [{"resource": "scroll-world", "confidence": 0.9, "observed_at": "2026-09-26"}],
+      "scores": {"portfolio": 0, "company-site": 0},
+      "trust": "NEW"
+    }
+  ]
+}

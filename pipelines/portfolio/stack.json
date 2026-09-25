@@ -1,0 +1,10 @@
+{
+  "pipeline": "portfolio",
+  "project_type": "portfolio",
+  "host": "vercel",
+  "cms": "none",
+  "auth": "none",
+  "entity_schema": "Person",
+  "features": ["contact", "work-index", "case-study", "about", "faq"],
+  "budget_usd_month": 0
+}

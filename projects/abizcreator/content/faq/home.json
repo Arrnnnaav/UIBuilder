@@ -1,0 +1,13 @@
+{
+  "route": "/",
+  "items": [
+    {
+      "q": "What does Site Name do?",
+      "a": "Site Name helps a specific audience reach a specific outcome. Replace this answer with a direct, factual 40 to 60 word reply that an answer engine can quote as is, then add one supporting detail and a link to the page that proves it."
+    },
+    {
+      "q": "How do I get started?",
+      "a": "Send a short message through the contact page with what you need, your timeline and your budget range. You get a reply within two business days with next steps, a rough scope and the questions that decide the final price, so nothing is committed until you agree."
+    }
+  ]
+}

@@ -1,0 +1,2684 @@
+{
+ "version": 1,
+ "updated": "2026-09-25",
+ "resources": [
+  {
+   "id": "lightswind",
+   "name": "Lightswind",
+   "url": "https://lightswind.com",
+   "type": "component_library",
+   "categories": [
+    "ui",
+    "animation"
+   ],
+   "usage_mode": "code_reference",
+   "best_for": [
+    "landing",
+    "hero"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Animated Tailwind/React components; verify license per component.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "rolling-kitlabgton",
+   "name": "Rolling Kitlabgton",
+   "url": "https://rolling.kitlabgton.dev",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "saas"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "landing"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Unverified URL; manual check.",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "getlayers",
+   "name": "Getlayers",
+   "url": "https://getlayers.ai",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "ui"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "landing"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Could not verify; manual check.",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "fancy-components",
+   "name": "Fancy Components",
+   "url": "https://fancycomponents.dev",
+   "type": "component_library",
+   "categories": [
+    "ui",
+    "microinteraction"
+   ],
+   "usage_mode": "direct_or_reference",
+   "best_for": [
+    "buttons",
+    "text effects",
+    "hover",
+    "landing"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": null,
+   "notes": "Free/open-source React microinteractions.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "vengeance-ui",
+   "name": "Vengeance UI",
+   "url": "https://venganceui.com",
+   "type": "component_library",
+   "categories": [
+    "ui"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "landing"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Doc spells 'venganceui'; verify domain + license.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "componentry",
+   "name": "Componentry",
+   "url": "https://componentry.dev",
+   "type": "component_library",
+   "categories": [
+    "ui",
+    "animation",
+    "webgl"
+   ],
+   "usage_mode": "direct_or_reference",
+   "best_for": [
+    "hero",
+    "scroll choreography",
+    "empty states",
+    "landing"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": null,
+   "notes": "shadcn CLI installable; check perf + license per component.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "motion",
+   "name": "Motion (motion.dev)",
+   "url": "https://motion.dev",
+   "type": "library",
+   "categories": [
+    "animation"
+   ],
+   "usage_mode": "dependency",
+   "best_for": [
+    "all motion",
+    "layout animation",
+    "scroll",
+    "gestures"
+   ],
+   "patterns": [],
+   "trust": "APPROVED",
+   "license": {
+    "spdx": "MIT"
+   },
+   "maintenance": null,
+   "notes": "Default animation layer.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "ascii-art",
+   "name": "ASCII art",
+   "url": "",
+   "type": "concept",
+   "categories": [
+    "brand",
+    "terminal"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "easter eggs",
+    "loading",
+    "docs headers"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "liquid-glass-widgets",
+   "name": "liquid_glass_widgets",
+   "url": "https://github.com/sdegenaar/liquid_glass_widgets",
+   "type": "repo",
+   "categories": [
+    "ui",
+    "glass"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "glass overlays"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Flutter package, not React: concept only.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "mirofish",
+   "name": "MiroFish",
+   "url": "https://github.com/666ghj/MiroFish",
+   "type": "repo",
+   "categories": [
+    "experimental"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Likely not a UI library; manual check.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "collectui",
+   "name": "CollectUI",
+   "url": "https://collectui.com/",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "patterns"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "login",
+    "forms",
+    "cards",
+    "settings"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "ditto",
+   "name": "Ditto",
+   "url": "https://www.ditto.site/",
+   "type": "tool",
+   "categories": [
+    "copy",
+    "content"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [
+    "microcopy"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Verify: may differ from dittowords.com.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "floto",
+   "name": "Floto AI",
+   "url": "https://floto.ai/",
+   "type": "tool",
+   "categories": [
+    "design_feedback"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [
+    "mockup critique"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "framer-foldex",
+   "name": "Framer Foldex template",
+   "url": "https://www.framer.com/marketplace/templates/foldex/",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "portfolio",
+    "template"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "portfolio layout"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "assets, fonts, copy, exact layout, code; paid template",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "awesome-gpt-image-2",
+   "name": "awesome-gpt-image-2",
+   "url": "https://github.com/freestylefly/awesome-gpt-image-2",
+   "type": "repo",
+   "categories": [
+    "image_generation",
+    "prompts"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [
+    "image prompts"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "comfy",
+   "name": "ComfyUI",
+   "url": "https://comfy.org",
+   "type": "tool",
+   "categories": [
+    "image_generation",
+    "video"
+   ],
+   "usage_mode": "optional_tool",
+   "best_for": [
+    "local media generation"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Free locally; needs GPU.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "lexspace",
+   "name": "Lexspace",
+   "url": "https://lexspace.co",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "saas"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "dark ui",
+    "product storytelling"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "laxspace",
+   "name": "Laxspace",
+   "url": "https://www.laxspace.co/",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "saas"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "dark ui"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Doc lists both lexspace and laxspace.",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "threejs-paris",
+   "name": "Three.js Paris",
+   "url": "https://threejs.paris",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "3d"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "webgl hero"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "poch-studio",
+   "name": "Poch Studio",
+   "url": "https://poch.studio",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "studio",
+    "portfolio"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "typography",
+    "case-study layout",
+    "spacing"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "airborne-studio",
+   "name": "Airborne Studio",
+   "url": "https://airborne.studio",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "studio"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "case-study layout",
+    "transitions"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "yelm-watch",
+   "name": "Yelm",
+   "url": "https://yelm.watch",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "interaction"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "memorable interaction"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "sondaven",
+   "name": "Sondaven",
+   "url": "https://sondaven.com/ua",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "interaction"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "hover logic",
+    "brand recall"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "brik",
+   "name": "Brik",
+   "url": "https://brik.space/",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "saas"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "product storytelling"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "bruno-simon",
+   "name": "Bruno Simon",
+   "url": "https://bruno-simon.com/",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "3d",
+    "portfolio"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "playful 3d portfolio",
+    "spatial navigation"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": null,
+   "notes": "Repos: github.com/brunosimon",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "elu-dev",
+   "name": "elu.dev",
+   "url": "https://elu.dev/",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "portfolio"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "developer portfolio"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "2026-09-25 research(portfolio): elu.dev is currently a product marketing site ('Elu | Make your software improve itself'), not a personal developer portfolio; best_for 'developer portfolio' may be stale. Strong for metric display (mono label + odometer numeral) and a single house easing cubic-bezier(0.6,0,0.15,1).",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "moah-studio",
+   "name": "Moah Studio",
+   "url": "https://www.moah.studio/",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "studio"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "layout",
+    "spacing"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "noth",
+   "name": "Noth",
+   "url": "https://www.noth.in/",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "studio"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "typography"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "meinhard-taxer",
+   "name": "Meinhard Taxer",
+   "url": "https://meinhardtaxer.com/",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "portfolio"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "personal portfolio"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "k95",
+   "name": "K95",
+   "url": "https://k95.it/en",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "3d",
+    "motion"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "scroll camera motion"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "senbuzy",
+   "name": "Senbuzy",
+   "url": "https://about.senbuzy.com/",
+   "type": "website",
+   "categories": [
+    "inspiration"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Unknown; manual check.",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "website-to-code",
+   "name": "website-to-code",
+   "url": "https://github.com/AVIVASHISHTA29/website-to-code",
+   "type": "skill",
+   "categories": [
+    "reverse_engineering",
+    "interaction"
+   ],
+   "usage_mode": "skill",
+   "best_for": [
+    "rebuild a reference interaction"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": null,
+   "notes": "Vendored in .claude/skills.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "slam3r",
+   "name": "SLAM3R",
+   "url": "https://github.com/pku-vcl-3dv/slam3r",
+   "type": "repo",
+   "categories": [
+    "3d",
+    "research"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "CV research, not web UI.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "bible-strong-avatar-lab",
+   "name": "bible-strong-avatar-lab",
+   "url": "https://github.com/smontlouis/bible-strong-avatar-lab",
+   "type": "repo",
+   "categories": [
+    "avatar"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Manual check.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "awesome-design-md",
+   "name": "awesome-design-md",
+   "url": "https://github.com/VoltAgent/awesome-design-md",
+   "type": "repo",
+   "categories": [
+    "design_system",
+    "prompts"
+   ],
+   "usage_mode": "code_reference",
+   "best_for": [
+    "DESIGN.md families"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "capacitor",
+   "name": "Capacitor",
+   "url": "https://github.com/ionic-team/capacitor",
+   "type": "library",
+   "categories": [
+    "mobile"
+   ],
+   "usage_mode": "dependency",
+   "best_for": [
+    "wrap web app as mobile"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": {
+    "spdx": "MIT"
+   },
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "pinchtab",
+   "name": "PinchTab",
+   "url": "https://github.com/pinchtab/pinchtab",
+   "type": "repo",
+   "categories": [
+    "browser_automation"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Manual check.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "heygen",
+   "name": "HeyGen",
+   "url": "https://app.heygen.com/",
+   "type": "tool",
+   "categories": [
+    "video",
+    "avatar"
+   ],
+   "usage_mode": "optional_tool",
+   "best_for": [
+    "founder video",
+    "demo video"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Paid; registered in tools.json, disabled.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "clerk",
+   "name": "Clerk",
+   "url": "https://clerk.com",
+   "type": "service",
+   "categories": [
+    "auth"
+   ],
+   "usage_mode": "dependency",
+   "best_for": [
+    "saas auth"
+   ],
+   "patterns": [],
+   "trust": "APPROVED",
+   "license": null,
+   "maintenance": null,
+   "notes": "SaaS recipe default; not used on marketing sites.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "sentry",
+   "name": "Sentry",
+   "url": "https://sentry.io",
+   "type": "service",
+   "categories": [
+    "monitoring"
+   ],
+   "usage_mode": "dependency",
+   "best_for": [
+    "error tracking"
+   ],
+   "patterns": [],
+   "trust": "APPROVED",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "posthog",
+   "name": "PostHog",
+   "url": "https://posthog.com",
+   "type": "service",
+   "categories": [
+    "analytics"
+   ],
+   "usage_mode": "dependency",
+   "best_for": [
+    "product analytics"
+   ],
+   "patterns": [],
+   "trust": "APPROVED",
+   "license": null,
+   "maintenance": null,
+   "notes": "Cookieless mode on marketing sites.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "supabase",
+   "name": "Supabase",
+   "url": "https://supabase.com",
+   "type": "service",
+   "categories": [
+    "database",
+    "storage"
+   ],
+   "usage_mode": "dependency",
+   "best_for": [
+    "saas db"
+   ],
+   "patterns": [],
+   "trust": "APPROVED",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "resend",
+   "name": "Resend",
+   "url": "https://resend.com",
+   "type": "service",
+   "categories": [
+    "email"
+   ],
+   "usage_mode": "dependency",
+   "best_for": [
+    "contact form",
+    "transactional"
+   ],
+   "patterns": [],
+   "trust": "APPROVED",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "cloudflare-workers",
+   "name": "Cloudflare Workers",
+   "url": "https://workers.cloudflare.com",
+   "type": "service",
+   "categories": [
+    "hosting",
+    "edge"
+   ],
+   "usage_mode": "dependency",
+   "best_for": [
+    "commercial client hosting",
+    "turnstile"
+   ],
+   "patterns": [],
+   "trust": "APPROVED",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "vercel",
+   "name": "Vercel",
+   "url": "https://vercel.com",
+   "type": "service",
+   "categories": [
+    "hosting"
+   ],
+   "usage_mode": "dependency",
+   "best_for": [
+    "personal site hosting",
+    "previews"
+   ],
+   "patterns": [],
+   "trust": "APPROVED",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "rate-limiting",
+   "name": "Rate limiting",
+   "url": "",
+   "type": "practice",
+   "categories": [
+    "security"
+   ],
+   "usage_mode": "practice",
+   "best_for": [
+    "contact",
+    "auth",
+    "api"
+   ],
+   "patterns": [],
+   "trust": "TRUSTED",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "input-validation",
+   "name": "Input validation (Zod)",
+   "url": "https://zod.dev",
+   "type": "practice",
+   "categories": [
+    "security"
+   ],
+   "usage_mode": "practice",
+   "best_for": [
+    "every boundary"
+   ],
+   "patterns": [],
+   "trust": "TRUSTED",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "dependency-vuln",
+   "name": "Dependency vulnerability checks",
+   "url": "",
+   "type": "practice",
+   "categories": [
+    "security"
+   ],
+   "usage_mode": "practice",
+   "best_for": [
+    "ci"
+   ],
+   "patterns": [],
+   "trust": "TRUSTED",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "error-handling",
+   "name": "Error handling",
+   "url": "",
+   "type": "practice",
+   "categories": [
+    "reliability"
+   ],
+   "usage_mode": "practice",
+   "best_for": [
+    "error boundaries"
+   ],
+   "patterns": [],
+   "trust": "TRUSTED",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "upload-safety",
+   "name": "File upload safety",
+   "url": "",
+   "type": "practice",
+   "categories": [
+    "security"
+   ],
+   "usage_mode": "practice",
+   "best_for": [
+    "uploads"
+   ],
+   "patterns": [],
+   "trust": "TRUSTED",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "archify",
+   "name": "archify",
+   "url": "https://github.com/tt-a1i/archify",
+   "type": "skill",
+   "categories": [
+    "diagrams",
+    "docs"
+   ],
+   "usage_mode": "skill",
+   "best_for": [
+    "architecture diagrams"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "apache-maka",
+   "name": "apache/maka",
+   "url": "https://github.com/apache/maka",
+   "type": "repo",
+   "categories": [
+    "unknown"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Could not identify; manual check.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "freellmapi",
+   "name": "freellmapi",
+   "url": "https://github.com/tashfeenahmed/freellmapi",
+   "type": "repo",
+   "categories": [
+    "llm"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [
+    "testing only"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Not for production.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "openhuman",
+   "name": "OpenHuman",
+   "url": "https://github.com/tinyhumansai/openhuman",
+   "type": "repo",
+   "categories": [
+    "agent",
+    "avatar"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "screenshot-to-code",
+   "name": "screenshot-to-code",
+   "url": "https://github.com/abi/screenshot-to-code",
+   "type": "repo",
+   "categories": [
+    "design_to_code"
+   ],
+   "usage_mode": "optional_tool",
+   "best_for": [
+    "rebuild from screenshot"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": {
+    "spdx": "MIT"
+   },
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "keystatic",
+   "name": "Keystatic",
+   "url": "https://keystatic.com/",
+   "type": "library",
+   "categories": [
+    "cms"
+   ],
+   "usage_mode": "dependency",
+   "best_for": [
+    "blog",
+    "case studies",
+    "docs"
+   ],
+   "patterns": [],
+   "trust": "APPROVED",
+   "license": {
+    "spdx": "MIT"
+   },
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "gtmetrix",
+   "name": "GTmetrix",
+   "url": "https://gtmetrix.com/",
+   "type": "tool",
+   "categories": [
+    "performance"
+   ],
+   "usage_mode": "optional_tool",
+   "best_for": [
+    "perf monitoring"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Lighthouse CI is the free default.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "littlebird",
+   "name": "Littlebird AI",
+   "url": "",
+   "type": "tool",
+   "categories": [
+    "ai"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "No URL; manual check.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "agency-agents",
+   "name": "agency-agents",
+   "url": "https://github.com/msitarzewski/agency-agents",
+   "type": "repo",
+   "categories": [
+    "agents"
+   ],
+   "usage_mode": "code_reference",
+   "best_for": [
+    "agent role prompts"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "codebase-memory-mcp",
+   "name": "codebase-memory-mcp",
+   "url": "https://github.com/DeusData/codebase-memory-mcp",
+   "type": "mcp",
+   "categories": [
+    "code_intelligence"
+   ],
+   "usage_mode": "optional_tool",
+   "best_for": [
+    "large repos"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "onorca",
+   "name": "Onorca",
+   "url": "https://www.onorca.dev/",
+   "type": "tool",
+   "categories": [
+    "ai"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Manual check.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "taste-skill",
+   "name": "taste-skill",
+   "url": "https://github.com/leonxlnx/taste-skill",
+   "type": "skill",
+   "categories": [
+    "design",
+    "anti_slop"
+   ],
+   "usage_mode": "skill",
+   "best_for": [
+    "landing",
+    "portfolio",
+    "redesign"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": {
+    "spdx": "MIT"
+   },
+   "maintenance": null,
+   "notes": "Vendored.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "web-design-guidelines",
+   "name": "web-design-guidelines",
+   "url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines",
+   "type": "skill",
+   "categories": [
+    "design",
+    "review"
+   ],
+   "usage_mode": "skill",
+   "best_for": [
+    "ui review"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": null,
+   "notes": "Vendored.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "awesome-claude-design",
+   "name": "awesome-claude-design",
+   "url": "https://github.com/rohitg00/awesome-claude-design",
+   "type": "repo",
+   "categories": [
+    "design",
+    "prompts"
+   ],
+   "usage_mode": "code_reference",
+   "best_for": [
+    "design families"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "agent-skills-addy",
+   "name": "addyosmani/agent-skills",
+   "url": "https://github.com/addyosmani/agent-skills",
+   "type": "skill",
+   "categories": [
+    "engineering"
+   ],
+   "usage_mode": "skill",
+   "best_for": [
+    "testing",
+    "performance",
+    "review"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Marketplace already registered in user settings.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "ponytail",
+   "name": "ponytail (github)",
+   "url": "",
+   "type": "unknown",
+   "categories": [
+    "unknown"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "No URL given; manual check.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "manus",
+   "name": "Manus",
+   "url": "https://manus.im",
+   "type": "product",
+   "categories": [
+    "ai_agent",
+    "inspiration"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "agent workspace UX"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "",
+   "do_not_copy": "assets, fonts, copy, exact layout, code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "user_doc",
+    "path": "C:/Users/user/Downloads/links.docx",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "google-adk-python",
+   "name": "Google ADK (Agent Development Kit, Python)",
+   "url": "https://github.com/google/adk-python",
+   "type": "framework",
+   "categories": [
+    "agent_runtime",
+    "multi_agent",
+    "evaluation"
+   ],
+   "usage_mode": "optional_tool",
+   "best_for": [
+    "hosted multi-agent runtime (M8 productization)",
+    "Gemini/Vertex AI deployment",
+    "agent evals"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": {
+    "spdx": "Apache-2.0"
+   },
+   "maintenance": {
+    "last_push": "2026-09-25",
+    "archived": false,
+    "stars": 21631
+   },
+   "notes": "Candidate runtime only if UIBuilder becomes a hosted product (M8). Not for V1: Claude Code is the runtime (DECISIONS D10). Python, Gemini-first, per-token API cost. Compare against Claude Agent SDK (reuses .claude/agents + skills) and Vercel eve before choosing.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://github.com/google/adk-python",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": "2026-09-25"
+  },
+  {
+   "id": "tagsen",
+   "name": "Tagsen",
+   "url": "https://www.tagsen.in/",
+   "type": "website",
+   "categories": [
+    "conversion",
+    "e-commerce"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "whatsapp cta",
+    "promise strip",
+    "print business conversion"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Indian online print shop. Context-aware WhatsApp FAB (56x56, fixed 20/20, prefilled text includes page title); 3 risk-reversal promise tiles; 3-step order strip.",
+   "do_not_copy": "product photos, catalogue copy, prices, phone numbers, brand colours",
+   "used_in": [
+    "abizcreator"
+   ],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "research_agent",
+    "path": "projects/abizcreator/docs/REFERENCE_BREAKDOWN.md",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "planetscale-benchmarks",
+   "name": "PlanetScale benchmark pages",
+   "url": "https://planetscale.com/benchmarks/aurora",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "engineering-report",
+    "data-presentation"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "benchmark presentation",
+    "methodology-first evidence",
+    "case-study results",
+    "developer portfolio"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Methodology before results: config table -> data/execution -> chart with series-toggle sparkline rail -> plain-language takeaway -> reproduce link. All-mono, single 16/24 size, hierarchy by weight + underline only. Measured 2026-09-25 for projects/portfolio.",
+   "do_not_copy": "assets, fonts, copy, chart code, exact layout, brand colours",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "research_agent",
+    "path": "projects/portfolio/docs/REFERENCE_BREAKDOWN.md",
+    "found_via": "WebSearch 'PlanetScale blog benchmarks Postgres latency charts methodology page'",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "samwho-dev",
+   "name": "samwho.dev (Sam Rose)",
+   "url": "https://samwho.dev/load-balancing/",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "engineer-portfolio",
+    "technical-writing",
+    "data-presentation"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "technical writing",
+    "interactive explainers",
+    "latency charts",
+    "case-study body"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Widely shared visual essays (HN/Lobsters). 748px measure (~80ch) at 18.67/28; charts 480px centred with mono axis type; series separated by dash pattern (solid/dashed/dotted) not colour alone; inline coloured legend tokens in prose match the viz. Web components (Lit + SVG). Measured 2026-09-25 for projects/portfolio.",
+   "do_not_copy": "assets, fonts, copy, simulation code, exact layout",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "research_agent",
+    "path": "projects/portfolio/docs/REFERENCE_BREAKDOWN.md",
+    "found_via": "WebSearch 'samwho.dev load balancing interactive visual essay Hacker News'",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "free-for-dev",
+   "name": "free-for-dev (free tiers catalog)",
+   "url": "https://github.com/ripienaar/free-for-dev",
+   "type": "catalog",
+   "categories": [
+    "free_tiers",
+    "infra",
+    "saas_catalog"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [
+    "finding $0 alternatives before proposing any paid service",
+    "hosting/forms/email/monitoring/analytics/screenshot/DNS free tiers"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": {
+    "last_push": "2026-09-24",
+    "archived": false,
+    "stars": 138361
+   },
+   "notes": "Crowd-edited list, ~1.7k lines, 60+ categories. Limits change often, so verify the provider's pricing page before adopting anything. Each provider adopted from it gets its own resource entry (trust NEW). Sections most used by UIBuilder: Web Hosting, CDN and Protection, Forms, Email, Monitoring, Analytics, Crash and Exception Handling, Font, Design and UI, DNS, Screenshot APIs.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://github.com/ripienaar/free-for-dev",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": "2026-09-25"
+  },
+  {
+   "id": "better-stack",
+   "name": "Better Stack (uptime monitoring)",
+   "url": "https://betterstack.com/uptime",
+   "type": "service",
+   "categories": [
+    "monitoring",
+    "uptime",
+    "status_page"
+   ],
+   "usage_mode": "optional_tool",
+   "best_for": [
+    "uptime monitoring + status page for shipped sites"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "Free plan includes 10 monitors, per free-for-dev (Monitoring section, 2026-09-25). Verify limits before use.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://github.com/ripienaar/free-for-dev",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "formboost",
+   "name": "Formboost (form backend)",
+   "url": "https://formboost.app",
+   "type": "service",
+   "categories": [
+    "forms"
+   ],
+   "usage_mode": "optional_tool",
+   "best_for": [
+    "contact/quote form on frontend-only static sites without our own backend"
+   ],
+   "patterns": [],
+   "trust": "NEW",
+   "license": null,
+   "maintenance": null,
+   "notes": "500 free submissions/month with spam protection, per free-for-dev (Forms section, 2026-09-25). Candidate for an ABizCreator quote form if one is wanted despite D14. Verify limits and data residency first.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://github.com/ripienaar/free-for-dev",
+    "observed_at": "2026-09-25"
+   },
+   "last_reviewed": null
+  },
+  {
+   "id": "scroll-world",
+   "name": "Scroll World",
+   "url": "https://github.com/oso95/scroll-world",
+   "type": "skill",
+   "categories": [
+    "design",
+    "motion",
+    "3d"
+   ],
+   "usage_mode": "skill",
+   "best_for": [
+    "future immersive scroll storytelling after performance and content gates"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": {
+    "spdx": "MIT"
+   },
+   "maintenance": {
+    "last_push": "2026-07-29",
+    "archived": false,
+    "stars": 9487
+   },
+   "notes": "Paid video chain by default; do not use in S4 portfolio or without explicit enablement.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://github.com/oso95/scroll-world",
+    "observed_at": "2026-09-26"
+   },
+   "last_reviewed": "2026-09-26"
+  },
+  {
+   "id": "crawlee",
+   "name": "Crawlee",
+   "url": "https://github.com/apify/crawlee",
+   "type": "library",
+   "categories": [
+    "research",
+    "crawl",
+    "browser"
+   ],
+   "usage_mode": "code_reference",
+   "best_for": [
+    "structured crawling of client sites when lightweight fetch is insufficient"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": {
+    "spdx": "Apache-2.0"
+   },
+   "maintenance": {
+    "last_push": "2026-09-25",
+    "archived": false,
+    "stars": 25895
+   },
+   "notes": "Node/TypeScript crawler. Evaluate crawl scope, robots and compute cost before adoption.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://github.com/apify/crawlee",
+    "observed_at": "2026-09-26"
+   },
+   "last_reviewed": "2026-09-26"
+  },
+  {
+   "id": "crawl4ai",
+   "name": "Crawl4AI",
+   "url": "https://github.com/unclecode/crawl4ai",
+   "type": "library",
+   "categories": [
+    "research",
+    "crawl",
+    "ai"
+   ],
+   "usage_mode": "code_reference",
+   "best_for": [
+    "self-hosted extraction of LLM-ready content from reference sites"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": {
+    "spdx": "Apache-2.0"
+   },
+   "maintenance": {
+    "last_push": "2026-09-25",
+    "archived": false,
+    "stars": 84259
+   },
+   "notes": "Python runtime; research candidate, not needed for current static portfolio build.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://github.com/unclecode/crawl4ai",
+    "observed_at": "2026-09-26"
+   },
+   "last_reviewed": "2026-09-26"
+  },
+  {
+   "id": "firecrawl",
+   "name": "Firecrawl",
+   "url": "https://github.com/firecrawl/firecrawl",
+   "type": "service",
+   "categories": [
+    "research",
+    "crawl",
+    "ai"
+   ],
+   "usage_mode": "optional_tool",
+   "best_for": [
+    "hosted search, scrape and crawl where local tools fall short"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": {
+    "spdx": "AGPL-3.0"
+   },
+   "maintenance": {
+    "last_push": "2026-09-25",
+    "archived": false,
+    "stars": 184650
+   },
+   "notes": "API costs and self-hosting obligations require separate review. Registered disabled.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://github.com/firecrawl/firecrawl",
+    "observed_at": "2026-09-26"
+   },
+   "last_reviewed": "2026-09-26"
+  },
+  {
+   "id": "open-telemetry",
+   "name": "OpenTelemetry",
+   "url": "https://github.com/open-telemetry",
+   "type": "organization",
+   "categories": [
+    "observability",
+    "tracing"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [
+    "future pipeline and deployed-site traces if basic monitoring is insufficient"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": null,
+   "notes": "GitHub organization rather than one installable repo; choose a specific SDK only when needed.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://github.com/open-telemetry",
+    "observed_at": "2026-09-26"
+   },
+   "last_reviewed": "2026-09-26"
+  },
+  {
+   "id": "lenis",
+   "name": "Lenis",
+   "url": "https://github.com/darkroomengineering/lenis",
+   "type": "library",
+   "categories": [
+    "motion",
+    "scroll"
+   ],
+   "usage_mode": "code_reference",
+   "best_for": [
+    "smooth-scrolling mechanics in future media-heavy pages"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": {
+    "spdx": "MIT"
+   },
+   "maintenance": {
+    "last_push": "2026-09-22",
+    "archived": false,
+    "stars": 16018
+   },
+   "notes": "Do not add to the portfolio by default; native scrolling and reduced-motion behavior are safer for its current design.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://github.com/darkroomengineering/lenis",
+    "observed_at": "2026-09-26"
+   },
+   "last_reviewed": "2026-09-26"
+  },
+  {
+   "id": "haikei",
+   "name": "Haikei",
+   "url": "https://haikei.app/",
+   "type": "design_tool",
+   "categories": [
+    "assets",
+    "svg",
+    "design"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "generating original SVG shapes when a brief calls for them"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": null,
+   "notes": "Web app; inspect license/terms of any generated asset before shipping.",
+   "do_not_copy": "Never copy example assets or another site's output.",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://haikei.app/",
+    "observed_at": "2026-09-26"
+   },
+   "last_reviewed": "2026-09-26"
+  },
+  {
+   "id": "motion-primitives",
+   "name": "Motion Primitives",
+   "url": "https://github.com/ibelick/motion-primitives",
+   "type": "component_library",
+   "categories": [
+    "motion",
+    "components"
+   ],
+   "usage_mode": "code_reference",
+   "best_for": [
+    "studying accessible, restrained component motion"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": {
+    "spdx": "MIT"
+   },
+   "maintenance": {
+    "last_push": "2026-09-16",
+    "archived": false,
+    "stars": 6379
+   },
+   "notes": "Use mechanisms only when DESIGN.md calls for them; existing Motion dependency covers the portfolio.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://github.com/ibelick/motion-primitives",
+    "observed_at": "2026-09-26"
+   },
+   "last_reviewed": "2026-09-26"
+  },
+  {
+   "id": "doop",
+   "name": "Doop",
+   "url": "https://github.com/kgoedecke/doop",
+   "type": "design_tool",
+   "categories": [
+    "design",
+    "collaboration",
+    "mcp"
+   ],
+   "usage_mode": "optional_tool",
+   "best_for": [
+    "future collaborative canvas explorations"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": {
+    "spdx": "AGPL-3.0"
+   },
+   "maintenance": {
+    "last_push": "2026-09-25",
+    "archived": false,
+    "stars": 761
+   },
+   "notes": "Not part of the file-based design contract; evaluate license and hosting before enabling.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://github.com/kgoedecke/doop",
+    "observed_at": "2026-09-26"
+   },
+   "last_reviewed": "2026-09-26"
+  },
+  {
+   "id": "anti-slop",
+   "name": "Anti Slop",
+   "url": "https://github.com/miqdadbadjuber/anti-slop",
+   "type": "skill",
+   "categories": [
+    "design",
+    "copy",
+    "accessibility"
+   ],
+   "usage_mode": "skill",
+   "best_for": [
+    "UI and copy critique after project-specific DESIGN.md is applied"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": {
+    "spdx": "MIT"
+   },
+   "maintenance": {
+    "last_push": "2026-09-24",
+    "archived": false,
+    "stars": 3735
+   },
+   "notes": "Corrected the misspelled owner in the failed screenshot intake. Project skills installed; do not let generic rules override approved DESIGN.md.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://github.com/miqdadbadjuber/anti-slop",
+    "observed_at": "2026-09-26"
+   },
+   "last_reviewed": "2026-09-26"
+  },
+  {
+   "id": "reticle",
+   "name": "Reticle",
+   "url": "https://github.com/reticlehq/reticle",
+   "type": "dev_tool",
+   "categories": [
+    "browser_testing",
+    "runtime_verification",
+    "mcp"
+   ],
+   "usage_mode": "optional_tool",
+   "best_for": [
+    "future interactive runtime verification if Playwright proves insufficient"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": {
+    "last_push": "2026-09-25",
+    "archived": false,
+    "stars": 870
+   },
+   "notes": "Per-package license: SDK Apache-2.0, server protected; requires app instrumentation. Defer while Playwright works.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://github.com/reticlehq/reticle",
+    "observed_at": "2026-09-26"
+   },
+   "last_reviewed": "2026-09-26"
+  },
+  {
+   "id": "ui-skills",
+   "name": "UI Skills",
+   "url": "https://github.com/ibelick/ui-skills",
+   "type": "skill",
+   "categories": [
+    "design",
+    "accessibility",
+    "metadata",
+    "motion"
+   ],
+   "usage_mode": "skill",
+   "best_for": [
+    "targeted S5/S6 design, accessibility, metadata and motion review"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": {
+    "spdx": "MIT"
+   },
+   "maintenance": {
+    "last_push": "2026-09-22",
+    "archived": false,
+    "stars": 9109
+   },
+   "notes": "Installed improve-ui, fixing-accessibility, fixing-metadata and fixing-motion-performance; use only as review aids under DESIGN.md.",
+   "do_not_copy": "",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://github.com/ibelick/ui-skills",
+    "observed_at": "2026-09-26"
+   },
+   "last_reviewed": "2026-09-26"
+  }
+ ]
+}

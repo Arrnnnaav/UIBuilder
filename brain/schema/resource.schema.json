@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "required": ["id", "name", "url", "type", "categories", "usage_mode", "best_for", "trust", "provenance"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "name": { "type": "string" },
+    "url": { "type": "string" },
+    "type": { "type": "string" },
+    "categories": { "type": "array", "items": { "type": "string" } },
+    "usage_mode": { "type": "string", "enum": ["dependency", "direct_or_reference", "code_reference", "inspiration_only", "skill", "optional_tool", "research_only", "practice"] },
+    "best_for": { "type": "array", "items": { "type": "string" } },
+    "patterns": { "type": "array", "items": { "type": "string" } },
+    "trust": { "type": "string", "enum": ["NEW", "REVIEWED", "TESTED", "APPROVED", "TRUSTED", "REJECTED", "DEPRECATED"] },
+    "scores": { "type": "object" },
+    "provenance": { "type": "object", "required": ["type", "observed_at"] }
+  }
+}

@@ -1,0 +1,504 @@
+{
+  "version": 1,
+  "_doc": "Deterministic tool router. An agent may use a tool only if it appears in that tool's 'agents' list and 'enabled_if' holds. Otherwise use 'fallback'. enabled_if: 'always' | 'env:VAR' | 'mcp:name' | 'cli:bin' | 'user:enable'.",
+  "tools": [
+    {
+      "id": "playwright_mcp",
+      "capabilities": [
+        "browse",
+        "inspect_ui",
+        "screenshot",
+        "test_flow"
+      ],
+      "agents": [
+        "research",
+        "design-director",
+        "ship",
+        "growth"
+      ],
+      "cost": "free",
+      "enabled_if": "mcp:playwright",
+      "fallback": "playwright_cli",
+      "approval": false
+    },
+    {
+      "id": "playwright_cli",
+      "capabilities": [
+        "e2e",
+        "a11y",
+        "visual_regression"
+      ],
+      "agents": [
+        "ship",
+        "frontend"
+      ],
+      "cost": "free",
+      "enabled_if": "always",
+      "fallback": null,
+      "approval": false
+    },
+    {
+      "id": "context7",
+      "capabilities": [
+        "latest_docs",
+        "api_reference"
+      ],
+      "agents": [
+        "frontend",
+        "backend",
+        "growth",
+        "ship"
+      ],
+      "cost": "free",
+      "enabled_if": "mcp:context7",
+      "fallback": "web_search",
+      "approval": false
+    },
+    {
+      "id": "tavily",
+      "capabilities": [
+        "web_search",
+        "extract",
+        "crawl",
+        "research"
+      ],
+      "agents": [
+        "research",
+        "growth"
+      ],
+      "cost": "free_tier",
+      "enabled_if": "cli:tvly",
+      "fallback": "web_search",
+      "approval": false
+    },
+    {
+      "id": "web_search",
+      "capabilities": [
+        "web_search"
+      ],
+      "agents": [
+        "research",
+        "growth",
+        "frontend",
+        "backend"
+      ],
+      "cost": "free",
+      "enabled_if": "always",
+      "fallback": null,
+      "approval": false
+    },
+    {
+      "id": "github_cli",
+      "capabilities": [
+        "repo",
+        "pr",
+        "issues"
+      ],
+      "agents": [
+        "ship",
+        "backend"
+      ],
+      "cost": "free",
+      "enabled_if": "cli:gh",
+      "fallback": null,
+      "approval": true
+    },
+    {
+      "id": "github_mcp",
+      "capabilities": [
+        "repo",
+        "pr",
+        "issues"
+      ],
+      "agents": [
+        "ship"
+      ],
+      "cost": "free",
+      "enabled_if": "mcp:github",
+      "fallback": "github_cli",
+      "approval": true
+    },
+    {
+      "id": "shadcn_cli",
+      "capabilities": [
+        "install_component"
+      ],
+      "agents": [
+        "frontend"
+      ],
+      "cost": "free",
+      "enabled_if": "always",
+      "fallback": null,
+      "approval": false
+    },
+    {
+      "id": "frontend_design_skill",
+      "capabilities": [
+        "design_direction"
+      ],
+      "agents": [
+        "design-director",
+        "frontend"
+      ],
+      "cost": "free",
+      "enabled_if": "always",
+      "fallback": null,
+      "approval": false
+    },
+    {
+      "id": "taste_skill",
+      "capabilities": [
+        "anti_slop_rules",
+        "design_direction"
+      ],
+      "agents": [
+        "design-director",
+        "frontend"
+      ],
+      "cost": "free",
+      "enabled_if": "always",
+      "fallback": null,
+      "approval": false
+    },
+    {
+      "id": "web_design_guidelines",
+      "capabilities": [
+        "ui_review"
+      ],
+      "agents": [
+        "design-director",
+        "ship"
+      ],
+      "cost": "free",
+      "enabled_if": "always",
+      "fallback": null,
+      "approval": false
+    },
+    {
+      "id": "website_to_code",
+      "capabilities": [
+        "rebuild_reference_interaction"
+      ],
+      "agents": [
+        "frontend"
+      ],
+      "cost": "free",
+      "enabled_if": "always",
+      "fallback": null,
+      "approval": false
+    },
+    {
+      "id": "stitch",
+      "capabilities": [
+        "ui_exploration",
+        "screen_generation"
+      ],
+      "agents": [
+        "design-director"
+      ],
+      "cost": "free",
+      "enabled_if": "user:enable",
+      "fallback": "design_director_html_mockups",
+      "approval": false,
+      "notes": "Google Stitch has no API here, so it is manual: the agent writes the prompt (stitch-design-taste skill), the user pastes the result back."
+    },
+    {
+      "id": "lighthouse_ci",
+      "capabilities": [
+        "perf",
+        "a11y_score",
+        "seo_score"
+      ],
+      "agents": [
+        "ship",
+        "growth"
+      ],
+      "cost": "free",
+      "enabled_if": "always",
+      "fallback": null,
+      "approval": false
+    },
+    {
+      "id": "security_review_skill",
+      "capabilities": [
+        "security_review"
+      ],
+      "agents": [
+        "ship"
+      ],
+      "cost": "free",
+      "enabled_if": "always",
+      "fallback": null,
+      "approval": false
+    },
+    {
+      "id": "brag",
+      "capabilities": [
+        "launch_video",
+        "poster",
+        "share_copy"
+      ],
+      "agents": [
+        "ship"
+      ],
+      "cost": "free",
+      "enabled_if": "always",
+      "fallback": null,
+      "approval": false
+    },
+    {
+      "id": "vercel_cli",
+      "capabilities": [
+        "deploy",
+        "preview"
+      ],
+      "agents": [
+        "ship"
+      ],
+      "cost": "free",
+      "enabled_if": "cli:vercel",
+      "fallback": null,
+      "approval": true
+    },
+    {
+      "id": "wrangler",
+      "capabilities": [
+        "deploy",
+        "preview"
+      ],
+      "agents": [
+        "ship"
+      ],
+      "cost": "free",
+      "enabled_if": "cli:wrangler",
+      "fallback": null,
+      "approval": true
+    },
+    {
+      "id": "businessos",
+      "capabilities": [
+        "site_connect",
+        "seo_maintenance"
+      ],
+      "agents": [
+        "ship",
+        "growth"
+      ],
+      "cost": "free",
+      "enabled_if": "env:BUSINESSOS_URL",
+      "fallback": "print_connect_values",
+      "approval": true
+    },
+    {
+      "id": "minimax_h3",
+      "capabilities": [
+        "hero_video",
+        "product_clip"
+      ],
+      "agents": [
+        "ship"
+      ],
+      "cost": "paid_per_second (~$0.08/s 768p, ~$0.13/s 2K); open weights free but 768p + own GPU",
+      "enabled_if": "env:MINIMAX_API_KEY",
+      "fallback": "static_hero",
+      "approval": true
+    },
+    {
+      "id": "higgsfield_mcp",
+      "capabilities": [
+        "image_generation",
+        "video_generation",
+        "hero_video"
+      ],
+      "agents": [
+        "ship",
+        "design-director"
+      ],
+      "cost": "paid ($19/mo+, $3 MCP trial)",
+      "enabled_if": "mcp:higgsfield",
+      "fallback": "static_hero",
+      "approval": true
+    },
+    {
+      "id": "heygen",
+      "capabilities": [
+        "avatar_video"
+      ],
+      "agents": [
+        "ship"
+      ],
+      "cost": "paid",
+      "enabled_if": "env:HEYGEN_API_KEY",
+      "fallback": null,
+      "approval": true
+    },
+    {
+      "id": "comfyui",
+      "capabilities": [
+        "image_generation"
+      ],
+      "agents": [
+        "design-director"
+      ],
+      "cost": "free (local GPU)",
+      "enabled_if": "env:COMFYUI_URL",
+      "fallback": "static_hero",
+      "approval": true
+    },
+    {
+      "id": "ai_citation_tracking",
+      "capabilities": [
+        "geo_citation_check"
+      ],
+      "agents": [
+        "growth"
+      ],
+      "cost": "paid (model calls)",
+      "enabled_if": "user:enable",
+      "fallback": null,
+      "approval": true
+    },
+    {
+      "id": "figma_mcp",
+      "capabilities": [
+        "read_design",
+        "write_design"
+      ],
+      "agents": [
+        "design-director"
+      ],
+      "cost": "paid seat",
+      "enabled_if": "user:enable",
+      "fallback": "design_md",
+      "approval": true
+    },
+    {
+      "id": "codebase_memory_mcp",
+      "capabilities": [
+        "code_graph"
+      ],
+      "agents": [
+        "frontend",
+        "backend"
+      ],
+      "cost": "free",
+      "enabled_if": "mcp:codebase-memory",
+      "fallback": null,
+      "approval": false
+    },
+    {
+      "id": "google_adk",
+      "capabilities": [
+        "hosted_agent_runtime",
+        "agent_eval"
+      ],
+      "agents": [
+        "orchestrator"
+      ],
+      "cost": "free framework; model calls paid per token (Gemini/Vertex or other via LiteLLM)",
+      "enabled_if": "user:enable",
+      "fallback": "claude_code_runtime",
+      "approval": true,
+      "notes": "M8 candidate runtime. See brain resource google-adk-python."
+    },
+    {
+      "id": "free_tier_catalog",
+      "capabilities": [
+        "find_free_alternative"
+      ],
+      "agents": [
+        "orchestrator",
+        "backend",
+        "ship",
+        "growth",
+        "research"
+      ],
+      "cost": "free",
+      "enabled_if": "always",
+      "fallback": null,
+      "approval": false,
+      "notes": "Look up https://github.com/ripienaar/free-for-dev (gh api repos/ripienaar/free-for-dev/readme) before proposing any paid service. Verify the provider's live pricing page."
+    },
+    {
+      "id": "better_stack_uptime",
+      "capabilities": [
+        "uptime_monitoring",
+        "status_page"
+      ],
+      "agents": [
+        "ship"
+      ],
+      "cost": "free tier (10 monitors)",
+      "enabled_if": "user:enable",
+      "fallback": null,
+      "approval": true
+    },
+    {
+      "id": "antislop_review_skill",
+      "capabilities": ["visual_review", "copy_review", "mobile_review"],
+      "agents": ["design-director", "frontend", "ship"],
+      "cost": "free",
+      "enabled_if": "user:enable",
+      "fallback": null,
+      "approval": false,
+      "notes": "Installed project-locally; REVIEWED resource. DESIGN.md remains authoritative."
+    },
+    {
+      "id": "ui_skills_review",
+      "capabilities": ["ui_review", "a11y_review", "metadata_review", "motion_review"],
+      "agents": ["design-director", "frontend", "ship"],
+      "cost": "free",
+      "enabled_if": "user:enable",
+      "fallback": null,
+      "approval": false,
+      "notes": "Installed project-locally; REVIEWED resource. Targeted review only."
+    },
+    {
+      "id": "scroll_world_skill",
+      "capabilities": ["scroll_cinematic", "hero_video"],
+      "agents": ["design-director", "frontend"],
+      "cost": "skill free; media generation paid",
+      "enabled_if": "user:enable",
+      "fallback": "static_hero",
+      "approval": true,
+      "notes": "Deferred by function-first order; no use in the approved portfolio design."
+    },
+    {
+      "id": "monid_video",
+      "capabilities": ["video_generation"],
+      "agents": ["design-director", "ship"],
+      "cost": "paid per clip; verify live pricing before use",
+      "enabled_if": "user:enable",
+      "fallback": "static_hero",
+      "approval": true,
+      "notes": "Optional dependency of scroll-world, never installed or enabled by intake."
+    },
+    {
+      "id": "firecrawl_api",
+      "capabilities": ["web_search", "scrape", "crawl"],
+      "agents": ["research", "growth"],
+      "cost": "free tier plus paid usage; verify live pricing before use",
+      "enabled_if": "user:enable",
+      "fallback": "web_search",
+      "approval": true
+    },
+    {
+      "id": "doop_mcp",
+      "capabilities": ["collaborative_design_canvas"],
+      "agents": ["design-director"],
+      "cost": "self-hosting or service costs to verify",
+      "enabled_if": "user:enable",
+      "fallback": "design_md",
+      "approval": true
+    },
+    {
+      "id": "reticle_mcp",
+      "capabilities": ["runtime_inspection", "browser_verification"],
+      "agents": ["frontend", "ship"],
+      "cost": "license and service terms to verify",
+      "enabled_if": "user:enable",
+      "fallback": "playwright_cli",
+      "approval": true
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "site": { "url": "https://example.com", "defaultBranch": "main" },
+  "editable": [
+    { "path": "content/seo/routes.json", "type": "meta" },
+    { "path": "content/schema/*.json", "type": "jsonld" },
+    { "path": "content/faq/*.json", "type": "faq" },
+    { "path": "public/llms.txt", "type": "llms_txt" },
+    { "path": "content/seo/crawlers.json", "type": "crawler_policy" }
+  ]
+}

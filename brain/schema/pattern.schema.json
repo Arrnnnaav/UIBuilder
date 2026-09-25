@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "required": ["id", "category", "name", "mechanism", "good_for", "bad_for", "sources", "scores", "trust"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "category": { "type": "string", "enum": ["hero", "nav", "case-study", "about", "contact", "footer", "motion", "faq", "services", "blog", "cta", "typography", "layout"] },
+    "name": { "type": "string" },
+    "mechanism": { "type": "string" },
+    "good_for": { "type": "array", "items": { "type": "string" } },
+    "bad_for": { "type": "array", "items": { "type": "string" } },
+    "perf_cost": { "type": "string", "enum": ["none", "low", "medium", "high"] },
+    "sources": { "type": "array", "items": { "type": "object", "required": ["resource", "confidence"] } },
+    "scores": { "type": "object" },
+    "trust": { "type": "string", "enum": ["NEW", "REVIEWED", "TESTED", "APPROVED", "TRUSTED", "REJECTED", "DEPRECATED"] }
+  }
+}

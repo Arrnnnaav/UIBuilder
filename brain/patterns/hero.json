@@ -1,0 +1,40 @@
+{
+  "patterns": [
+    {
+      "id": "hero-oversized-type-split",
+      "category": "hero",
+      "name": "Oversized display type with an offset asset",
+      "mechanism": "A headline at clamp(3.5rem, 9vw, 9rem) takes 7/12 columns, with the supporting visual offset in the remaining columns. The subline stays at or under 60ch, there is one primary CTA, and the headline enters line by line on a stagger (60ms, 600ms, ease-out-expo).",
+      "good_for": ["portfolio", "studio", "company-site"],
+      "bad_for": ["data-dense dashboard"],
+      "perf_cost": "none",
+      "sources": [{ "resource": "poch-studio", "confidence": 0.7, "observed_at": "2026-09-25" }, { "resource": "noth", "confidence": 0.6, "observed_at": "2026-09-25" }],
+      "scores": {},
+      "trust": "REVIEWED"
+    },
+    {
+      "id": "hero-interactive-object",
+      "category": "hero",
+      "name": "A single interactive object as the brand hook",
+      "mechanism": "One object reacts to the cursor or scroll: tilt, magnetic pull or a shader blob. It's lazy-loaded after LCP, and a static poster is shown until it loads. Under reduced motion it stays static.",
+      "good_for": ["portfolio", "creative studio"],
+      "bad_for": ["enterprise", "low-end mobile audience"],
+      "perf_cost": "medium",
+      "sources": [{ "resource": "bruno-simon", "confidence": 0.6, "observed_at": "2026-09-25" }, { "resource": "k95", "confidence": 0.5, "observed_at": "2026-09-25" }, { "resource": "componentry", "confidence": 0.5, "observed_at": "2026-09-25" }],
+      "scores": {},
+      "trust": "NEW"
+    },
+    {
+      "id": "hero-proof-first",
+      "category": "hero",
+      "name": "Proof-first company hero",
+      "mechanism": "The headline states the outcome, not the category. Directly under it are proof chips: a metric, a logo row, or a rating. There are two CTAs, a primary and a quieter secondary. A product or work visual sits below the fold edge to invite scrolling.",
+      "good_for": ["company-site", "saas"],
+      "bad_for": ["personal portfolio"],
+      "perf_cost": "low",
+      "sources": [{ "resource": "brik", "confidence": 0.5, "observed_at": "2026-09-25" }],
+      "scores": {},
+      "trust": "NEW"
+    }
+  ]
+}

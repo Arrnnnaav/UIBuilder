@@ -1,0 +1,24 @@
+{
+  "slug": "abizcreator",
+  "pipeline": "company-site",
+  "created": "2026-09-25",
+  "stack": {
+    "pipeline": "company-site",
+    "project_type": "company-site",
+    "host": "cloudflare",
+    "cms": "keystatic",
+    "auth": "none",
+    "entity_schema": "Organization",
+    "features": [
+      "contact",
+      "services",
+      "case-studies",
+      "blog",
+      "about",
+      "faq"
+    ],
+    "budget_usd_month": 0,
+    "notes": "Deploy into the client-owned Cloudflare account. Per client: pages and features are derived from the client's offer in S1."
+  },
+  "stitch": false
+}

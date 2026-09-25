@@ -1,0 +1,71 @@
+{
+  "agent": "research",
+  "status": "complete",
+  "inputs_used": [
+    "AGENTS.md",
+    ".claude/agents/research.md",
+    "pipelines/company-site/PIPELINE.md",
+    "brain/resources.json",
+    "brain/patterns/sections.json",
+    "brain/patterns/hero.json",
+    "brain/preferences.md",
+    "https://abizcreator.com/ (tvly map + extract, curl, Playwright 1440/390)",
+    "tvly search (Jaipur print/digital agencies)",
+    "Playwright getComputedStyle measurements of moah.studio, noth.in, airborne.studio, poch.studio, tagsen.in"
+  ],
+  "decisions": [
+    "Location confirmed from the site: Vaishali Nagar, Jaipur, Rajasthan (B-O, Vaishali Tower-1, Nursery Circle, Jaipur-21).",
+    "Reference slots: layout=moah-studio, type=noth, motion=airborne-studio, components=poch-studio, conversion=tagsen (new). All are inspiration_only.",
+    "Added tagsen to brain/resources.json with trust NEW and provenance research_agent.",
+    "Proposed a Print / Digital / Design grouping of the 12 services as an option for ux. It is not a design decision.",
+    "PRODUCT.md was an empty template, so research used the dispatch brief plus the site audit as input."
+  ],
+  "files_created": [
+    "projects/abizcreator/docs/CLIENT_SITE.md",
+    "projects/abizcreator/docs/COMPETITORS.md",
+    "projects/abizcreator/docs/INSPIRATION.md",
+    "projects/abizcreator/docs/REFERENCE_BREAKDOWN.md",
+    "projects/abizcreator/docs/research/client-home-1440.png",
+    "projects/abizcreator/docs/research/client-home-390.png",
+    "projects/abizcreator/docs/research/ref-moah-1440.jpg",
+    "projects/abizcreator/docs/research/ref-noth-1440.jpg",
+    "projects/abizcreator/docs/research/ref-airborne-1440.jpg",
+    "projects/abizcreator/docs/research/ref-poch-1440.jpg",
+    "projects/abizcreator/docs/research/ref-tagsen-1440.jpg",
+    "projects/abizcreator/docs/handoff/research.json",
+    "brain/resources.json (appended tagsen)"
+  ],
+  "resources_used": ["moah-studio", "noth", "airborne-studio", "poch-studio", "tagsen"],
+  "patterns_used": [],
+  "risks": [
+    "The current site has almost no real content: services have titles only, the portfolio is theme demo content (lorem text), the blog is empty, and there are no numbers. The new site needs owner-supplied content or it will be thin.",
+    "The client logo wall (Govt of Rajasthan, LIC, Tata Hitachi, Eicher, Raymond, Healthians, Ensol, Shubhashish Geeta) is third-party trademarks with empty alt text. Permission is unconfirmed.",
+    "Positioning conflicts: 'Reasons to hire us' says the firm focuses ONLY on social media, while About says it is a printing firm since 2001, and there are 12 services.",
+    "Years in business conflict: 'since 2001' vs 'over 15 years'.",
+    "Contact email is Gmail and there are no tel:/mailto: links. Without a backend, conversion depends entirely on WhatsApp, phone and mailto.",
+    "SEO migration: /about, /services, /contact and /downloads are indexed. Demo URLs (/portfolio/*, taxonomies, /my-account, /author/admin) need 301 or 410 handling at launch.",
+    "Frontend-only static site vs the AGENTS.md default contact action (Zod/Resend/Turnstile): needs an explicit DECISIONS.md entry and a G3 DoD waiver for the contact-form E2E.",
+    "noth's 1vw root type is not accessible on mobile as-is. It needs a clamp() floor if that mechanism is adopted."
+  ],
+  "open_questions": [
+    "Which service is the lead offer and main revenue source: print (visiting cards, offset), social media management, or websites/apps? Which 3-5 services deserve their own pages first?",
+    "Confirm the canonical business facts: phone and WhatsApp number (is +91-9024282878 correct for both?), whether to move to a domain email (e.g. hello@abizcreator.com), opening hours, and whether walk-ins are welcome.",
+    "Which founding year and 'years in business' figure should be published: 2001 or a later year?",
+    "Which of the 8 client logos may be named publicly, and are any of them willing to be a short case study (what was done, one-line outcome)?",
+    "May the 3 testimonials (Amit Sharma, Mukul, Chhaya Yadav) be reused, and what is their source (Google/Justdial)? What are the current Google rating and review count?",
+    "Can the owner supply real work samples (the /downloads PDFs: business cards, logos, portfolio) as original files with permission to publish?",
+    "Who is Aditya (named in a testimonial)? Should the owner or team appear on the site?",
+    "Keep or evolve the current brand (cyan/blue wordmark, 'Print | Digital | Design' tagline)? Is a vector logo available?",
+    "Are prices or 'starting from' rates (e.g. visiting cards per 100/500/1000) and turnaround times publishable?",
+    "Should the new site keep the Downloads page (GST certificate, brochures), and should the blog be revived or dropped?",
+    "Service area: Jaipur only, all of Rajasthan, or pan-India shipping for print?"
+  ],
+  "next_agent": "ux",
+  "next_instructions": [
+    "Read CLIENT_SITE.md sections 3, 7 and 8 for the service inventory, the URLs to preserve or redirect, and the content gaps.",
+    "Derive the IA with one page per service or service group (company-site pipeline rule). The Print / Digital / Design grouping is an option only.",
+    "Plan tap-to-call, WhatsApp (context-aware prefilled text, per REFERENCE_BREAKDOWN §5) and mailto as the conversion path, since the site has no backend.",
+    "Growth: the current site has 0 h1s, no JSON-LD, auto-excerpt meta descriptions and no llms.txt. Plan LocalBusiness/ProfessionalService schema for Vaishali Nagar, Jaipur, and consider locality pages (competitor Digiwebart ranks with them).",
+    "Design-director: the measured motion, type and layout numbers are in REFERENCE_BREAKDOWN.md. Choose between them in S3; research made no design decisions."
+  ]
+}

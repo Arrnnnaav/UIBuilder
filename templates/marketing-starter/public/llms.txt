@@ -1,0 +1,8 @@
+# Site Name
+
+> One sentence that says who this is for and what they get.
+
+## Pages
+
+- [Home](https://example.com/): What Site Name does and for whom.
+- [Contact](https://example.com/contact): How to get in touch.

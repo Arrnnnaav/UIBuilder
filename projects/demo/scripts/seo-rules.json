@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "spec": "docs/superpowers/specs/2026-09-25-git-site-connector-design.md",
+  "aiCrawlers": ["GPTBot", "ClaudeBot", "PerplexityBot", "Google-Extended", "OAI-SearchBot"],
+  "rules": [
+    { "code": "missing-llms-txt", "scope": "site", "severity": "medium", "category": "geo", "message": "/llms.txt is absent", "fixType": "llms_txt" },
+    { "code": "invalid-jsonld", "scope": "page", "severity": "high", "category": "seo", "message": "JSON-LD does not parse, or lacks @context / @type", "fixType": "jsonld" },
+    { "code": "missing-org-schema", "scope": "page", "severity": "medium", "category": "geo", "message": "The home page has no Organization, Person or LocalBusiness schema", "fixType": "jsonld" },
+    { "code": "missing-faq-schema", "scope": "page", "severity": "medium", "category": "aeo", "message": "The page has question headings but no FAQPage schema", "fixType": "faq" },
+    { "code": "missing-article-schema", "scope": "page", "severity": "medium", "category": "aeo", "message": "A blog post has no Article or BlogPosting schema", "fixType": "jsonld" },
+    { "code": "no-answer-first-block", "scope": "page", "severity": "low", "category": "aeo", "message": "A question heading is not followed by a direct 40-60 word answer", "fixType": "faq" },
+    { "code": "ai-crawlers-blocked", "scope": "site", "severity": "high", "category": "geo", "message": "robots.txt blocks AI crawlers that the owner's policy allows", "fixType": "crawler_policy" },
+    { "code": "missing-sameas-entities", "scope": "page", "severity": "low", "category": "geo", "message": "The Organization/Person schema has no sameAs profiles", "fixType": "jsonld" },
+    { "code": "stale-sitemap-lastmod", "scope": "site", "severity": "low", "category": "seo", "message": "Sitemap lastmod is older than 180 days or missing", "fixType": "manual" },
+    { "code": "missing-author-eeat", "scope": "page", "severity": "medium", "category": "geo", "message": "An article has no author", "fixType": "jsonld" }
+  ]
+}
