@@ -88,12 +88,13 @@ Legend: ✅ done · 🟡 in progress · ⬜ todo · ⛔ blocked (reason)
   `pnpm test` exit 0 (12/12). `pnpm seo:audit` returned exit 2 because
   no site server was running at localhost:3000; rerun it against a built,
   started site during S6. These passes cover the starter, not the S4 site.
-- 🟡 Git publication: root `.gitignore` now excludes local credentials,
+- ✅ Git publication, 2026-09-26: root `.gitignore` excludes local credentials,
   dependencies, build output, browser logs, and two vendored skills without
   redistribution terms; `.env.example` is explicitly included. The three
   zero-commit nested `.git` directories were preserved in ignored
-  `.git-metadata-backup/` so project source can be committed in this root
-  repository. Initial commit and push remain to be verified.
+  `.git-metadata-backup/` so project source is committed as ordinary files.
+  Initial commit `968cb80` contains 459 files; `git push -u origin main`
+  succeeded to `https://github.com/Arrnnnaav/UIBuilder.git`.
 
 ## M5 — BusinessOS connector ✅ (2026-09-25)
 - ✅ Added `core/integrations/site-connector.mjs`, `integrations/git-site/connector.mjs`, `core/seo/aeo-geo.mjs` (10 codes), `plugins/seo/site-fix-service.mjs`, and a fake-github fixture

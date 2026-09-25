@@ -28,7 +28,7 @@
   "risks": [
     "Portfolio app and growth files remain starter placeholders despite approved G2.",
     "QA and growth reports have no S6 results; G3 and deployment have not run.",
-    "No initial git commits exist in the UIBuilder root or portfolio nested repository.",
+    "The UIBuilder root has an initial commit, but the portfolio does not yet have an independent deployment repository or remote.",
     "No confirmed domain, email, LinkedIn URL or public consent for the Dehurdle name."
   ],
   "open_questions": [
