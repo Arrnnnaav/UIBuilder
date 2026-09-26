@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "@id": "https://arnav-khandelwal.vercel.app/work/edge-node#project",
+  "name": "Project Edge Node",
+  "description": "A local telemetry classifier with validated inputs, structured output and a documented localhost latency fix.",
+  "url": "https://arnav-khandelwal.vercel.app/work/edge-node",
+  "codeRepository": "https://github.com/Arrnnnaav/Project-Edge-Node",
+  "programmingLanguage": [
+    "Python"
+  ],
+  "author": {
+    "@id": "https://arnav-khandelwal.vercel.app/#person"
+  }
+}

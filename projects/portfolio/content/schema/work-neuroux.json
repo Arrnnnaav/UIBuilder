@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://arnav-khandelwal.vercel.app/work/neuroux#page",
+  "url": "https://arnav-khandelwal.vercel.app/work/neuroux",
+  "name": "NeuroUX · Arnav Khandelwal",
+  "description": "An experimental media-analysis pipeline that maps predicted cortical activation to transparent UX scoring formulas.",
+  "isPartOf": {
+    "@id": "https://arnav-khandelwal.vercel.app/#website"
+  },
+  "about": {
+    "@id": "https://arnav-khandelwal.vercel.app/#person"
+  },
+  "inLanguage": "en",
+  "mainEntity": {
+    "@type": "Article",
+    "@id": "https://arnav-khandelwal.vercel.app/work/neuroux#article",
+    "headline": "NeuroUX — Brain-response inference on a laptop GPU.",
+    "description": "An experimental media-analysis pipeline that maps predicted cortical activation to transparent UX scoring formulas.",
+    "author": {
+      "@id": "https://arnav-khandelwal.vercel.app/#person"
+    },
+    "about": {
+      "@id": "https://arnav-khandelwal.vercel.app/work/neuroux#project"
+    },
+    "mainEntityOfPage": {
+      "@id": "https://arnav-khandelwal.vercel.app/work/neuroux#page"
+    },
+    "inLanguage": "en",
+    "dateModified": "2026-09-27",
+    "citation": [
+      "https://github.com/Arrnnnaav/neuroux/blob/08309e3d413b0be5f7079102c1005f1809a0422b/README.md"
+    ]
+  },
+  "dateModified": "2026-09-27"
+}

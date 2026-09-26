@@ -1,0 +1,9 @@
+{
+  "route": "/work/cited-researcher",
+  "items": [
+    {
+      "q": "How does the researcher keep answers traceable?",
+      "a": "The Cited Multi-Agent Researcher decomposes a question, runs grounded search agents and passes their sources through deterministic deduplication and citation assignment before synthesis. Its repository documents a five-agent cap and 33 unit tests. Citations make sources inspectable, but neither those citations nor the LLM judge guarantee that every generated statement is accurate."
+    }
+  ]
+}

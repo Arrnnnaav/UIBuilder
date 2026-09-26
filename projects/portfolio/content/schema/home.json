@@ -1,0 +1,16 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://arnav-khandelwal.vercel.app/#page",
+  "url": "https://arnav-khandelwal.vercel.app/",
+  "name": "Arnav Khandelwal · Backend & AI Engineer, MNIT Jaipur",
+  "description": "Explore Arnav Khandelwal’s backend and AI projects: offline LLM services, cited agents and auditable reconciliation, with public evidence.",
+  "isPartOf": {
+    "@id": "https://arnav-khandelwal.vercel.app/#website"
+  },
+  "about": {
+    "@id": "https://arnav-khandelwal.vercel.app/#person"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-09-27"
+}

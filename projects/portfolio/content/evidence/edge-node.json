@@ -1,0 +1,30 @@
+{
+  "project": "edge-node",
+  "sources": [
+    {
+      "id": 1,
+      "title": "Committed benchmark report",
+      "url": "https://github.com/Arrnnnaav/Project-Edge-Node/blob/23b7b6a26bd62f67c94f1067d85d2230a9bb43e7/benchmark_report.md"
+    }
+  ],
+  "metrics": [
+    {
+      "label": "Mean request latency",
+      "source": 1,
+      "status": "verified",
+      "kind": "comparison",
+      "before": 5.356,
+      "after": 0.973,
+      "unit": "s"
+    },
+    {
+      "label": "Latency requests",
+      "source": 1,
+      "status": "verified",
+      "kind": "value",
+      "value": "50",
+      "unit": "requests",
+      "caveat": "Zero failed latency requests; TTFT measured separately on 10 requests."
+    }
+  ]
+}

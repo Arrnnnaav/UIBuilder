@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "@id": "https://arnav-khandelwal.vercel.app/work/ledgerbridge#project",
+  "name": "LedgerBridge",
+  "description": "An auditable bank, ledger and Razorpay reconciliation engine with deterministic matching and a read-only narration layer.",
+  "url": "https://arnav-khandelwal.vercel.app/work/ledgerbridge",
+  "codeRepository": "https://github.com/Arrnnnaav/LedgerBridge-AI-",
+  "programmingLanguage": [
+    "Python"
+  ],
+  "author": {
+    "@id": "https://arnav-khandelwal.vercel.app/#person"
+  }
+}

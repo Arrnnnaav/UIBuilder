@@ -12,7 +12,7 @@ export default defineConfig({
   workers: process.env.CI ? 2 : undefined,
   reporter: process.env.CI ? [["github"], ["html", { open: "never" }]] : "list",
   expect: { toHaveScreenshot: { maxDiffPixelRatio: 0.01 } },
-  // Baselines are per-OS (fonts render differently). CI seeds linux baselines with --update-snapshots=missing.
+  // Baselines are per-OS (fonts render differently). Review and commit them before CI comparison.
   snapshotPathTemplate: "{testDir}/__snapshots__/{platform}/{projectName}/{arg}{ext}",
   use: { baseURL: `http://localhost:${PORT}`, trace: "retain-on-failure" },
   projects: [

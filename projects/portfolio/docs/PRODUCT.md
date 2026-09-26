@@ -63,3 +63,11 @@
 - Positioning: "fast, auditable, honest" (above).
 - **Résumé numbers without a public source** (Cited Researcher 152s→26s; BusinessHQ 180ms→35ms and 35+ tests; Edge Node Q4_K_M): the owner will commit sources to the repos. Until then, those rows are **hidden**, and only repo-sourced numbers ship. The evidence data model keeps the rows with `status: "pending-source"`, so they appear once a source URL is filled in.
 - G1 approved, so the project goes on to S3 Design Council.
+
+
+## S4 source refresh (2026-09-26)
+- Owner supplied `resume (2).pdf`; the email is **arnavkhandelwal446@gmail.com**. Earlier `@email.com` text was a transcription error.
+- The résumé route is included; the backend/orchestrator copies the supplied PDF to `public/arnav-khandelwal-resume.pdf`. The document is original owner material.
+- The G1 metrics rule still applies: résumé-only timing rows remain hidden pending public benchmark evidence.
+- LinkedIn, residential location, hiring availability and employer-name disclosure are not inferred. Public copy omits those unsupported details.
+- The provisional hosting target is `https://arnav-khandelwal.vercel.app`; the custom domain is deferred by the owner. This target is not proof of deployment.

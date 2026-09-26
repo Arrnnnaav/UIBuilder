@@ -1,0 +1,9 @@
+{
+  "route": "/work/ghostcursor",
+  "items": [
+    {
+      "q": "Does GhostCursor control the mouse or type for me?",
+      "a": "No. GhostCursor highlights a trusted control, waits for the human to act and then verifies the resulting application state. Goals map to reviewed recipes rather than arbitrary model-generated actions. Its published intent evaluation covers 30 cases and its supported workflows are bounded; this is not unrestricted desktop automation."
+    }
+  ]
+}

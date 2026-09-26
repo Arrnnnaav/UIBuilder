@@ -1,4 +1,12 @@
 import { metadataFor } from "@/lib/seo";
+import { portfolio, evidenceFor } from "@/lib/portfolio";
+import { Ledger } from "@/components/portfolio/Ledger";
+import { EvidenceFigure } from "@/components/portfolio/EvidenceFigure";
+import { MoreWork } from "@/components/portfolio/WorkIndex";
+import { ContactForm } from "@/components/contact/ContactForm";
+import { Faq } from "@/components/seo/Faq";
+import { Intro } from "@/components/portfolio/Intro";
+import { PageSchema } from "@/components/portfolio/PageSchema";
 
 export const metadata = metadataFor("/styleguide");
 
@@ -15,7 +23,8 @@ const type = [
 export default function Styleguide() {
   return (
     <div className="py-16 grid gap-16">
-      <h1 className="text-[length:var(--text-xl)] font-semibold">Styleguide</h1>
+      <PageSchema route="/styleguide" />
+      <Intro title="Styleguide"><p>The approved tokens and real components, with source-backed data.</p></Intro>
       <section aria-labelledby="sg-colors">
         <h2 id="sg-colors" className="font-semibold mb-4">
           Colour
@@ -25,7 +34,7 @@ export default function Styleguide() {
             <li key={name} className="flex items-center gap-3">
               <span
                 aria-hidden="true"
-                className="size-10 rounded-md border border-border"
+                className="size-10 border border-border"
                 style={{ background: `var(--color-${name})` }}
               />
               <code>--color-{name}</code>
@@ -39,10 +48,14 @@ export default function Styleguide() {
         </h2>
         {type.map(([label, token]) => (
           <p key={label} style={{ fontSize: `var(${token})` }} className="leading-tight">
-            {label} — The quick brown fox
+            {label}: The quick brown fox
           </p>
         ))}
       </section>
+      <section><h2>Ledger states</h2><Ledger id="styleguide-ledger" caption="Comparison, single value and qualitative facts." rows={portfolio.projects.flatMap(p => { const e = evidenceFor(p.slug); return e.metrics.slice(0, 1).map(metric => ({ metric, evidence: e, title: p.title, slug: p.slug })); })} /></section>
+      <section><h2>Evidence figures</h2><div className="resume-projects">{portfolio.projects.map(p => <EvidenceFigure key={p.slug} project={p} />)}</div></section>
+      <section><h2>Contact form</h2><ContactForm /></section>
+      <Faq route="/" /><MoreWork />
       <section aria-labelledby="sg-components">
         <h2 id="sg-components" className="font-semibold mb-4">
           Components

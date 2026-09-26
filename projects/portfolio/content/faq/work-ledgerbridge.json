@@ -1,0 +1,9 @@
+{
+  "route": "/work/ledgerbridge",
+  "items": [
+    {
+      "q": "Does an AI decide LedgerBridge reconciliation matches?",
+      "a": "No. LedgerBridge uses deterministic matching rules and Decimal arithmetic to reconcile records; an optional local model only narrates the resulting evidence. Ambiguous or unresolved records receive explicit exceptions. Its published scale timing uses a project dataset, and its sealed-benchmark consistency scores are explicitly not a measure of real-world reconciliation accuracy."
+    }
+  ]
+}

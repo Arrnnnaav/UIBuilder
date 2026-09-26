@@ -17,7 +17,8 @@ describe("SEO contract", () => {
   });
 
   it("excludes noindex routes from the sitemap", () => {
-    expect(indexableRoutes()).not.toContain("/styleguide");
+    expect(indexableRoutes()).not.toContain("/e2e-error");
+    expect(indexableRoutes()).toContain("/styleguide");
     expect(indexableRoutes()).toContain("/");
   });
 

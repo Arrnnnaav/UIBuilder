@@ -1,0 +1,38 @@
+{
+  "project": "ledgerbridge",
+  "sources": [
+    {
+      "id": 1,
+      "title": "Public repository README",
+      "url": "https://github.com/Arrnnnaav/LedgerBridge-AI-/blob/8ebae46f627de0ef2d219430f304baf427b9e6cf/README.md"
+    }
+  ],
+  "metrics": [
+    {
+      "label": "Scale dataset",
+      "source": 1,
+      "status": "verified",
+      "kind": "value",
+      "value": "103,049",
+      "unit": "records",
+      "caveat": "Project benchmark dataset."
+    },
+    {
+      "label": "Median engine time",
+      "source": 1,
+      "status": "verified",
+      "kind": "value",
+      "value": "5.114",
+      "unit": "s",
+      "caveat": "Five runs on the published scale dataset; not production performance."
+    },
+    {
+      "label": "Demo disposition",
+      "source": 1,
+      "status": "verified",
+      "kind": "fact",
+      "value": "62 matched / 15 exceptions",
+      "caveat": "77-record demo dataset; separate from the scale benchmark."
+    }
+  ]
+}

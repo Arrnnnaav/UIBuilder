@@ -1,5 +1,7 @@
 # DESIGN — portfolio
 > Law for every agent. If something isn't here, don't invent it; update this file first.
+> Owner update, 2026-09-26: `/styleguide` is a public indexable design-system page.
+> Its visual system is unchanged; robots/sitemap/SEO policy now includes it.
 > design-director (critic), S3, 2026-09-25. Inputs: `docs/directions/A.md`, `B.md`, `C.md`, PRODUCT.md (G1 decisions), WIREFRAMES.md, IA.md, `brain/preferences.md`, `pipelines/portfolio/DESIGN.base.md`. Skills: frontend-design, taste-skill, web-design-guidelines.
 > Lineage tags: **[A]** restrained, **[B]** instrument panel, **[C]** technical report, **[critic]** new in the merge. Every decision below carries one.
 

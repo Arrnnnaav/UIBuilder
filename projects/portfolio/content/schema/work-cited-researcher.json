@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://arnav-khandelwal.vercel.app/work/cited-researcher#page",
+  "url": "https://arnav-khandelwal.vercel.app/work/cited-researcher",
+  "name": "Cited Multi-Agent Researcher · Arnav Khandelwal",
+  "description": "A research pipeline that scales search effort to the question and keeps citations attached to its synthesis.",
+  "isPartOf": {
+    "@id": "https://arnav-khandelwal.vercel.app/#website"
+  },
+  "about": {
+    "@id": "https://arnav-khandelwal.vercel.app/#person"
+  },
+  "inLanguage": "en",
+  "mainEntity": {
+    "@type": "Article",
+    "@id": "https://arnav-khandelwal.vercel.app/work/cited-researcher#article",
+    "headline": "Cited Multi-Agent Researcher — Parallel research. One traceable answer.",
+    "description": "A research pipeline that scales search effort to the question and keeps citations attached to its synthesis.",
+    "author": {
+      "@id": "https://arnav-khandelwal.vercel.app/#person"
+    },
+    "about": {
+      "@id": "https://arnav-khandelwal.vercel.app/work/cited-researcher#project"
+    },
+    "mainEntityOfPage": {
+      "@id": "https://arnav-khandelwal.vercel.app/work/cited-researcher#page"
+    },
+    "inLanguage": "en",
+    "dateModified": "2026-09-27",
+    "citation": [
+      "https://github.com/Arrnnnaav/Cited-Multi-Agent-Researcher/blob/0e1a4db819bc707ad2a75f43d2f10ccf6828a2ee/README.md"
+    ]
+  },
+  "dateModified": "2026-09-27"
+}

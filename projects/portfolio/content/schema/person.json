@@ -1,0 +1,27 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://arnav-khandelwal.vercel.app/#person",
+  "name": "Arnav Khandelwal",
+  "url": "https://arnav-khandelwal.vercel.app/",
+  "jobTitle": "Software Engineer",
+  "description": "Backend and AI engineer; Electrical Engineering undergraduate at MNIT Jaipur.",
+  "email": "mailto:arnavkhandelwal446@gmail.com",
+  "sameAs": [
+    "https://github.com/Arrnnnaav"
+  ],
+  "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name": "Malaviya National Institute of Technology Jaipur",
+    "url": "https://mnit.ac.in"
+  },
+  "knowsAbout": [
+    "Python",
+    "Java",
+    "FastAPI",
+    "Spring Boot",
+    "LLMs",
+    "Backend engineering",
+    "Performance profiling"
+  ]
+}

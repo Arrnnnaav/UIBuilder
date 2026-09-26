@@ -1,20 +1,23 @@
 import { ContactForm } from "@/components/contact/ContactForm";
 import { clientEnv } from "@/lib/env";
 import { metadataFor } from "@/lib/seo";
-import { site } from "@/lib/site";
+import { portfolio } from "@/lib/portfolio";
+import { Intro } from "@/components/portfolio/Intro";
+import { ProfileLinks } from "@/components/portfolio/ProfileLinks";
+import { PageSchema } from "@/components/portfolio/PageSchema";
+import { Faq } from "@/components/seo/Faq";
 
 export const metadata = metadataFor("/contact");
 
 export default function ContactPage() {
   return (
-    <section className="py-16">
-      <h1 className="text-[length:var(--text-xl)] font-semibold">Contact</h1>
-      <p className="mt-4 text-muted max-w-[var(--measure)]">
-        Tell us what you need. Prefer email? Write to <a href={`mailto:${site.email}`}>{site.email}</a>.
-      </p>
-      <div className="mt-10">
-        <ContactForm turnstileSiteKey={clientEnv.NEXT_PUBLIC_TURNSTILE_SITE_KEY} />
+    <>
+      <Intro title={`Contact ${portfolio.name}`}><p>Write about backend and AI roles, internships, collaborations or a build you have in mind.</p></Intro>
+      <div className="contact-grid">
+        <ContactForm turnstileSiteKey={clientEnv.NEXT_PUBLIC_TURNSTILE_SITE_KEY} github={portfolio.github} />
+        <aside><h2>Direct channels</h2><p className="caption">Prefer a direct conversation? Use a profile or email.</p><ProfileLinks /></aside>
       </div>
-    </section>
+      <div className="page-section"><Faq route="/contact" /></div><PageSchema route="/contact" />
+    </>
   );
 }

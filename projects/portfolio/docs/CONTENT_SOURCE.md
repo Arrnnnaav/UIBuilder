@@ -19,7 +19,7 @@ Numbers are quoted as written in the source. If a number appears only on the res
 | Experience | Backend Engineering Intern, Dehurdle (Jun–Aug 2026) | [R] |
 | GitHub | https://github.com/Arrnnnaav | verified (gh API) |
 | LinkedIn | https://linkedin.com/in/arnav-khandelwal (handle `arnav-khandelwal`) | **UNVERIFIED.** Handle comes from the brief. Owner must confirm the URL. |
-| Email | `arnavkhandelwal446@email.com` as printed on the resume | **NEEDS CONFIRMATION.** `@email.com` looks like a typo for a real provider such as gmail.com. The GitHub profile email is not public. Do not publish it until the owner confirms. |
+| Email | `arnavkhandelwal446@gmail.com` | Confirmed by the newly supplied résumé PDF, extracted with PyMuPDF 2026-09-26. |
 | GitHub bio / blog / company | all empty | GitHub profile. There is no profile README repo (`Arrnnnaav/Arrnnnaav` returns 404). |
 | Skills | Python, Java, SQL, FastAPI, Spring Boot, PyTorch, Transformers, LLMs, RAG, LangChain, Ollama, Docker | [R] |
 | Achievements | Amazon ML Summer School '25; JEE Main 98.6 percentile; Asian Championship Skating bronze (2018) | [R] |
@@ -399,7 +399,7 @@ BuisnessHQ, smb-safeops, UNIfied, PointAI, trading-bot, learning-hq — **privat
 ---
 
 ## 6. Gaps — owner must supply or confirm
-1. **Email:** `arnavkhandelwal446@email.com` looks like a typo. Confirm the real address and provider.
+1. **Email resolved:** original supplied PDF gives `arnavkhandelwal446@gmail.com`; `@email.com` was a transcription error.
 2. **LinkedIn:** confirm https://linkedin.com/in/arnav-khandelwal.
 3. **Location:** confirm "Jaipur, India" for display. The GitHub profile has none.
 4. **Headshot or photo:** none available.
@@ -423,4 +423,15 @@ BuisnessHQ, smb-safeops, UNIfied, PointAI, trading-bot, learning-hq — **privat
     - Missing READMEs in Vitrual_Painter, Finger_Counter and opencv.
     - Typos in repo names: "BuisnessHQ", "Vitrual_Painter".
     - Sparse history: Cited Researcher, neuroux and LearningHQ each have 1 commit.
-13. **Resume PDF** for download: not provided.
+13. **Résumé PDF resolved:** owner supplied `resume (2).pdf`; the public copy matches it byte-for-byte (see `docs/evidence/content-review.json`, 2026-09-27).
+
+
+## 2026-09-26 authoritative résumé refresh and S4 publication policy
+
+Command: `python -c "import fitz; d=fitz.open(r'C:\Users\user\Downloads\resume (2).pdf'); print('\n'.join(p.get_text() for p in d))"`. Extraction succeeded. The PDF explicitly gives **arnavkhandelwal446@gmail.com**, resolving the earlier email transcription error. The institution address is not proof of current residence, so `location` remains null. The bare `arnav-khandelwal` text is not a full LinkedIn URL and remains unverified; `linkedin` stays null. Personal phone and institutional email are not added to public page copy.
+
+The user's instruction to use this résumé supplies biographical facts, but does not override G1's policy requiring public metric evidence. Cited Researcher 152s → 26s is retained as pending-source, hidden by the UI. BusinessHQ remains outside the six flagship studies because its public repository has no code evidence. Internship copy omits employer attribution until the existing disclosure question is resolved. StudyOS uses “Project contributor” instead of an unsupported solo-builder claim.
+
+The six public READMEs and Edge Node benchmark report were retrieved again with `gh api repos/Arrnnnaav/<repo>/readme` and `gh api repos/Arrnnnaav/Project-Edge-Node/contents/benchmark_report.md`. Snapshots in `docs/source-snapshots/` preserve what was checked; counts are repository-reported, not fresh project test runs. The NeuroUX text timing is omitted because its README mixes extrapolated and observed baselines; the video observation is explicitly approximate and hardware-specific.
+
+`https://arnav-khandelwal.vercel.app` is the provisional target from the shared contract, not an observed live deployment. Canonicals, schema IDs, résumé evidence URL and llms.txt must be updated if deployment selects another URL. Route `lastModified: 2026-09-26` records this editorial update, not upstream project creation dates.

@@ -1,0 +1,36 @@
+{
+  "project": "cited-researcher",
+  "sources": [
+    {
+      "id": 1,
+      "title": "Public repository README",
+      "url": "https://github.com/Arrnnnaav/Cited-Multi-Agent-Researcher/blob/0e1a4db819bc707ad2a75f43d2f10ccf6828a2ee/README.md"
+    },
+    {
+      "id": 2,
+      "title": "Owner-supplied résumé (timing awaits public benchmark)",
+      "url": "https://arnav-khandelwal.vercel.app/arnav-khandelwal-resume.pdf"
+    }
+  ],
+  "metrics": [
+    {
+      "label": "Unit tests documented",
+      "source": 1,
+      "status": "verified",
+      "kind": "value",
+      "value": "33",
+      "unit": "tests",
+      "caveat": "README-reported suite count, not a new test execution."
+    },
+    {
+      "label": "Five-worker execution time",
+      "kind": "comparison",
+      "before": 152,
+      "after": 26,
+      "unit": "s",
+      "source": 2,
+      "status": "pending-source",
+      "caveat": "Résumé-only timing; hidden until a public benchmark is committed."
+    }
+  ]
+}

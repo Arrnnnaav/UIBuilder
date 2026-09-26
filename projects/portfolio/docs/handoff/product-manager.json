@@ -1,0 +1,10 @@
+{
+  "agent": "product-manager",
+  "status": "complete",
+  "inputs_used": ["docs/PRODUCT.md", "docs/CONTENT_SOURCE.md", "docs/DESIGN.md", "docs/WIREFRAMES.md", "docs/STATE.md", "docs/S4_CONTENT_CONTRACT.md", "AGENTS.md", "scripts/gate.mjs", "e2e/site.spec.ts", "scripts/perf.mjs"],
+  "decisions": ["Full G1/G2-approved scope mapped to 11 capabilities and 20 observable acceptance items", "Delivery remains unverified until integrated command/runtime evidence is inspected", "Custom domain deferred; unsupported biography/metrics remain omitted", "Product-manager has no gate or orchestration authority"],
+  "files_created": ["docs/PRODUCT_REQUIREMENTS.md", "docs/ACCEPTANCE.md", "docs/PRIORITIES.md", "../../docs/GATE_GAPS.md"],
+  "risks": ["Current gate implementation omits or narrows some rulebook proof", "Integrated G3 and deployment not yet proven", "Provider receipts and BusinessOS approvals need actual configuration/owner action"],
+  "next_agent": "orchestrator",
+  "next_instructions": ["Use ACCEPTANCE.md to collect exact evidence for every delivered capability", "Review docs/GATE_GAPS.md while fixing root gate checks", "Dispatch design review and ship after S4 integration; do not mark acceptance verified from artifact presence alone", "Keep owner G1/G2 and deploy/BusinessOS approvals intact"]
+}

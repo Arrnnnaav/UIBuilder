@@ -1,0 +1,20 @@
+{
+  "project": "studyos",
+  "sources": [
+    {
+      "id": 1,
+      "title": "Public repository README",
+      "url": "https://github.com/Arrnnnaav/StudyOS-Hackathon/blob/22b9685dda1a26140fa6b0fbd9c0838aa49fe758/README.md"
+    }
+  ],
+  "metrics": [
+    {
+      "label": "Learning workflow",
+      "source": 1,
+      "status": "verified",
+      "kind": "fact",
+      "value": "Today → Point & Ask → Review",
+      "caveat": "Documented workflow; no measured learning-outcome claim."
+    }
+  ]
+}

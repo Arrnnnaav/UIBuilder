@@ -55,6 +55,10 @@ function jsonLdBlocks(html, route) {
   return out;
 }
 const types = (blocks) => new Set(blocks.flatMap((b) => [b["@type"]].flat()));
+function entities(value) {
+  if (!value || typeof value !== "object") return [];
+  return [...(value["@type"] ? [value] : []), ...Object.values(value).flatMap(entities)];
+}
 
 function auditPage(route, html) {
   const title = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]?.trim();
@@ -85,11 +89,11 @@ function auditPage(route, html) {
     if (n < 40) add("no-answer-first-block", route, `"${q.trim()}" answer has ${n} words`);
   }
 
-  const isArticle = /\/(blog|posts?|articles?|news)\/.+/.test(route);
-  if (isArticle && !t.has("Article") && !t.has("BlogPosting")) add("missing-article-schema", route);
+  const isArticle = /\/(blog|posts?|articles?|news|work)\/.+/.test(route);
+  const article = blocks.flatMap(entities).find((item) => ["Article", "BlogPosting"].includes(item["@type"]));
+  if (isArticle && !article) add("missing-article-schema", route);
   if (isArticle) {
-    const art = blocks.find((b) => ["Article", "BlogPosting"].includes(b["@type"]));
-    if (art && !art.author) add("missing-author-eeat", route);
+    if (article && !article.author) add("missing-author-eeat", route);
   }
 }
 
@@ -116,6 +120,8 @@ const blocksRoot = (groups, bot) => {
 const main = async () => {
   for (const route of Object.keys(routes)) {
     const { status, text } = await get(route);
+    // Registered for test builds only; production must hide this route.
+    if (route === "/e2e-error" && routes[route].robots.startsWith("noindex") && status === 404) continue;
     if (status !== 200) {
       add("missing-title", route, `HTTP ${status}`);
       continue;

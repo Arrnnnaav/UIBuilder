@@ -1,0 +1,218 @@
+[
+  {
+    "route": "/",
+    "width": 390,
+    "status": 200,
+    "scrollWidth": 390,
+    "h1": "Arnav KhandelwalBackend & AI engineer, MNIT Jaipur",
+    "errors": [],
+    "file": "docs/evidence/visual/390-home.png"
+  },
+  {
+    "route": "/work",
+    "width": 390,
+    "status": 200,
+    "scrollWidth": 390,
+    "h1": "Selected work",
+    "errors": [],
+    "file": "docs/evidence/visual/390-work.png"
+  },
+  {
+    "route": "/work/edge-node",
+    "width": 390,
+    "status": 200,
+    "scrollWidth": 390,
+    "h1": "Project Edge Node: Offline telemetry, measured end to end.",
+    "errors": [],
+    "file": "docs/evidence/visual/390-work_edge-node.png"
+  },
+  {
+    "route": "/work/cited-researcher",
+    "width": 390,
+    "status": 200,
+    "scrollWidth": 390,
+    "h1": "Cited Multi-Agent Researcher: Parallel research. One traceable answer.",
+    "errors": [],
+    "file": "docs/evidence/visual/390-work_cited-researcher.png"
+  },
+  {
+    "route": "/work/ledgerbridge",
+    "width": 390,
+    "status": 200,
+    "scrollWidth": 390,
+    "h1": "LedgerBridge: Deterministic reconciliation. Evidence for every exception.",
+    "errors": [],
+    "file": "docs/evidence/visual/390-work_ledgerbridge.png"
+  },
+  {
+    "route": "/work/ghostcursor",
+    "width": 390,
+    "status": 200,
+    "scrollWidth": 390,
+    "h1": "GhostCursor: An AI desktop guide that waits for you.",
+    "errors": [],
+    "file": "docs/evidence/visual/390-work_ghostcursor.png"
+  },
+  {
+    "route": "/work/neuroux",
+    "width": 390,
+    "status": 200,
+    "scrollWidth": 390,
+    "h1": "NeuroUX: Brain-response inference on a laptop GPU.",
+    "errors": [],
+    "file": "docs/evidence/visual/390-work_neuroux.png"
+  },
+  {
+    "route": "/work/studyos",
+    "width": 390,
+    "status": 200,
+    "scrollWidth": 390,
+    "h1": "StudyOS: Learn next. Ask in context. Remember.",
+    "errors": [],
+    "file": "docs/evidence/visual/390-work_studyos.png"
+  },
+  {
+    "route": "/about",
+    "width": 390,
+    "status": 200,
+    "scrollWidth": 390,
+    "h1": "About Arnav Khandelwal",
+    "errors": [],
+    "file": "docs/evidence/visual/390-about.png"
+  },
+  {
+    "route": "/contact",
+    "width": 390,
+    "status": 200,
+    "scrollWidth": 390,
+    "h1": "Contact Arnav Khandelwal",
+    "errors": [],
+    "file": "docs/evidence/visual/390-contact.png"
+  },
+  {
+    "route": "/resume",
+    "width": 390,
+    "status": 200,
+    "scrollWidth": 390,
+    "h1": "Arnav Khandelwal, résumé",
+    "errors": [],
+    "file": "docs/evidence/visual/390-resume.png"
+  },
+  {
+    "route": "/styleguide",
+    "width": 390,
+    "status": 200,
+    "scrollWidth": 390,
+    "h1": "Styleguide",
+    "errors": [],
+    "file": "docs/evidence/visual/390-styleguide.png"
+  },
+  {
+    "route": "/",
+    "width": 1440,
+    "status": 200,
+    "scrollWidth": 1440,
+    "h1": "Arnav KhandelwalBackend & AI engineer, MNIT Jaipur",
+    "errors": [],
+    "file": "docs/evidence/visual/1440-home.png"
+  },
+  {
+    "route": "/work",
+    "width": 1440,
+    "status": 200,
+    "scrollWidth": 1440,
+    "h1": "Selected work",
+    "errors": [],
+    "file": "docs/evidence/visual/1440-work.png"
+  },
+  {
+    "route": "/work/edge-node",
+    "width": 1440,
+    "status": 200,
+    "scrollWidth": 1440,
+    "h1": "Project Edge Node: Offline telemetry, measured end to end.",
+    "errors": [],
+    "file": "docs/evidence/visual/1440-work_edge-node.png"
+  },
+  {
+    "route": "/work/cited-researcher",
+    "width": 1440,
+    "status": 200,
+    "scrollWidth": 1440,
+    "h1": "Cited Multi-Agent Researcher: Parallel research. One traceable answer.",
+    "errors": [],
+    "file": "docs/evidence/visual/1440-work_cited-researcher.png"
+  },
+  {
+    "route": "/work/ledgerbridge",
+    "width": 1440,
+    "status": 200,
+    "scrollWidth": 1440,
+    "h1": "LedgerBridge: Deterministic reconciliation. Evidence for every exception.",
+    "errors": [],
+    "file": "docs/evidence/visual/1440-work_ledgerbridge.png"
+  },
+  {
+    "route": "/work/ghostcursor",
+    "width": 1440,
+    "status": 200,
+    "scrollWidth": 1440,
+    "h1": "GhostCursor: An AI desktop guide that waits for you.",
+    "errors": [],
+    "file": "docs/evidence/visual/1440-work_ghostcursor.png"
+  },
+  {
+    "route": "/work/neuroux",
+    "width": 1440,
+    "status": 200,
+    "scrollWidth": 1440,
+    "h1": "NeuroUX: Brain-response inference on a laptop GPU.",
+    "errors": [],
+    "file": "docs/evidence/visual/1440-work_neuroux.png"
+  },
+  {
+    "route": "/work/studyos",
+    "width": 1440,
+    "status": 200,
+    "scrollWidth": 1440,
+    "h1": "StudyOS: Learn next. Ask in context. Remember.",
+    "errors": [],
+    "file": "docs/evidence/visual/1440-work_studyos.png"
+  },
+  {
+    "route": "/about",
+    "width": 1440,
+    "status": 200,
+    "scrollWidth": 1440,
+    "h1": "About Arnav Khandelwal",
+    "errors": [],
+    "file": "docs/evidence/visual/1440-about.png"
+  },
+  {
+    "route": "/contact",
+    "width": 1440,
+    "status": 200,
+    "scrollWidth": 1440,
+    "h1": "Contact Arnav Khandelwal",
+    "errors": [],
+    "file": "docs/evidence/visual/1440-contact.png"
+  },
+  {
+    "route": "/resume",
+    "width": 1440,
+    "status": 200,
+    "scrollWidth": 1440,
+    "h1": "Arnav Khandelwal, résumé",
+    "errors": [],
+    "file": "docs/evidence/visual/1440-resume.png"
+  },
+  {
+    "route": "/styleguide",
+    "width": 1440,
+    "status": 200,
+    "scrollWidth": 1440,
+    "h1": "Styleguide",
+    "errors": [],
+    "file": "docs/evidence/visual/1440-styleguide.png"
+  }
+]

@@ -2,31 +2,20 @@
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import posthog from "posthog-js";
-import { clientEnv } from "@/lib/env";
+import { recordPageview } from "@/lib/pageview";
 
-let started = false;
-
-// Cookieless PostHog: memory persistence means no cookies or localStorage, so no consent
-// banner is needed for basic pageview analytics. No key → renders nothing.
-export function Analytics() {
+// Optional analytics; no key means no initialization or captured events.
+export function Analytics({ analyticsKey, analyticsHost }: { analyticsKey?: string; analyticsHost: string }) {
   const pathname = usePathname();
-  const key = clientEnv.NEXT_PUBLIC_POSTHOG_KEY;
 
   useEffect(() => {
-    if (!key) return;
-    if (!started) {
-      posthog.init(key, {
-        api_host: clientEnv.NEXT_PUBLIC_POSTHOG_HOST,
-        persistence: "memory",
-        person_profiles: "identified_only",
-        capture_pageview: false,
-        autocapture: false,
-      });
-      started = true;
-    }
-    posthog.capture("$pageview", { $current_url: window.location.href });
-  }, [key, pathname]);
+    if (!analyticsKey) return;
+    let cancelled = false;
+    void import("posthog-js").then(({ default: posthog }) => {
+      if (!cancelled) recordPageview(posthog, analyticsKey, analyticsHost, window.location.origin, pathname);
+    });
+    return () => { cancelled = true; };
+  }, [analyticsKey, analyticsHost, pathname]);
 
   return null;
 }

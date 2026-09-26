@@ -1,12 +1,12 @@
 {
-  "name": "Site Name",
-  "shortName": "Site",
-  "url": "https://example.com",
+  "name": "Arnav Khandelwal",
+  "shortName": "Arnav",
+  "url": "https://arnav-khandelwal.vercel.app",
   "locale": "en_US",
-  "description": "One sentence that says who this is for and what they get.",
-  "email": "hello@example.com",
+  "description": "Backend and AI engineer studying Electrical Engineering at MNIT Jaipur. Inspectable projects, measured results and public sources.",
+  "email": "arnavkhandelwal446@gmail.com",
   "socials": {
-    "github": "",
+    "github": "https://github.com/Arrnnnaav",
     "linkedin": "",
     "x": ""
   }

@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://arnav-khandelwal.vercel.app/work/ledgerbridge#page",
+  "url": "https://arnav-khandelwal.vercel.app/work/ledgerbridge",
+  "name": "LedgerBridge · Arnav Khandelwal",
+  "description": "An auditable bank, ledger and Razorpay reconciliation engine with deterministic matching and a read-only narration layer.",
+  "isPartOf": {
+    "@id": "https://arnav-khandelwal.vercel.app/#website"
+  },
+  "about": {
+    "@id": "https://arnav-khandelwal.vercel.app/#person"
+  },
+  "inLanguage": "en",
+  "mainEntity": {
+    "@type": "Article",
+    "@id": "https://arnav-khandelwal.vercel.app/work/ledgerbridge#article",
+    "headline": "LedgerBridge — Deterministic reconciliation. Evidence for every exception.",
+    "description": "An auditable bank, ledger and Razorpay reconciliation engine with deterministic matching and a read-only narration layer.",
+    "author": {
+      "@id": "https://arnav-khandelwal.vercel.app/#person"
+    },
+    "about": {
+      "@id": "https://arnav-khandelwal.vercel.app/work/ledgerbridge#project"
+    },
+    "mainEntityOfPage": {
+      "@id": "https://arnav-khandelwal.vercel.app/work/ledgerbridge#page"
+    },
+    "inLanguage": "en",
+    "dateModified": "2026-09-27",
+    "citation": [
+      "https://github.com/Arrnnnaav/LedgerBridge-AI-/blob/8ebae46f627de0ef2d219430f304baf427b9e6cf/README.md"
+    ]
+  },
+  "dateModified": "2026-09-27"
+}

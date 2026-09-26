@@ -31,6 +31,9 @@ for (const [route, m] of Object.entries(routes)) {
     err(f, `description length ${m.description?.length} not in 50..160`);
   if (!m.canonical?.startsWith("/")) err(f, "canonical must start with /");
   if (!ROBOTS.includes(m.robots)) err(f, `robots must be one of ${ROBOTS.join(" | ")}`);
+  if (m.lastModified !== undefined && (!/^\d{4}-\d{2}-\d{2}$/.test(m.lastModified) ||
+      Number.isNaN(Date.parse(m.lastModified)) || new Date(m.lastModified).toISOString().slice(0, 10) !== m.lastModified))
+    err(f, "lastModified must be a real ISO calendar date");
 }
 
 // crawlers.json
@@ -64,6 +67,48 @@ else {
   const t = read("public/llms.txt");
   if (!t.startsWith("# ")) err("public/llms.txt", "must start with an H1 (# Name)");
   if (Buffer.byteLength(t) > 50_000) err("public/llms.txt", "over 50 KB");
+}
+
+// Portfolio claims must have resolvable, immutable evidence. Pending résumé
+// claims remain in the source file but cannot be promoted by changing a label.
+if (existsSync(join(root, "content/portfolio.json"))) {
+  const portfolio = json("content/portfolio.json");
+  const slugs = new Set();
+  for (const project of portfolio.projects ?? []) {
+    const file = `content/evidence/${project.slug}.json`;
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(project.slug) || slugs.has(project.slug))
+      err("content/portfolio.json", `invalid or duplicate project slug ${project.slug}`);
+    slugs.add(project.slug);
+    if (!routes[`/work/${project.slug}`]) err(file, "project route missing from SEO map");
+    if (!existsSync(join(root, file))) { err(file, "missing"); continue; }
+    const evidence = json(file);
+    if (evidence.project !== project.slug) err(file, "project identifier mismatch");
+    const ids = new Set();
+    for (const source of evidence.sources ?? []) {
+      if (!Number.isInteger(source.id) || ids.has(source.id)) err(file, "source IDs must be unique integers");
+      ids.add(source.id);
+      try { if (new URL(source.url).protocol !== "https:") err(file, "source URL must use HTTPS"); }
+      catch { err(file, "invalid source URL"); }
+    }
+    for (const metric of evidence.metrics ?? []) {
+      if (!["verified", "pending-source"].includes(metric.status)) err(file, "unknown metric evidence status");
+      if (!["comparison", "value", "fact"].includes(metric.kind)) err(file, "unknown metric kind");
+      const source = evidence.sources?.find((item) => item.id === metric.source);
+      if (!source) err(file, `metric ${metric.label} has no matching source`);
+      if (metric.status === "verified" && !/^https:\/\/github\.com\/[^/]+\/[^/]+\/blob\/[a-f0-9]{40}\//.test(source?.url ?? ""))
+        err(file, `verified metric ${metric.label} needs a commit-pinned source`);
+      if (metric.kind === "comparison" && (![metric.before, metric.after].every((n) => Number.isFinite(n) && n > 0) || !metric.unit))
+        err(file, `comparison ${metric.label} needs positive finite values and units`);
+      if (metric.kind !== "comparison" && (typeof metric.value !== "string" || !metric.value.trim()))
+        err(file, `metric ${metric.label} needs a text value`);
+    }
+  }
+  if (!portfolio.projects?.length) err("content/portfolio.json", "projects are required");
+  const resume = portfolio.resumePath;
+  if (typeof resume !== "string" || !/^\/[a-z0-9-]+\.pdf$/.test(resume) || !existsSync(join(root, "public", resume.slice(1))))
+    err("content/portfolio.json", "résumé download must resolve to a public PDF");
+  for (const route of ["/", "/work", "/about", "/contact", "/resume", "/styleguide"])
+    if (!routes[route]) err("content/seo/routes.json", `missing required portfolio route ${route}`);
 }
 
 if (errors.length) {

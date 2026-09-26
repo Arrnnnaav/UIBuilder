@@ -10,6 +10,7 @@ export const routeMeta = z.object({
   description: z.string().min(50).max(160),
   canonical: z.string().startsWith("/"),
   robots: robotsValue,
+  lastModified: z.iso.date().optional(),
   og: z
     .object({
       title: z.string().max(90).optional(),

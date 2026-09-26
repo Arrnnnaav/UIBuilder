@@ -1,0 +1,16 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://arnav-khandelwal.vercel.app/resume#page",
+  "url": "https://arnav-khandelwal.vercel.app/resume",
+  "name": "Arnav Khandelwal Résumé · Software Engineer",
+  "description": "Read or download Arnav Khandelwal’s résumé: backend internship experience, Python and Java projects, skills and Electrical Engineering at MNIT Jaipur.",
+  "isPartOf": {
+    "@id": "https://arnav-khandelwal.vercel.app/#website"
+  },
+  "about": {
+    "@id": "https://arnav-khandelwal.vercel.app/#person"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-09-27"
+}

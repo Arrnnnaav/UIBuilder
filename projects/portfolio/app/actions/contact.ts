@@ -7,16 +7,14 @@ import { serverEnv } from "@/lib/env";
 import { createRateLimiter } from "@/lib/rate-limit";
 import { verifyTurnstile } from "@/lib/turnstile";
 import { site } from "@/lib/site";
+import { contactClientIp } from "@/lib/client-ip";
 
 const limiter = createRateLimiter({ limit: serverEnv().RATE_LIMIT_PER_MINUTE, windowMs: 60_000 });
-
-const clientIp = (h: Headers) =>
-  h.get("cf-connecting-ip") ?? h.get("x-real-ip") ?? h.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
 
 export async function submitContact(_prev: ContactState, formData: FormData): Promise<ContactState> {
   const env = serverEnv();
   const isProd = env.NODE_ENV === "production";
-  const ip = clientIp(await headers());
+  const ip = contactClientIp(await headers());
 
   if (!limiter(ip).ok) {
     return { status: "error", message: "Too many messages. Try again in a minute." };
@@ -32,12 +30,9 @@ export async function submitContact(_prev: ContactState, formData: FormData): Pr
     const fieldErrors = Object.fromEntries(parsed.error.issues.map((i) => [i.path[0], i.message]));
     return { status: "error", message: "Check the highlighted fields.", fieldErrors };
   }
-  // Honeypot filled: pretend success so bots learn nothing.
-  if (parsed.data.company) return { status: "success" };
-
   const human = await verifyTurnstile(formData.get("cf-turnstile-response")?.toString() ?? null, {
     secret: env.TURNSTILE_SECRET_KEY,
-    ip,
+    ip: ip === "unknown" ? undefined : ip,
     isProd,
   });
   if (!human) {

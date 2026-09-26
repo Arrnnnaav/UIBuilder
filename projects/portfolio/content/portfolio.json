@@ -1,0 +1,364 @@
+{
+  "name": "Arnav Khandelwal",
+  "role": "Backend & AI engineer, MNIT Jaipur",
+  "positioning": "I build backends and AI pipelines that are fast, auditable and honest about their numbers.",
+  "bio": [
+    "I'm Arnav Khandelwal, an Electrical Engineering undergraduate at MNIT Jaipur. I build backend applications, REST APIs and AI-enabled systems in Python and Java.",
+    "During a 2026 backend internship, I worked on an offline FastAPI telemetry service: request validation, structured responses, retries and reproducible local deployment. Its public benchmark captures the impact of a localhost DNS fix.",
+    "My work spans cited research agents, deterministic reconciliation, a bounded desktop guide and experimental brain-response inference. I care about debugging the mechanism and making the evidence inspectable."
+  ],
+  "location": null,
+  "email": "arnavkhandelwal446@gmail.com",
+  "github": "https://github.com/Arrnnnaav",
+  "linkedin": null,
+  "resumePath": "/arnav-khandelwal-resume.pdf",
+  "education": {
+    "institution": "Malaviya National Institute of Technology Jaipur",
+    "degree": "B.Tech in Electrical Engineering",
+    "period": "Aug 2023 to Present"
+  },
+  "timeline": [
+    {
+      "period": "Jun to Aug 2026",
+      "title": "Backend Engineering Intern",
+      "description": "Built and benchmarked an offline FastAPI telemetry service with validation, retry/backoff and Docker Compose.",
+      "href": "/work/edge-node"
+    },
+    {
+      "period": "Aug 2025",
+      "title": "Amazon ML Summer School",
+      "description": "Participated in the 2025 programme, as listed on my résumé."
+    },
+    {
+      "period": "Aug 2023 to Present",
+      "title": "Electrical Engineering, MNIT Jaipur",
+      "description": "Undergraduate study alongside projects in backend engineering, databases and AI systems."
+    }
+  ],
+  "skills": [
+    {
+      "group": "Languages",
+      "items": [
+        "Python",
+        "Java",
+        "SQL"
+      ]
+    },
+    {
+      "group": "Backend & data",
+      "items": [
+        "FastAPI",
+        "Spring Boot",
+        "Spring Data JPA",
+        "REST",
+        "SOAP",
+        "MySQL",
+        "PostgreSQL",
+        "SQLite"
+      ]
+    },
+    {
+      "group": "AI systems",
+      "items": [
+        "PyTorch",
+        "Transformers",
+        "LLMs",
+        "RAG",
+        "LangChain",
+        "Ollama"
+      ]
+    },
+    {
+      "group": "Systems & verification",
+      "items": [
+        "Docker",
+        "Linux",
+        "pytest",
+        "JUnit",
+        "Mockito",
+        "Git",
+        "Performance profiling",
+        "Retry/backoff"
+      ]
+    }
+  ],
+  "achievements": [
+    "Amazon ML Summer School ’25 (résumé-attested)",
+    "JEE Main 2023: 98.6 percentile (résumé-attested)",
+    "Asian Championship skating: bronze medal, 2018 (résumé-attested)"
+  ],
+  "moreWork": [
+    {
+      "label": "Agents & evaluation",
+      "items": [
+        {
+          "name": "Pricing-Agent",
+          "url": "https://github.com/Arrnnnaav/Pricing-Agent",
+          "description": "Competitor-aware pricing recommendations with margin guardrails and human approval."
+        },
+        {
+          "name": "agent-benchmark",
+          "url": "https://github.com/Arrnnnaav/agent-benchmark",
+          "description": "Comparing research-agent architectures with saved runs and a judge."
+        }
+      ]
+    },
+    {
+      "label": "Retrieval & NLP",
+      "items": [
+        {
+          "name": "DocCluster",
+          "url": "https://github.com/Arrnnnaav/DocCluster",
+          "description": "Local semantic document clustering and hybrid search."
+        },
+        {
+          "name": "Sentiment Analysis API",
+          "url": "https://github.com/Arrnnnaav/Sentiment-Analysis-API-DistilBERT",
+          "description": "DistilBERT fine-tuning served through FastAPI."
+        }
+      ]
+    },
+    {
+      "label": "Applied vision",
+      "items": [
+        {
+          "name": "Image Alignment",
+          "url": "https://github.com/Arrnnnaav/Image_Alignment",
+          "description": "ORB matching and RANSAC homography in a document-alignment service."
+        },
+        {
+          "name": "PaviaU classification",
+          "url": "https://github.com/Arrnnnaav/PaviaU-Hyperspectral-image-classification",
+          "description": "Hyperspectral classification experiments with classical models and HybridSN."
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "slug": "edge-node",
+      "title": "Project Edge Node",
+      "descriptor": "Offline telemetry, measured end to end.",
+      "year": "2026",
+      "role": "Backend engineering",
+      "repo": "https://github.com/Arrnnnaav/Project-Edge-Node",
+      "stack": [
+        "Python",
+        "FastAPI",
+        "Pydantic",
+        "Ollama",
+        "Docker Compose"
+      ],
+      "summary": "A local telemetry classifier with validated inputs, structured output and a documented localhost latency fix.",
+      "problem": "Classify workplace telemetry without sending it to a hosted model, while keeping responses predictable and local execution reproducible.",
+      "approach": [
+        "Validate requests with Pydantic and translate telemetry into prose for the local model.",
+        "Constrain model output with a JSON schema; retry invalid responses with corrective feedback and expose structured failures.",
+        "Benchmark latency, time to first token and memory, then replace IPv6-first localhost resolution with 127.0.0.1."
+      ],
+      "result": "The committed report records mean latency decreasing from 5.356s to 0.973s, with 50 latency requests and zero failures. Time to first token was measured separately over 10 requests.",
+      "limits": [
+        "Results describe the repository benchmark environment, not a general guarantee across hardware.",
+        "Workplace classifications are model outputs, not a clinical assessment."
+      ],
+      "figure": {
+        "type": "bars",
+        "title": "A hostname was the bottleneck.",
+        "caption": "Mean end-to-end request latency in seconds. Source: committed benchmark report; 50 latency requests."
+      }
+    },
+    {
+      "slug": "cited-researcher",
+      "title": "Cited Multi-Agent Researcher",
+      "descriptor": "Parallel research. One traceable answer.",
+      "year": "2026",
+      "role": "Software engineering",
+      "repo": "https://github.com/Arrnnnaav/Cited-Multi-Agent-Researcher",
+      "stack": [
+        "Python",
+        "FastAPI",
+        "Gemini",
+        "asyncio",
+        "TypeScript",
+        "pytest"
+      ],
+      "summary": "A research pipeline that scales search effort to the question and keeps citations attached to its synthesis.",
+      "problem": "Produce an answer whose sources can be inspected without running an expensive fixed-size agent team for every question.",
+      "approach": [
+        "Classify the query as fact or comparison and decompose it into search tasks.",
+        "Run independent search agents concurrently, with a cap of five; deduplicate sources and assign stable citation identifiers.",
+        "Stream synthesis over server-sent events and evaluate factuality and citation coverage with a judge."
+      ],
+      "result": "The public README documents up to five concurrent search agents and a 33-unit-test suite. A separate résumé timing claim is excluded until a public benchmark is committed.",
+      "limits": [
+        "A citation is inspectable evidence, not proof that every generated claim is correct.",
+        "The judge is an LLM evaluation and must not be read as independently verified factual accuracy."
+      ],
+      "figure": {
+        "type": "flow",
+        "title": "Sources travel with the answer.",
+        "caption": "Architecture described by the repository; this diagram is not a runtime trace.",
+        "steps": [
+          "Question",
+          "Orchestrator",
+          "Parallel search",
+          "Citation",
+          "Synthesis"
+        ]
+      }
+    },
+    {
+      "slug": "ledgerbridge",
+      "title": "LedgerBridge",
+      "descriptor": "Deterministic reconciliation. Evidence for every exception.",
+      "year": "2026",
+      "role": "Software engineering",
+      "repo": "https://github.com/Arrnnnaav/LedgerBridge-AI-",
+      "stack": [
+        "Python",
+        "Decimal",
+        "Ollama",
+        "HTML",
+        "pytest"
+      ],
+      "summary": "An auditable bank, ledger and Razorpay reconciliation engine with deterministic matching and a read-only narration layer.",
+      "problem": "Reconcile financial records while preserving the rule, evidence and unresolved exceptions behind each decision.",
+      "approach": [
+        "Run indexed matching passes with Decimal arithmetic and explicit ambiguity handling.",
+        "Classify unresolved records with an exception taxonomy and preserve input, configuration and engine hashes in the audit trail.",
+        "Keep optional model narration separate from matching authority; publish demo, sealed and scale evaluations with their limitations."
+      ],
+      "result": "The README reports 103,049 records processed in 5.114s median engine time over five runs. Its sealed-benchmark consistency scores are explicitly not real-world accuracy.",
+      "limits": [
+        "The published benchmark uses project datasets and is not production financial reconciliation performance.",
+        "Specification consistency on a sealed benchmark is not real-world matching accuracy."
+      ],
+      "figure": {
+        "type": "records",
+        "title": "Every record gets a disposition.",
+        "caption": "Demo dataset: 77 records, 62 matched, 15 evidenced exceptions. Scale timings use a separate dataset."
+      }
+    },
+    {
+      "slug": "ghostcursor",
+      "title": "GhostCursor",
+      "descriptor": "An AI desktop guide that waits for you.",
+      "year": "2026",
+      "role": "Software engineering",
+      "repo": "https://github.com/Arrnnnaav/AIOS",
+      "stack": [
+        "Python",
+        "Windows UI Automation",
+        "Ollama",
+        "SQLite",
+        "pytest"
+      ],
+      "summary": "A bounded local Windows assistant that highlights a trusted control, waits for a human action and verifies the resulting state.",
+      "problem": "Help users complete unfamiliar desktop workflows without giving a model unrestricted execution authority.",
+      "approach": [
+        "Map goals to registered intents and reviewed, digest-bound recipes rather than model-generated coordinates or code.",
+        "Observe the current application, highlight one trusted control and wait for the human to act.",
+        "Verify the new state and measure raw model intent accuracy separately from authorized execution."
+      ],
+      "result": "The public README reports 27/30 raw intent accuracy on its frozen test set and 361 hermetic tests. These describe the documented supported-workflow evaluation.",
+      "limits": [
+        "Support is limited to the reviewed recipes and tested Windows workflows.",
+        "The 30-case intent set is small; its accuracy does not establish performance on arbitrary software."
+      ],
+      "figure": {
+        "type": "flow",
+        "title": "The human keeps execution authority.",
+        "caption": "The guide observes and verifies; the human performs the action.",
+        "steps": [
+          "Goal",
+          "Reviewed recipe",
+          "Observed control",
+          "Human action",
+          "Verification"
+        ]
+      }
+    },
+    {
+      "slug": "neuroux",
+      "title": "NeuroUX",
+      "descriptor": "Brain-response inference on a laptop GPU.",
+      "year": "2026",
+      "role": "Software engineering",
+      "repo": "https://github.com/Arrnnnaav/neuroux",
+      "stack": [
+        "Python",
+        "FastAPI",
+        "PyTorch",
+        "TRIBE v2",
+        "Next.js",
+        "React Three Fiber"
+      ],
+      "summary": "An experimental media-analysis pipeline that maps predicted cortical activation to transparent UX scoring formulas.",
+      "problem": "Run a large brain-prediction model on a 4 GB laptop GPU and turn its outputs into an inspectable application.",
+      "approach": [
+        "Use TRIBE v2 to predict cortical activation and aggregate it into 12 atlas regions.",
+        "Load text weights in 4-bit NF4 and move the video encoder to the GPU in fp16.",
+        "Fix scoring ties by preserving activation magnitude before region-level normalization; expose regional scores and comparisons in the UI."
+      ],
+      "result": "The README reports video inference changing from 50 minutes to approximately 80 seconds after moving the encoder to GPU. This is a reported engineering observation, not a controlled benchmark.",
+      "limits": [
+        "The UX and virality formulas are experimental proxies, not validated predictions of actual audience behavior.",
+        "Reported timing is approximate and hardware-specific; the text-inference estimates are excluded because the README mixes estimated and observed baselines.",
+        "Without model weights, the application uses a deterministic stub; stub output is not neuroscience inference."
+      ],
+      "figure": {
+        "type": "flow",
+        "title": "Make inference fit the machine.",
+        "caption": "Repository-reported video timing: 50 minutes to approximately 80 seconds; hardware-specific observation.",
+        "steps": [
+          "Media",
+          "GPU encoder",
+          "TRIBE v2",
+          "12 regions",
+          "Experimental UX scores"
+        ]
+      }
+    },
+    {
+      "slug": "studyos",
+      "title": "StudyOS",
+      "descriptor": "Learn next. Ask in context. Remember.",
+      "year": "2026",
+      "role": "Project contributor",
+      "repo": "https://github.com/Arrnnnaav/StudyOS-Hackathon",
+      "stack": [
+        "TypeScript",
+        "Next.js",
+        "Chrome MV3",
+        "DynamoDB",
+        "AWS ECS",
+        "GitHub Actions"
+      ],
+      "summary": "A learning workflow connecting prerequisite-aware next topics, contextual questions and spaced review.",
+      "problem": "Keep learning momentum when the next topic is unclear, questions arise outside the dashboard and useful answers disappear.",
+      "approach": [
+        "Prioritize the next curriculum topic using prerequisites, progress and due reviews.",
+        "Use the Point & Ask extension to ask about selected text or a region, without sending the entire page by default.",
+        "Save useful answers for spaced review and gate the AWS delivery pipeline with tests, type checks and builds."
+      ],
+      "result": "The public repository documents Today → Point & Ask → Save to Review and an AWS deployment pipeline. No learning-outcome or adoption metric is claimed.",
+      "limits": [
+        "The repository does not report measured learning outcomes or user adoption.",
+        "A documented deployment is not evidence that the public demo is currently available.",
+        "Team composition and individual contribution boundaries have not been confirmed."
+      ],
+      "figure": {
+        "type": "flow",
+        "title": "One connected learning loop.",
+        "caption": "Workflow described by the project README, not a claim about measured learning gains.",
+        "steps": [
+          "Today",
+          "Learn",
+          "Point & Ask",
+          "Save",
+          "Review"
+        ]
+      }
+    }
+  ]
+}

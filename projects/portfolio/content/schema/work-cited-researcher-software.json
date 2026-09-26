@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "@id": "https://arnav-khandelwal.vercel.app/work/cited-researcher#project",
+  "name": "Cited Multi-Agent Researcher",
+  "description": "A research pipeline that scales search effort to the question and keeps citations attached to its synthesis.",
+  "url": "https://arnav-khandelwal.vercel.app/work/cited-researcher",
+  "codeRepository": "https://github.com/Arrnnnaav/Cited-Multi-Agent-Researcher",
+  "programmingLanguage": [
+    "Python"
+  ],
+  "author": {
+    "@id": "https://arnav-khandelwal.vercel.app/#person"
+  }
+}

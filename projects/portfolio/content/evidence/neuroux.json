@@ -1,0 +1,20 @@
+{
+  "project": "neuroux",
+  "sources": [
+    {
+      "id": 1,
+      "title": "Public repository README",
+      "url": "https://github.com/Arrnnnaav/neuroux/blob/08309e3d413b0be5f7079102c1005f1809a0422b/README.md"
+    }
+  ],
+  "metrics": [
+    {
+      "label": "Reported video inference",
+      "kind": "value",
+      "value": "50 min → ~80 s",
+      "source": 1,
+      "status": "verified",
+      "caveat": "Approximate README observation on project hardware; not a controlled benchmark."
+    }
+  ]
+}

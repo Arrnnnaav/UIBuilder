@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "@id": "https://arnav-khandelwal.vercel.app/work/neuroux#project",
+  "name": "NeuroUX",
+  "description": "An experimental media-analysis pipeline that maps predicted cortical activation to transparent UX scoring formulas.",
+  "url": "https://arnav-khandelwal.vercel.app/work/neuroux",
+  "codeRepository": "https://github.com/Arrnnnaav/neuroux",
+  "programmingLanguage": [
+    "Python"
+  ],
+  "author": {
+    "@id": "https://arnav-khandelwal.vercel.app/#person"
+  }
+}

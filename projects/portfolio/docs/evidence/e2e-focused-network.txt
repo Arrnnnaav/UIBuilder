@@ -1,0 +1,57 @@
+[WebServer] $ next start "--port" "3100"
+[WebServer] (node:2080) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 32 tests using 2 workers
+
+(node:14300) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:12364) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [chromium-desktop] › e2e\site.spec.ts:20:9 › page /contact › loads with metadata, one h1, no console errors (349ms)
+  ✓   1 [chromium-desktop] › e2e\site.spec.ts:31:9 › page /contact › has no serious or critical axe violations (2.3s)
+  ✓   4 [chromium-desktop] › e2e\site.spec.ts:20:9 › page /styleguide › loads with metadata, one h1, no console errors (2.5s)
+  ✓   5 [chromium-desktop] › e2e\site.spec.ts:31:9 › page /styleguide › has no serious or critical axe violations (1.2s)
+  ✓   3 [chromium-desktop] › e2e\site.spec.ts:40:9 › page /contact › matches the visual snapshot (6.5s)
+  -   7 [chromium-desktop] › e2e\site.spec.ts:74:5 › mobile menu contains keyboard focus and restores it on Escape
+  ✓   6 [chromium-desktop] › e2e\site.spec.ts:40:9 › page /styleguide › matches the visual snapshot (1.3s)
+(node:13924) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [chromium-mobile] › e2e\site.spec.ts:20:9 › page /contact › loads with metadata, one h1, no console errors (290ms)
+  ✓   8 [chromium-desktop] › e2e\site.spec.ts:110:5 › contact form validates then submits (2.5s)
+  ✓  10 [chromium-mobile] › e2e\site.spec.ts:31:9 › page /contact › has no serious or critical axe violations (828ms)
+(node:24404) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  11 [chromium-mobile] › e2e\site.spec.ts:20:9 › page /styleguide › loads with metadata, one h1, no console errors (293ms)
+  ✓  12 [chromium-mobile] › e2e\site.spec.ts:31:9 › page /styleguide › has no serious or critical axe violations (1.2s)
+  ✓  14 [chromium-mobile] › e2e\site.spec.ts:40:9 › page /styleguide › matches the visual snapshot (790ms)
+  ✓  15 [chromium-mobile] › e2e\site.spec.ts:74:5 › mobile menu contains keyboard focus and restores it on Escape (642ms)
+  ✓  13 [chromium-mobile] › e2e\site.spec.ts:40:9 › page /contact › matches the visual snapshot (2.8s)
+(node:19556) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  17 [webkit-desktop] › e2e\site.spec.ts:20:9 › page /contact › loads with metadata, one h1, no console errors (634ms)
+  ✓  16 [chromium-mobile] › e2e\site.spec.ts:110:5 › contact form validates then submits (2.4s)
+(node:8952) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  18 [webkit-desktop] › e2e\site.spec.ts:31:9 › page /contact › has no serious or critical axe violations (2.1s)
+  ✓  20 [webkit-desktop] › e2e\site.spec.ts:20:9 › page /styleguide › loads with metadata, one h1, no console errors (471ms)
+  ✓  19 [webkit-desktop] › e2e\site.spec.ts:40:9 › page /contact › matches the visual snapshot (3.1s)
+  ✓  21 [webkit-desktop] › e2e\site.spec.ts:31:9 › page /styleguide › has no serious or critical axe violations (2.2s)
+  -  23 [webkit-desktop] › e2e\site.spec.ts:74:5 › mobile menu contains keyboard focus and restores it on Escape
+  ✓  22 [webkit-desktop] › e2e\site.spec.ts:40:9 › page /styleguide › matches the visual snapshot (1.8s)
+(node:20980) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  25 [webkit-mobile] › e2e\site.spec.ts:20:9 › page /contact › loads with metadata, one h1, no console errors (406ms)
+  ✓  24 [webkit-desktop] › e2e\site.spec.ts:110:5 › contact form validates then submits (3.8s)
+  ✓  26 [webkit-mobile] › e2e\site.spec.ts:31:9 › page /contact › has no serious or critical axe violations (1.5s)
+(node:23064) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  27 [webkit-mobile] › e2e\site.spec.ts:20:9 › page /styleguide › loads with metadata, one h1, no console errors (447ms)
+  ✓  28 [webkit-mobile] › e2e\site.spec.ts:31:9 › page /styleguide › has no serious or critical axe violations (2.0s)
+  ✓  29 [webkit-mobile] › e2e\site.spec.ts:40:9 › page /contact › matches the visual snapshot (2.7s)
+  ✓  30 [webkit-mobile] › e2e\site.spec.ts:40:9 › page /styleguide › matches the visual snapshot (1.6s)
+  ✓  31 [webkit-mobile] › e2e\site.spec.ts:74:5 › mobile menu contains keyboard focus and restores it on Escape (1.5s)
+  ✓  32 [webkit-mobile] › e2e\site.spec.ts:110:5 › contact form validates then submits (3.1s)
+
+  2 skipped
+  30 passed (35.2s)

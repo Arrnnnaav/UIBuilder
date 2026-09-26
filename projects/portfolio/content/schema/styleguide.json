@@ -1,0 +1,16 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://arnav-khandelwal.vercel.app/styleguide#page",
+  "url": "https://arnav-khandelwal.vercel.app/styleguide",
+  "name": "Design System · Arnav Khandelwal Portfolio",
+  "description": "Explore Arnav Khandelwal’s portfolio design system: typography, accessible controls, source-linked evidence figures and responsive components.",
+  "isPartOf": {
+    "@id": "https://arnav-khandelwal.vercel.app/#website"
+  },
+  "about": {
+    "@id": "https://arnav-khandelwal.vercel.app/#person"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-09-27"
+}

@@ -1,5 +1,18 @@
 import type { Metadata } from "next";
-import { routes, site } from "@/lib/site";
+import { routes, site, schemas } from "@/lib/site";
+
+// Route filenames make scope explicit: unrelated case-study schema never leaks
+// into the root layout or another project's page.
+export function selectJsonLd(files: Record<string, unknown>, route?: string): unknown[] {
+  const base = route === "/" ? "home" : route?.slice(1).replaceAll("/", "-");
+  const names = base
+    ? [`${base}.json`, `${base}-breadcrumb.json`, `${base}-software.json`]
+    : ["person.json", "website.json"];
+  return names.filter((name) => name in files).map((name) => files[name]);
+}
+
+export const globalJsonLd = () => selectJsonLd(schemas);
+export const jsonLdFor = (route: string) => selectJsonLd(schemas, route);
 
 // Every page calls metadataFor(route). Route metadata lives in content/seo/routes.json so
 // BusinessOS can improve it through an approved PR without touching code.

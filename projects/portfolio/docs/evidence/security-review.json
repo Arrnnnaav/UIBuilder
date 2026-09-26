@@ -1,0 +1,146 @@
+{
+  "reviewedAt": "2026-09-26T20:25:35.066Z",
+  "sourceFingerprint": "71d7108036e0d6e548022d60cf2a14dad8fb83e176fae56ff68e86512a88eb61",
+  "status": "security review and no-key monitoring verified; final clean-production runtime refresh remains pending",
+  "reports": {
+    "SECURITY_REPORT.md": {
+      "report": {
+        "path": "docs/SECURITY_REPORT.md",
+        "sha256": "e639053d0464d21a774df1b8a17895dd76398a249b355e22e7110ccd426af05d"
+      },
+      "commands": [
+        {
+          "command": "node node_modules/vitest/vitest.mjs run",
+          "exitCode": 0,
+          "output": {
+            "path": "docs/evidence/unit-integration.txt",
+            "sha256": "8e0070108dba7d8b4edbc26dacd203c20825e935ab92065485c9ceb0f9241e4c"
+          }
+        },
+        {
+          "command": "pnpm audit --audit-level high",
+          "exitCode": 0,
+          "output": {
+            "path": "docs/evidence/security-audit.txt",
+            "sha256": "4e4757ff226a44b5c448b1c4624619419c22d5272463dc19510b4754871a72f9"
+          }
+        }
+      ]
+    }
+  },
+  "security": {
+    "skill": ".claude/skills/security-review/SKILL.md",
+    "findings": [
+      {
+        "severity": "medium",
+        "name": "Per-instance quota",
+        "reasoning": "Memory limits and active-key cap prevent bounded local abuse but do not enforce a global quota across warm Vercel instances/restarts. Independent Turnstile validation limits anonymous automation; shared-store/edge quota needed for a deployment-wide guarantee."
+      },
+      {
+        "severity": "medium",
+        "name": "Static inline CSP",
+        "reasoning": "Next static bootstrap requires current unsafe-inline policy; this is weaker than nonce CSP. No user-controlled raw HTML exists except JSON-LD escaped against script termination; production unsafe-eval is excluded."
+      },
+      {
+        "severity": "info",
+        "name": "Clean release verification",
+        "reasoning": "Production E2E settings intentionally enable dry-run/test keys/debug error route. Prior clean local runtime passed; final rebuild and deployed environment must be checked independently before release."
+      }
+    ]
+  },
+  "monitoring": {
+    "sentry": {
+      "mode": "noop",
+      "command": "node node_modules/vitest/vitest.mjs run",
+      "exitCode": 0,
+      "output": {
+        "path": "docs/evidence/unit-integration.txt",
+        "sha256": "8e0070108dba7d8b4edbc26dacd203c20825e935ab92065485c9ceb0f9241e4c"
+      }
+    },
+    "posthog": {
+      "mode": "noop",
+      "command": "node node_modules/vitest/vitest.mjs run",
+      "exitCode": 0,
+      "output": {
+        "path": "docs/evidence/unit-integration.txt",
+        "sha256": "8e0070108dba7d8b4edbc26dacd203c20825e935ab92065485c9ceb0f9241e4c"
+      }
+    }
+  },
+  "reviewedSources": [
+    {
+      "path": "app/actions/contact.ts",
+      "sha256": "65b040ee1d783c0b7e48360c6e34217d2862b5745f3bf39a9782ce8cc825922f"
+    },
+    {
+      "path": "app/e2e-error/page.tsx",
+      "sha256": "f99ceb626c3bf4e584be977a17b92435173b71e8bc85b06eef8ee3f4f9a051b1"
+    },
+    {
+      "path": "lib/contact-schema.ts",
+      "sha256": "21ce3e5da8113731906aa449deddc20b506a8577ebe4104244c2e859302ae79c"
+    },
+    {
+      "path": "lib/client-ip.ts",
+      "sha256": "9fc1b52ae79a49a56df95fd4d7b369b1f6e15559d3edb91aaecc252c7275652c"
+    },
+    {
+      "path": "lib/rate-limit.ts",
+      "sha256": "3f906f74e3f6d928fab3dd05b1bec8ab0ff14d83989c4ac3dc8e3557ae5051e4"
+    },
+    {
+      "path": "lib/turnstile.ts",
+      "sha256": "613c563d09d82c54d557450213ecf1ef37fd37c200d2db5656e50a9fb7b6fb61"
+    },
+    {
+      "path": "lib/env.ts",
+      "sha256": "afd92b05d598aee1314044f31864d9c51d873efa3fac8fecc71a84a03053088a"
+    },
+    {
+      "path": "lib/pageview.ts",
+      "sha256": "2cca50315e5b2da9b45d2379fec76d63a210aa91ed76b420204405ef057f58a0"
+    },
+    {
+      "path": "components/analytics/Analytics.tsx",
+      "sha256": "f694e25a965139858ed25cbcfe981281a1ccdaafb4910bb4ba097c3ba482e469"
+    },
+    {
+      "path": "components/seo/JsonLd.tsx",
+      "sha256": "10923c5260f15ad1122e012bb8b17423f0c62f6ea9487f5a2a46c48a81ea3085"
+    },
+    {
+      "path": "instrumentation.ts",
+      "sha256": "2c1e77352b842ac781968a8d6782d3f8822aff518bb3d1e3fe66f7689191c17b"
+    },
+    {
+      "path": "instrumentation-client.ts",
+      "sha256": "887cd94d4fb9cf0d94172591c499980e0c002d2370f43010680f3790bc3760bb"
+    },
+    {
+      "path": "next.config.ts",
+      "sha256": "15ae2d5b45c8c6aba02ecf26eafad8df067de2af0687ec1dd5dec077f2349a33"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "521d252b8b6b5f17918b2bb4fba14c4fb0a4ad2ceb355b8063301acf82ca36d0"
+    },
+    {
+      "path": "tests/unit/security.test.ts",
+      "sha256": "581f7de5a8c65115693cb28c54b75e54f1e7e11bbf221c3aba3c07af4534b856"
+    },
+    {
+      "path": "tests/unit/instrumentation.test.ts",
+      "sha256": "d83b34a4247f661994ce66d9b6e3fd45822de621c1a0b9d916e807a956b7f55c"
+    },
+    {
+      "path": "tests/unit/pageview.test.ts",
+      "sha256": "10f7348a0111691fdff412537c6e73d43675247d09c78f35c95cd1bf09c3428d"
+    }
+  ],
+  "limitations": [
+    "No real telemetry receipt claimed; configured keys require receipt mode.",
+    "Integration output covers mocked SDK assertions, not remote vendor behavior.",
+    "Final sourceFingerprint and report hashes must be integrated only after current final production checks; this is a fragment, not a passed G3."
+  ]
+}

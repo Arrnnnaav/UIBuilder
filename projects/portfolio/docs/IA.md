@@ -18,7 +18,7 @@ Each route's primary keyword comes from SEO_STRATEGY §Intent map. "Crumb" is th
 | `/about` | Bio, timeline, skills mapped to proof, recognition | Arnav Khandelwal about | Arnav Khandelwal skills; Arnav Khandelwal experience; Amazon ML Summer School 2025 | Home › About | `/work/edge-node` (internship), every case study named in the skills map and timeline, `/resume` (if shipped), GitHub + LinkedIn (`rel="me"`), `/contact` | index |
 | `/contact` | Contact form + direct channels | contact Arnav Khandelwal | hire backend AI engineer intern India | Home › Contact | GitHub (`rel="me"`), LinkedIn once verified, confirmed email once confirmed, `/work` (after-submit next step) | index |
 | `/resume` | **Conditional:** ships only if the owner supplies a résumé PDF. HTML résumé + PDF download | Arnav Khandelwal resume | Arnav Khandelwal CV | Home › Résumé | PDF download, each case study it cites, `/about`, `/contact` | index (only when shipped) |
-| `/styleguide` | Internal component/token gallery (starter utility) | none | none | none | none | `noindex,nofollow`, excluded from sitemap + llms.txt |
+| `/styleguide` | Public component/token gallery (owner update, 2026-09-26) | design system | typography and evidence components | source data | footer site links | `index,follow`, included in sitemap + llms.txt |
 | `/e2e-error` | Test route that throws, to exercise the error boundary (starter utility) | none | none | none | Home, `/work`, `/contact` (via the error boundary) | `noindex,nofollow`, excluded from sitemap + llms.txt |
 
 Not a route, but part of the IA: the **404 page** (`app/not-found.tsx`, noindex) and the **error boundary** (`app/error.tsx`). Both are wireframed in WIREFRAMES.md.

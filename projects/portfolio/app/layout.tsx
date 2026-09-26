@@ -1,9 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Martian_Mono } from "next/font/google";
-import Link from "next/link";
 import { Analytics } from "@/components/analytics/Analytics";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { schemas, site } from "@/lib/site";
+import { site } from "@/lib/site";
+import { globalJsonLd } from "@/lib/seo";
+import { clientEnv } from "@/lib/env";
+import { portfolio } from "@/lib/portfolio";
+import { Navigation } from "@/components/portfolio/Navigation";
+import { Footer } from "@/components/portfolio/Footer";
 import "./globals.css";
 
 // DESIGN.md §Typography: Archivo (variable wght + wdth; OFL) for everything including numerals,
@@ -41,33 +45,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <header className="container flex items-center justify-between py-6">
-          <Link href="/" className="font-semibold">
-            {site.shortName}
-          </Link>
-          <nav aria-label="Primary">
-            <ul className="flex gap-6">
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li>
-                <Link href="/contact">Contact</Link>
-              </li>
-            </ul>
-          </nav>
-        </header>
-        <main id="main" className="container flex-1">
+        <Navigation name={portfolio.name} github={portfolio.github} />
+        <main id="main" tabIndex={-1} className="container flex-1">
           {children}
         </main>
-        <footer className="container py-12 text-sm text-muted">
-          <p>
-            © {new Date().getFullYear()} {site.name} · <a href={`mailto:${site.email}`}>{site.email}</a>
-          </p>
-        </footer>
-        {Object.entries(schemas).map(([file, data]) => (
-          <JsonLd key={file} data={data} />
-        ))}
-        <Analytics />
+        <Footer projects={portfolio.projects} github={portfolio.github} linkedin={portfolio.linkedin} name={portfolio.name} />
+        {globalJsonLd().map((data, index) => <JsonLd key={index} data={data} />)}
+        <Analytics analyticsKey={clientEnv.NEXT_PUBLIC_POSTHOG_KEY} analyticsHost={clientEnv.NEXT_PUBLIC_POSTHOG_HOST} />
       </body>
     </html>
   );
