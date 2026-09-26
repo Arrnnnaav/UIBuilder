@@ -1,0 +1,13 @@
+{
+  "agent": "research",
+  "status": "complete",
+  "inputs_used": ["AGENTS.md", ".claude/agents/research.md", "docs/CLIENT_SITE.md", "docs/PRODUCT.md", "docs/IA.md", "docs/WIREFRAMES.md", "official ABizCreator contact/about live HTTP pages", "official services/downloads/home indexed extracts", "matching Justdial listing indexed extracts"],
+  "decisions": ["Resolved published contact channels from live official page", "Recorded conflicting dates/hours and stale directory rating counts without choosing unsupported values", "Public visibility does not grant third-party asset/testimonial permission", "Prepared concrete G1 packet without recording owner approval"],
+  "files_created": ["docs/CLIENT_FACTS.md", "docs/G1_APPROVAL.md", "docs/handoff/research-facts.json", "docs/PRODUCT.md (updated)"],
+  "resources_used": [],
+  "patterns_used": [],
+  "risks": ["Founding year and hours conflict across sources", "Directory rating count is not verified current or Google-specific", "Sample/logo/review reuse permissions are unconfirmed"],
+  "open_questions": ["Owner approval of concrete G1 packet", "Confirmed conflicting facts or acceptance of omissions", "Original permitted work/brand material"],
+  "next_agent": "orchestrator",
+  "next_instructions": ["Read CLIENT_FACTS.md and G1_APPROVAL.md", "Record actual owner G1 decision before S3", "Do not treat requested public research as permission to reuse assets", "Carry omitted-fact conditions into growth and design briefs"]
+}

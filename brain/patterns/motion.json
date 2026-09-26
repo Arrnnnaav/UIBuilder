@@ -1,0 +1,105 @@
+{
+  "patterns": [
+    {
+      "id": "motion-respect-interaction-frequency",
+      "category": "motion",
+      "name": "Motion responds to interaction frequency",
+      "mechanism": "Use motion when it explains a state or spatial relationship; keep repeated navigation and keyboard actions immediate and interruptible. Reduced motion retains state feedback without movement.",
+      "good_for": [
+        "portfolio",
+        "application"
+      ],
+      "bad_for": [
+        "decorative animation on every repeated action"
+      ],
+      "perf_cost": "low",
+      "sources": [
+        {
+          "resource": "rauno-invisible-interaction-details",
+          "confidence": 0.8,
+          "observed_at": "2026-09-26",
+          "evidence": "author-published mechanism; project application is inference, not browser measurement"
+        }
+      ],
+      "scores": {},
+      "trust": "REVIEWED"
+    },
+    {
+      "id": "motion-trigger-aware-feedback",
+      "category": "motion",
+      "name": "Feedback stays attached to its trigger",
+      "mechanism": "Acknowledge actions immediately. If an optional surface animates, anchor its origin to the trigger and use restrained travel. Feedback remains visible when movement is disabled.",
+      "good_for": [
+        "portfolio",
+        "contact",
+        "application"
+      ],
+      "bad_for": [
+        "essential information in hover-only tooltips"
+      ],
+      "perf_cost": "low",
+      "sources": [
+        {
+          "resource": "emil-practical-animation-tips",
+          "confidence": 0.8,
+          "observed_at": "2026-09-26",
+          "evidence": "author-published mechanism; project application is inference, not browser measurement"
+        }
+      ],
+      "scores": {},
+      "trust": "REVIEWED"
+    },
+    {
+      "id": "motion-compositor-first-presentation",
+      "category": "motion",
+      "name": "Reserve layout before animating presentation",
+      "mechanism": "Place essential content and stable geometry in the document first. Prefer optional transform/opacity animation and profile actual rendering work; introduce layer promotion only after observing a concrete issue.",
+      "good_for": [
+        "portfolio",
+        "company-site",
+        "application"
+      ],
+      "bad_for": [
+        "unprofiled large layers",
+        "animation that changes layout continuously"
+      ],
+      "perf_cost": "low",
+      "sources": [
+        {
+          "resource": "webdev-animation-rendering-guide",
+          "confidence": 0.8,
+          "observed_at": "2026-09-26",
+          "evidence": "author-published mechanism; project application is inference, not browser measurement"
+        }
+      ],
+      "scores": {},
+      "trust": "REVIEWED"
+    },
+    {
+      "id": "motion-staged-sticky-scene",
+      "category": "motion",
+      "name": "Scroll advances a short stable scene",
+      "mechanism": "Map scroll progress to a small number of explicit presentation states inside a sticky scene. Keep required information available without the timeline and fall back to ordinary document flow for reduced motion and mobile. Authored tutorial mechanism; implementation untested.",
+      "good_for": [
+        "future studio exploration",
+        "explanatory narrative"
+      ],
+      "bad_for": [
+        "recruiter scanning",
+        "required content gated by scrolling",
+        "long mobile pinning"
+      ],
+      "perf_cost": "medium",
+      "sources": [
+        {
+          "resource": "codrops-sticky-grid-scroll-study",
+          "confidence": 0.8,
+          "observed_at": "2026-09-26",
+          "evidence": "author-published mechanism; project application is inference, not browser measurement"
+        }
+      ],
+      "scores": {},
+      "trust": "REVIEWED"
+    }
+  ]
+}

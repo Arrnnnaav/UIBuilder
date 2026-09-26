@@ -1,0 +1,51 @@
+{
+  "agent": "research",
+  "status": "complete",
+  "inputs_used": [
+    "AGENTS.md",
+    ".claude/agents/research.md",
+    ".claude/commands/intake.md",
+    "brain/schema/resource.schema.json",
+    "brain/schema/pattern.schema.json",
+    "Five opened author/publisher pages"
+  ],
+  "decisions": [
+    "Five core reading/live-site references only; developing-taste is supplemental reading.",
+    "REVIEWED trust does not claim tested browser motion.",
+    "Preserve approved portfolio design; no code or assets copied.",
+    "Four mechanism candidates are research options, not silently approved production patterns."
+  ],
+  "files_created": [
+    "docs/DESIGN_READING.md",
+    "brain/patterns/motion.json"
+  ],
+  "resources_used": [
+    "rauno-invisible-interaction-details",
+    "emil-practical-animation-tips",
+    "webdev-animation-rendering-guide",
+    "codrops-sticky-grid-scroll-study",
+    "lusion-studio-storytelling-study"
+  ],
+  "patterns_used": [],
+  "risks": [
+    "Live-site computed styles and screenshots remain unmeasured.",
+    "Long pinned scroll and immersive media require mobile, reduced-motion and performance checks."
+  ],
+  "open_questions": [],
+  "next_agent": "design-director",
+  "next_instructions": [
+    "Read DESIGN_READING.md during S5 critique; preserve DESIGN.md and MOTION.md.",
+    "Run a dedicated browser reference pass before adopting live-site timing or scroll behavior.",
+    "Validation executed: node scripts/validate-brain.mjs → ✓ brain valid — 91 resources, 16 patterns, 36 tools."
+  ],
+  "intake": {
+    "added": [
+      "rauno-invisible-interaction-details",
+      "emil-practical-animation-tips",
+      "webdev-animation-rendering-guide",
+      "codrops-sticky-grid-scroll-study",
+      "lusion-studio-storytelling-study"
+    ],
+    "skipped": []
+  }
+}

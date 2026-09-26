@@ -45,10 +45,20 @@
   - WhatsApp click-through tracked (PostHog, if a key is set).
   - Indexed for "printing Jaipur", "visiting card printing Vaishali Nagar" and similar queries.
 
+## Public-fact refresh (2026-09-26)
+
+Requested official-site/Justdial checks are recorded in [CLIENT_FACTS.md](CLIENT_FACTS.md).
+The official live contact page verifies the published phone, WhatsApp target,
+email and address. Those channels no longer need discovery from the client.
+Founding year, hours and directory rating freshness remain disputed; omit these
+claims unless resolved. Public asset visibility does not authorize reuse.
+The concrete scope and remaining decisions are in [G1_APPROVAL.md](G1_APPROVAL.md).
+The prior client audit remains historical; this refresh controls fact freshness.
+
 ## Open questions (for the client, via the owner, at G1)
 1. Which service leads, and which 3–5 get their own pages first?
-2. Confirm the phone and WhatsApp number, the email (or move to a domain email), the hours, and whether walk-ins are welcome.
-3. Founding year: 2001, or a later year?
+2. Published phone/WhatsApp/email/address are sourced in CLIENT_FACTS.md. Decide whether to change them; confirm visit arrangements and disputed hours only if publishing them.
+3. Resolve the cross-source founding-year conflict, or approve omission of year/years claims.
 4. Which client logos and testimonials may be shown publicly? What is the Google rating and review count?
 5. Real work samples as originals, with permission. Any short case studies?
 6. Who is Aditya? Should the team appear on the site?
@@ -59,5 +69,5 @@
 
 ## G1 status (2026-09-25)
 - Lead service: **Print first** (owner decision). Order is Print → Digital → Design & build.
-- G1 is **not yet approved**. ABizCreator waits for the client's answers (open questions above) before S3 design.
+- G1 is **not yet approved**. Public research has reduced the factual questions; owner can review G1_APPROVAL.md with explicit omissions before S3 design.
 - **Quote form (D19):** a secondary contact path via Formboost (static POST, free tier) next to the WhatsApp CTA. Built in S4. The CSP `form-action` must allow the Formboost endpoint.

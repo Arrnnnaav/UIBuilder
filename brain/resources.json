@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-09-25",
+ "updated": "2026-09-27",
  "resources": [
   {
    "id": "lightswind",
@@ -2679,6 +2679,193 @@
     "observed_at": "2026-09-26"
    },
    "last_reviewed": "2026-09-26"
+  },
+  {
+   "id": "rauno-invisible-interaction-details",
+   "name": "Invisible Details of Interaction Design",
+   "url": "https://rauno.me/craft/interaction-design",
+   "type": "article",
+   "categories": [
+    "interaction",
+    "motion"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [
+    "portfolio interaction critique",
+    "interruptible controls"
+   ],
+   "patterns": [
+    "motion-respect-interaction-frequency"
+   ],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": null,
+   "notes": "Author essay checked. Native-interface observations; browser behavior not measured.",
+   "do_not_copy": "assets, fonts, copy, exact composition, source code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://rauno.me/craft/interaction-design",
+    "observed_at": "2026-09-26"
+   },
+   "last_reviewed": "2026-09-26"
+  },
+  {
+   "id": "emil-practical-animation-tips",
+   "name": "7 Practical Animation Tips",
+   "url": "https://emilkowal.ski/ui/7-practical-animation-tips",
+   "type": "article",
+   "categories": [
+    "motion",
+    "microinteraction"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [
+    "action feedback",
+    "motion critique"
+   ],
+   "patterns": [
+    "motion-trigger-aware-feedback"
+   ],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": null,
+   "notes": "Author article checked. Timing recommendations are heuristics, not measurements of our implementation. Blur requires separate paint-cost review.",
+   "do_not_copy": "assets, fonts, copy, exact composition, source code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://emilkowal.ski/ui/7-practical-animation-tips",
+    "observed_at": "2026-09-26"
+   },
+   "last_reviewed": "2026-09-26"
+  },
+  {
+   "id": "webdev-animation-rendering-guide",
+   "name": "How to create high-performance CSS animations",
+   "url": "https://web.dev/articles/animations-guide",
+   "type": "article",
+   "categories": [
+    "motion",
+    "performance"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [
+    "animation rendering review",
+    "portfolio QA"
+   ],
+   "patterns": [
+    "motion-compositor-first-presentation"
+   ],
+   "trust": "REVIEWED",
+   "license": {
+    "spdx": "CC-BY-4.0",
+    "notes": "Prose CC BY 4.0; samples Apache 2.0; no content copied."
+   },
+   "maintenance": null,
+   "notes": "Publisher guide checked; updated 2020-10-06. Profile actual frames and layers; transform/opacity are not a performance guarantee.",
+   "do_not_copy": "assets, fonts, copy, exact composition, source code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://web.dev/articles/animations-guide",
+    "observed_at": "2026-09-26"
+   },
+   "last_reviewed": "2026-09-26"
+  },
+  {
+   "id": "codrops-sticky-grid-scroll-study",
+   "name": "Sticky Grid Scroll: Building a Scroll-Driven Animated Grid",
+   "url": "https://tympanus.net/codrops/2026/03/02/sticky-grid-scroll-building-a-scroll-driven-animated-grid/",
+   "type": "article",
+   "categories": [
+    "motion",
+    "scroll",
+    "layout"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [
+    "future scroll narrative studies"
+   ],
+   "patterns": [
+    "motion-staged-sticky-scene"
+   ],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": null,
+   "notes": "Author tutorial checked, published 2026-03-02. Three-column/425vh example values are authored, not browser-measured. Demo not exercised.",
+   "do_not_copy": "assets, fonts, copy, exact composition, source code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://tympanus.net/codrops/2026/03/02/sticky-grid-scroll-building-a-scroll-driven-animated-grid/",
+    "observed_at": "2026-09-26"
+   },
+   "last_reviewed": "2026-09-26"
+  },
+  {
+   "id": "lusion-studio-storytelling-study",
+   "name": "Lusion — Studio storytelling reference",
+   "url": "https://lusion.co/",
+   "type": "website",
+   "categories": [
+    "inspiration",
+    "studio",
+    "storytelling"
+   ],
+   "usage_mode": "inspiration_only",
+   "best_for": [
+    "future browser reference study",
+    "project narrative critique"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": null,
+   "notes": "Live site text checked. Reel, selected work and contact hierarchy verified; animations, screenshots, timing and performance await browser study.",
+   "do_not_copy": "assets, fonts, copy, exact composition, source code",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "intake",
+    "url": "https://lusion.co/",
+    "observed_at": "2026-09-26"
+   },
+   "last_reviewed": "2026-09-26"
+  },
+  {
+   "id": "gstack-workflow-review",
+   "name": "gstack — advisory product, engineering and QA workflows",
+   "url": "https://github.com/garrytan/gstack",
+   "type": "workflow_toolkit",
+   "categories": ["agent-workflow", "product-review", "engineering-review", "qa"],
+   "usage_mode": "research_only",
+   "best_for": ["S1 product scope critique", "engineering plan review", "S6 exploratory QA", "pre-publication diff review"],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": "MIT",
+   "notes": "Pinned source review only; no setup/runtime activation. Selective namespaced integration proposed in docs/GSTACK_REVIEW.md. UIBuilder gates/router remain authoritative.",
+   "do_not_copy": "Do not adopt global browsing mandates, automatic shipping or hooks without fitting UIBuilder's contract; preserve upstream MIT notice on reuse.",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {"type": "intake", "url": "https://github.com/garrytan/gstack", "commit": "2a113ae7e623f590095bcaaa0cc581c9a10a6632", "observed_at": "2026-09-27"},
+   "last_reviewed": "2026-09-27"
   }
  ]
 }

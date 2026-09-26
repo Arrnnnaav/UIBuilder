@@ -84,7 +84,8 @@ Legend: ✅ done · 🟡 in progress · ⬜ todo · ⛔ blocked (reason)
   `app/page.tsx` is still the starter placeholder; `content/site.json`,
   `content/seo/routes.json`, schema, FAQ and `public/llms.txt` still contain
   `Site Name` / `example.com`. No `/work` or `/about` routes exist yet.
-  The S4 content-data agent has no handoff. S5/S6/G3/S7 remain pending.
+  This describes the recovered session before the current implementation; see
+  the latest evidence below for current S4/S5 state.
 - ✅ Screenshot /intake recovered: 12 links were reviewed and added to
   `brain/resources.json` (the anti-slop URL was corrected to
   `miqdadbadjuber/anti-slop`). `node scripts/validate-brain.mjs` → valid,
@@ -104,6 +105,22 @@ Legend: ✅ done · 🟡 in progress · ⬜ todo · ⛔ blocked (reason)
   `.git-metadata-backup/` so project source is committed as ordinary files.
   Initial commit `968cb80` contains 459 files; `git push -u origin main`
   succeeded to `https://github.com/Arrnnnaav/UIBuilder.git`.
+- ✅ Current S4 implementation, 2026-09-26: new résumé PDF and commit-pinned
+  GitHub evidence feed home/work/six case studies/about/contact/resume. Production
+  `pnpm build` exit 0 (`docs/evidence/build.txt`); live `pnpm seo:audit
+  http://localhost:3400` → 0 findings/0 high (`docs/evidence/seo-audit.txt`).
+  `pnpm test` → 30/30; `pnpm lint:tokens` → clean, 44 files.
+- ✅ Security hardening and production local checks: 19 focused tests pass;
+  full audit has no known vulnerabilities. Header/debug-route/client-asset evidence
+  is retained in portfolio `docs/evidence/security-runtime.txt`; named
+  project-local `security-review` procedure applied. No production deployment yet.
+- 🟡 S5 review loop 1: `node scripts/inspect-ui.mjs http://localhost:3400` →
+  24 page/viewport captures, all 200, no overflow/console errors. Ledger caption
+  and source spacing fixes in review. Full four-project Playwright, final
+  Lighthouse, committed baselines and G3 remain pending.
+- ✅ Design-reading intake: `node scripts/validate-brain.mjs` → 91 resources,
+  16 patterns, 36 tools; study notes in `docs/DESIGN_READING.md`. New references
+  remain REVIEWED, and are not claimed as measured live animation behavior.
 
 ## M5 — BusinessOS connector ✅ (2026-09-25)
 - ✅ Added `core/integrations/site-connector.mjs`, `integrations/git-site/connector.mjs`, `core/seo/aeo-geo.mjs` (10 codes), `plugins/seo/site-fix-service.mjs`, and a fake-github fixture
@@ -152,3 +169,25 @@ Legend: ✅ done · 🟡 in progress · ⬜ todo · ⛔ blocked (reason)
   - research handoff
 - ✅ `docs/PRODUCT.md` draft, with 10 client questions
 - 🟡 Running: growth S1 strategy. Next: ux, then G1 (owner/client approval).
+
+## Supplemental research — model routing (2026-09-26)
+- ✅ Reviewed JEV at `38da6b84ea01241bfc41fbddc0928d0f40a703f0` and compared native selection, Claude Code Router, OpenRouter Auto, LiteLLM and RouteLLM against official documentation.
+- ✅ Local isolated verification: `node --test --test-reporter=spec 'test/**/*.test.mjs'` → 64 passed, 1 Windows permission test skipped, 0 failed; `npm audit --audit-level=high` → 0 vulnerabilities. Outputs: `docs/evidence/jev-router-*.txt`.
+- Recommendation and limitations: `docs/MODEL_ROUTER_REVIEW.md`; no router enabled, no CLI account configuration changed. Portfolio gates remain pending as recorded above.
+
+## Portfolio visual acceptance and gstack review (2026-09-27)
+
+- Final network-enabled browser comparison completed: 186 passed / 2 expected desktop skips / 0 failures, 1.5 minutes, `projects/portfolio/docs/evidence/e2e-final.txt`. All48 reviewed baseline hashes verified and committed in `d462a96`; owner license/notices committed in `fe011b6`; current-evidence gates and CI build isolation committed in `e9ea705`. These commits are local; publication remains pending.
+- Clean production build/security runtime/SEO checks pass, SEO0findings and /e2e-error404. Fresh mobilehome median still fails LCP2708ms despite performance96 and othercategories100. Font-subset experiment reduced fontbytes roughlyhalf but LCP2703ms; reverted rather than weakening typography. Observer startup now batches DOMwrites and uses asynchronous intersection visibility; full unit suite34/34. Clean rebuild handle62055 replaces the stopped experimental artifact; re-measurement remains required.
+
+- Browser continuation: full post-hydration run finished 184 passed / 2 failed / 2 expected skips, exit 1. Hydration and all 48 axe checks pass. Live Chromium/WebKit probe reproduced WebKit native Tab skipping modal links; explicit full Tab cycling applied. Long styleguide screenshot receives 20s capture budget with unchanged comparison tolerance. Fresh full run is live as exec session24234; do not restart while live.
+- G3 fingerprint strengthened to cover instrumentation entry points and Vitest/PostCSS/workspace configuration; targeted gate tests pass 6/6. CI no longer seeds missing visual baselines automatically and separates production SEO/performance artifacts from browser test artifacts; five YAML workflows parse successfully.
+- ✅ Design-director inspected all 24 refreshed portfolio captures: loop 1 caption/source-label/filename fixes verified; 24/24 HTTP 200, no overflow or console errors. `projects/portfolio/docs/VISUAL_REVIEW.md` and design-director handoff record static visual acceptance. Interaction, accessibility, performance and committed regression baselines remain ship work.
+- ✅ gstack source review pinned at `2a113ae7e623f590095bcaaa0cc581c9a10a6632`: `docs/GSTACK_REVIEW.md` records compatibility, setup/privacy boundaries and selective integration plan. Added REVIEWED/research_only brain entry; not installed or enabled.
+- ✅ `node scripts/validate-brain.mjs` → 92 resources, 16 patterns, 36 tools valid.
+- ✅ Fresh portfolio production build after final growth edits and analytics validation boundary change → exit 0; focused Analytics/layout ESLint → exit 0; runtime `node scripts/seo-audit.mjs http://localhost:3400` → 0 findings, 0 high. Validation still runs on the server; only the explicit public analytics key/host cross to the client.
+- 🟡 Mobile home single-run Lighthouse probe: LCP 2307ms, CLS 0, performance 84, accessibility/SEO 100, best practices 96. LCP improved from 2651ms after removing Zod from the shared analytics browser boundary; high total blocking time keeps the performance gate unpassed. Three-run median requested; full route/profile coverage still required.
+- 🟡 Three-run mobile home median completed: performance 92, accessibility/SEO 100, best practices 96, LCP 2665ms, CLS 0; exit 1 because LCP still exceeds the strict 2500ms limit. Evidence: `projects/portfolio/docs/evidence/perf-home-median.txt`. Full performance gate remains unpassed; do not infer success from the better single-run LCP.
+- 🟡 Full188-test integration run → exit1,121passed,65failed,2desktop-overlay skips. Baseline creation exposed missing PNGs; real blockers found were SVGtitle SSR hydration and mobile keyboard containment. Frontend has reproduced the title bug and is applying localized fixes. `projects/portfolio/docs/QA_REPORT.md` records findings and successful flows; fresh build/rerun remains required.
+- ✅ Frontend applied proven SVGtitle single-string fix and explicit Tab/ShiftTab dialog wrapping; added real EvidenceFigure SSR regression test and reverse-tab E2E coverage. Focused ESLint passed. Root corrected stale styleguide-indexing assertion and expanded Vitest discovery to include TSX tests. Fresh unit/build/browser verification is pending; do not mark G3 passed.
+- ✅ Expanded unit suite → 31/31 passed, including SVGtitle SSR regression (`docs/evidence/unit-integration.txt`). Fresh full browser verification started in exec session22935; original failure evidence preserved in `docs/evidence/e2e-integration-initial.txt`. G3 remains pending.

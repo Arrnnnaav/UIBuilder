@@ -220,6 +220,7 @@
     },
     {
       "id": "security_review_skill",
+      "notes": "Project procedure: .claude/skills/security-review/SKILL.md. Apply before G3 and retain source/runtime evidence in SECURITY_REPORT.md.",
       "capabilities": [
         "security_review"
       ],
