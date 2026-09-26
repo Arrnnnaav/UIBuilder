@@ -48,7 +48,9 @@ live monitoring and owner approvals still need their own evidence.
 The product-manager agent records product capabilities, acceptance criteria,
 priorities and risks in three project documents. It reviews delivery before G3;
 the Orchestrator retains dispatch/state ownership and the owner approves G1/G2.
-See [license decision](docs/LICENSING.md) for the outstanding repository license choice.
+Original pipeline work is licensed under [Apache-2.0](LICENSE). See
+[licensing scope](docs/LICENSING.md): vendored skills keep upstream licenses,
+and personal/client résumé, content and assets require separate permission.
 
 Two vendored skills without stated redistribution terms are local-only and
 excluded from Git: `website-to-code` and `web-design-guidelines`. Their

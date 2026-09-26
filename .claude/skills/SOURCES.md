@@ -15,6 +15,11 @@
 brag: installed as a user plugin (`brag@brag` in ~/.claude/settings.json).
 Update with: re-clone, diff, copy.
 
+MIT LICENSE notices are retained in each redistributed MIT skill folder from the
+recorded pinned upstream revision. frontend-design retains upstream LICENSE.txt.
+Original `security-review` is authored for UIBuilder and uses the root Apache-2.0
+license; it is not a vendored third-party skill.
+
 The 2026-09-26 additions were installed with the Codex skill-installer helper into this project.
 They are available to Claude Code in a new session. Availability does not enable paid tools:
 scroll-world requires separately enabled media services and is deferred under AGENTS.md's
