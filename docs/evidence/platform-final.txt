@@ -1,0 +1,19 @@
+✔ snapshot evidence names match actual Playwright-sanitized nested routes (0.8167ms)
+✔ all pages including noindex utility pages require both performance profiles (0.8548ms)
+✔ exact LCP and CLS boundaries fail and null scores do not pass (0.146ms)
+✔ evidence binds reports and commands, monitoring state and committed reviewed snapshots (41.8134ms)
+✔ source edits invalidate evidence; generated artifacts and reports do not (3.7033ms)
+✔ monitor keys include Next production dotenv precedence without exposing values (4.0674ms)
+✔ monitoring entry points and test/build configs invalidate source evidence (43.769ms)
+✔ default scaffold stays in the parent repository and copies only clean source (93.3772ms)
+✔ standalone scaffold explicitly initializes its own repository (175.3131ms)
+✔ invalid slug and unknown options leave no project (117.6975ms)
+✔ existing project is never overwritten (72.8584ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 558.2875

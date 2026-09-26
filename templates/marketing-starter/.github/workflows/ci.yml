@@ -12,7 +12,7 @@ concurrency:
 jobs:
   quality:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -27,19 +27,38 @@ jobs:
       - run: pnpm validate:content
       - run: pnpm test
       - run: pnpm audit --audit-level high
-      - run: pnpm build
-        env:
-          NEXT_PUBLIC_TURNSTILE_SITE_KEY: 1x00000000000000000000AA
+      - name: Clean production build
+        run: pnpm build
       - run: pnpm exec playwright install --with-deps chromium webkit
-      - run: pnpm test:e2e --update-snapshots=missing
-        env:
-          E2E_SKIP_BUILD: "1"
-      - name: SEO / AEO / GEO audit
+      - name: Production SEO and performance
         run: |
           pnpm start --port 3000 &
-          npx wait-on http://localhost:3000
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          ready=0
+          for attempt in $(seq 1 90); do
+            if curl --fail --silent http://localhost:3000/ >/dev/null; then ready=1; break; fi
+            sleep 1
+          done
+          test "$ready" -eq 1
           pnpm seo:audit http://localhost:3000
-      - run: pnpm lhci
+          pnpm perf http://localhost:3000
+      - name: Require committed Linux visual baselines
+        run: |
+          test -n "$(git ls-files 'e2e/__snapshots__/linux/*.png' 'e2e/__snapshots__/linux/**/*.png')"
+      - name: Build dedicated browser test artifact
+        run: pnpm build
+        env:
+          E2E_ERROR_ROUTE: "1"
+          CONTACT_DRY_RUN: "1"
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: 1x00000000000000000000AA
+          TURNSTILE_SECRET_KEY: 1x0000000000000000000000000000000AA
+      - name: Compare browser tests against reviewed baselines
+        run: pnpm test:e2e --update-snapshots=none
+        env:
+          E2E_SKIP_BUILD: "1"
+          E2E_ERROR_ROUTE: "1"
+          CONTACT_DRY_RUN: "1"
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
@@ -47,4 +66,4 @@ jobs:
           path: |
             playwright-report
             test-results
-            .lighthouseci
+            .lighthouse

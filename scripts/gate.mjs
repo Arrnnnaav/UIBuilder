@@ -7,6 +7,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawn, spawnSync } from "node:child_process";
 import { validate } from "./lib/mini-schema.mjs";
+import { validateEvidence, validatePerf, monitoringKeys } from "./lib/g3-evidence.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const [slug, gate] = process.argv.slice(2);
@@ -83,10 +84,8 @@ if (gate === "G3") {
   run("lint:tokens", "pnpm run lint:tokens");
   run("validate:content", "pnpm run validate:content");
   run("unit tests", "pnpm run test");
-  // Production dependencies must be clean. Dev tooling (lhci/lighthouse) advisories are
-  // reported but don't block: they never ship to users.
-  run("npm audit prod deps (high)", "pnpm audit --prod --audit-level high");
-  spawnSync("pnpm audit --audit-level high", { cwd: proj, shell: true, stdio: "inherit" });
+  // AGENTS.md requires the complete dependency graph to be clean at high severity.
+  run("npm audit all deps (high)", "pnpm audit --audit-level high");
   if (run("production build", "pnpm run build", cpus)) {
     // seo:audit + perf against a real production server, before e2e rebuilds with test keys.
     const port = 3400;
@@ -101,19 +100,32 @@ if (gate === "G3") {
     if (up) {
       run("seo:audit (0 high)", `pnpm run seo:audit ${url}`);
       run("perf (Lighthouse ≥ 0.9, LCP < 2.5s, CLS < 0.1)", `pnpm run perf ${url}`);
+      try {
+        const routes = Object.keys(JSON.parse(readFileSync(join(proj, "content/seo/routes.json"), "utf8")));
+        const errors = validatePerf(JSON.parse(readFileSync(join(proj, ".lighthouse/summary.json"), "utf8")), routes);
+        check("performance coverage and strict boundaries", errors.length === 0, errors.join("; "));
+      } catch (error) { check("performance summary", false, error.message); }
     }
     if (process.platform === "win32") spawnSync(`taskkill /pid ${server.pid} /T /F`, { shell: true, stdio: "ignore" });
     else server.kill("SIGTERM");
   }
-  // A new project has no visual baselines yet: seed them on the first run and say so.
-  const seeded = !existsSync(join(proj, "e2e/__snapshots__", process.platform));
-  if (seeded) spawnSync("pnpm run test:e2e --workers=2 --update-snapshots=missing", { cwd: proj, shell: true, stdio: "inherit", env: { ...process.env, ...cpus } });
   run(
-    `e2e + axe + visual (chromium, webkit × 390/1440)${seeded ? " — baselines seeded this run, review them" : ""}`,
+    "e2e + axe + visual (chromium, webkit × 390/1440)",
     `pnpm run test:e2e --workers=2`,
-    { ...cpus, ...(seeded ? { E2E_SKIP_BUILD: "1" } : {}) },
+    cpus,
   );
-  for (const f of ["QA_REPORT.md", "GROWTH_REPORT.md"]) check(`docs/${f}`, ...filled(f));
+  try {
+    const routes = Object.keys(JSON.parse(readFileSync(join(proj, "content/seo/routes.json"), "utf8")));
+    const git = spawnSync("git", ["ls-tree", "-r", "--name-only", "HEAD", "--", `projects/${slug}/e2e/__snapshots__`], { cwd: root, encoding: "utf8" });
+    const unchanged = spawnSync("git", ["diff", "--quiet", "HEAD", "--", `projects/${slug}/e2e/__snapshots__`], { cwd: root });
+    check("reviewed snapshots match committed bytes", unchanged.status === 0);
+    const trackedSnapshots = new Set((git.stdout ?? "").split(/\r?\n/).map(p => p.replace(`projects/${slug}/`, "")));
+    const errors = validateEvidence(proj, JSON.parse(readFileSync(doc("G3_EVIDENCE.json"), "utf8")), {
+      routes, platform: process.platform, trackedSnapshots,
+      monitoringEnabled: monitoringKeys(proj),
+    });
+    check("reviewed current reports, monitoring and committed snapshots", git.status === 0 && errors.length === 0, errors.join("; "));
+  } catch (error) { check("G3 evidence record", false, error.message); }
 }
 
 console.log(`\n${gate} — projects/${slug}`);

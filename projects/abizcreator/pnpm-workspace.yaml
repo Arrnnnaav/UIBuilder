@@ -3,7 +3,7 @@ allowBuilds:
   unrs-resolver: true
   core-js: false
   "@sentry/cli": true
-  esbuild: set this to true or false
-  workerd: set this to true or false
+  esbuild: true
+  workerd: true
 overrides:
   tmp: ">=0.2.6"
