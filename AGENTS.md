@@ -29,6 +29,7 @@ Definitions are in `.claude/agents/*.md`. The main session is the Orchestrator.
 | Agent | Owns | Writes |
 |---|---|---|
 | Orchestrator (main) | intake, state, gates, dispatch | `PRODUCT.md`, `STATE.md`, `BUILD_SPEC.json` |
+| product-manager | capability scope, acceptance, priorities and delivery review; no gate authority | `PRODUCT_REQUIREMENTS.md`, `ACCEPTANCE.md`, `PRIORITIES.md` |
 | research | references (≤5), competitors, the client's current site | `INSPIRATION.md`, `REFERENCE_BREAKDOWN.md` |
 | ux | flows, IA, wireframes | `USER_FLOW.md`, `IA.md`, `WIREFRAMES.md` |
 | design-director | 3 isolated directions → hybrid → design system; visual review | `DESIGN.md`, `MOTION.md`, `tokens.css`, `VISUAL_REVIEW.md` |
@@ -42,7 +43,7 @@ access to the others. Only the critic sees all three.
 
 ## 3. Stages and gates
 ```
-S1 Orchestrator + growth(strategy)             → PRODUCT.md, SEO_STRATEGY.md
+S1 Orchestrator + product-manager + growth(strategy) → PRODUCT.md, PRODUCT_REQUIREMENTS.md, ACCEPTANCE.md, PRIORITIES.md, SEO_STRATEGY.md
 S2 ‖ research ‖ ux(+growth IA) ‖ backend-base
 G1 brief + wireframes            — user approves
 S3 design-director: A | B | C (forks) → critic → DESIGN.md
@@ -99,6 +100,11 @@ an owner-approved PR followed by a separate owner approval to publish. See the B
 - The trust ladder is NEW → REVIEWED → TESTED → APPROVED → TRUSTED, with REJECTED and DEPRECATED as exits. Only APPROVED and TRUSTED resources are used by default.
 
 ## 8. Commands
+Projects scaffold into this monorepo without nested `.git` directories by default.
+Use `node scripts/new-project.mjs <pipeline> <slug> --standalone` only when preparing
+a separate site repository. Move that project outside UIBuilder before publishing
+its own repository; never stage a nested repository as a replacement for site source.
+
 - `/build <pipeline> <slug>` runs a full pipeline.
 - `/intake <links>` adds resources to the brain.
 - `/gate <G1|G2|G3>` checks a gate.

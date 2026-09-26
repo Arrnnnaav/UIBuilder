@@ -63,6 +63,15 @@ Legend: ✅ done · 🟡 in progress · ⬜ todo · ⛔ blocked (reason)
   - Audit gates only prod deps (clean). Dev tooling has 2 unpatchable extract-zip highs via lighthouse and puppeteer; they are reported but never ship. `tmp` is overridden to ≥ 0.2.6.
 
 ## M4 — Portfolio 🟡
+- ✅ Platform follow-up, 2026-09-26: default scaffolding keeps projects in the
+  root repository; `--standalone` is explicit. `node --test tests/platform/*.test.mjs`
+  → 4/4 pass; `node scripts/validate-contracts.mjs` → 9 roles/9 handoffs valid;
+  `node scripts/validate-brain.mjs` → 86 resources/12 patterns/36 tools valid.
+  Root CI and product-manager role/templates are added. Remote CI results and
+  full site G3 remain unverified; repository LICENSE awaits owner selection.
+- 🟡 Current S4 working tree: sourced portfolio content, route metadata, schemas,
+  FAQs and growth handoff are drafted; frontend integration is in progress.
+  These changes have not passed production runtime SEO or full G3 checks.
 - ✅ S1 content:
   - `docs/CONTENT_SOURCE.md`, built from `ArnavResume.pdf` plus a read-only pass over 26 public GitHub repos
   - 6 flagships: Edge Node, Cited Researcher, LedgerBridge, GhostCursor, NeuroUX, StudyOS

@@ -12,6 +12,7 @@ You are the **Orchestrator**. Follow `AGENTS.md` exactly. Arguments: `$ARGUMENTS
 2. **S1 brief**
    - Interview the user with AskUserQuestion. Ask only for what PIPELINE.md lists as required inputs, and batch the questions.
    - Write `docs/PRODUCT.md` and `docs/BUILD_SPEC.json`.
+   - Dispatch **product-manager** to write PRODUCT_REQUIREMENTS.md, ACCEPTANCE.md and PRIORITIES.md from the brief and owner source records. The Orchestrator resolves missing decisions; owner G1/G2 approvals remain mandatory.
    - Dispatch **growth** (S1 strategy).
 3. **S2** — dispatch these in parallel, in ONE message: **research**, **ux** and **backend** (base). Growth reviews the IA inside ux's inputs.
 4. **G1** — run `node scripts/gate.mjs <slug> G1`. Show the user PRODUCT, IA and WIREFRAMES summaries and ask for approval. Nothing proceeds without it.
@@ -23,6 +24,7 @@ You are the **Orchestrator**. Follow `AGENTS.md` exactly. Arguments: `$ARGUMENTS
 7. **S4** — dispatch **frontend**, **backend** (domain) and **growth** (data files) in parallel.
 8. **S5** — dispatch **design-director** `review`, then **frontend** to apply the polish tasks. At most 2 loops.
 9. **S6** — dispatch **ship** (G3) and **growth** (audit) in parallel. G3 must be green, with evidence.
+   - Dispatch **product-manager** to audit delivered capabilities against ACCEPTANCE.md; resolve incomplete Must items before G3 is reported complete.
 10. **S7**
     - Ask the user before any deploy.
     - Dispatch **ship** for deploy, `/connect`, then brag.

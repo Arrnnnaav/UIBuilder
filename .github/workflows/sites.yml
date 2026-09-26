@@ -1,0 +1,44 @@
+name: Site source quality
+on:
+  push:
+    branches: [main]
+    paths: ['projects/**', '.github/workflows/sites.yml']
+  pull_request:
+    paths: ['projects/**', '.github/workflows/sites.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: sites-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        site: [portfolio, demo, abizcreator]
+    defaults:
+      run:
+        working-directory: projects/${{ matrix.site }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: projects/${{ matrix.site }}/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: projects/${{ matrix.site }}/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm lint:tokens
+      - run: pnpm validate:content
+      - run: pnpm test
+      - run: pnpm audit --audit-level high
+      - run: pnpm build
+        env:
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: 1x00000000000000000000AA

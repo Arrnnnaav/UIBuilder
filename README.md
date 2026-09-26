@@ -17,6 +17,8 @@ is [plan/PROGRESS.md](plan/PROGRESS.md).
 
 ```sh
 node scripts/validate-brain.mjs
+node scripts/validate-contracts.mjs
+node --test tests/platform/*.test.mjs
 node scripts/gate.mjs portfolio G1
 node scripts/gate.mjs portfolio G2
 ```
@@ -31,11 +33,22 @@ SEO data still need to replace starter placeholders. ABizCreator is waiting at
 its client approval gate. See [PROGRESS.md](plan/PROGRESS.md) for evidence and
 the remaining work.
 
-This repository includes working project folders so the pipeline and its
-outputs can be reviewed together. New projects created by the current
-`scripts/new-project.mjs` still start a separate local Git repository; decide
-whether a new site belongs here or in a client-owned repository before staging
-it.
+This repository includes working project folders so the pipeline and its outputs
+can be reviewed together. `node scripts/new-project.mjs portfolio my-site` creates
+a clean project without a nested Git repository. Use `--standalone` explicitly
+for a separate client or deployment repository, then move it outside this checkout.
+Existing projects are never overwritten; private env files and build output are excluded.
+
+Root GitHub Actions validate brain data, agent and handoff contracts, scaffold
+behavior, and site source quality. Workflows under `projects/*/.github/` are for
+standalone site repositories; GitHub does not execute those from this monorepo.
+The source workflow does not prove G3: browser flows, visual review, Lighthouse,
+live monitoring and owner approvals still need their own evidence.
+
+The product-manager agent records product capabilities, acceptance criteria,
+priorities and risks in three project documents. It reviews delivery before G3;
+the Orchestrator retains dispatch/state ownership and the owner approves G1/G2.
+See [license decision](docs/LICENSING.md) for the outstanding repository license choice.
 
 Two vendored skills without stated redistribution terms are local-only and
 excluded from Git: `website-to-code` and `web-design-guidelines`. Their

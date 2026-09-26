@@ -2,7 +2,7 @@
   "type": "object",
   "required": ["agent", "status", "inputs_used", "decisions", "files_created", "risks", "next_agent", "next_instructions"],
   "properties": {
-    "agent": { "type": "string", "enum": ["orchestrator", "research", "ux", "design-director", "frontend", "backend", "growth", "ship"] },
+    "agent": { "type": "string", "enum": ["orchestrator", "product-manager", "research", "ux", "design-director", "frontend", "backend", "growth", "ship"] },
     "status": { "type": "string", "enum": ["complete", "blocked", "partial"] },
     "inputs_used": { "type": "array", "items": { "type": "string" } },
     "decisions": { "type": "array", "items": { "type": "string" } },

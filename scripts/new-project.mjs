@@ -1,18 +1,18 @@
 #!/usr/bin/env node
-// node scripts/new-project.mjs <pipeline> <slug>
+// node scripts/new-project.mjs <pipeline> <slug> [--standalone]
 // Copies templates/marketing-starter → projects/<slug>, seeds docs/ from templates/docs,
-// and git-inits the project (each project is its own repo).
+// Projects belong to the monorepo by default; --standalone initializes a site repo.
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join, dirname, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";
-import { execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const [pipeline, slug] = process.argv.slice(2);
+const [pipeline, slug, ...options] = process.argv.slice(2);
 const pipelines = readdirSync(join(root, "pipelines"));
 
-if (!pipeline || !slug) {
-  console.error(`usage: node scripts/new-project.mjs <${pipelines.join("|")}> <slug>`);
+if (!pipeline || !slug || options.some((option) => option !== "--standalone") || options.length > 1) {
+  console.error(`usage: node scripts/new-project.mjs <${pipelines.join("|")}> <slug> [--standalone]`);
   process.exit(2);
 }
 if (!pipelines.includes(pipeline)) {
@@ -32,10 +32,10 @@ if (existsSync(dest)) {
 }
 
 // Build output, installed deps and per-machine test artefacts never travel with the template.
-const SKIP = new Set(["node_modules", ".next", "test-results", "playwright-report", ".lighthouse", ".lighthouseci", "generated", "__snapshots__", "next-env.d.ts", "tsconfig.tsbuildinfo"]);
+const SKIP = new Set([".git", "node_modules", ".next", "test-results", "playwright-report", ".lighthouse", ".lighthouseci", "generated", "__snapshots__", "next-env.d.ts", "tsconfig.tsbuildinfo"]);
 cpSync(src, dest, {
   recursive: true,
-  filter: (p) => !relative(src, p).split(sep).some((part) => SKIP.has(part)),
+  filter: (p) => !relative(src, p).split(sep).some((part) => SKIP.has(part) || (part.startsWith(".env") && part !== ".env.example")),
 });
 
 // docs/ from templates, with the slug filled in
@@ -59,6 +59,6 @@ const pkg = JSON.parse(readFileSync(pkgPath, "utf8"));
 pkg.name = slug;
 writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n");
 
-execSync("git init -q -b main", { cwd: dest });
+if (options.includes("--standalone")) execFileSync("git", ["init", "-q", "-b", "main"], { cwd: dest });
 console.log(`✓ projects/${slug} created from marketing-starter (${pipeline})`);
 console.log(`  next: cd projects/${slug} && pnpm install   ·   then /build ${pipeline} ${slug}`);
