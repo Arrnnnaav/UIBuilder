@@ -28,7 +28,9 @@
                       "Production trace proved SVG titles empty in SSR due to multiple JSX children; single-string interpolation fixes both titles. Actual EvidenceFigure SSR regression added at tests/unit/evidence-figure-ssr.test.tsx; root owns execution.",
                       "Chromium menu trace failed at sixth Tab beyond lastlink; added explicit Tab and ShiftTab endpoint wrap while retaining native Escape and focus restoration. Existing E2E now checks both endpoints.",
                       "RetractObserver startup now batches data-armed writes and delegates visibility to IntersectionObserver; synchronous geometry reads removed. Release requires50% visibility and preserves two animation frames, reduced-motion no-op and cleanup.",
-                      "Focused command pnpm exec vitest run tests/unit/retract-observer.test.ts passed exit0:1file3tests,242ms. No measured performance improvement claimed; orchestrator owns rebuild and Lighthouse measurement."
+                      "Focused command pnpm exec vitest run tests/unit/retract-observer.test.ts passed exit0:1file3tests,242ms. No measured performance improvement claimed; orchestrator owns rebuild and Lighthouse measurement.",
+                      "Footer projects prop narrowed to Pick\u003cProject,slug|title\u003e[]; RootLayout maps only slug/title on the server. Existing markup, pathname CTA, links and icons preserved.",
+                      "Focused pnpm exec eslint app/layout.tsx components/portfolio/Footer.tsx passed exit0; pnpm exec tsc --noEmit passed exit0. No browser/build/performance run; no measured LCP claim."
                   ],
     "files_created":  [
                           "components/portfolio/Ledger.tsx",

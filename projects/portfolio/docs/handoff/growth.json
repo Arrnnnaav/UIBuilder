@@ -32,7 +32,7 @@
     "public/llms.txt",
     "seo.manifest.json",
     "docs/source-snapshots/*.md",
-    "docs/final-content-review.cjs",
+    "docs/final-content-review.mjs",
     "docs/evidence/content-review.json"
   ],
   "resources_used": [

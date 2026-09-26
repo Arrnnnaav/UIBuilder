@@ -15,7 +15,7 @@
 
 ## Static review evidence
 
-Command: `node projects/portfolio/docs/final-content-review.cjs`.
+Command: `node projects/portfolio/docs/final-content-review.mjs`.
 Result is recorded in `docs/evidence/content-review.json`:
 
 ```text

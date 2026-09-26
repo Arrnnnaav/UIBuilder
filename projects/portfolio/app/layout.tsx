@@ -49,7 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main id="main" tabIndex={-1} className="container flex-1">
           {children}
         </main>
-        <Footer projects={portfolio.projects} github={portfolio.github} linkedin={portfolio.linkedin} name={portfolio.name} />
+        <Footer projects={portfolio.projects.map(({ slug, title }) => ({ slug, title }))} github={portfolio.github} linkedin={portfolio.linkedin} name={portfolio.name} />
         {globalJsonLd().map((data, index) => <JsonLd key={index} data={data} />)}
         <Analytics analyticsKey={clientEnv.NEXT_PUBLIC_POSTHOG_KEY} analyticsHost={clientEnv.NEXT_PUBLIC_POSTHOG_HOST} />
       </body>
