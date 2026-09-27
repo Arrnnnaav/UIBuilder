@@ -55,6 +55,15 @@ for (const route of pages) {
   });
 }
 
+test("measured work anchor scrolls to the work section by keyboard", async ({ page }) => {
+  await page.goto("/");
+  const link = page.getByRole("link", { name: "See the measured work", exact: true });
+  await link.focus();
+  await link.press("Enter");
+  await expect(page).toHaveURL(/\/#work$/);
+  await expect(page.locator("#work")).toBeInViewport();
+});
+
 test("primary nav reaches every linked page", async ({ page }) => {
   await page.goto("/");
   const mobile = (page.viewportSize()?.width ?? 1440) < 1024;

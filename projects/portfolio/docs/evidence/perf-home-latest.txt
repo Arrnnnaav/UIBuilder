@@ -1,0 +1,3 @@
+Command: PERF_ROUTES=/; PERF_FACTORS=mobile; pnpm perf -- http://localhost:3400
+Result: exit 1; 3-run median: performance 96, accessibility 100, best-practices 100, SEO 100, agentic-browsing 100, LCP 2708ms, CLS 0. Contract failure: LCP must be <2500ms.
+Build: clean production build with approved fonts, no E2E-only runtime fixtures. See .lighthouse/mobile-home-1.json through mobile-home-3.json and summary.json.

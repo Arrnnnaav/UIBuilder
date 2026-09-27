@@ -1,10 +1,2 @@
-$ node scripts/gen-content-index.mjs && node scripts/validate-content.mjs
-content index: 30 schema, 11 faq
-✓ content valid
-$ next build
-▲ Next.js 16.3.6 (Turbopack)
-✓ Running next.config.ts took 36ms
-- Experiments (use with caution):
-  · cpus: 2
-
-  Creating an optimized production build ...
+Command: pnpm build
+Result: exit 0; Next.js 16.3.6 production build. Static routes: /, /about, /contact, /resume, /styleguide, /work and six /work/[slug] pages; robots.txt, sitemap.xml, OG; E2E-only /e2e-error dynamic fixture.

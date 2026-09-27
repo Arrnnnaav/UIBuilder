@@ -28,6 +28,15 @@ observer change removes interleaved synchronous geometry reads and corrects the
 50% visibility boundary, but this measurement does not demonstrate an LCP gain.
 Full route/profile performance and G3 remain incomplete.
 
+Narrowing the footer's serialized project props to title/slug improves the
+home/mobile median to performance 97, accessibility/best practices/SEO 100,
+LCP 2557ms and CLS 0 (`docs/evidence/perf-home-footer-payload.txt`). This remains
+above the strict limit. Disabling current-home wordmark prefetch and using a
+native in-page work anchor measures LCP 2559ms; no LCP improvement is claimed
+for that change (`docs/evidence/perf-home-prefetch.txt`).
+
 The SVG title hydration correction removes a proven client rerender defect. After browser verification completes, rebuild without Turnstile test keys, dry-run delivery or the intentional error fixture. Measure home/mobile again, then all 12 published routes in desktop and mobile with three runs each. Inspect actual Lighthouse traces before any further optimization. Keep category scores at least 90, LCP strictly below 2500ms and CLS strictly below 0.1; do not change throttling or thresholds to manufacture success.
+
+The latest clean build, including the Footer server/client split and server-rendered navigation icon, was measured on 2026-09-27: three-run mobile-home median performance 96, accessibility/best-practices/SEO/agentic-browsing 100, LCP 2708ms, CLS 0. The run exits 1 because LCP is 208ms above contract. Evidence: `.lighthouse/summary.json`; prior retained experiments remain for comparison. No performance win is claimed for this change. Full 12-route desktop/mobile coverage remains outstanding.
 
 No deployed real-user measurements exist yet. Production field behavior and configured monitoring receipts require verification after deployment.

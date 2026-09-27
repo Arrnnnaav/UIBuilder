@@ -8,6 +8,7 @@ import { clientEnv } from "@/lib/env";
 import { portfolio } from "@/lib/portfolio";
 import { Navigation } from "@/components/portfolio/Navigation";
 import { Footer } from "@/components/portfolio/Footer";
+import { ArrowUpRight } from "@phosphor-icons/react/ssr";
 import "./globals.css";
 
 // DESIGN.md §Typography: Archivo (variable wght + wdth; OFL) for everything including numerals,
@@ -45,7 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <Navigation name={portfolio.name} github={portfolio.github} />
+        <Navigation name={portfolio.name} github={portfolio.github} externalIcon={<ArrowUpRight aria-hidden="true" />} />
         <main id="main" tabIndex={-1} className="container flex-1">
           {children}
         </main>
