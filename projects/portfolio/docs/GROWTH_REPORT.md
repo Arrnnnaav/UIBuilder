@@ -1,5 +1,12 @@
 # Growth report: final static and runtime review, 2026-09-28
 
+## Search policy references
+
+- Google's [generative AI Search guidance](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide) emphasizes useful, original content and foundational SEO; it provides no special length, schema or `llms.txt` shortcut.
+- Google's [Google-Extended documentation](https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers) distinguishes Gemini/Vertex AI use from Google Search crawling, inclusion and ranking.
+- Google's [FAQ rich-result update](https://developers.google.com/search/blog/2023/08/howto-faq-changes) limits expected rich-result visibility; the site's FAQ markup mirrors visible answers for consistency without promising enhancements.
+- Google's [ProfilePage structured data guidance](https://developers.google.com/search/docs/appearance/structured-data/profile-page) supports the Person profile representation; valid markup does not guarantee a search feature.
+
 ## Current coverage
 
 - **12 public indexable routes**: home, work index, six case studies, about,
@@ -59,8 +66,8 @@ uptime, hiring availability, LinkedIn URL or residential location is inferred.
 
 - Added the local AI desktop descriptor to GhostCursor's metadata title, addressing
   the documented name collision.
-- Used **2026-09-27** consistently for final route/page/Article editorial revision
-  dates. These dates describe portfolio revision, not upstream project releases.
+- Route and schema `lastModified` values currently use **2026-09-28** for this
+  portfolio content review; they do not represent upstream project release dates.
 - Added verified-source citations to case-study Article entities.
 - Reconciled report coverage with the owner's public styleguide decision.
 

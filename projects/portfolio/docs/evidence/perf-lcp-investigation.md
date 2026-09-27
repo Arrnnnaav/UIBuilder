@@ -6,13 +6,12 @@ Date: 2026-09-28. Scope: read-only audit plus temporary, reverted experiments; n
 
 The gate uses Lighthouse's **simulated** mobile metrics (`throttlingMethod: "simulate"`, 4× CPU slowdown, 562.5ms request latency, 1.47Mbps download). The LCP breakdown insight comes from the **observed, unthrottled trace**. Those are different measurements, which explains why the breakdown's small TTFB/render-delay figures do not sum to the gate's LCP.
 
-Example from `.lighthouse/mobile-work-1.json`:
+Example from the fresh clean-source `.lighthouse/mobile-work-1.json` run (`2026-09-27T23:33Z`):
 
-- Simulated FCP 798ms; simulated LCP 2680ms; simulated TTFB 454ms.
-- Observed FCP and LCP both 150ms; observed TTFB in the LCP breakdown 7.9ms; text element render delay 142.5ms.
-- LCP element: `main#main > header.page-intro > div.lede > p`.
+- Simulated FCP 755ms; simulated LCP 2555ms; simulated TTFB 453ms.
+- Observed FCP and LCP both 177ms; observed TTFB in the LCP breakdown 6.1ms; text element render delay 171.1ms.
 
-Across the fresh three-run matrix (`.lighthouse/summary.json`), simulated mobile LCP medians are `/` 2706ms, `/work` 2556ms, `/work/edge-node` 2706ms, `/work/cited-researcher` 2706ms, `/work/ledgerbridge` 2705ms, `/work/ghostcursor` 2705ms, `/work/neuroux` 2705ms, `/work/studyos` 2705ms, `/about` 2555ms, `/contact` 2560ms, `/resume` 2556ms and `/styleguide` 2857ms. All miss the required strict `<2500ms` simulated LCP gate. The candidates are above-the-fold text; their exact selectors vary by page template.
+The fresh three-run, 24-profile matrix is in `docs/evidence/perf-final-summary.json`; full command output is in `docs/evidence/perf-run-final.txt`. Simulated mobile LCP medians: `/` 2709ms, `/work` 2558ms, `/work/edge-node` 2707ms, `/work/cited-researcher` 2707ms, `/work/ledgerbridge` 2706ms, `/work/ghostcursor` 2707ms, `/work/neuroux` 2707ms, `/work/studyos` 2706ms, `/about` 2559ms, `/contact` 2558ms, `/resume` 2558ms and `/styleguide` 2857ms. All miss the required strict `<2500ms` simulated LCP gate. Desktop passes on all 12 routes. The LCP candidates are above-the-fold text; exact selectors vary by page template.
 
 This is not grounds to replace or weaken the gate: it is the repository's chosen simulated mobile contract. Observed local paint is useful diagnostic evidence, not a passing gate result.
 
@@ -21,7 +20,7 @@ This is not grounds to replace or weaken the gate: it is the repository's chosen
 The default Lighthouse call used by `scripts/perf.mjs` was kept unchanged. URL blocking was only a causal diagnostic; it broke client runtime and raised console errors, so none of these results is a product fix.
 
 - Blocking all `/_next/static/chunks/*.js` on `/work` moved simulated LCP from about 2557ms to 1808ms, with observed LCP 91ms. The page remains SSR-readable, but JavaScript is broken.
-- Blocking only the shared `26-1rt-bpkfke.js` React/Next vendor chunk gave repeatable simulated LCPs: `/` 2406, 2408, 2408ms; `/work/edge-node` 2259, 2260, 2259ms; `/styleguide` 2408, 2408, 2407ms. Every run had a console error from the deliberately blocked chunk. This shows that the shared framework runtime materially affects Lantern's simulated LCP; it does not establish that shipping without hydration is acceptable.
+- Blocking only the shared `26-1rt-bpkfke.js` React/Next vendor chunk gave repeatable simulated LCPs: `/` 2406, 2408, 2408ms; `/work/edge-node` 2259, 2260, 2259ms; `/styleguide` 2408, 2408, 2407ms. Every run had a console error from the deliberately blocked chunk. This shows that the shared framework runtime materially affects UIBuilder's simulated LCP; it does not establish that shipping without hydration is acceptable.
 - Blocking the shared CSS file on `/styleguide` changed simulated LCP from 2865ms to 2729ms (~136ms), while removing site styling. The raw Lighthouse render-blocking insight separately estimated ~153–154ms savings for the ~10.4KB transferred global stylesheet. This is a contributing opportunity, insufficient by itself for the worst routes.
 
 ## Rejected source experiments

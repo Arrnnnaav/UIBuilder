@@ -27,7 +27,7 @@ Axe retains incomplete results where it cannot infer backgrounds behind CSS pseu
 `PERF_RUNS=3 pnpm perf -- http://localhost:3400` covered all 12 public routes in desktop and mobile profiles. Results: `docs/evidence/perf-final-summary.json`.
 
 - Desktop: all 12 routes pass; every category score is at least 98; LCP 525–598ms; CLS 0.
-- Mobile: all 12 routes pass accessibility, best-practices, SEO, agentic-browsing and CLS (0). Performance is 0.96–0.97. Every route misses the strict LCP <2500ms threshold: LCP 2555–2857ms.
+- Mobile: all 12 routes pass accessibility, best-practices, SEO, agentic-browsing and CLS (0). Performance is 0.96–0.97. Every route misses the strict LCP <2500ms threshold: LCP 2558–2857ms in the fresh 2026-09-28 clean run.
 - Therefore the performance contract and G3 are not passed. Keep the current Lighthouse settings and threshold unchanged. The largest impact is shared across mobile pages; investigate the common rendering/font/CSS path before page-specific polish.
 
 ## Other checks

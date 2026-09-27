@@ -17,7 +17,7 @@
     "Installed project-local skills as available references; new optional or paid tools remain disabled in brain/tools.json.",
     "Keep the approved DESIGN.md as the portfolio design contract and defer media-heavy scroll-world work.",
     "2026-09-28 integrated verification: production build, 35 unit tests, lint, typecheck, token lint, content validation, dependency audit, 198 browser checks and clean-production runtime/security scan pass.",
-    "Do not pass G3 or deploy: mobile simulated Lighthouse LCP remains 2555–2857ms on every route against the strict <2500ms contract. The custom domain remains deferred."
+    "Do not pass G3 or deploy: fresh mobile simulated Lighthouse LCP remains 2558–2857ms on every route against the strict <2500ms contract. The custom domain remains deferred."
   ],
   "files_created": [
     "docs/handoff/orchestrator.json",
@@ -34,7 +34,7 @@
   ],
   "patterns_used": [],
   "risks": [
-    "All 12 public routes miss the required mobile simulated Lighthouse LCP threshold; gate and throttling settings remain unchanged.",
+    "Fresh 2026-09-28 full clean-production Lighthouse matrix: all 12 public routes miss the required mobile simulated Lighthouse LCP threshold at 2558–2857ms; gate and throttling settings remain unchanged. Evidence: docs/evidence/perf-final-summary.json and docs/evidence/perf-run-final.txt.",
     "Deployment, live provider receipts, BusinessOS dogfood and launch artifacts remain S7 work after G3; the actual URL must be observed before reconciling provisional references."
   ],
   "open_questions": [

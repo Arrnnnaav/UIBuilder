@@ -32,12 +32,14 @@
     "projects/portfolio/content/seo/crawlers.json"
   ],
   "decisions": [
-    "Evidence reconciliation refreshed on 2026-09-28 against repository HEAD 6a6df0a; PM acceptance/priorities/handoff updates are uncommitted worktree changes.",
-    "A08 and A10 are verified by the latest 194-pass browser matrix, including PDF MIME and FAQ/schema parity checks.",
-    "A07 is verified by the production-mode contact unit test (1/1) and retained output; the full portfolio unit suite passes 35/35. This verifies the no-provider fallback path, not live email delivery.",
-    "A16 is verified by all-route axe checks, the explicit contrast audit in four browser/profile outputs, design token contrast calculations, keyboard tests and reduced-motion tests; the audit retains unscored pseudo-element/SVG nodes as incomplete for transparency.",
-    "G3 remains unpassed: mobile LCP misses the threshold and current clean-production security/client-scan evidence needs refresh. A07's no-provider contact fallback is now verified by a production-mode regression test.",
-    "Separated G3 contact failure-state correctness (A07) from owner-controlled provider credentials, real delivery and conditional telemetry receipts at S7 (A22). Missing provider credentials alone do not block G3; never deploy E2E keys or CONTACT_DRY_RUN.",
+    "Evidence reconciliation refreshed on 2026-09-28 against local HEAD 587ed89 on experiment/html-first-lcp; source audit reports this HEAD is pushed to origin/main.",
+    "A15 is verified by the current retained browser matrix: 198 passed, 2 expected desktop-only skips (200 total), across Chromium/WebKit at 390px and 1440px.",
+    "A07 is verified by the production-mode no-provider unit test (1/1); the full portfolio unit suite passes 35/35. This verifies the safe fallback path, not live email delivery.",
+    "A08 and A10 are verified by the current browser matrix, including PDF MIME/signature and FAQ/schema, sitemap/canonical, robots and llms.txt checks.",
+    "A16 is verified by all-route axe checks, four explicit contrast browser/profile outputs, token contrast calculations, keyboard tests and reduced-motion tests; unscored pseudo-element/SVG nodes remain labeled incomplete in the raw audit.",
+    "A18 is verified by the current clean-production security/header/client scan and current security review; this is local candidate evidence, not a live deployment check.",
+    "G3 remains unpassed solely on A17 mobile LCP. Fresh 24-profile clean-production Lighthouse run completed 2026-09-28; desktop passes and all 12 mobile routes miss LCP at 2558–2857ms. Evidence: docs/evidence/perf-final-summary.json and docs/evidence/perf-run-final.txt.",
+    "G3 contact failure-state correctness (A07) is separate from owner-controlled provider credentials, live delivery and conditional telemetry receipts at S7 (A22). Missing provider credentials alone do not block G3; never deploy E2E keys or CONTACT_DRY_RUN.",
     "The owner-approved indexing decision remains: /styleguide is public/indexable; /e2e-error is internal/noindex."
   ],
   "files_created": [
@@ -49,18 +51,17 @@
   "resources_used": [],
   "patterns_used": [],
   "risks": [
-    "All 12 mobile public routes still exceed the strict LCP limit; latest range is 2555–2857ms.",
-    "The current E2E browser contact flow uses Turnstile test keys and CONTACT_DRY_RUN; a separate unit regression covers production no-provider behavior but does not prove live delivery.",
-    "Clean-production security runtime/client-scan evidence is historical and needs a rerun bound to the latest candidate.",
-    "Actual deployment URL, Resend delivery, and telemetry receipts are unavailable until owner-controlled release configuration; telemetry receipts remain conditional on enabled keys.",
+    "A17 mobile Lighthouse LCP is the sole current G3 blocker; the fresh 24-profile clean-production run is recorded and all mobile route medians are 2558–2857ms.",
+    "The E2E browser contact flow uses Turnstile test keys and CONTACT_DRY_RUN; the production no-provider unit regression does not prove live delivery.",
+    "The actual deployment URL, Resend delivery and telemetry receipts are unavailable until owner-controlled release configuration; telemetry receipts remain conditional on enabled keys.",
     "BusinessOS dogfood and launch artifacts remain S7 work after G3."
   ],
   "open_questions": [],
   "next_agent": "orchestrator",
   "next_instructions": [
-    "Continue G3 tasks in docs/PRIORITIES.md without changing thresholds or claiming a pass.",
-    "Treat A22 provider setup/receipts as release configuration; no live receipts are required when keys are absent, and no provider credentials alone block G3.",
-    "A17 and A18 are the remaining G3 blockers: resolve mobile LCP and refresh the clean-production security/client scan against the current candidate.",
-    "S7 provider setup and live receipts are conditional release checks; they do not block G3 when provider keys are absent. Never use E2E credentials or CONTACT_DRY_RUN in release."
+    "Keep G3 pending until a new full Lighthouse matrix satisfies A17 without changing thresholds; current fresh evidence is 2558–2857ms mobile LCP on all routes.",
+    "A07 and A18 are verified; do not list A18 as a remaining G3 blocker unless new current evidence fails.",
+    "Treat A22 provider setup/receipts as release configuration; no live receipts are required when keys are absent, and missing provider credentials alone do not block G3.",
+    "After G3, complete S7 deployment, verify live URLs and environment, dogfood BusinessOS with owner-controlled PAT and separate approvals, and produce launch video plus /learn memory. Never use E2E credentials or CONTACT_DRY_RUN in release."
   ]
 }

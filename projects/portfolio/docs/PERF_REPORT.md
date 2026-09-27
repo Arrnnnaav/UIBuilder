@@ -4,28 +4,28 @@ Status: G3 performance requirement not met. Full clean production matrix complet
 
 ## Full route coverage
 
-Command: `pnpm perf -- http://localhost:3401` (3-run median; clean production build; all public routes and profiles).
-Result: exit 1 only because mobile LCP exceeds the strict 2500ms limit. Complete route/profile medians are retained in `docs/evidence/perf-final-summary.json`.
+Command (PowerShell): `$env:PERF_RUNS='3'; pnpm perf -- http://localhost:3410` (three-run median; clean production build; all public routes and profiles).
+Result: exit 1 only because mobile LCP exceeds the strict 2500ms limit. The fresh run finished 2026-09-28 local time (2026-09-27T23:37Z). Complete route/profile medians are retained in `docs/evidence/perf-final-summary.json`; command output is `docs/evidence/perf-run-final.txt`.
 
 - Desktop: 12/12 routes pass. All category scores are at least 0.98; LCP 525–598ms; CLS 0.
-- Mobile: 0/12 routes pass the full performance gate. Performance scores are 0.96–0.97; all other category scores are at least 0.98; CLS 0. LCP range 2555–2857ms.
+- Mobile: 0/12 routes pass the full performance gate. Performance scores are 0.96–0.97; all other category scores are at least 0.98; CLS 0. LCP range 2558–2857ms.
 - Every category meets the 90-point requirement. LCP is the sole measured performance blocker. Do not alter Lighthouse throttling or thresholds.
 
 Mobile medians by route:
 
 | Route | Performance | LCP | CLS |
 |---|---:|---:|---:|
-| `/` | 96 | 2706ms | 0 |
-| `/work` | 97 | 2556ms | 0 |
-| `/work/edge-node` | 96 | 2706ms | 0 |
-| `/work/cited-researcher` | 96 | 2706ms | 0 |
-| `/work/ledgerbridge` | 96 | 2705ms | 0 |
-| `/work/ghostcursor` | 96 | 2705ms | 0 |
-| `/work/neuroux` | 96 | 2705ms | 0 |
-| `/work/studyos` | 96 | 2705ms | 0 |
-| `/about` | 97 | 2555ms | 0 |
-| `/contact` | 97 | 2560ms | 0 |
-| `/resume` | 97 | 2556ms | 0 |
+| `/` | 96 | 2709ms | 0 |
+| `/work` | 97 | 2558ms | 0 |
+| `/work/edge-node` | 96 | 2707ms | 0 |
+| `/work/cited-researcher` | 96 | 2707ms | 0 |
+| `/work/ledgerbridge` | 96 | 2706ms | 0 |
+| `/work/ghostcursor` | 96 | 2707ms | 0 |
+| `/work/neuroux` | 96 | 2707ms | 0 |
+| `/work/studyos` | 96 | 2706ms | 0 |
+| `/about` | 97 | 2559ms | 0 |
+| `/contact` | 97 | 2558ms | 0 |
+| `/resume` | 97 | 2558ms | 0 |
 | `/styleguide` | 96 | 2857ms | 0 |
 
 ## Prior measured experiments

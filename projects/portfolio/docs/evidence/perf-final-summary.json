@@ -1,6 +1,6 @@
 {
-  "base": "http://localhost:3401",
-  "at": "2026-09-27T22:27:15.311Z",
+  "base": "http://localhost:3410",
+  "at": "2026-09-27T23:37:12.754Z",
   "rows": [
     {
       "route": "/",
@@ -10,7 +10,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 598,
+      "lcp": 602,
       "cls": 0,
       "pass": true
     },
@@ -34,7 +34,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 558,
+      "lcp": 557,
       "cls": 0,
       "pass": true
     },
@@ -46,7 +46,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 556,
+      "lcp": 559,
       "cls": 0,
       "pass": true
     },
@@ -58,7 +58,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 557,
+      "lcp": 558,
       "cls": 0,
       "pass": true
     },
@@ -70,7 +70,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 557,
+      "lcp": 562,
       "cls": 0,
       "pass": true
     },
@@ -94,12 +94,36 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 556,
+      "lcp": 558,
       "cls": 0,
       "pass": true
     },
     {
       "route": "/about",
+      "formFactor": "desktop",
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1,
+      "lcp": 526,
+      "cls": 0,
+      "pass": true
+    },
+    {
+      "route": "/contact",
+      "formFactor": "desktop",
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1,
+      "lcp": 530,
+      "cls": 0,
+      "pass": true
+    },
+    {
+      "route": "/resume",
       "formFactor": "desktop",
       "performance": 1,
       "accessibility": 1,
@@ -111,30 +135,6 @@
       "pass": true
     },
     {
-      "route": "/contact",
-      "formFactor": "desktop",
-      "performance": 1,
-      "accessibility": 1,
-      "best-practices": 1,
-      "seo": 1,
-      "agentic-browsing": 1,
-      "lcp": 526,
-      "cls": 0,
-      "pass": true
-    },
-    {
-      "route": "/resume",
-      "formFactor": "desktop",
-      "performance": 1,
-      "accessibility": 1,
-      "best-practices": 1,
-      "seo": 1,
-      "agentic-browsing": 1,
-      "lcp": 526,
-      "cls": 0,
-      "pass": true
-    },
-    {
       "route": "/styleguide",
       "formFactor": "desktop",
       "performance": 1,
@@ -142,7 +142,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 595,
+      "lcp": 594,
       "cls": 0,
       "pass": true
     },
@@ -154,7 +154,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2706,
+      "lcp": 2709,
       "cls": 0,
       "pass": false
     },
@@ -166,7 +166,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2556,
+      "lcp": 2558,
       "cls": 0,
       "pass": false
     },
@@ -178,7 +178,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2706,
+      "lcp": 2707,
       "cls": 0,
       "pass": false
     },
@@ -190,7 +190,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2706,
+      "lcp": 2707,
       "cls": 0,
       "pass": false
     },
@@ -202,7 +202,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2705,
+      "lcp": 2706,
       "cls": 0,
       "pass": false
     },
@@ -214,7 +214,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2705,
+      "lcp": 2707,
       "cls": 0,
       "pass": false
     },
@@ -226,7 +226,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2705,
+      "lcp": 2707,
       "cls": 0,
       "pass": false
     },
@@ -238,7 +238,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2705,
+      "lcp": 2706,
       "cls": 0,
       "pass": false
     },
@@ -250,7 +250,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2555,
+      "lcp": 2559,
       "cls": 0,
       "pass": false
     },
@@ -262,7 +262,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2560,
+      "lcp": 2558,
       "cls": 0,
       "pass": false
     },
@@ -274,7 +274,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2556,
+      "lcp": 2558,
       "cls": 0,
       "pass": false
     },

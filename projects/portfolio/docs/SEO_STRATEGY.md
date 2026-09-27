@@ -95,7 +95,7 @@ Where a question helps readers, render it as a heading followed by a direct answ
 
 ### Home (`content/faq/home.json`)
 1. **What does Arnav Khandelwal do?** Seed (≈50 words): "Arnav Khandelwal is a software engineer and Electrical Engineering student at MNIT Jaipur. He builds backends and AI systems, mostly local-first LLM services in Python and FastAPI, and benchmarks them. During a 2026 backend internship he cut an offline telemetry service's mean latency from 5.36s to 0.97s." [R][GH:Project-Edge-Node]
-2. **What has Arnav Khandelwal built?** Six flagships: LedgerBridge (103,049 records at 5.114s median, n=5); GhostCursor (361 documented tests and 27/30 raw intent accuracy); NeuroUX (reported video inference 50 min to ~80 s); Cited Researcher; StudyOS (documented AWS delivery pipeline; current demo uptime unverified); and Edge Node. [GH]
+2. **What has Arnav Khandelwal built?** Six flagships: LedgerBridge (103,049 records at 5.114s median, n=5); GhostCursor (361 documented tests and 27/30 raw intent accuracy); NeuroUX (reported video inference 50 min to ~80 s); Cited Researcher; StudyOS (documented AWS delivery pipeline; no live demo availability is claimed); and Edge Node. [GH]
 3. **Is Arnav Khandelwal available for internships or full-time roles?** **TODO(owner):** PRODUCT names recruiters hiring for internships and then new-grad roles as the audience, but the owner has not stated availability, start dates or remote/relocation preferences. The answer stays blocked until he does. Never invent dates.
 4. **What tech stack does Arnav Khandelwal use?** Python, Java, SQL; FastAPI, Spring Boot; PyTorch, Transformers; LLMs, RAG, LangChain, Ollama; Docker. [R] Add examples from repos: Pydantic, asyncio/SSE, Next.js, AWS (DynamoDB, ECS). [GH]
 5. **How does Arnav verify the numbers on this site?** Each visible result links to public evidence and states its sample or evidence limits. This is useful provenance for readers; there is no claim that it is a special ranking or GEO signal.
@@ -170,12 +170,12 @@ Current file: `public/llms.txt`. Keep project facts in sync with case studies an
 - Anchor text is descriptive ("LedgerBridge reconciliation case study"), never "click here" or a bare "View".
 
 ## Competitors / SERP + AI-answer notes
-Checked 2026-09-25 (WebSearch, US index).
+Historical search observation dated 2026-09-25 (WebSearch, US index); results can vary by location, index and time and are not a current ranking check.
 
 | Query | Who ranks | This entity? | Takeaway |
 |---|---|---|---|
 | `"Arnav Khandelwal"` | ZoomInfo ×3 (Nike, Currency, BITS Pilani), LinkedIn ×5 incl. 40+ profile directory, FIDE chess profile | No | Namesake-dominated. Needs the disambiguators and off-site links above |
-| `Arnav Khandelwal MNIT Jaipur` | MNIT reports, unrelated Khandelwal Wikipedia pages | No | Low competition. The About page + Person `alumniOf` MNIT can own this query quickly |
+| `Arnav Khandelwal MNIT Jaipur` | MNIT reports, unrelated Khandelwal Wikipedia pages | No | The sampled results appeared less crowded than the generic name query; no ranking outcome is predicted. The About page and MNIT affiliation provide relevant identity context. |
 | `Arnav Khandelwal software engineer backend AI FastAPI` | Aditya Khandelwal (adityakhandelwal.dev), Arnav Deepaware (arnavd.co), Arnav Kulkarni | No | Near-namesake portfolios exist. Our title must contain the full name + "backend & AI" |
 | `Arrnnnaav github` | GitHub repos smb-safeops, BuisnessHQ, StudyOS-Hackathon, LearningHQ; awesomeclaudeplugins.com lists learning-hq-plugin | Yes (repos only) | The handle is indexed but points to no site. **Note:** smb-safeops and BuisnessHQ appear as indexed GitHub pages although CONTENT_SOURCE lists them as private; owner should check their visibility |
 | `backend AI engineer portfolio FastAPI local LLM` | GitHub portfolio repos (sasideep0053-ui, code-shubhambhatt, mike-elio), dev.to/hashnode tutorials, job boards | No | Generic head term dominated by GitHub + tutorials. Win long-tails via case studies instead |
@@ -183,14 +183,14 @@ Checked 2026-09-25 (WebSearch, US index).
 | GhostCursor query | `ghost-cursor` npm/Puppeteer library (Bright Data, Scrapeless, DeepWiki), a Chrome extension, Ghosthand MCP | No | **Hard name collision.** Always pair the name with "local AI desktop guide"; the slug stays `ghostcursor` but titles lead with the descriptor |
 | Cited Researcher query | adityamhaske/Multi-Agent-Research-Assistant and other LangGraph research-agent repos | No | Crowded. Lean on the "query type decides how many agents run" angle |
 | NeuroUX query | ndpvt-web/neuroscore, CortexLab, TRIBE v2 explainer blogs, arXiv | No | Emerging topic; "run TRIBE v2 on a 4 GB GPU" is a real, underserved long-tail |
-| StudyOS query | **Arrnnnaav/StudyOS-Hackathon ranks #1**; snipt, StudyO (studystudio.us) | Yes (repo) | Only project already found. The case study should link the repo and vice versa |
+| StudyOS query | In the 2026-09-25 sample, **Arrnnnaav/StudyOS-Hackathon appeared first**; snipt, StudyO (studystudio.us) | Yes (repo) | Historical result only; no durable ranking claim. The case study and repository link to each other. |
 | Edge Node query | Ollama/Qwen3 tutorials | No | Generic name. The IPv6/localhost latency story is the unique hook |
 
 ### AI-answer check
 Historical answer-engine check from 2026-09-25 (not a current visibility measurement): a search synthesis listed other people for the name query and cited the StudyOS GitHub README for its project query. At that time, the queried assistant did not surface this portfolio. This is a dated observation, not a current answer-engine result or a general rule about citations; repeat with the deployed URL after launch.
 
 
-## S4 reconciliation, updated 2026-09-28
-The new résumé resolves the email to `arnavkhandelwal446@gmail.com`. `sameAs` includes only the verified GitHub identity; location and LinkedIn remain omitted. Owner-supplied résumé authorizes Dehurdle attribution for the internship and Edge Node. All main public routes have metadata, direct answer-first FAQ content and route-scoped entities. Owner update, 2026-09-26: the styleguide is public and indexable, included in sitemap and llms.txt and allowed by crawler policy; this supersedes earlier styleguide exclusions. The gated error-test route remains noindex. Person + WebSite are shared entities; case studies include SoftwareSourceCode and an authored Article embedded in their WebPage. Stable entity URLs use the provisional hosting target and must be reconciled with the actual deployment URL.
+## Current implementation reconciliation, 2026-09-28
+The supplied résumé confirms `arnavkhandelwal446@gmail.com` and authorizes Dehurdle attribution. `Person.sameAs` contains only the verified GitHub profile; unconfirmed identity, location and availability details remain unpublished. The styleguide is public, indexable and included in the sitemap and `llms.txt`; `/e2e-error` remains a noindex test route excluded from public SEO files. SEO data is route-scoped and generated from content files. Canonical and entity URLs still use the provisional hosting target and must be reconciled after deployment.
 
-Editorial dates represent portfolio content review, not upstream release dates. Test counts are README-reported; NeuroUX is an experimental proxy, LedgerBridge sealed scores are specification consistency, GhostCursor intent scores describe a small frozen set, and StudyOS has no measured learning-outcome claim. Cited Researcher resume-only speedup remains hidden. Technical controls do not promise rankings or generative-engine citations.
+Route and schema `lastModified` values currently use **2026-09-28** to indicate the portfolio content review; these are not upstream project release dates. Project test counts are README-reported; NeuroUX is an experimental proxy, LedgerBridge sealed scores are specification consistency, GhostCursor intent scores describe a small frozen set, and StudyOS has no measured learning-outcome claim. Cited Researcher résumé-only speedup remains hidden. Technical controls do not promise rankings or generative-engine citations.
