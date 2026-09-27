@@ -1,6 +1,6 @@
 {
   "agent": "orchestrator",
-  "status": "complete",
+  "status": "partial",
   "inputs_used": [
     "plan/PROGRESS.md",
     "plan/M4-portfolio.md",
@@ -15,10 +15,18 @@
     "G1 and G2 are already owner-approved and passed structural gates (10/10 and 8/8). Resume at S4 without reopening the design gate.",
     "Corrected the anti-slop repository owner in the screenshot to miqdadbadjuber.",
     "Installed project-local skills as available references; new optional or paid tools remain disabled in brain/tools.json.",
-    "Keep the approved DESIGN.md as the portfolio design contract and defer media-heavy scroll-world work."
+    "Keep the approved DESIGN.md as the portfolio design contract and defer media-heavy scroll-world work.",
+    "2026-09-28 integrated verification: production build, 35 unit tests, lint, typecheck, token lint, content validation, dependency audit, 198 browser checks and clean-production runtime/security scan pass.",
+    "Do not pass G3 or deploy: mobile simulated Lighthouse LCP remains 2555–2857ms on every route against the strict <2500ms contract. The custom domain remains deferred."
   ],
   "files_created": [
-    "docs/handoff/orchestrator.json"
+    "docs/handoff/orchestrator.json",
+    "plan/PROGRESS.md",
+    "docs/QA_REPORT.md",
+    "docs/ACCEPTANCE.md",
+    "docs/STATE.md",
+    "docs/evidence/perf-lcp-investigation.md",
+    "docs/evidence/security-runtime.txt"
   ],
   "resources_used": [
     "brain/resources.json",
@@ -26,19 +34,16 @@
   ],
   "patterns_used": [],
   "risks": [
-    "Portfolio app and growth files remain starter placeholders despite approved G2.",
-    "QA and growth reports have no S6 results; G3 and deployment have not run.",
-    "The UIBuilder root has an initial commit, but the portfolio does not yet have an independent deployment repository or remote.",
-    "No confirmed production domain or LinkedIn URL. Current résumé confirms email and authorizes Dehurdle attribution; private BusinessHQ source remains excluded."
+    "All 12 public routes miss the required mobile simulated Lighthouse LCP threshold; gate and throttling settings remain unchanged.",
+    "Deployment, live provider receipts, BusinessOS dogfood and launch artifacts remain S7 work after G3; the actual URL must be observed before reconciling provisional references."
   ],
   "open_questions": [
-    "Owner: confirm LinkedIn, hiring availability and production domain before publishing those details."
+    "None for the local G3 verification; revisit production hostname and provider configuration only when S7 is authorized."
   ],
-  "next_agent": "frontend",
+  "next_agent": "ship",
   "next_instructions": [
-    "Read PRODUCT.md, WIREFRAMES.md, DESIGN.md, MOTION.md, CONTENT_SOURCE.md and all S1-S3 handoffs.",
-    "Resume S4 by replacing starter pages with the approved home, work index, six case studies, about and contact routes, plus /styleguide.",
-    "Coordinate data contracts with growth's content/evidence and SEO data. Do not publish pending-source numerical claims.",
-    "Backend and growth S4 work remains to be completed; each must write its own handoff."
+    "Resolve mobile simulated LCP below 2500ms across all public routes without weakening the acceptance contract, then rerun the full clean matrix.",
+    "After A17 passes, rerun all G3 checks against one clean candidate and update evidence; G3 is currently pending only on A17.",
+    "Begin S7 deployment only after G3 passes. Keep custom domain deferred, verify the observed deployment URL, and obtain owner-controlled provider configuration before enabling real integrations."
   ]
 }

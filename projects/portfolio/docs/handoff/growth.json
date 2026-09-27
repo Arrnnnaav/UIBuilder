@@ -20,7 +20,8 @@
     "No claim that provisional hostname or StudyOS demo is live.",
     "Final static review 2026-09-27: 12 public routes including owner-approved styleguide, one internal noindex route, 30 schema files and 11 FAQ files.",
     "Final metadata/schema editorial dates are 2026-09-27; case-study Article citations use verified commit-pinned metric sources.",
-    "GhostCursor metadata names the local AI desktop guide to distinguish unrelated namesakes."
+    "GhostCursor metadata names the local AI desktop guide to distinguish unrelated namesakes.",
+    "2026-09-28 reconciliation: current Google guidance is documented; llms.txt and FAQ markup are not presented as Google ranking or guaranteed rich-result tactics; historical SERP/AI-answer observations are labelled as dated."
   ],
   "files_created": [
     "content/portfolio.json",
@@ -53,6 +54,8 @@
     "Public résumé matches supplied original SHA-256 e13747b7fdfe5efd7758b9321c25f8049a432f34ad0e30d3d81fc9157a1cfb7a.",
     "Persisted runtime SEO audit reports 0 findings; repeat integrated build/audit serially because this review revised metadata/schema.",
     "Final static review: 12 public routes, 1 internal noindex, 30 schema, 11 FAQ, 10 verified metrics, 1 pending metric, errors: [].",
-    "Reconcile provisional URLs and verify live search files after deployment; no launch/G3 claim is made by this handoff."
+    "Reconcile provisional URLs and verify live search files after deployment; no launch/G3 claim is made by this handoff.",
+    "Current focused robots test passed 4/4 profiles; current production SEO audit on localhost:3400 reports 0 findings and 0 high. Detailed port/output evidence is in docs/GROWTH_REPORT.md.",
+    "Deployment URL remains provisional until S7; reconcile canonical/entity/schema/llms/resume URLs after actual deployment, while the custom domain remains deferred."
   ]
 }

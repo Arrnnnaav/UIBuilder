@@ -146,3 +146,13 @@ Legend: ✅ done · 🟡 in progress · ⬜ todo · ⛔ blocked (reason)
 - ✅ Expanded unit suite → 31/31 passed, including SVGtitle SSR regression (`docs/evidence/unit-integration.txt`). Fresh full browser verification started in exec session22935; original failure evidence preserved in `docs/evidence/e2e-integration-initial.txt`. G3 remains pending.
 
 - Domain launch checklist reviewed: provider-neutral S7 plan and domain-ops role added. DNS/TLS/mail/Search Console activation remains deferred until G3 and owner hostname/provider selection. Validation: 10 roles, 15 handoffs; 92 resources, 16 patterns, 37 tools.
+
+## Portfolio resume verification — 2026-09-28
+
+- ✅ Fresh source build after reverting performance probes: `NEXT_BUILD_CPUS=2 pnpm build` → exit 0; production output retained at `projects/portfolio/docs/evidence/build-final.txt`.
+- ✅ Current verification: `pnpm test` 35/35; `pnpm lint`; `pnpm typecheck`; `pnpm lint:tokens` (46 files); `pnpm validate:content`; `pnpm audit --audit-level high` (no known vulnerabilities).
+- ✅ Current full browser matrix: `CI=1 E2E_PORT=3104 pnpm test:e2e -- --reporter=line` → 198 passed, 2 expected desktop-only skips, 0 failures (200 total), Chromium/WebKit at 390px and 1440px; includes crawler policy and contrast checks. `projects/portfolio/docs/evidence/e2e-final.txt`.
+- ✅ Explicit AA contrast audit: all 4 browser/viewport profiles, 12 routes × 2 themes each; zero axe contrast violations, min text 6.17:1, min token border 3.63:1. Raw evidence: `projects/portfolio/docs/evidence/contrast-audit-*.json`.
+- ✅ Clean production runtime on localhost:3400: SEO audit 0 findings/0 high; CSP/headers pass, `/e2e-error` 404, scan of 33 generated client/public files has 0 credential matches. `projects/portfolio/docs/evidence/security-runtime.txt`.
+- 🟡 G3 remains open only on the strict mobile Lighthouse LCP gate: all 12 routes still exceed 2500ms (2555–2857ms). Reverted `content-visibility` and font-display experiments did not improve the result; no threshold waiver. Details: `projects/portfolio/docs/evidence/perf-lcp-investigation.md`.
+- ⏸ S7 deploy, live provider receipts, BusinessOS connection, launch video and `/learn` remain downstream of G3; custom domain remains deferred as requested.

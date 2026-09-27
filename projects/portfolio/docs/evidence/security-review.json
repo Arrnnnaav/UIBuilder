@@ -1,12 +1,12 @@
 {
-  "reviewedAt": "2026-09-26T20:25:35.066Z",
-  "sourceFingerprint": "71d7108036e0d6e548022d60cf2a14dad8fb83e176fae56ff68e86512a88eb61",
-  "status": "security review and no-key monitoring verified; final clean-production runtime refresh remains pending",
+  "reviewedAt": "2026-09-27T23:13:30.525Z",
+  "sourceFingerprint": "691b63fee65dc84012a41c304b336797990964c47b5422a196df786dfce4e82f",
+  "status": "security review and no-key monitoring verified; clean-production runtime and client/public scan passed on 2026-09-28",
   "reports": {
     "SECURITY_REPORT.md": {
       "report": {
         "path": "docs/SECURITY_REPORT.md",
-        "sha256": "e639053d0464d21a774df1b8a17895dd76398a249b355e22e7110ccd426af05d"
+        "sha256": "be8699538bbbcfb84fc94b016291a93d0603706a064c91020b8880fa547d587d"
       },
       "commands": [
         {
@@ -44,7 +44,7 @@
       {
         "severity": "info",
         "name": "Clean release verification",
-        "reasoning": "Production E2E settings intentionally enable dry-run/test keys/debug error route. Prior clean local runtime passed; final rebuild and deployed environment must be checked independently before release."
+        "reasoning": "The clean local production build passed its HTTP headers, disabled E2E error route, and 33-file client/public scan on 2026-09-28. The deployed environment must still be checked before release."
       }
     ]
   },
@@ -119,7 +119,7 @@
     },
     {
       "path": "next.config.ts",
-      "sha256": "15ae2d5b45c8c6aba02ecf26eafad8df067de2af0687ec1dd5dec077f2349a33"
+      "sha256": "1b5f22fd3adb31ffb83da5e80200e39d2538636f7037caa027c53a934ca3226e"
     },
     {
       "path": "pnpm-lock.yaml",
@@ -140,7 +140,14 @@
   ],
   "limitations": [
     "No real telemetry receipt claimed; configured keys require receipt mode.",
-    "Integration output covers mocked SDK assertions, not remote vendor behavior.",
-    "Final sourceFingerprint and report hashes must be integrated only after current final production checks; this is a fragment, not a passed G3."
-  ]
+    "Integration output covers mocked SDK assertions, not remote vendor behavior."
+  ],
+  "runtime": {
+    "command": "node .tool-cache/security-runtime.mjs (against clean production build on localhost:3400)",
+    "exitCode": 0,
+    "output": {
+      "path": "docs/evidence/security-runtime.txt",
+      "sha256": "10585cfcfd89e9b65883baea1995d295ea9ac325dd1f4f2b5c06e6da0708e63b"
+    }
+  }
 }

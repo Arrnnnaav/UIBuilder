@@ -7,8 +7,8 @@
 | S3 design | design-director | ✅ | DESIGN.md, MOTION.md, tokens.css; 3 directions → hybrid | 2026-09-26 |
 | G2 | user | ✅ | Approved hybrid design | 2026-09-25 |
 | S4 build | frontend/backend/growth | ✅ | 12 indexable pages, 6 case studies, data-driven SEO, contact, résumé, styleguide; résumé-backed Dehurdle attribution aligned across copy | 2026-09-28 |
-| S5 polish | design-director/ship | ✅ | 48 committed Windows baselines; changed FAQ-page captures refreshed, current 196-test matrix passes with 194 passed and 2 expected skips | 2026-09-28 |
-| S6 ship | ship/growth | 🟡 | Clean build, unit/lint/typecheck, runtime SEO and 194 browser checks pass; full mobile LCP contract fails | 2026-09-28 |
-| G3 | automatic | 🟡 pending | Current clean-build mobile LCP 2555–2857ms vs required <2500ms; all 12 desktop routes pass; evidence in QA_REPORT.md and evidence/perf-final-summary.json | 2026-09-28 |
-| S7 deploy | ship | ⬜ | Not deployed; production domain and runtime provider receipts unverified | |
+| S5 polish | design-director/ship | ✅ | 48 committed Windows baselines; refreshed FAQ captures; current 200-test matrix passes with 198 passed and 2 expected desktop-only skips | 2026-09-28 |
+| S6 ship | ship/growth | 🟡 | Clean build, unit/lint/typecheck, runtime SEO and 198 browser checks pass; 96 contrast cases, production no-provider fallback, dependency audit and fresh clean-production security/client scan pass; full mobile LCP contract fails | 2026-09-28 |
+| G3 | automatic | 🟡 pending | Current clean-build mobile LCP 2555–2857ms vs required <2500ms. All 12 desktop routes pass; security, contrast and no-provider behavior are verified. Evidence in QA_REPORT.md, SECURITY_REPORT.md, PERF_REPORT.md and evidence/ | 2026-09-28 |
+| S7 deploy | ship | ⬜ | Not deployed; actual deployment URL and production environment are unverified. Custom domain is deferred; provider receipts are conditional on owner-configured keys. | |
 | BusinessOS `/connect` | orchestrator | ⬜ | Connector implementation exists; real-site dogfood needs deployed site and owner GitHub PAT | |

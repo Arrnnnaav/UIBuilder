@@ -1,0 +1,41 @@
+{
+  "agent": "ship",
+  "status": "partial",
+  "inputs_used": [
+    "projects/portfolio/.lighthouse/summary.json",
+    "projects/portfolio/.lighthouse/mobile-work-1.json",
+    "projects/portfolio/docs/PERF_REPORT.md",
+    "projects/portfolio/scripts/perf.mjs",
+    "projects/portfolio/app/layout.tsx",
+    "projects/portfolio/app/globals.css"
+  ],
+  "decisions": [
+    "Keep the Lighthouse simulated mobile threshold and throttling unchanged; the repository gate uses simulated LCP, while the LCP breakdown table reports observed trace phases.",
+    "Reject and revert temporary content-visibility and font-display optional experiments because they did not produce a repeatable gate pass.",
+    "Treat URL-blocked JavaScript and CSS Lighthouse results as diagnostics only; these variants broke runtime or design styling and are not product fixes."
+  ],
+  "files_created": [
+    "projects/portfolio/docs/evidence/perf-lcp-investigation.md",
+    "projects/portfolio/docs/handoff/ship.json"
+  ],
+  "resources_used": [
+    "Installed Lighthouse 13.5.0 source: core/computed/metrics/timing-summary.js and core/audits/insights/lcp-breakdown-insight.js",
+    "Next.js official Server and Client Components documentation: https://nextjs.org/docs/app/getting-started/server-and-client-components"
+  ],
+  "patterns_used": [],
+  "risks": [
+    "The strict simulated mobile LCP gate remains unmet on all 12 portfolio routes.",
+    "Observed unthrottled local LCP is not representative proof for the simulated mobile gate or field users.",
+    "Reducing or deferring Next/React client runtime may affect navigation, mobile menu, contact form, analytics, or approved motion; validate these before accepting an optimization."
+  ],
+  "open_questions": [
+    "What design-preserving change can reduce first-load hydration/runtime work enough to clear the simulated LCP gate across all routes?",
+    "Would a static HTML architecture for marketing pages be acceptable if the contact action remains a separate server endpoint?"
+  ],
+  "next_agent": "orchestrator",
+  "next_instructions": [
+    "Read docs/evidence/perf-lcp-investigation.md for the raw metric discrepancy and all probe results.",
+    "Do not mark G3 performance passed until a clean 3-run Lighthouse matrix proves every mobile route has LCP strictly below 2500ms.",
+    "Pursue a concrete client-runtime reduction or static-site architecture experiment without changing threshold, mobile throttling, or approved design."
+  ]
+}

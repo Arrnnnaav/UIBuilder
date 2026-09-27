@@ -36,4 +36,6 @@ Lighthouse's earlier local trace identifies the hero H1 as the home LCP element,
 
 The 2026-09-28 trace review found observed LCP around 171ms for the home page, but simulated LCP at 2706ms; Lighthouse's simulated value is about 1.8 seconds after FCP across routes even though raw text element render delay is 120–220ms. A temporary Next.js experimental `inlineCss` build was tested on mobile `/`, `/work`, `/work/edge-node` and `/styleguide`: medians were 2682, 2679, 2706 and 2724ms respectively, and none passed. Raw results: `docs/evidence/perf-inline-css-experiment.json`. Results were inconsistent versus the baseline; the experimental config was reverted. Compare observed and simulated traces before making another speculative CSS change.
 
+The final investigation is in `docs/evidence/perf-lcp-investigation.md`. Three-run tests of `content-visibility:auto` and Archivo `font-display: optional` did not lower the representative route medians. Blocking the shared React/Next chunk made three sampled templates fall below 2500ms but caused client runtime errors, so it is diagnostic only and was not accepted. No source change from those probes remains.
+
 No deployed real-user measurements exist. Production field behavior, configured monitoring receipts, and deployment remain unverified.

@@ -1,0 +1,1743 @@
+{
+  "reviewedAt": "2026-09-27T23:04:04.254Z",
+  "browser": "chromium-mobile",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "routes": 12,
+  "colorSchemes": [
+    "light",
+    "dark"
+  ],
+  "results": [
+    {
+      "route": "/",
+      "colorScheme": "light",
+      "passedNodes": 126,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.55,
+          "mutedOnPage": 6.88,
+          "foregroundOnSurface": 15.14,
+          "mutedOnSurface": 6.29,
+          "accentForegroundOnAccent": 13.69,
+          "dangerOnPage": 6.17,
+          "successOnPage": 6.32
+        },
+        "nonText": {
+          "borderOnPage": 3.97,
+          "borderOnSurface": 3.63
+        }
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                ".hero-values > span[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "strong"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr[data-retract=\"\"] > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(3) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(4) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(5) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "colorScheme": "dark",
+      "passedNodes": 126,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.13,
+          "mutedOnPage": 8.35,
+          "foregroundOnSurface": 14.82,
+          "mutedOnSurface": 7.67,
+          "accentForegroundOnAccent": 12.67,
+          "dangerOnPage": 7.03,
+          "successOnPage": 9.14
+        },
+        "nonText": {
+          "borderOnPage": 4.02,
+          "borderOnSurface": 3.7
+        }
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                ".hero-values > span[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "strong"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr[data-retract=\"\"] > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(3) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(4) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(5) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/work",
+      "colorScheme": "light",
+      "passedNodes": 75,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.55,
+          "mutedOnPage": 6.88,
+          "foregroundOnSurface": 15.14,
+          "mutedOnSurface": 6.29,
+          "accentForegroundOnAccent": 13.69,
+          "dangerOnPage": 6.17,
+          "successOnPage": 6.32
+        },
+        "nonText": {
+          "borderOnPage": 3.97,
+          "borderOnSurface": 3.63
+        }
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/work",
+      "colorScheme": "dark",
+      "passedNodes": 75,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.13,
+          "mutedOnPage": 8.35,
+          "foregroundOnSurface": 14.82,
+          "mutedOnSurface": 7.67,
+          "accentForegroundOnAccent": 12.67,
+          "dangerOnPage": 7.03,
+          "successOnPage": 9.14
+        },
+        "nonText": {
+          "borderOnPage": 4.02,
+          "borderOnSurface": 3.7
+        }
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/work/edge-node",
+      "colorScheme": "light",
+      "passedNodes": 80,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.55,
+          "mutedOnPage": 6.88,
+          "foregroundOnSurface": 15.14,
+          "mutedOnSurface": 6.29,
+          "accentForegroundOnAccent": 13.69,
+          "dangerOnPage": 6.17,
+          "successOnPage": 6.32
+        },
+        "nonText": {
+          "borderOnPage": 3.97,
+          "borderOnSurface": 3.63
+        }
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                ".resting-mark"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr[data-retract=\"\"] > .after-value[data-label=\"After / value\"] > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > .after-value[data-label=\"After / value\"] > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                ".mobile-chart > g > text[y=\"22\"][x=\"0\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[x=\"95\"][y=\"48\"][text-anchor=\"middle\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[x=\"95\"][y=\"220\"][text-anchor=\"middle\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[x=\"255\"][y=\"48\"][text-anchor=\"middle\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[x=\"255\"][y=\"220\"][text-anchor=\"middle\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[y=\"265\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                ".mark[data-cite=\"1\"] > .external-link.text-link[rel=\"noopener noreferrer\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/work/edge-node",
+      "colorScheme": "dark",
+      "passedNodes": 80,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.13,
+          "mutedOnPage": 8.35,
+          "foregroundOnSurface": 14.82,
+          "mutedOnSurface": 7.67,
+          "accentForegroundOnAccent": 12.67,
+          "dangerOnPage": 7.03,
+          "successOnPage": 9.14
+        },
+        "nonText": {
+          "borderOnPage": 4.02,
+          "borderOnSurface": 3.7
+        }
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                ".resting-mark"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr[data-retract=\"\"] > .after-value[data-label=\"After / value\"] > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > .after-value[data-label=\"After / value\"] > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                ".mobile-chart > g > text[y=\"22\"][x=\"0\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[x=\"95\"][y=\"48\"][text-anchor=\"middle\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[x=\"95\"][y=\"220\"][text-anchor=\"middle\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[x=\"255\"][y=\"48\"][text-anchor=\"middle\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[x=\"255\"][y=\"220\"][text-anchor=\"middle\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[y=\"265\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                ".mark[data-cite=\"1\"] > .external-link.text-link[rel=\"noopener noreferrer\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/work/cited-researcher",
+      "colorScheme": "light",
+      "passedNodes": 80,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.55,
+          "mutedOnPage": 6.88,
+          "foregroundOnSurface": 15.14,
+          "mutedOnSurface": 6.29,
+          "accentForegroundOnAccent": 13.69,
+          "dangerOnPage": 6.17,
+          "successOnPage": 6.32
+        },
+        "nonText": {
+          "borderOnPage": 3.97,
+          "borderOnSurface": 3.63
+        }
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                ".resting-mark"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                ".after-value > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "li:nth-child(1) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(2) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(3) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(4) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".mark[data-cite=\"1\"] > .external-link.text-link[rel=\"noopener noreferrer\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                ".mark[data-cite=\"2\"] > .external-link.text-link[rel=\"noopener noreferrer\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/work/cited-researcher",
+      "colorScheme": "dark",
+      "passedNodes": 80,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.13,
+          "mutedOnPage": 8.35,
+          "foregroundOnSurface": 14.82,
+          "mutedOnSurface": 7.67,
+          "accentForegroundOnAccent": 12.67,
+          "dangerOnPage": 7.03,
+          "successOnPage": 9.14
+        },
+        "nonText": {
+          "borderOnPage": 4.02,
+          "borderOnSurface": 3.7
+        }
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                ".resting-mark"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                ".after-value > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "li:nth-child(1) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(2) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(3) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(4) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".mark[data-cite=\"1\"] > .external-link.text-link[rel=\"noopener noreferrer\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                ".mark[data-cite=\"2\"] > .external-link.text-link[rel=\"noopener noreferrer\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/work/ledgerbridge",
+      "colorScheme": "light",
+      "passedNodes": 87,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.55,
+          "mutedOnPage": 6.88,
+          "foregroundOnSurface": 15.14,
+          "mutedOnSurface": 6.29,
+          "accentForegroundOnAccent": 13.69,
+          "dangerOnPage": 6.17,
+          "successOnPage": 6.32
+        },
+        "nonText": {
+          "borderOnPage": 3.97,
+          "borderOnSurface": 3.63
+        }
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                ".resting-mark"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(1) > .after-value[data-label=\"After / value\"] > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > .after-value[data-label=\"After / value\"] > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                ".fact-value > .mark[data-cite=\"1\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                ".fact-value > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "div:nth-child(1) > dd > .mark[data-cite=\"1\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "div:nth-child(1) > dd > .citation[aria-label=\"Source 1\"][href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "div:nth-child(2) > dd > .mark[data-cite=\"1\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "div:nth-child(2) > dd > .citation[aria-label=\"Source 1\"][href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "div:nth-child(3) > dd > .mark[data-cite=\"1\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "div:nth-child(3) > dd > .citation[aria-label=\"Source 1\"][href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                ".mark[data-cite=\"1\"] > .external-link.text-link[rel=\"noopener noreferrer\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/work/ledgerbridge",
+      "colorScheme": "dark",
+      "passedNodes": 87,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.13,
+          "mutedOnPage": 8.35,
+          "foregroundOnSurface": 14.82,
+          "mutedOnSurface": 7.67,
+          "accentForegroundOnAccent": 12.67,
+          "dangerOnPage": 7.03,
+          "successOnPage": 9.14
+        },
+        "nonText": {
+          "borderOnPage": 4.02,
+          "borderOnSurface": 3.7
+        }
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                ".resting-mark"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(1) > .after-value[data-label=\"After / value\"] > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > .after-value[data-label=\"After / value\"] > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                ".fact-value > .mark[data-cite=\"1\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                ".fact-value > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "div:nth-child(1) > dd > .mark[data-cite=\"1\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "div:nth-child(1) > dd > .citation[aria-label=\"Source 1\"][href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "div:nth-child(2) > dd > .mark[data-cite=\"1\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "div:nth-child(2) > dd > .citation[aria-label=\"Source 1\"][href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "div:nth-child(3) > dd > .mark[data-cite=\"1\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "div:nth-child(3) > dd > .citation[aria-label=\"Source 1\"][href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                ".mark[data-cite=\"1\"] > .external-link.text-link[rel=\"noopener noreferrer\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/work/ghostcursor",
+      "colorScheme": "light",
+      "passedNodes": 84,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.55,
+          "mutedOnPage": 6.88,
+          "foregroundOnSurface": 15.14,
+          "mutedOnSurface": 6.29,
+          "accentForegroundOnAccent": 13.69,
+          "dangerOnPage": 6.17,
+          "successOnPage": 6.32
+        },
+        "nonText": {
+          "borderOnPage": 3.97,
+          "borderOnSurface": 3.63
+        }
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                ".resting-mark"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(1) > .after-value[data-label=\"After / value\"] > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > .after-value[data-label=\"After / value\"] > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "li:nth-child(1) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(2) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(3) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(4) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".mark[data-cite=\"1\"] > .external-link.text-link[rel=\"noopener noreferrer\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/work/ghostcursor",
+      "colorScheme": "dark",
+      "passedNodes": 84,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.13,
+          "mutedOnPage": 8.35,
+          "foregroundOnSurface": 14.82,
+          "mutedOnSurface": 7.67,
+          "accentForegroundOnAccent": 12.67,
+          "dangerOnPage": 7.03,
+          "successOnPage": 9.14
+        },
+        "nonText": {
+          "borderOnPage": 4.02,
+          "borderOnSurface": 3.7
+        }
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                ".resting-mark"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(1) > .after-value[data-label=\"After / value\"] > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]:nth-child(1)"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > .after-value[data-label=\"After / value\"] > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "li:nth-child(1) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(2) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(3) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(4) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".mark[data-cite=\"1\"] > .external-link.text-link[rel=\"noopener noreferrer\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/work/neuroux",
+      "colorScheme": "light",
+      "passedNodes": 80,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.55,
+          "mutedOnPage": 6.88,
+          "foregroundOnSurface": 15.14,
+          "mutedOnSurface": 6.29,
+          "accentForegroundOnAccent": 13.69,
+          "dangerOnPage": 6.17,
+          "successOnPage": 6.32
+        },
+        "nonText": {
+          "borderOnPage": 3.97,
+          "borderOnSurface": 3.63
+        }
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                ".resting-mark"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                ".after-value > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "li:nth-child(1) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(2) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(3) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(4) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".mark[data-cite=\"1\"] > .external-link.text-link[rel=\"noopener noreferrer\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/work/neuroux",
+      "colorScheme": "dark",
+      "passedNodes": 80,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.13,
+          "mutedOnPage": 8.35,
+          "foregroundOnSurface": 14.82,
+          "mutedOnSurface": 7.67,
+          "accentForegroundOnAccent": 12.67,
+          "dangerOnPage": 7.03,
+          "successOnPage": 9.14
+        },
+        "nonText": {
+          "borderOnPage": 4.02,
+          "borderOnSurface": 3.7
+        }
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                ".resting-mark"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                ".after-value > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "li:nth-child(1) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(2) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(3) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(4) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".mark[data-cite=\"1\"] > .external-link.text-link[rel=\"noopener noreferrer\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/work/studyos",
+      "colorScheme": "light",
+      "passedNodes": 80,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.55,
+          "mutedOnPage": 6.88,
+          "foregroundOnSurface": 15.14,
+          "mutedOnSurface": 6.29,
+          "accentForegroundOnAccent": 13.69,
+          "dangerOnPage": 6.17,
+          "successOnPage": 6.32
+        },
+        "nonText": {
+          "borderOnPage": 3.97,
+          "borderOnSurface": 3.63
+        }
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                ".resting-mark"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                ".after-value > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "li:nth-child(1) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(2) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(3) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(4) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".mark[data-cite=\"1\"] > .external-link.text-link[rel=\"noopener noreferrer\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/work/studyos",
+      "colorScheme": "dark",
+      "passedNodes": 80,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.13,
+          "mutedOnPage": 8.35,
+          "foregroundOnSurface": 14.82,
+          "mutedOnSurface": 7.67,
+          "accentForegroundOnAccent": 12.67,
+          "dangerOnPage": 7.03,
+          "successOnPage": 9.14
+        },
+        "nonText": {
+          "borderOnPage": 4.02,
+          "borderOnSurface": 3.7
+        }
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                ".resting-mark"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                ".after-value > .citation.mark[href$=\"#source-1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "li:nth-child(1) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(2) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(3) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "li:nth-child(4) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".mark[data-cite=\"1\"] > .external-link.text-link[rel=\"noopener noreferrer\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/about",
+      "colorScheme": "light",
+      "passedNodes": 114,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.55,
+          "mutedOnPage": 6.88,
+          "foregroundOnSurface": 15.14,
+          "mutedOnSurface": 6.29,
+          "accentForegroundOnAccent": 13.69,
+          "dangerOnPage": 6.17,
+          "successOnPage": 6.32
+        },
+        "nonText": {
+          "borderOnPage": 3.97,
+          "borderOnSurface": 3.63
+        }
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/about",
+      "colorScheme": "dark",
+      "passedNodes": 114,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.13,
+          "mutedOnPage": 8.35,
+          "foregroundOnSurface": 14.82,
+          "mutedOnSurface": 7.67,
+          "accentForegroundOnAccent": 12.67,
+          "dangerOnPage": 7.03,
+          "successOnPage": 9.14
+        },
+        "nonText": {
+          "borderOnPage": 4.02,
+          "borderOnSurface": 3.7
+        }
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/contact",
+      "colorScheme": "light",
+      "passedNodes": 41,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.55,
+          "mutedOnPage": 6.88,
+          "foregroundOnSurface": 15.14,
+          "mutedOnSurface": 6.29,
+          "accentForegroundOnAccent": 13.69,
+          "dangerOnPage": 6.17,
+          "successOnPage": 6.32
+        },
+        "nonText": {
+          "borderOnPage": 3.97,
+          "borderOnSurface": 3.63
+        }
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/contact",
+      "colorScheme": "dark",
+      "passedNodes": 41,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.13,
+          "mutedOnPage": 8.35,
+          "foregroundOnSurface": 14.82,
+          "mutedOnSurface": 7.67,
+          "accentForegroundOnAccent": 12.67,
+          "dangerOnPage": 7.03,
+          "successOnPage": 9.14
+        },
+        "nonText": {
+          "borderOnPage": 4.02,
+          "borderOnSurface": 3.7
+        }
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/resume",
+      "colorScheme": "light",
+      "passedNodes": 130,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.55,
+          "mutedOnPage": 6.88,
+          "foregroundOnSurface": 15.14,
+          "mutedOnSurface": 6.29,
+          "accentForegroundOnAccent": 13.69,
+          "dangerOnPage": 6.17,
+          "successOnPage": 6.32
+        },
+        "nonText": {
+          "borderOnPage": 3.97,
+          "borderOnSurface": 3.63
+        }
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/resume",
+      "colorScheme": "dark",
+      "passedNodes": 130,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.13,
+          "mutedOnPage": 8.35,
+          "foregroundOnSurface": 14.82,
+          "mutedOnSurface": 7.67,
+          "accentForegroundOnAccent": 12.67,
+          "dangerOnPage": 7.03,
+          "successOnPage": 9.14
+        },
+        "nonText": {
+          "borderOnPage": 4.02,
+          "borderOnSurface": 3.7
+        }
+      },
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "route": "/styleguide",
+      "colorScheme": "light",
+      "passedNodes": 152,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.55,
+          "mutedOnPage": 6.88,
+          "foregroundOnSurface": 15.14,
+          "mutedOnSurface": 6.29,
+          "accentForegroundOnAccent": 13.69,
+          "dangerOnPage": 6.17,
+          "successOnPage": 6.32
+        },
+        "nonText": {
+          "borderOnPage": 3.97,
+          "borderOnSurface": 3.63
+        }
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "tr[data-retract=\"\"] > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(3) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(4) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(5) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                ".mobile-chart > g > text[y=\"22\"][x=\"0\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[x=\"95\"][y=\"48\"][text-anchor=\"middle\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[x=\"95\"][y=\"220\"][text-anchor=\"middle\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[x=\"255\"][y=\"48\"][text-anchor=\"middle\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[x=\"255\"][y=\"220\"][text-anchor=\"middle\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[y=\"265\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "figure:nth-child(2) > .flow-figure > li:nth-child(1) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(2) > .flow-figure > li:nth-child(2) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(2) > .flow-figure > li:nth-child(3) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(2) > .flow-figure > li:nth-child(4) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "div:nth-child(1) > dd > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "div:nth-child(2) > dd > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "div:nth-child(3) > dd > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "figure:nth-child(4) > .flow-figure > li:nth-child(1) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(4) > .flow-figure > li:nth-child(2) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(4) > .flow-figure > li:nth-child(3) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(4) > .flow-figure > li:nth-child(4) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(5) > .flow-figure > li:nth-child(1) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(5) > .flow-figure > li:nth-child(2) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(5) > .flow-figure > li:nth-child(3) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(5) > .flow-figure > li:nth-child(4) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(6) > .flow-figure > li:nth-child(1) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(6) > .flow-figure > li:nth-child(2) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(6) > .flow-figure > li:nth-child(3) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(6) > .flow-figure > li:nth-child(4) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/styleguide",
+      "colorScheme": "dark",
+      "passedNodes": 152,
+      "tokenContrast": {
+        "text": {
+          "foregroundOnPage": 16.13,
+          "mutedOnPage": 8.35,
+          "foregroundOnSurface": 14.82,
+          "mutedOnSurface": 7.67,
+          "accentForegroundOnAccent": 12.67,
+          "dangerOnPage": 7.03,
+          "successOnPage": 9.14
+        },
+        "nonText": {
+          "borderOnPage": 4.02,
+          "borderOnSurface": 3.7
+        }
+      },
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "tr[data-retract=\"\"] > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(2) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(3) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(4) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "tr:nth-child(5) > .after-value[data-label=\"After / value\"] > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                ".mobile-chart > g > text[y=\"22\"][x=\"0\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[x=\"95\"][y=\"48\"][text-anchor=\"middle\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[x=\"95\"][y=\"220\"][text-anchor=\"middle\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[x=\"255\"][y=\"48\"][text-anchor=\"middle\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[x=\"255\"][y=\"220\"][text-anchor=\"middle\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[y=\"265\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "figure:nth-child(2) > .flow-figure > li:nth-child(1) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(2) > .flow-figure > li:nth-child(2) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(2) > .flow-figure > li:nth-child(3) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(2) > .flow-figure > li:nth-child(4) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "div:nth-child(1) > dd > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "div:nth-child(2) > dd > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "div:nth-child(3) > dd > .mark[data-cite=\"1\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
+                "figure:nth-child(4) > .flow-figure > li:nth-child(1) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(4) > .flow-figure > li:nth-child(2) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(4) > .flow-figure > li:nth-child(3) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(4) > .flow-figure > li:nth-child(4) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(5) > .flow-figure > li:nth-child(1) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(5) > .flow-figure > li:nth-child(2) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(5) > .flow-figure > li:nth-child(3) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(5) > .flow-figure > li:nth-child(4) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(6) > .flow-figure > li:nth-child(1) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(6) > .flow-figure > li:nth-child(2) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(6) > .flow-figure > li:nth-child(3) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                "figure:nth-child(6) > .flow-figure > li:nth-child(4) > .flow-arrow[aria-hidden=\"true\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

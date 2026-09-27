@@ -1,6 +1,23 @@
 # SEO / AEO / GEO STRATEGY — portfolio
 
-> Growth agent, S1, 2026-09-25. Inputs: `docs/PRODUCT.md`, `docs/CONTENT_SOURCE.md`, `pipelines/portfolio/*`, `brain/seo-rules/aeo-geo.json`. SERP checks were run the same day with WebSearch (US index). Every fact below traces to CONTENT_SOURCE: **[R]** is the résumé, **[GH:repo]** is the public repo. **TODO(owner)** marks an item the owner must confirm before S4 publishes it. No data files are written in S1.
+> Growth strategy begun in S1 (2026-09-25), reconciled with the shipped portfolio on 2026-09-28. The intent map and initial SERP notes below are historical research, not current instructions. **Current implementation and owner decisions take precedence over S1 drafts.** Facts trace to `docs/CONTENT_SOURCE.md`: **[R]** is the supplied resume and **[GH:repo]** is a public repository.
+
+## Current source of truth (2026-09-28)
+
+- The provisional site URL is `https://arnav-khandelwal.vercel.app`; the owner deferred choosing a custom domain. Reconcile URLs after deployment/domain selection.
+- The supplied résumé PDF exists at `public/arnav-khandelwal-resume.pdf`. It confirms `arnavkhandelwal446@gmail.com`, MNIT Jaipur education and the Dehurdle internship. Its hash is in `docs/evidence/content-review.json`.
+- The styleguide is public and indexable by owner decision; it is in the sitemap and `llms.txt`. `/e2e-error` is the noindex test route, excluded from the sitemap and `llms.txt`.
+- GitHub is the only verified profile identity in `Person.sameAs`. Do not publish a guessed LinkedIn/X identity, residential address, job availability or response-time promise.
+- Current GitHub API check: profile name is already Arnav Khandelwal; bio, location and blog are blank; `Arrnnnaav/Arrnnnaav` returned 404. Recheck before off-site actions.
+- Visible project claims are tied to immutable public sources in `content/evidence/*.json`. Resume-only Cited Researcher timing remains excluded from visible metrics and `llms.txt`.
+- FAQs are direct, evidence-backed answers. UIBuilder's local editorial contract asks for at least 40 words so each answer stands alone; this is not a Google requirement or ranking tactic. Do not pad answers to meet a count.
+- `llms.txt` is retained because the UIBuilder SEO contract requires it and other systems may choose to consume it. Google Search says it does not use `llms.txt` for Search or AI features; do not claim it improves Google rankings.
+- Google-Extended is allowed by owner policy. It controls eligible use of crawled content for Gemini Apps/Vertex AI; it does not control inclusion or ranking in Google Search.
+- FAQ markup mirrors the visible Q&A for parity/interoperability. Google FAQ rich results are generally limited to well-known government and health sites; do not promise a Google FAQ enhancement.
+
+Official guidance checked 2026-09-28: [Google generative AI Search guidance](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide), [Google-Extended token](https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers), [FAQ rich-result eligibility](https://developers.google.com/search/blog/2023/08/howto-faq-changes), [ProfilePage structured data](https://developers.google.com/search/docs/appearance/structured-data/profile-page).
+
+The S1 intent map and initial SERP notes below are historical research, not current instructions. Current implementation and owner decisions take precedence over S1 drafts.
 
 ## Entities (who or what this site is about; sameAs profiles)
 
@@ -9,21 +26,21 @@
 |---|---|---|
 | `name` | Arnav Khandelwal | [R], GitHub profile |
 | `jobTitle` | Software Engineer | [R] |
-| `description` | Backend and AI engineer who builds local-first LLM systems and measures them | PRODUCT one-line, option 1. The owner picks at G1 |
-| `alumniOf` / `affiliation` | CollegeOrUniversity "Malaviya National Institute of Technology Jaipur" (MNIT Jaipur), B.Tech Electrical Engineering, Aug 2023 onward. `sameAs` → `https://en.wikipedia.org/wiki/Malaviya_National_Institute_of_Technology_Jaipur`, `https://mnit.ac.in` | [R]. A linked, well-known institution is the strongest disambiguator we have (see collisions below) |
+| `description` | Backend and AI engineer; Electrical Engineering undergraduate at MNIT Jaipur | Current `content/schema/person.json`; consistent with the supplied resume and shipped profile copy |
+| `affiliation` | CollegeOrUniversity "Malaviya National Institute of Technology Jaipur" (MNIT Jaipur) | Current `content/schema/person.json`; he is a current student, so do not describe him as an alumnus |
 | `knowsAbout` | Python, Java, SQL, FastAPI, Spring Boot, PyTorch, Transformers, LLMs, RAG, LangChain, Ollama, Docker | [R] skills list, verbatim |
 | Experience | Backend Engineering Intern, Dehurdle, Jun–Aug 2026 | [R]. Owner-supplied current résumé authorizes employer attribution. Résumé-only performance claims remain hidden unless supported by public evidence. |
 | `award` | "Bronze, Asian Championship (skating), 2018" | [R]. Amazon ML Summer School '25 goes in the description or `knowsAbout` context, not in `award` (it is a programme, not a prize). JEE Main 98.6 percentile goes in the About copy only |
-| `address` | `addressLocality: Jaipur`, `addressCountry: IN` | **TODO(owner):** inferred from MNIT; GitHub has no location |
-| `email` | none until confirmed | **TODO(owner):** `arnavkhandelwal446@email.com` looks like a typo. Never publish it unconfirmed |
+| `address` | not published | Do not infer residential address or location from the university; current profile data omits it |
+| `email` | `arnavkhandelwal446@gmail.com` | Confirmed in the supplied resume and current `content/site.json`; the old S1 typo warning is resolved |
 | `image` | none | **TODO(owner):** headshot missing. Person schema ships without `image` rather than with a placeholder |
-| `url` / `@id` | `{SITE_URL}/` and `{SITE_URL}/#person` | **TODO(owner):** no domain yet (PRODUCT open question 10) |
+| `url` / `@id` | Provisional Vercel URL and `/#person` | `content/site.json` uses `https://arnav-khandelwal.vercel.app`; reconcile only after the owner selects and deploys the final domain |
 
 ### sameAs
 | Profile | URL | Status |
 |---|---|---|
-| GitHub | `https://github.com/Arrnnnaav` | verified (gh API) |
-| LinkedIn | `https://www.linkedin.com/in/arnav-khandelwal` | **TODO(owner): UNVERIFIED.** The SERP shows 40+ LinkedIn profiles named Arnav Khandelwal, most with numeric suffixes (for example `arnav-khandelwal-13b6851a2`, `arnavkhandelwal`). The bare `arnav-khandelwal` handle may belong to someone else. Do not add it to `sameAs` until the owner pastes his own URL |
+| GitHub | `https://github.com/Arrnnnaav` | Verified and published in `Person.sameAs` |
+| LinkedIn | none published | Unverified; do not add a guessed sameAs URL. The 2026-09-25 SERP collision check is historical, not current identity verification |
 | X / Twitter | none known | TODO(owner): add if one exists |
 | Crunchbase, Google Business Profile | not applicable to a student Person entity | skip |
 
@@ -37,17 +54,17 @@ Each is `SoftwareSourceCode` with `author` → `{SITE_URL}/#person` and `codeRep
 6. **StudyOS**, `https://github.com/Arrnnnaav/StudyOS-Hackathon` (TypeScript, Next.js, AWS). It also has a live demo URL; that goes in the case study as a link only after its uptime is checked
 7. *(pending)* BusinessHQ: no entity until the owner supplies material
 
-### Name-collision finding (drives the whole strategy)
-The query `"Arnav Khandelwal"` returns other people with the same name: ZoomInfo pages (a Nike retail associate, a software developer at Currency in Irvine, a BITS Pilani NSS member), LinkedIn profiles (Medtronic IT analyst, TCU, UC Davis / Davis Consulting Group), a LinkedIn directory with "40+ profiles", and a FIDE chess profile. `Arnav Khandelwal MNIT Jaipur` returns nothing about this Arnav. The SERP is unowned and crowded. Winning it depends on **consistent disambiguators everywhere**, not only on this site:
+### Historical name-collision observations (2026-09-25)
+Historical SERP observation from 2026-09-25 (not a current ranking check): the query `"Arnav Khandelwal"` returned other people with the same name: ZoomInfo pages (a Nike retail associate, a software developer at Currency in Irvine, a BITS Pilani NSS member), LinkedIn profiles (Medtronic IT analyst, TCU, UC Davis / Davis Consulting Group), a LinkedIn directory with "40+ profiles", and a FIDE chess profile. `Arnav Khandelwal MNIT Jaipur` returns nothing about this Arnav. The SERP is unowned and crowded. Winning it depends on **consistent disambiguators everywhere**, not only on this site:
 - **Canonical descriptor:** "Arnav Khandelwal, backend and AI engineer, MNIT Jaipur". Use it in the home title, the Person `description`, the llms.txt summary, the OG image, and (owner actions, off-site) the GitHub bio and the LinkedIn headline.
 - **Owner actions, off-site, $0, high impact** (not our files; listed in the handoff):
-  1. Set the GitHub profile `name`, `bio`, `location` and `blog` (= the site URL). All four are empty today.
-  2. Create a profile README repo `Arrnnnaav/Arrnnnaav` (it currently returns 404) that links to the site.
+  1. The GitHub profile name is already "Arnav Khandelwal". Consider filling its `bio` and `blog` with owner-approved site details; do not publish a location without confirmation. The 2026-09-28 API check found those fields empty.
+  2. Consider a profile README repo `Arrnnnaav/Arrnnnaav`; the GitHub API returned 404 on 2026-09-28. Recheck before creating it.
   3. Put the site URL in the LinkedIn "Website" field and the Contact info.
-  4. These reciprocal links plus `rel="me"` on the site close the identity loop for Google and answer engines.
+  4. Reciprocal profile links and `rel="me"` can help connect identities, but do not guarantee recognition by Google or answer engines.
 
 ## Intent map
-Slugs are proposed here for ux to confirm in IA.md (IA.md is still the empty template).
+The shipped routes are listed below; these query groups are historical hypotheses, not a current ranking report.
 
 | Route | Primary query | Secondary | Intent |
 |---|---|---|---|
@@ -61,8 +78,9 @@ Slugs are proposed here for ux to confirm in IA.md (IA.md is still the empty tem
 | `/work/studyos` | StudyOS Point & Ask | AWS First Commit Hackathon StudyOS; Chrome extension spaced repetition engineering students | Navigational / informational |
 | `/about` | Arnav Khandelwal about | Arnav Khandelwal skills; Arnav Khandelwal experience; Amazon ML Summer School 2025 | Navigational (recruiter due diligence) |
 | `/contact` | contact Arnav Khandelwal | hire backend AI engineer intern India | Transactional |
-| `/resume` *(only if a PDF is supplied)* | Arnav Khandelwal resume | Arnav Khandelwal CV | Navigational |
-| `/styleguide`, `/e2e-error` | none | none | `noindex,nofollow`, excluded from sitemap and llms.txt |
+| `/resume` | Arnav Khandelwal resume | Arnav Khandelwal CV | Navigational; the supplied PDF is available |
+| `/styleguide` | Design System / Arnav Khandelwal portfolio | Portfolio design-system reference | Indexable by owner decision; included in sitemap and `llms.txt` |
+| `/e2e-error` | none | none | `noindex,nofollow`; excluded from sitemap and `llms.txt` |
 
 ### Title seeds for S4 (primary keyword first, brand last, 10–70 chars)
 - `/`: "Arnav Khandelwal · Backend & AI Engineer, MNIT Jaipur" (on the home page the name is the primary keyword)
@@ -73,14 +91,14 @@ Slugs are proposed here for ux to confirm in IA.md (IA.md is still the empty tem
 - Descriptions lead with the outcome and one sourced number (for example "5.36s → 0.97s mean latency over 50 requests").
 
 ## Answer-engine questions (the questions buyers ask; each gets an answer-first block)
-Each question becomes an `h2`/`h3` question heading followed immediately by a direct 40–60 word answer (rule `no-answer-first-block`), and feeds that page's FAQPage schema. The seeds below are drafts; S4 finalises the wording. No answer may add a claim that is missing from CONTENT_SOURCE.
+Where a question helps readers, render it as a heading followed by a direct answer from the same content file used for FAQPage JSON-LD. UIBuilder's local editorial rule asks for at least 40 words so each answer stands alone; this is not a Google requirement or Search eligibility rule, and answers should not be padded. The shipped Q&A is in `content/faq/*.json` and browser tests check visible/schema parity.
 
 ### Home (`content/faq/home.json`)
 1. **What does Arnav Khandelwal do?** Seed (≈50 words): "Arnav Khandelwal is a software engineer and Electrical Engineering student at MNIT Jaipur. He builds backends and AI systems, mostly local-first LLM services in Python and FastAPI, and benchmarks them. During a 2026 backend internship he cut an offline telemetry service's mean latency from 5.36s to 0.97s." [R][GH:Project-Edge-Node]
-2. **What has Arnav Khandelwal built?** Six flagships, one clause each, with the headline number: LedgerBridge 103,049 records at 5.114s median (n=5); GhostCursor 361 hermetic tests and 27/30 raw intent accuracy; NeuroUX video inference 50 min → ~80 s; Cited Researcher; StudyOS (live AWS deploy); Edge Node. [GH]
+2. **What has Arnav Khandelwal built?** Six flagships: LedgerBridge (103,049 records at 5.114s median, n=5); GhostCursor (361 documented tests and 27/30 raw intent accuracy); NeuroUX (reported video inference 50 min to ~80 s); Cited Researcher; StudyOS (documented AWS delivery pipeline; current demo uptime unverified); and Edge Node. [GH]
 3. **Is Arnav Khandelwal available for internships or full-time roles?** **TODO(owner):** PRODUCT names recruiters hiring for internships and then new-grad roles as the audience, but the owner has not stated availability, start dates or remote/relocation preferences. The answer stays blocked until he does. Never invent dates.
 4. **What tech stack does Arnav Khandelwal use?** Python, Java, SQL; FastAPI, Spring Boot; PyTorch, Transformers; LLMs, RAG, LangChain, Ollama; Docker. [R] Add examples from repos: Pydantic, asyncio/SSE, Next.js, AWS (DynamoDB, ECS). [GH]
-5. **How does Arnav verify the numbers on this site?** Every result links to its source: a committed benchmark report, a README table with n= and method, or "résumé-attested" where no public source exists. This is the site's differentiator and a strong GEO signal. It depends on the owner's answer to PRODUCT open question 6.
+5. **How does Arnav verify the numbers on this site?** Each visible result links to public evidence and states its sample or evidence limits. This is useful provenance for readers; there is no claim that it is a special ranking or GEO signal.
 
 ### About (`content/faq/about.json`)
 6. **Where does Arnav Khandelwal study?** B.Tech Electrical Engineering, MNIT Jaipur, since Aug 2023. [R]
@@ -88,7 +106,7 @@ Each question becomes an `h2`/`h3` question heading followed immediately by a di
 8. **What recognition has Arnav received?** Amazon ML Summer School '25; JEE Main 98.6 percentile; Asian Championship skating bronze (2018). [R]
 
 ### Contact (`content/faq/contact.json`)
-9. **How do I contact Arnav Khandelwal?** Use the contact form (Turnstile-protected), or email once confirmed, GitHub and LinkedIn once verified. **No response-time promise** unless the owner states one.
+9. **How do I contact Arnav Khandelwal?** Email `arnavkhandelwal446@gmail.com` or use the contact form when delivery is configured. GitHub is the only verified public profile. **No response-time promise** is made.
 
 ### Case studies (`content/faq/work-<slug>.json`, 1–2 each, optional but recommended for long-tail AEO)
 - Edge Node: "Why was the local Ollama API slow on localhost?" (IPv6-first resolution of `localhost`; switching to `127.0.0.1` took mean latency from 5.356s to 0.973s). [GH benchmark_report.md]
@@ -96,7 +114,7 @@ Each question becomes an `h2`/`h3` question heading followed immediately by a di
 - GhostCursor: "Does GhostCursor control the mouse?" (No. It highlights one control, waits for the human and verifies the result.) [GH]
 - NeuroUX: "Can TRIBE v2 run on a 4 GB laptop GPU?" (Yes, with 4-bit NF4 LLaMA for text and fp16 V-JEPA2 for video.) [GH]
 
-## Schema plan (route → JSON-LD types)
+## Shipped schema inventory (checked 2026-09-28)
 All nodes use `@context: "https://schema.org"` and stable `@id`s rooted at `{SITE_URL}`. The Person node is defined once (`content/schema/person.json`, which replaces the starter's `organization.json`) and referenced by `@id` everywhere else.
 
 | Route | JSON-LD types | Notes |
@@ -104,11 +122,12 @@ All nodes use `@context: "https://schema.org"` and stable `@id`s rooted at `{SIT
 | every page (layout) | `Person` (`#person`), `WebSite` (`#website`, `publisher`/`author` → `#person`, `inLanguage: en`) | Satisfies `missing-org-schema` on `/`. `sameAs` must hold at least GitHub, or `missing-sameas-entities` fires |
 | `/` | `WebPage` (`about` → `#person`), `FAQPage` (from `faq/home.json`) | No SearchAction; the site has no search |
 | `/about` | `ProfilePage` (`mainEntity` → `#person`, `dateModified`), `BreadcrumbList`, `FAQPage` (from `faq/about.json`) | ProfilePage is Google's supported type for a person's profile page |
-| `/work` | `CollectionPage` + `ItemList` of the six `SoftwareSourceCode` `@id`s, `BreadcrumbList` | |
-| `/work/[slug]` | `SoftwareSourceCode` (`#project`: `name`, `description`, `codeRepository`, `programmingLanguage`, `author` → `#person`, `dateModified` = last push), `Article` for the case-study write-up (`author` → `#person`, `about` → `#project`, `headline`, `datePublished`, `image` once screenshots exist), `BreadcrumbList` (Home › Work › Project), optional `FAQPage` | `Article` with `author` pre-empts `missing-author-eeat` / `missing-article-schema` if the audit classes case studies as articles. NeuroUX adds a `VideoObject` only once the demo video is hosted in a way that renders (the repo `.mp4` raw URL is not a watch page) |
-| `/contact` | `ContactPage` (`about` → `#person`), `BreadcrumbList`, optional `FAQPage` | Person `email`/`contactPoint` stays empty until confirmed |
-| `/resume` | `WebPage` + `BreadcrumbList` if the route ships | |
-| `/styleguide`, `/e2e-error`, 404 | none | noindex |
+| `/work` | `CollectionPage` + `ItemList` of the six case-study URLs, `BreadcrumbList`, FAQPage | ItemList entries identify the case-study pages; SoftwareSourceCode entities are scoped to their own detail pages |
+| `/work/[slug]` | `WebPage` with `Article` as `mainEntity`; separate `SoftwareSourceCode` and `BreadcrumbList`; visible FAQPage | Article citations point to commit-pinned source files. `dateModified` is this portfolio revision; `datePublished` is omitted because no verified original publication date is available. No image or VideoObject is added without a suitable published asset. |
+| `/contact` | `ContactPage` (`about` → `#person`), `BreadcrumbList`, optional `FAQPage` | the visible email is confirmed; omit a `ContactPoint` unless its details are verified |
+| `/resume` | `WebPage` + `BreadcrumbList` + visible supplied resume |
+| `/styleguide` | `WebPage` | Public and indexable by owner decision |
+| `/e2e-error`, 404 | none | noindex / excluded from sitemap |
 
 ## llms.txt outline
 ```
@@ -126,21 +145,21 @@ All nodes use `@context: "https://schema.org"` and stable `@id`s rooted at `{SIT
 - [LedgerBridge]({SITE_URL}/work/ledgerbridge): deterministic, auditable bank/ledger/Razorpay reconciliation; 103,049 records at 5.114s median (n=5)
 - [GhostCursor]({SITE_URL}/work/ghostcursor): local Windows AI guide that points at the next control but never clicks; 361 hermetic tests
 - [NeuroUX]({SITE_URL}/work/neuroux): Meta TRIBE v2 brain-response UX scoring on a 4 GB GPU; video inference 50 min → ~80 s
-- [StudyOS]({SITE_URL}/work/studyos): learning workflow with a Chrome "Point & Ask" extension, deployed on AWS
+- [StudyOS]({SITE_URL}/work/studyos): learning workflow with a Chrome "Point & Ask" extension and a documented AWS delivery pipeline; no current demo uptime is claimed
 
 ## More work
 - [All projects]({SITE_URL}/work): agents & evaluation, retrieval & NLP, hyperspectral classification, computer vision
 
 ## Optional
-- [Résumé]({SITE_URL}/resume): only if the PDF is supplied
+- [Résumé]({SITE_URL}/resume): supplied owner resume; resume-only performance metrics are not independently verified
 ```
-Rules: numbers match the case-study pages exactly (S4 copies them from the same content source). Owner-supplied résumé authorizes Dehurdle attribution. Cited Researcher's 152s→26s stays out of llms.txt while it is [R only] and unconfirmed.
+Current file: `public/llms.txt`. Keep project facts in sync with case studies and verified sources. The supplied resume authorizes Dehurdle attribution. Cited Researcher's 152s-to-26s result stays out while it is resume-only and unconfirmed. Google Search says it does not use `llms.txt`; UIBuilder keeps this file for its contract and other systems that choose to consume it, not as a Google SEO tactic.
 
 ## AI crawler policy (allow/deny: GPTBot, ClaudeBot, PerplexityBot, Google-Extended, OAI-SearchBot)
-- **Allow:** GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, PerplexityBot, Google-Extended, Applebot-Extended. For a job-seeker's portfolio, being present in model training data and in AI answers is the goal: recruiters increasingly ask assistants "who is X".
+- **Allow (current owner policy):** GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, PerplexityBot, Google-Extended, Applebot-Extended. Allowing a crawler does not guarantee training, citation, answer visibility or ranking. Google-Extended governs Gemini/Vertex AI uses and does not affect Google Search inclusion or ranking.
 - **Deny:** CCBot (the pipeline default).
-- **Disallow paths for all agents:** `/styleguide`, `/e2e-error`, plus `/api/` if backend adds any.
-- This matches the starter's `content/seo/crawlers.json`, so S4 needs no policy change. The owner can flip any bot later through BusinessOS (`crawler_policy`). `robots.ts` must never block the five audited bots, or `ai-crawlers-blocked` (high) fires.
+- **Disallow paths:** `/e2e-error` for allowed crawlers; denied crawlers such as CCBot are blocked at `/` by their specific rules. The styleguide is indexable. Add `/api/` only if a crawlable API route exists and policy requires it.
+- This is the current project policy in `content/seo/crawlers.json`; it is owner-editable via BusinessOS (`crawler_policy`). The robots policy is tested against configured per-agent allow/deny choices and disallow paths.
 
 ## Internal linking plan
 - **Home** → all six case studies (work grid), `/about`, `/contact`; the FAQ answers link to their proof page (for example the stack answer links to `/about`, the "what has he built" answer to `/work`).
@@ -168,10 +187,10 @@ Checked 2026-09-25 (WebSearch, US index).
 | Edge Node query | Ollama/Qwen3 tutorials | No | Generic name. The IPv6/localhost latency story is the unique hook |
 
 ### AI-answer check
-The search tool's synthesized answer acts as a proxy for an answer engine. For "Arnav Khandelwal" it listed five other people and asked for more context. For "Arnav Khandelwal software engineer backend AI FastAPI" it answered "no specific profile found". For the StudyOS query it described the project accurately from the GitHub README and cited `Arrnnnaav/StudyOS-Hackathon`. **Conclusion:** answer engines currently cannot identify this person at all. GitHub READMEs are the only thing they cite, so README quality and a README → site link are part of GEO. Re-run this check after launch and after the owner's off-site actions (S6/S7).
+Historical answer-engine check from 2026-09-25 (not a current visibility measurement): a search synthesis listed other people for the name query and cited the StudyOS GitHub README for its project query. At that time, the queried assistant did not surface this portfolio. This is a dated observation, not a current answer-engine result or a general rule about citations; repeat with the deployed URL after launch.
 
 
-## S4 implementation update — 2026-09-26
+## S4 reconciliation, updated 2026-09-28
 The new résumé resolves the email to `arnavkhandelwal446@gmail.com`. `sameAs` includes only the verified GitHub identity; location and LinkedIn remain omitted. Owner-supplied résumé authorizes Dehurdle attribution for the internship and Edge Node. All main public routes have metadata, direct answer-first FAQ content and route-scoped entities. Owner update, 2026-09-26: the styleguide is public and indexable, included in sitemap and llms.txt and allowed by crawler policy; this supersedes earlier styleguide exclusions. The gated error-test route remains noindex. Person + WebSite are shared entities; case studies include SoftwareSourceCode and an authored Article embedded in their WebPage. Stable entity URLs use the provisional hosting target and must be reconciled with the actual deployment URL.
 
-Editorial dates represent this update, not invented upstream release dates. Test counts are README-reported; NeuroUX is an experimental proxy, LedgerBridge sealed scores are specification consistency, GhostCursor intent scores describe a small frozen set, and StudyOS has no measured learning-outcome claim. Cited Researcher résumé-only speedup remains hidden. This improves answer extraction and provenance without promising search rankings or citation by generative engines.
+Editorial dates represent portfolio content review, not upstream release dates. Test counts are README-reported; NeuroUX is an experimental proxy, LedgerBridge sealed scores are specification consistency, GhostCursor intent scores describe a small frozen set, and StudyOS has no measured learning-outcome claim. Cited Researcher resume-only speedup remains hidden. Technical controls do not promise rankings or generative-engine citations.

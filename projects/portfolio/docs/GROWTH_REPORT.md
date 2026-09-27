@@ -66,18 +66,23 @@ uptime, hiring availability, LinkedIn URL or residential location is inferred.
 
 ## Runtime audit evidence and limits
 
-The fresh clean production build on 2026-09-28 was audited from the running local server:
+The current production runtime on 2026-09-28 was audited from the running local server:
 
 ```text
-$ node scripts/seo-audit.mjs "http://localhost:3400"
-seo:audit http://localhost:3401 — 0 findings (0 high)
+$ node scripts/seo-audit.mjs "http://localhost:3402"
+seo:audit http://localhost:3402 — 0 findings (0 high)
 ```
 
-The fresh result is also summarized in `docs/QA_REPORT.md`; it has 0 findings and
-0 high findings. The full browser suite passed with 194 passes and two expected
-desktop-only skips, including exact route/FAQ parity and sitemap/llms checks. The complete mobile Lighthouse matrix still fails the strict
-LCP threshold on every public route, so this report does not mark G3 or deployment
-passed.
+The output is retained in `docs/evidence/seo-audit-growth-2026-09-28.txt`. The
+focused `SEO files are served` Playwright check passed in Chromium and WebKit at
+desktop and mobile sizes (4/4; `docs/evidence/seo-robots-current.txt`). A previous
+PowerShell attempt to run the full robots test matrix stalled and is retained in
+`docs/evidence/seo-robots-stalled-pwsh-attempt.txt`; the successful focused run
+is the current robots evidence. The full browser suite separately passed with
+198 passes and two expected desktop-only skips, including exact route/FAQ parity
+and sitemap/llms checks. The complete mobile Lighthouse matrix still fails the
+strict LCP threshold on every public route, so this report does not mark G3 or
+deployment passed.
 
 ## Remaining launch requirements
 

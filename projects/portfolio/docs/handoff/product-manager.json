@@ -4,53 +4,63 @@
   "inputs_used": [
     "AGENTS.md",
     ".claude/agents/product-manager.md",
-    "plan/DECISIONS.md",
-    "plan/PROGRESS.md",
-    "projects/portfolio/docs/PRODUCT.md",
     "projects/portfolio/docs/PRODUCT_REQUIREMENTS.md",
     "projects/portfolio/docs/ACCEPTANCE.md",
     "projects/portfolio/docs/PRIORITIES.md",
-    "projects/portfolio/docs/STATE.md",
     "projects/portfolio/docs/QA_REPORT.md",
+    "projects/portfolio/docs/STATE.md",
     "projects/portfolio/docs/PERF_REPORT.md",
-    "projects/portfolio/docs/GROWTH_REPORT.md",
     "projects/portfolio/docs/SECURITY_REPORT.md",
-    "projects/portfolio/docs/VISUAL_REVIEW.md",
-    "projects/portfolio/docs/evidence/content-review.json",
-    "projects/portfolio/docs/evidence/perf-final-summary.json",
+    "projects/portfolio/docs/GROWTH_REPORT.md",
+    "projects/portfolio/docs/DESIGN.md",
     "projects/portfolio/docs/evidence/e2e-final.txt",
+    "projects/portfolio/docs/evidence/unit-final.txt",
+    "projects/portfolio/docs/evidence/contact-production-test.txt",
+    "projects/portfolio/docs/evidence/perf-final-summary.json",
     "projects/portfolio/docs/evidence/security-review.json",
+    "projects/portfolio/docs/evidence/security-runtime.txt",
+    "projects/portfolio/e2e/site.spec.ts",
+    "projects/portfolio/e2e/contrast.spec.ts",
+    "projects/portfolio/tests/unit/contact-production.test.ts",
+    "projects/portfolio/docs/evidence/contrast-audit-chromium-desktop.json",
+    "projects/portfolio/docs/evidence/contrast-audit-chromium-mobile.json",
+    "projects/portfolio/docs/evidence/contrast-audit-webkit-desktop.json",
+    "projects/portfolio/docs/evidence/contrast-audit-webkit-mobile.json",
+    "projects/portfolio/app/actions/contact.ts",
+    "projects/portfolio/components/contact/ContactForm.tsx",
     "projects/portfolio/content/seo/routes.json",
-    "projects/portfolio/content/seo/crawlers.json",
-    "projects/portfolio/seo.manifest.json"
+    "projects/portfolio/content/seo/crawlers.json"
   ],
   "decisions": [
-    "Evidence reconciliation reviewed on 2026-09-28 against repository HEAD 96827a0; the four PM deliverables are uncommitted worktree changes and plan/PROGRESS.md records the completed reconciliation task.",
-    "Reconciled all G3 acceptance items to the latest retained reports and identified evidence gaps without granting gate approval.",
-    "Moved deployment, BusinessOS dogfood, launch video and /learn memory to explicit S7 acceptance while preserving those requirements.",
-    "Aligned indexing acceptance with the owner decision: /styleguide is public/indexable; /e2e-error is internal/noindex.",
-    "Closed the resolved Apache 2.0 license-choice risk; preserved the owner's custom-domain deferral."
+    "Evidence reconciliation refreshed on 2026-09-28 against repository HEAD 6a6df0a; PM acceptance/priorities/handoff updates are uncommitted worktree changes.",
+    "A08 and A10 are verified by the latest 194-pass browser matrix, including PDF MIME and FAQ/schema parity checks.",
+    "A07 is verified by the production-mode contact unit test (1/1) and retained output; the full portfolio unit suite passes 35/35. This verifies the no-provider fallback path, not live email delivery.",
+    "A16 is verified by all-route axe checks, the explicit contrast audit in four browser/profile outputs, design token contrast calculations, keyboard tests and reduced-motion tests; the audit retains unscored pseudo-element/SVG nodes as incomplete for transparency.",
+    "G3 remains unpassed: mobile LCP misses the threshold and current clean-production security/client-scan evidence needs refresh. A07's no-provider contact fallback is now verified by a production-mode regression test.",
+    "Separated G3 contact failure-state correctness (A07) from owner-controlled provider credentials, real delivery and conditional telemetry receipts at S7 (A22). Missing provider credentials alone do not block G3; never deploy E2E keys or CONTACT_DRY_RUN.",
+    "The owner-approved indexing decision remains: /styleguide is public/indexable; /e2e-error is internal/noindex."
   ],
   "files_created": [
     "projects/portfolio/docs/ACCEPTANCE.md",
     "projects/portfolio/docs/PRIORITIES.md",
-    ".claude/agents/product-manager.md",
-    "projects/portfolio/docs/handoff/product-manager.json",
-    "plan/PROGRESS.md"
+    "projects/portfolio/docs/evidence/contact-production-test.txt",
+    "projects/portfolio/docs/handoff/product-manager.json"
   ],
   "resources_used": [],
   "patterns_used": [],
   "risks": [
-    "G3 remains unpassed: all mobile route LCP medians exceed 2500ms.",
-    "AA contrast evidence and final clean-production security runtime refresh are not retained as current proof.",
-    "Production contact delivery is unverified; browser test uses CONTACT_DRY_RUN. PDF MIME and rendered FAQ/schema parity pass in the 2026-09-28 full browser matrix.",
-    "S7 deployment, real BusinessOS approval flow and launch artifacts remain incomplete."
+    "All 12 mobile public routes still exceed the strict LCP limit; latest range is 2555–2857ms.",
+    "The current E2E browser contact flow uses Turnstile test keys and CONTACT_DRY_RUN; a separate unit regression covers production no-provider behavior but does not prove live delivery.",
+    "Clean-production security runtime/client-scan evidence is historical and needs a rerun bound to the latest candidate.",
+    "Actual deployment URL, Resend delivery, and telemetry receipts are unavailable until owner-controlled release configuration; telemetry receipts remain conditional on enabled keys.",
+    "BusinessOS dogfood and launch artifacts remain S7 work after G3."
   ],
   "open_questions": [],
   "next_agent": "orchestrator",
   "next_instructions": [
-    "Continue the G3 work in docs/PRIORITIES.md; first address the measured shared mobile LCP blocker without changing thresholds or throttling.",
-    "Keep S7 A19, A20 and A21 separate from G3 and execute them only after G3 passes.",
-    "Do not mark G3 passed: the acceptance statuses and current reports identify remaining incomplete evidence and measured failures."
+    "Continue G3 tasks in docs/PRIORITIES.md without changing thresholds or claiming a pass.",
+    "Treat A22 provider setup/receipts as release configuration; no live receipts are required when keys are absent, and no provider credentials alone block G3.",
+    "A17 and A18 are the remaining G3 blockers: resolve mobile LCP and refresh the clean-production security/client scan against the current candidate.",
+    "S7 provider setup and live receipts are conditional release checks; they do not block G3 when provider keys are absent. Never use E2E credentials or CONTACT_DRY_RUN in release."
   ]
 }

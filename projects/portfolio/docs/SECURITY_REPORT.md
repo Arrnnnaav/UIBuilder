@@ -1,4 +1,4 @@
-# Portfolio security review — refreshed 2026-09-27
+# Portfolio security review — refreshed 2026-09-28
 
 ## Scope and result
 
@@ -12,9 +12,9 @@ The project procedure `.claude/skills/security-review/SKILL.md` was read and
 applied after it was added. The installed `security-and-hardening` skill also
 informed the threat model and supply-chain checks. The named procedure's source
 checks and no-key monitoring checks are complete for the refreshed source.
-The earlier local production HTTP/client-asset checks below remain historical
-evidence until the Orchestrator repeats them after its final clean rebuild. The
-live deployment's environment and behavior require verification after deployment.
+The local production HTTP/client-asset checks were repeated after a clean rebuild
+on 2026-09-28 and are retained in `docs/evidence/security-runtime.txt`. The live
+deployment's environment and behavior require verification after deployment.
 
 Inspected files: `app/actions/contact.ts`, `app/e2e-error/page.tsx`,
 `lib/{contact-schema,client-ip,rate-limit,turnstile,env,pageview}.ts`,
@@ -165,11 +165,11 @@ do not prove receipt at a live vendor.
 - Real email delivery requires verified sender/Resend and Turnstile configuration.
   Without production keys, the action rejects and offers the public email address.
   Never deploy `CONTACT_DRY_RUN=1`, `E2E_ERROR_ROUTE=1` or Turnstile test credentials.
-- **Unverified release condition:** these flags deliberately work in the production
+- **Release condition:** these flags deliberately work in the production
   E2E build; documentation alone cannot prevent deployment from inheriting them.
-  A clean release environment must be proved before deployment. Local clean
-  production `/e2e-error` 404, headers and client/public scan previously passed;
-  repeat them after the current final clean rebuild and on the deployed build.
+  A clean release environment must be proved before deployment. The local clean
+  production `/e2e-error` 404, headers and client/public scan passed after the
+  current clean rebuild. Repeat them against the deployed build.
 - Live Sentry error/PostHog pageview receipts are required only when real keys
   exist; no-key tests do not satisfy that configured-provider branch.
 - This app does not retain submitted messages in a database. Once email is enabled,

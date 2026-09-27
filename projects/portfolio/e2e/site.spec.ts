@@ -4,6 +4,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import routes from "../content/seo/routes.json" with { type: "json" };
 import site from "../content/site.json" with { type: "json" };
+import crawlers from "../content/seo/crawlers.json" with { type: "json" };
 
 const faqDir = join(process.cwd(), "content/faq");
 const faqByRoute = new Map(
@@ -18,6 +19,26 @@ const faqByRoute = new Map(
 
 // The deliberate throwing route has its own recovery test below.
 const pages = Object.keys(routes).filter((route) => route !== "/e2e-error");
+
+function parseRobots(text: string) {
+  const groups: { agents: string[]; allow: string[]; disallow: string[] }[] = [];
+  let current: { agents: string[]; allow: string[]; disallow: string[] } | undefined;
+  for (const raw of text.split(/\r?\n/)) {
+    const line = raw.replace(/#.*/, "").trim();
+    if (!line) continue;
+    const separator = line.indexOf(":");
+    if (separator < 0) continue;
+    const key = line.slice(0, separator).trim().toLowerCase();
+    const value = line.slice(separator + 1).trim();
+    if (key === "user-agent") {
+      current = { agents: [value.toLowerCase()], allow: [], disallow: [] };
+      groups.push(current);
+    } else if (current && (key === "allow" || key === "disallow")) {
+      current[key].push(value);
+    }
+  }
+  return groups;
+}
 
 // Fail any test that logs a console error or hits a hydration mismatch.
 const watchConsole = (page: Page) => {
@@ -248,6 +269,26 @@ test("SEO files are served", async ({ request }) => {
 
   const robotsText = await robots.text();
   expect(robotsText).toContain(`Sitemap: ${new URL("/sitemap.xml", site.url)}`);
+  const groups = parseRobots(robotsText);
+  const groupFor = (agent: string) => groups.find((group) => group.agents.includes(agent.toLowerCase()));
+  const wildcard = groupFor("*");
+  expect(wildcard).toBeDefined();
+  expect(wildcard?.allow.sort()).toEqual(crawlers.default ? ["/"] : []);
+  expect(wildcard?.disallow.sort()).toEqual(
+    crawlers.default ? [...crawlers.disallowPaths].sort() : ["/"],
+  );
+
+  for (const [agent, allowed] of Object.entries(crawlers.bots)) {
+    const group = groupFor(agent);
+    expect(group, `${agent} robots group`).toBeDefined();
+    if (allowed) {
+      expect(group?.allow.sort(), `${agent} allows public pages`).toEqual(["/"]);
+      expect(group?.disallow.sort(), `${agent} disallow paths`).toEqual([...crawlers.disallowPaths].sort());
+    } else {
+      expect(group?.disallow, `${agent} is denied site access`).toEqual(["/"]);
+      expect(group?.allow).toEqual([]);
+    }
+  }
   expect(robotsText).not.toMatch(/Disallow:\s*\/styleguide(?:\s|$)/i);
 
   const sitemapText = (await sitemap.text()).replaceAll("&amp;", "&");
