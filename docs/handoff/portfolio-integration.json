@@ -1,10 +1,39 @@
 {
   "agent": "orchestrator",
   "status": "partial",
-  "inputs_used": ["AGENTS.md", "plan/PROGRESS.md", "Portfolio production build and Lighthouse reports", "Full Chromium/WebKit integration output", "Frontend SSR reproducer and growth source review"],
-  "decisions": ["Keep server-side environment validation and pass only explicit public analytics settings to browser", "Fix proven SVG title hydration and dialog keyboard wrapping defects without reducing gates", "Retain failing Lighthouse median and browser evidence"],
-  "files_created": ["projects/portfolio/docs/QA_REPORT.md", "projects/portfolio/docs/evidence/perf-home-median.txt", "projects/portfolio/docs/evidence/e2e-integration.txt", "projects/portfolio/docs/evidence/unit-integration.txt"],
-  "risks": ["Browser suite passed 186/186 applicable tests before the latest observer batching change; full unit suite now 34/34", "Fresh clean home mobile LCP median 2708ms still fails; full route/profile performance missing", "48 of 48 visual baselines reviewed and committed; current CI/source publication still pending", "Discarded font experiment must remain out of deployment; final clean observer build and performance verification are pending"],
+  "inputs_used": [
+    "AGENTS.md",
+    "plan/PROGRESS.md",
+    "projects/portfolio/docs/STATE.md",
+    "clean production Lighthouse summary",
+    "final Chromium/WebKit integration output",
+    "GitHub CI for commit 0e9cc98"
+  ],
+  "decisions": [
+    "Keep G3 pending because every mobile route exceeds the strict LCP threshold",
+    "Discard the first full Lighthouse matrix because it ran against a build directory reused by the E2E fixture build",
+    "Use only the replacement clean production matrix as current evidence",
+    "Do not change Lighthouse throttling or thresholds to make the gate pass"
+  ],
+  "files_created": [
+    "projects/portfolio/docs/QA_REPORT.md",
+    "projects/portfolio/docs/PERF_REPORT.md",
+    "projects/portfolio/docs/STATE.md",
+    "projects/portfolio/docs/evidence/perf-final-summary.json",
+    "projects/portfolio/docs/evidence/e2e-final.txt",
+    "projects/portfolio/docs/evidence/perf-home-latest.txt"
+  ],
+  "risks": [
+    "The clean full performance matrix passes all desktop routes; all mobile routes fail only the LCP <2500ms contract at 2561–2768ms",
+    "E2E/browser, unit, typecheck, lint, build, SEO and source CI checks pass; G3 remains open",
+    "The first full performance run was discarded due test build artifact reuse and is not reported as current evidence",
+    "No live deployment, provider receipts, custom hostname or BusinessOS dogfood has been verified"
+  ],
   "next_agent": "orchestrator",
-  "next_instructions": ["Poll clean production build exec session79797 before restarting it", "Remeasure strict performance after observer batching, preserving approved font and thresholds", "Complete G3 evidence, final browser verification, Git publication, deployment and remaining original scope"]
+  "next_instructions": [
+    "Trace the shared mobile LCP path and make only measured, design-preserving changes",
+    "Rerun the full clean production Lighthouse matrix after any performance change",
+    "Complete current G3_EVIDENCE.json only after all strict gates pass and evidence bytes are stable",
+    "Then deploy on a confirmed hostname, verify monitoring/contact/runtime outputs, and complete the owner-approved BusinessOS connection flow"
+  ]
 }

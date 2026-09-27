@@ -62,17 +62,18 @@ uptime, hiring availability, LinkedIn URL or residential location is inferred.
 
 ## Runtime audit evidence and limits
 
-Existing `docs/evidence/seo-audit.txt` records:
+The current clean production build was audited from the running local server:
 
 ```text
 $ node scripts/seo-audit.mjs "http://localhost:3400"
 seo:audit http://localhost:3400 — 0 findings (0 high)
 ```
 
-This proves the previous production build's audit result. Because today's review
-revised metadata/schema, the orchestrator must serially build and audit the updated
-revision before treating that as current runtime evidence. This report does not
-mark G3 or deployment passed.
+The fresh result is also summarized in `docs/QA_REPORT.md`; it has 0 findings and
+0 high findings. The full browser suite passed with 190 passes and two expected
+desktop-only skips. The complete mobile Lighthouse matrix still fails the strict
+LCP threshold on every public route, so this report does not mark G3 or deployment
+passed.
 
 ## Remaining launch requirements
 

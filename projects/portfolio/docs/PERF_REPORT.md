@@ -1,42 +1,37 @@
 # Portfolio performance report
 
-Status: pending. The strict G3 performance requirement has not passed.
+Status: G3 performance requirement not met. Full clean production matrix completed 2026-09-27.
 
-## Latest completed measurement
+## Full route coverage
 
-The clean production build before the SVG hydration fix returned a three-run home/mobile median of performance 92, accessibility 100, best practices 96, SEO 100, LCP 2665ms and CLS 0. The command exited 1 because LCP must be strictly below 2500ms. Actual retained output is `docs/evidence/perf-home-median.txt`; raw runs are `.lighthouse/mobile-home-{1,2,3}.json`.
+Command: `PERF_RUNS=3 pnpm perf -- http://localhost:3400`.
+Result: exit 1 only because mobile LCP exceeds the strict 2500ms limit. Complete route/profile medians are retained in `docs/evidence/perf-final-summary.json`.
 
-Server-side environment validation now passes only public analytics key/host values to Analytics, removing Zod from the shared browser bundle. Optional PostHog remains lazy and absent-key monitoring no-ops. A single earlier probe reached LCP 2307ms but performance 84; neither a single favorable metric nor incomplete route coverage proves the gate.
+- Desktop: 12/12 routes pass. Performance/accessibility/best-practices/SEO/agentic-browsing ≥98; LCP 525–601ms; CLS 0.
+- Mobile: 0/12 routes pass the full performance gate. Category scores: performance 94–97, accessibility/best-practices/SEO/agentic-browsing 100, CLS 0. LCP range 2561–2768ms.
+- Every category meets the 90-point requirement. LCP is the sole measured performance blocker. Do not alter Lighthouse throttling or thresholds.
 
-## Required next measurement
+Mobile medians by route:
 
-Fresh clean production measurement after hydration repair: performance 96,
-accessibility/best practices/SEO 100, LCP 2708ms, CLS 0; exit 1.
-Actual output: `docs/evidence/perf-home-after-hydration.txt`.
-An isolated same-family content-font experiment reduced the font transfer from
-about 91KB to 45KB but the median LCP was still 2703ms; output:
-`docs/evidence/perf-home-font-probe.txt`. The experiment was reverted because it
-did not resolve the measured bottleneck. The approved full Google Fonts Archivo
-configuration and all existing baselines remain the intended implementation.
-The experimental server was stopped. Its artifact is being replaced by the clean
-approved-font build with batched observer startup; do not deploy experimental artifacts.
+| Route | Performance | LCP | CLS |
+|---|---:|---:|---:|
+| `/` | 95 | 2719ms | 0 |
+| `/work` | 97 | 2570ms | 0 |
+| `/work/edge-node` | 96 | 2724ms | 0 |
+| `/work/cited-researcher` | 96 | 2721ms | 0 |
+| `/work/ledgerbridge` | 96 | 2718ms | 0 |
+| `/work/ghostcursor` | 96 | 2718ms | 0 |
+| `/work/neuroux` | 96 | 2619ms | 0 |
+| `/work/studyos` | 97 | 2624ms | 0 |
+| `/about` | 97 | 2571ms | 0 |
+| `/contact` | 97 | 2589ms | 0 |
+| `/resume` | 97 | 2561ms | 0 |
+| `/styleguide` | 94 | 2768ms | 0 |
 
-The approved-font build with batched observer startup passed compilation and
-TypeScript. Its home/mobile median remained performance 96, other categories 100,
-LCP 2710ms, CLS 0, exit 1 (`docs/evidence/perf-home-batched-observer.txt`). The
-observer change removes interleaved synchronous geometry reads and corrects the
-50% visibility boundary, but this measurement does not demonstrate an LCP gain.
-Full route/profile performance and G3 remain incomplete.
+## Prior measured experiments
 
-Narrowing the footer's serialized project props to title/slug improves the
-home/mobile median to performance 97, accessibility/best practices/SEO 100,
-LCP 2557ms and CLS 0 (`docs/evidence/perf-home-footer-payload.txt`). This remains
-above the strict limit. Disabling current-home wordmark prefetch and using a
-native in-page work anchor measures LCP 2559ms; no LCP improvement is claimed
-for that change (`docs/evidence/perf-home-prefetch.txt`).
+Removing Zod from the shared analytics client boundary, batching observer DOM writes, narrowing serialized footer props and separating the static footer from its route-aware CTA were each implemented and verified for their own goals. Home/mobile medians after successive rounds ranged from 2557 to 2710ms; the latest complete run confirms that LCP still fails across all mobile routes. Disabling root prefetch/native same-page anchor did not show a reliable LCP gain. An isolated font-subset experiment halved the font transfer but left LCP at 2703ms, so it was reverted to preserve approved typography.
 
-The SVG title hydration correction removes a proven client rerender defect. After browser verification completes, rebuild without Turnstile test keys, dry-run delivery or the intentional error fixture. Measure home/mobile again, then all 12 published routes in desktop and mobile with three runs each. Inspect actual Lighthouse traces before any further optimization. Keep category scores at least 90, LCP strictly below 2500ms and CLS strictly below 0.1; do not change throttling or thresholds to manufacture success.
+Lighthouse's earlier local trace identifies the hero H1 as the home LCP element, with 166ms element render delay; one trace estimates ~29KiB of unused JavaScript and ~154ms render-blocking CSS. The current full run used a clean production build, with no E2E Turnstile key and the error fixture returning 404. These are clues, not proven single-cause fixes. Desktop and real-browser visual checks pass. Further changes should be based on tracing the shared mobile render path and remeasured across all routes.
 
-The latest clean build, including the Footer server/client split and server-rendered navigation icon, was measured on 2026-09-27: three-run mobile-home median performance 96, accessibility/best-practices/SEO/agentic-browsing 100, LCP 2708ms, CLS 0. The run exits 1 because LCP is 208ms above contract. Evidence: `.lighthouse/summary.json`; prior retained experiments remain for comparison. No performance win is claimed for this change. Full 12-route desktop/mobile coverage remains outstanding.
-
-No deployed real-user measurements exist yet. Production field behavior and configured monitoring receipts require verification after deployment.
+No deployed real-user measurements exist. Production field behavior, configured monitoring receipts, and deployment remain unverified.

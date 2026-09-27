@@ -63,64 +63,15 @@ Legend: ✅ done · 🟡 in progress · ⬜ todo · ⛔ blocked (reason)
   - Audit gates only prod deps (clean). Dev tooling has 2 unpatchable extract-zip highs via lighthouse and puppeteer; they are reported but never ship. `tmp` is overridden to ≥ 0.2.6.
 
 ## M4 — Portfolio 🟡
-- ✅ Platform follow-up, 2026-09-26: default scaffolding keeps projects in the
-  root repository; `--standalone` is explicit. `node --test tests/platform/*.test.mjs`
-  → 4/4 pass; `node scripts/validate-contracts.mjs` → 9 roles/9 handoffs valid;
-  `node scripts/validate-brain.mjs` → 86 resources/12 patterns/36 tools valid.
-  Root CI and product-manager role/templates are added. Remote CI results and
-  full site G3 remain unverified; repository LICENSE awaits owner selection.
-- 🟡 Current S4 working tree: sourced portfolio content, route metadata, schemas,
-  FAQs and growth handoff are drafted; frontend integration is in progress.
-  These changes have not passed production runtime SEO or full G3 checks.
-- ✅ S1 content:
-  - `docs/CONTENT_SOURCE.md`, built from `ArnavResume.pdf` plus a read-only pass over 26 public GitHub repos
-  - 6 flagships: Edge Node, Cited Researcher, LedgerBridge, GhostCursor, NeuroUX, StudyOS
-  - every number is sourced; 3 résumé numbers are flagged as unsourced
-- ✅ `docs/PRODUCT.md` draft, with 10 open questions for G1
-- ✅ 2026-09-26 status audit: `node scripts/gate.mjs portfolio G1` → passed 10/10;
-  `node scripts/gate.mjs portfolio G2` → passed 8/8. G1 and G2 owner approvals are
-  recorded in `projects/portfolio/docs/STATE.md`. S1/S2/S3 files and handoffs exist.
-- 🟡 S4 remains incomplete after the Claude API 429 shown in the 2026-09-26 screenshot.
-  `app/page.tsx` is still the starter placeholder; `content/site.json`,
-  `content/seo/routes.json`, schema, FAQ and `public/llms.txt` still contain
-  `Site Name` / `example.com`. No `/work` or `/about` routes exist yet.
-  This describes the recovered session before the current implementation; see
-  the latest evidence below for current S4/S5 state.
-- ✅ Screenshot /intake recovered: 12 links were reviewed and added to
-  `brain/resources.json` (the anti-slop URL was corrected to
-  `miqdadbadjuber/anti-slop`). `node scripts/validate-brain.mjs` → valid,
-  86 resources, 12 patterns, 36 tools. Project-local frontend-design,
-  anti-slop, UI Skills review skills and scroll-world were installed;
-  provenance is in `.claude/skills/SOURCES.md`. None is a new production
-  dependency or an enabled paid service.
-- ✅ Portfolio starter health check, 2026-09-26: `pnpm typecheck` exit 0;
-  `pnpm lint` exit 0; `pnpm lint:tokens` exit 0 (26 files);
-  `pnpm test` exit 0 (12/12). `pnpm seo:audit` returned exit 2 because
-  no site server was running at localhost:3000; rerun it against a built,
-  started site during S6. These passes cover the starter, not the S4 site.
-- ✅ Git publication, 2026-09-26: root `.gitignore` excludes local credentials,
-  dependencies, build output, browser logs, and two vendored skills without
-  redistribution terms; `.env.example` is explicitly included. The three
-  zero-commit nested `.git` directories were preserved in ignored
-  `.git-metadata-backup/` so project source is committed as ordinary files.
-  Initial commit `968cb80` contains 459 files; `git push -u origin main`
-  succeeded to `https://github.com/Arrnnnaav/UIBuilder.git`.
-- ✅ Current S4 implementation, 2026-09-26: new résumé PDF and commit-pinned
-  GitHub evidence feed home/work/six case studies/about/contact/resume. Production
-  `pnpm build` exit 0 (`docs/evidence/build.txt`); live `pnpm seo:audit
-  http://localhost:3400` → 0 findings/0 high (`docs/evidence/seo-audit.txt`).
-  `pnpm test` → 30/30; `pnpm lint:tokens` → clean, 44 files.
-- ✅ Security hardening and production local checks: 19 focused tests pass;
-  full audit has no known vulnerabilities. Header/debug-route/client-asset evidence
-  is retained in portfolio `docs/evidence/security-runtime.txt`; named
-  project-local `security-review` procedure applied. No production deployment yet.
-- 🟡 S5 review loop 1: `node scripts/inspect-ui.mjs http://localhost:3400` →
-  24 page/viewport captures, all 200, no overflow/console errors. Ledger caption
-  and source spacing fixes in review. Full four-project Playwright, final
-  Lighthouse, committed baselines and G3 remain pending.
-- ✅ Design-reading intake: `node scripts/validate-brain.mjs` → 91 resources,
-  16 patterns, 36 tools; study notes in `docs/DESIGN_READING.md`. New references
-  remain REVIEWED, and are not claimed as measured live animation behavior.
+- ✅ Product/research/UX/design stages complete; G1 and G2 approvals recorded. Six public case studies are sourced from the résumé and commit-pinned GitHub evidence.
+- ✅ S4 implementation complete: home, work, six case studies, about, contact, résumé, indexable styleguide, 30 schema files, 11 FAQ files, sitemap/robots/llms.txt, contact action and data-driven SEO manifest.
+- ✅ Skills/resources from the recovered `/intake` were reviewed and installed; provenance is in `.claude/skills/SOURCES.md`. Design-reading notes are in `docs/DESIGN_READING.md`; brain validates at 92 resources, 16 patterns, 36 tools.
+- ✅ S5 browser/visual checks: 48 committed Windows baselines reviewed; current full Playwright matrix passes 190 tests with 2 expected desktop-only skips across Chromium/WebKit at 390px/1440px.
+- ✅ Build, 34 unit tests, lint, token lint, typecheck and runtime SEO audit pass. Full desktop/mobile Lighthouse coverage completed: all desktop routes pass; all 12 mobile routes fail only strict LCP <2500ms (2556–2859ms), recorded in `projects/portfolio/docs/PERF_REPORT.md` and `docs/QA_REPORT.md`.
+- 🟡 S6/G3: mobile performance contract is unresolved; 2026-09-27 current reports and raw summary are saved under `projects/portfolio/docs/`. Do not mark G3 passed.
+- ✅ License owner choice Apache-2.0 with explicit patent terms; license and third-party notices committed.
+- ✅ Push to `https://github.com/Arrnnnaav/UIBuilder.git`: commit `0e9cc98`; Platform contracts and Site source quality both pass, including portfolio/demo/ABizCreator.
+- ⬜ S7 deployment, production monitoring receipts and real BusinessOS `/connect` dogfood remain. Deployment also awaits a chosen production hostname to replace provisional canonical URLs.
 
 ## M5 — BusinessOS connector ✅ (2026-09-25)
 - ✅ Added `core/integrations/site-connector.mjs`, `integrations/git-site/connector.mjs`, `core/seo/aeo-geo.mjs` (10 codes), `plugins/seo/site-fix-service.mjs`, and a fake-github fixture
@@ -182,8 +133,8 @@ Legend: ✅ done · 🟡 in progress · ⬜ todo · ⛔ blocked (reason)
 
 - ✅ Final current-source production build: `pnpm build` → exit 0; `pnpm test` → 34/34; `pnpm lint`, `pnpm lint:tokens` (46 files) and `pnpm typecheck` → exit 0; runtime `pnpm seo:audit` against the production server → 0 findings / 0 high.
 - ✅ Correctly configured final Playwright matrix: `pnpm test:e2e` → 190 passed, 2 expected desktop menu skips, 0 failures; 192 tests across Chromium/WebKit and 390px/1440px. Includes the keyboard-operated in-page work anchor. Evidence: `projects/portfolio/docs/evidence/e2e-final.txt`.
-- 🟡 Latest production Lighthouse subset: 3-run home/mobile median performance96, accessibility/best-practices/SEO/agentic-browsing100, LCP2708ms, CLS0; exit 1 because LCP is 208ms above strict threshold. Evidence: `projects/portfolio/docs/evidence/perf-home-latest.txt`; audits indicate unused JS (~29KiB estimated savings) and render-blocking CSS (~154ms in one trace). Full 12-route desktop/mobile coverage and G3 remain outstanding.
-- Current source changes are staged for publication; GitHub CI must be checked after push. Live deployment and BusinessOS dogfood remain pending.
+- 🟡 Clean-production full 12-route × desktop/mobile Lighthouse matrix completed (3-run medians): all desktop routes pass; mobile routes all meet scores/CLS but miss LCP <2500ms at 2561–2768ms. Evidence: `projects/portfolio/docs/evidence/perf-final-summary.json` and `PERF_REPORT.md`. No E2E-only key or active error fixture was present in the measured artifact.
+- ✅ Current portfolio changes pushed at `0e9cc98`; Platform contracts and Site source quality pass, including all three site matrix jobs. Live deployment and BusinessOS dogfood remain pending.
 
 - Final network-enabled browser comparison completed: 186 passed / 2 expected desktop skips / 0 failures, 1.5 minutes, `projects/portfolio/docs/evidence/e2e-final.txt`. All48 reviewed baseline hashes verified and committed in `d462a96`; owner license/notices committed in `fe011b6`; current-evidence gates and CI build isolation committed in `e9ea705`. These commits are local; publication remains pending.
 - Clean production build/security runtime/SEO checks pass, SEO0findings and /e2e-error404. Fresh mobilehome median still fails LCP2708ms despite performance96 and othercategories100. Font-subset experiment reduced fontbytes roughlyhalf but LCP2703ms; reverted rather than weakening typography. Observer startup now batches DOMwrites and uses asynchronous intersection visibility; full unit suite34/34. Clean rebuild handle62055 replaces the stopped experimental artifact; re-measurement remains required.
