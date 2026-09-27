@@ -3,22 +3,21 @@
 // temp-dir cleanup), Lighthouse attaches over the debugging port.
 //
 //   node scripts/perf.mjs [baseUrl]    default http://localhost:3000
-// Checks every indexable route in content/seo/routes.json (desktop + mobile), median of
+// Checks every route in content/seo/routes.json (desktop + mobile), median of
 // PERF_RUNS (default 3) runs per page.
-// Exit 1 if any category < 0.9, LCP > 2500ms or CLS > 0.1. Writes .lighthouse/summary.json.
+// Exit 1 if any category < 0.9, LCP >= 2500ms or CLS >= 0.1. Writes .lighthouse/summary.json.
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "@playwright/test";
 import lighthouse from "lighthouse";
 import desktopConfig from "lighthouse/core/config/desktop-config.js";
+import { performanceRoutes, passesLcpGate } from "./perf-routes.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const base = (process.argv[2] ?? process.env.PERF_URL ?? "http://localhost:3000").replace(/\/$/, "");
 const routes = JSON.parse(readFileSync(join(root, "content/seo/routes.json"), "utf8"));
-const targets = Object.entries(routes)
-  .filter(([, m]) => m.robots.startsWith("index"))
-  .map(([r]) => r);
+const targets = performanceRoutes(routes);
 const PORT = 9333;
 const MIN = 0.9;
 // Lighthouse's simulated throttling is noisy on a busy machine; take the median run.
@@ -41,7 +40,7 @@ try {
       const scores = Object.fromEntries(cats.map((k) => [k, median(runs.map((r) => r.categories[k].score))]));
       const lcp = median(runs.map((r) => r.audits["largest-contentful-paint"].numericValue));
       const cls = median(runs.map((r) => r.audits["cumulative-layout-shift"].numericValue));
-      const bad = Object.values(scores).some((s) => s < MIN) || lcp > 2500 || cls > 0.1;
+      const bad = Object.values(scores).some((s) => s < MIN) || !passesLcpGate(lcp) || cls >= 0.1;
       failed ||= bad;
       rows.push({ route, formFactor, ...scores, lcp: Math.round(lcp), cls: Number(cls.toFixed(3)), pass: !bad });
     }

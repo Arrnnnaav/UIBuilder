@@ -16,6 +16,6 @@
     "title": "Styleguide — Site Name",
     "description": "Design tokens, type scale and components for Site Name, rendered live.",
     "canonical": "/styleguide",
-    "robots": "noindex,nofollow"
+    "robots": "index,follow"
   }
 }

@@ -12,5 +12,5 @@
     "Applebot-Extended": true,
     "CCBot": false
   },
-  "disallowPaths": ["/styleguide", "/e2e-error"]
+  "disallowPaths": ["/e2e-error"]
 }

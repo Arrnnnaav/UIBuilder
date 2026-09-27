@@ -52,11 +52,7 @@ Legend: ✅ done · 🟡 in progress · ⬜ todo · ⛔ blocked (reason)
 - ✅ `scripts/gate.mjs`:
   - G1 and G2 flag missing or template-only artefacts and unvalidated handoffs (verified: demo G1 fails 10/10, as expected).
   - G3 runs the full DoD.
-- 🟡 G3 on the untouched starter (`demo`):
-  - pass: typecheck, lint, tokens, content, unit, prod audit, build, server, seo:audit (0 high)
-  - fail: perf and e2e, while the M6 agent was building at the same time. That meant browser crashes, and mobile LCP 3.3s against 2.46s when the machine was idle. The same code passed alone.
-  - fix: perf is now the median of 3 runs. G3 is re-run once the machine is idle.
-  - ⛔ 2026-09-25: Claude Code stopped the idle re-run because system memory ran low. Needs a re-run when memory allows: `node scripts/gate.mjs demo G3`.
+- 🟡 G3 diagnostic on the untouched starter (`demo`), current 2026-09-27: typecheck, lint, tokens, content, 14 unit tests, high-severity audit, production build, runtime SEO (0 high), 64/64 browser tests and committed snapshot equality pass. Fixed the starter perf runner to cover every route (including noindex) and use strict `<2500ms`; made the starter styleguide indexable and removed its robots disallow per owner choice. Lighthouse now passes 5/6 route/profile combinations; `/styleguide` mobile median LCP is 2549ms, and evidence-review record is still incomplete. Full result and known gaps: `projects/demo/docs/QA_REPORT.md`, `PERF_REPORT.md`, and `docs/evidence/g3-demo-run.txt`. Do not mark G3 passed.
 - Fixes found by running G3:
   - The Node 24 on Windows libuv assertion when calling `process.exit` inside fetch: the probe now runs in-process.
   - Snapshot seeding needs a seed pass, then a verify pass.

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { indexableRoutes, metadataFor } from "@/lib/seo";
-import { faqs, routes, schemas } from "@/lib/site";
+import { crawlers, faqs, routes, schemas } from "@/lib/site";
 import { routeMeta } from "@/lib/content-schemas";
 
 describe("SEO contract", () => {
@@ -16,8 +16,10 @@ describe("SEO contract", () => {
     expect(() => metadataFor("/does-not-exist")).toThrow(/routes\.json/);
   });
 
-  it("excludes noindex routes from the sitemap", () => {
-    expect(indexableRoutes()).not.toContain("/styleguide");
+  it("includes the owner-approved styleguide in the sitemap and crawler allowlist", () => {
+    expect(indexableRoutes()).toContain("/styleguide");
+    expect(routes["/styleguide"].robots).toBe("index,follow");
+    expect(crawlers.disallowPaths).not.toContain("/styleguide");
     expect(indexableRoutes()).toContain("/");
   });
 

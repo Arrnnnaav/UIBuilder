@@ -1,0 +1,3 @@
+Command: node scripts/gate.mjs demo G3
+Result: G3 FAILED (3/14 checks). Passing: typecheck, eslint, lint:tokens, validate:content, 14 unit tests, high-severity dependency audit, production build, server startup, SEO audit (0 high; 3 low), E2E+axe+visual (64/64), committed snapshot bytes. Failing: performance script exit 1; strict performance coverage; G3_EVIDENCE.json absent.
+This is a starter validation run, not a client site approval. Full Lighthouse medians are in evidence/perf-g3-summary.json.
