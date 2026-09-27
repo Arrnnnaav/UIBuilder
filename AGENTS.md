@@ -37,6 +37,7 @@ Definitions are in `.claude/agents/*.md`. The main session is the Orchestrator.
 | backend | contact action, email, CMS, env | `lib/`, `app/actions/`, `keystatic.config.ts` |
 | growth | SEO/AEO/GEO strategy, SEO data files, audit | `SEO_STRATEGY.md`, `content/seo/*`, `content/schema/*`, `content/faq/*`, `public/llms.txt`, `GROWTH_REPORT.md` |
 | ship | QA, a11y, security, perf, deploy, launch video | `QA_REPORT.md`, `SECURITY_REPORT.md`, `PERF_REPORT.md` |
+| domain-ops | owner-approved hostname, DNS, TLS, redirects, mail-auth and post-launch verification | `DOMAIN_PLAN.md`, `DOMAIN_REPORT.md` |
 
 Design Council rule: run the three directions as **separate forked agents**, each with no
 access to the others. Only the critic sees all three.
@@ -52,8 +53,9 @@ S4 ‖ frontend ‖ backend-domain ‖ growth(data files)
 S5 design-director visual review → polish (max 2 loops)
 S6 ship ‖ QA/a11y ‖ security ‖ perf ‖ growth audit
 G3 Definition of Done            — automatic
-S7 deploy → /connect (BusinessOS) → launch video → /learn
+S7 ship deploy ‖ domain-ops DNS/TLS ‖ growth live SEO checks → /connect (BusinessOS) → launch video → /learn
 ```
+S7 starts only after G3. Domain purchases and live DNS changes require explicit owner approval; see `plan/DOMAIN-LAUNCH.md`.
 
 ## 4. Definition of Done (G3)
 - **Build:** `tsc --noEmit`, `eslint` and `next build` pass. No console or hydration errors.

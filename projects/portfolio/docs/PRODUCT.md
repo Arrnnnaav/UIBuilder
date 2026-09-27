@@ -51,7 +51,7 @@
 1. Email: `arnavkhandelwal446@email.com` looks like a typo. What is the real address?
 2. LinkedIn URL. Location to display ("Jaipur, India"?).
 3. Positioning line: pick one of the 3 options, or supply your own. Also 3 vibe words.
-4. May Project Edge Node be shown publicly and named with Dehurdle?
+4. **Resolved 2026-09-28:** owner supplied the current résumé and directed its use; Project Edge Node may be shown and the June–August 2026 internship may be attributed to Dehurdle. This permits résumé-backed attribution, not résumé-only performance metrics or private repository contents.
 5. BusinessHQ: share material, or leave it out of V1?
 6. Three résumé numbers have no public source: Cited Researcher 152s→26s, BusinessHQ 180ms→35ms, BusinessHQ 35+ tests. Show them as "résumé-attested", or drop them?
 7. Cited Researcher date: Jun 2026 (résumé) or Jul 2026 (repo)?
@@ -69,5 +69,5 @@
 - Owner supplied `resume (2).pdf`; the email is **arnavkhandelwal446@gmail.com**. Earlier `@email.com` text was a transcription error.
 - The résumé route is included; the backend/orchestrator copies the supplied PDF to `public/arnav-khandelwal-resume.pdf`. The document is original owner material.
 - The G1 metrics rule still applies: résumé-only timing rows remain hidden pending public benchmark evidence.
-- LinkedIn, residential location, hiring availability and employer-name disclosure are not inferred. Public copy omits those unsupported details.
+- LinkedIn, residential location and hiring availability are not inferred. The owner-supplied current résumé authorizes Dehurdle attribution for the June–August 2026 internship and Project Edge Node; résumé-only performance metrics and private repository material remain excluded.
 - The provisional hosting target is `https://arnav-khandelwal.vercel.app`; the custom domain is deferred by the owner. This target is not proof of deployment.

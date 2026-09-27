@@ -45,8 +45,9 @@ after launch but cannot prove hiring outcomes.
 - StudyOS: use contributor wording, no invented performance/hackathon outcome;
   live-demo status/link requires an observed uptime check.
 - BusinessHQ and private repositories remain excluded until usable owner-approved
-  public material exists. Employer attribution, LinkedIn, residence and hiring
-  availability are omitted until confirmed. Resume-provided email is confirmed.
+  public material exists. Dehurdle attribution is authorized by the current
+  owner-supplied résumé; LinkedIn, residence and hiring availability remain
+  omitted until confirmed. Resume-provided email is confirmed.
 
 ## Constraints and non-goals
 

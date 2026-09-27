@@ -21,7 +21,7 @@
     {
       "period": "Jun to Aug 2026",
       "title": "Backend Engineering Intern",
-      "description": "Built and benchmarked an offline FastAPI telemetry service with validation, retry/backoff and Docker Compose.",
+      "description": "At Dehurdle, built and benchmarked an offline FastAPI telemetry service with validation, retry/backoff and Docker Compose.",
       "href": "/work/edge-node"
     },
     {

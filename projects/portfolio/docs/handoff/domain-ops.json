@@ -1,0 +1,35 @@
+{
+  "agent": "domain-ops",
+  "status": "partial",
+  "inputs_used": [
+    "C:\\Users\\user\\Downloads\\domain_launch_checklist.pdf",
+    "AGENTS.md",
+    "projects/portfolio/docs/PERF_REPORT.md",
+    "plan/DOMAIN-LAUNCH.md"
+  ],
+  "decisions": [
+    "Domain activation is deferred until G3 and owner hostname/provider selection.",
+    "A marketing portfolio does not need an app subdomain or marketing email subdomain by default.",
+    "DMARC enforcement must wait until legitimate senders and alignment are verified."
+  ],
+  "files_created": [
+    ".claude/agents/domain-ops.md",
+    "plan/DOMAIN-LAUNCH.md",
+    "projects/portfolio/docs/DOMAIN_PLAN.md",
+    "projects/portfolio/docs/handoff/domain-ops.json"
+  ],
+  "resources_used": [],
+  "patterns_used": [],
+  "risks": [
+    "G3 remains open because mobile LCP exceeds the 2.5 second threshold.",
+    "No registrar, production hostname, sending provider, or Search Console account is selected."
+  ],
+  "open_questions": [
+    "Owner must select a production hostname and provider when S7 is authorized."
+  ],
+  "next_agent": "ship",
+  "next_instructions": [
+    "Complete G3 before scheduling domain activation.",
+    "When S7 starts, coordinate deployment with domain-ops and live SEO validation with growth."
+  ]
+}

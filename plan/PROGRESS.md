@@ -20,7 +20,6 @@ Legend: ✅ done · 🟡 in progress · ⬜ todo · ⛔ blocked (reason)
 - ✅ `brain/tools.json`: 26 tools. Paid tools (minimax_h3, higgsfield_mcp, heygen, figma_mcp, ai_citation_tracking) are registered but disabled via `enabled_if`
 - ✅ `brain/resources.json`: 67 entries from links.docx, each with usage_mode, trust and provenance
 - ✅ 11 patterns in `brain/patterns/`, with provenance linked to resources. Also `preferences.md`, 3 schemas, and `brain/seo-rules/aeo-geo.json` (copied from BusinessOS)
-- ✅ `node scripts/validate-brain.mjs` → "✓ brain valid — 67 resources, 11 patterns, 26 tools"
 
 ## M2 — marketing-starter ✅ (2026-09-25)
 - ✅ Scaffold: Next 16.3.6, React 19.2, Tailwind 4, Motion 13, Zod 4. Includes `tokens.css`, `/styleguide`, `lint:tokens`
@@ -61,10 +60,10 @@ Legend: ✅ done · 🟡 in progress · ⬜ todo · ⛔ blocked (reason)
 ## M4 — Portfolio 🟡
 - ✅ Product/research/UX/design stages complete; G1 and G2 approvals recorded. Six public case studies are sourced from the résumé and commit-pinned GitHub evidence.
 - ✅ S4 implementation complete: home, work, six case studies, about, contact, résumé, indexable styleguide, 30 schema files, 11 FAQ files, sitemap/robots/llms.txt, contact action and data-driven SEO manifest.
-- ✅ Skills/resources from the recovered `/intake` were reviewed and installed; provenance is in `.claude/skills/SOURCES.md`. Design-reading notes are in `docs/DESIGN_READING.md`; brain validates at 92 resources, 16 patterns, 36 tools.
-- ✅ S5 browser/visual checks: 48 committed Windows baselines reviewed; current full Playwright matrix passes 190 tests with 2 expected desktop-only skips across Chromium/WebKit at 390px/1440px.
-- ✅ Build, 34 unit tests, lint, token lint, typecheck and runtime SEO audit pass. Full desktop/mobile Lighthouse coverage completed: all desktop routes pass; all 12 mobile routes fail only strict LCP <2500ms (2556–2859ms), recorded in `projects/portfolio/docs/PERF_REPORT.md` and `docs/QA_REPORT.md`.
-- 🟡 S6/G3: mobile performance contract is unresolved; 2026-09-27 current reports and raw summary are saved under `projects/portfolio/docs/`. Do not mark G3 passed.
+- ✅ Skills/resources from the recovered `/intake` were reviewed and installed; provenance is in `.claude/skills/SOURCES.md`. Design-reading notes are in `docs/DESIGN_READING.md`; brain validates at 92 resources, 16 patterns, 37 tools.
+- ✅ S5 browser/visual checks: 48 committed Windows baselines; current full Playwright matrix passes 194 tests with 2 expected desktop-only skips across Chromium/WebKit at 390px/1440px. FAQ page captures refreshed and checked against the full browser matrix.
+- ✅ Build, 34 unit tests, lint, token lint, typecheck and runtime SEO audit pass. Fresh full desktop/mobile Lighthouse coverage on 2026-09-28: all desktop routes pass; all 12 mobile routes fail only strict LCP <2500ms (2555–2857ms), recorded in `projects/portfolio/docs/PERF_REPORT.md` and `docs/QA_REPORT.md`.
+- 🟡 S6/G3: mobile performance contract is unresolved; current reports and raw three-run summary are saved under `projects/portfolio/docs/`. Do not mark G3 passed.
 - ✅ License owner choice Apache-2.0 with explicit patent terms; license and third-party notices committed.
 - ✅ Push to `https://github.com/Arrnnnaav/UIBuilder.git`: commit `0e9cc98`; Platform contracts and Site source quality both pass, including portfolio/demo/ABizCreator.
 - ⬜ S7 deployment, production monitoring receipts and real BusinessOS `/connect` dogfood remain. Deployment also awaits a chosen production hostname to replace provisional canonical URLs.
@@ -139,10 +138,11 @@ Legend: ✅ done · 🟡 in progress · ⬜ todo · ⛔ blocked (reason)
 - G3 fingerprint strengthened to cover instrumentation entry points and Vitest/PostCSS/workspace configuration; targeted gate tests pass 6/6. CI no longer seeds missing visual baselines automatically and separates production SEO/performance artifacts from browser test artifacts; five YAML workflows parse successfully.
 - ✅ Design-director inspected all 24 refreshed portfolio captures: loop 1 caption/source-label/filename fixes verified; 24/24 HTTP 200, no overflow or console errors. `projects/portfolio/docs/VISUAL_REVIEW.md` and design-director handoff record static visual acceptance. Interaction, accessibility, performance and committed regression baselines remain ship work.
 - ✅ gstack source review pinned at `2a113ae7e623f590095bcaaa0cc581c9a10a6632`: `docs/GSTACK_REVIEW.md` records compatibility, setup/privacy boundaries and selective integration plan. Added REVIEWED/research_only brain entry; not installed or enabled.
-- ✅ `node scripts/validate-brain.mjs` → 92 resources, 16 patterns, 36 tools valid.
 - ✅ Fresh portfolio production build after final growth edits and analytics validation boundary change → exit 0; focused Analytics/layout ESLint → exit 0; runtime `node scripts/seo-audit.mjs http://localhost:3400` → 0 findings, 0 high. Validation still runs on the server; only the explicit public analytics key/host cross to the client.
 - 🟡 Mobile home single-run Lighthouse probe: LCP 2307ms, CLS 0, performance 84, accessibility/SEO 100, best practices 96. LCP improved from 2651ms after removing Zod from the shared analytics browser boundary; high total blocking time keeps the performance gate unpassed. Three-run median requested; full route/profile coverage still required.
 - 🟡 Three-run mobile home median completed: performance 92, accessibility/SEO 100, best practices 96, LCP 2665ms, CLS 0; exit 1 because LCP still exceeds the strict 2500ms limit. Evidence: `projects/portfolio/docs/evidence/perf-home-median.txt`. Full performance gate remains unpassed; do not infer success from the better single-run LCP.
 - 🟡 Full188-test integration run → exit1,121passed,65failed,2desktop-overlay skips. Baseline creation exposed missing PNGs; real blockers found were SVGtitle SSR hydration and mobile keyboard containment. Frontend has reproduced the title bug and is applying localized fixes. `projects/portfolio/docs/QA_REPORT.md` records findings and successful flows; fresh build/rerun remains required.
 - ✅ Frontend applied proven SVGtitle single-string fix and explicit Tab/ShiftTab dialog wrapping; added real EvidenceFigure SSR regression test and reverse-tab E2E coverage. Focused ESLint passed. Root corrected stale styleguide-indexing assertion and expanded Vitest discovery to include TSX tests. Fresh unit/build/browser verification is pending; do not mark G3 passed.
 - ✅ Expanded unit suite → 31/31 passed, including SVGtitle SSR regression (`docs/evidence/unit-integration.txt`). Fresh full browser verification started in exec session22935; original failure evidence preserved in `docs/evidence/e2e-integration-initial.txt`. G3 remains pending.
+
+- Domain launch checklist reviewed: provider-neutral S7 plan and domain-ops role added. DNS/TLS/mail/Search Console activation remains deferred until G3 and owner hostname/provider selection. Validation: 10 roles, 15 handoffs; 92 resources, 16 patterns, 37 tools.

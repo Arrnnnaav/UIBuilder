@@ -1,10 +1,56 @@
 {
   "agent": "product-manager",
   "status": "complete",
-  "inputs_used": ["docs/PRODUCT.md", "docs/CONTENT_SOURCE.md", "docs/DESIGN.md", "docs/WIREFRAMES.md", "docs/STATE.md", "docs/S4_CONTENT_CONTRACT.md", "AGENTS.md", "scripts/gate.mjs", "e2e/site.spec.ts", "scripts/perf.mjs"],
-  "decisions": ["Full G1/G2-approved scope mapped to 11 capabilities and 20 observable acceptance items", "Delivery remains unverified until integrated command/runtime evidence is inspected", "Custom domain deferred; unsupported biography/metrics remain omitted", "Product-manager has no gate or orchestration authority"],
-  "files_created": ["docs/PRODUCT_REQUIREMENTS.md", "docs/ACCEPTANCE.md", "docs/PRIORITIES.md", "../../docs/GATE_GAPS.md"],
-  "risks": ["Current gate implementation omits or narrows some rulebook proof", "Integrated G3 and deployment not yet proven", "Provider receipts and BusinessOS approvals need actual configuration/owner action"],
+  "inputs_used": [
+    "AGENTS.md",
+    ".claude/agents/product-manager.md",
+    "plan/DECISIONS.md",
+    "plan/PROGRESS.md",
+    "projects/portfolio/docs/PRODUCT.md",
+    "projects/portfolio/docs/PRODUCT_REQUIREMENTS.md",
+    "projects/portfolio/docs/ACCEPTANCE.md",
+    "projects/portfolio/docs/PRIORITIES.md",
+    "projects/portfolio/docs/STATE.md",
+    "projects/portfolio/docs/QA_REPORT.md",
+    "projects/portfolio/docs/PERF_REPORT.md",
+    "projects/portfolio/docs/GROWTH_REPORT.md",
+    "projects/portfolio/docs/SECURITY_REPORT.md",
+    "projects/portfolio/docs/VISUAL_REVIEW.md",
+    "projects/portfolio/docs/evidence/content-review.json",
+    "projects/portfolio/docs/evidence/perf-final-summary.json",
+    "projects/portfolio/docs/evidence/e2e-final.txt",
+    "projects/portfolio/docs/evidence/security-review.json",
+    "projects/portfolio/content/seo/routes.json",
+    "projects/portfolio/content/seo/crawlers.json",
+    "projects/portfolio/seo.manifest.json"
+  ],
+  "decisions": [
+    "Evidence reconciliation reviewed on 2026-09-28 against repository HEAD 96827a0; the four PM deliverables are uncommitted worktree changes and plan/PROGRESS.md records the completed reconciliation task.",
+    "Reconciled all G3 acceptance items to the latest retained reports and identified evidence gaps without granting gate approval.",
+    "Moved deployment, BusinessOS dogfood, launch video and /learn memory to explicit S7 acceptance while preserving those requirements.",
+    "Aligned indexing acceptance with the owner decision: /styleguide is public/indexable; /e2e-error is internal/noindex.",
+    "Closed the resolved Apache 2.0 license-choice risk; preserved the owner's custom-domain deferral."
+  ],
+  "files_created": [
+    "projects/portfolio/docs/ACCEPTANCE.md",
+    "projects/portfolio/docs/PRIORITIES.md",
+    ".claude/agents/product-manager.md",
+    "projects/portfolio/docs/handoff/product-manager.json",
+    "plan/PROGRESS.md"
+  ],
+  "resources_used": [],
+  "patterns_used": [],
+  "risks": [
+    "G3 remains unpassed: all mobile route LCP medians exceed 2500ms.",
+    "AA contrast evidence and final clean-production security runtime refresh are not retained as current proof.",
+    "Production contact delivery is unverified; browser test uses CONTACT_DRY_RUN. PDF MIME and rendered FAQ/schema parity pass in the 2026-09-28 full browser matrix.",
+    "S7 deployment, real BusinessOS approval flow and launch artifacts remain incomplete."
+  ],
+  "open_questions": [],
   "next_agent": "orchestrator",
-  "next_instructions": ["Use ACCEPTANCE.md to collect exact evidence for every delivered capability", "Review docs/GATE_GAPS.md while fixing root gate checks", "Dispatch design review and ship after S4 integration; do not mark acceptance verified from artifact presence alone", "Keep owner G1/G2 and deploy/BusinessOS approvals intact"]
+  "next_instructions": [
+    "Continue the G3 work in docs/PRIORITIES.md; first address the measured shared mobile LCP blocker without changing thresholds or throttling.",
+    "Keep S7 A19, A20 and A21 separate from G3 and execute them only after G3 passes.",
+    "Do not mark G3 passed: the acceptance statuses and current reports identify remaining incomplete evidence and measured failures."
+  ]
 }

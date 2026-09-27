@@ -125,6 +125,6 @@ Feedback should test those explanations rather than merely collect screenshots.
 5. Submit it to design-director critique. Promote trust only with documented
    evidence; REVIEWED references are not silently promoted into production.
 
-Validation: `node scripts/validate-brain.mjs` → `✓ brain valid — 91 resources,
-16 patterns, 36 tools`. Five resources and four mechanism candidates were added;
+Validation: `node scripts/validate-brain.mjs` → `✓ brain valid — 92 resources,
+16 patterns, 37 tools`. Five resources and four mechanism candidates were added;
 no duplicate URLs were found. Inserted IDs are in `docs/handoff/research.json`.

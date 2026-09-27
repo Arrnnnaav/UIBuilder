@@ -300,7 +300,7 @@ BuisnessHQ, smb-safeops, UNIfied, PointAI, trading-bot, learning-hq — **privat
 - **Result:** Mean latency went from 5.356s to 0.973s. P95 is 1.080s and TTFT mean is 0.351s, all over 50 requests with 0 failures. [GH benchmark_report.md] The resume also says the benchmark chose Qwen3-4B Q4_K_M. [R]
 - **Links:** https://github.com/Arrnnnaav/Project-Edge-Node
 - **Images:** none. Needs a screenshot of the Swagger `/docs` page or a benchmark chart built from the report tables.
-- **Owner check:** can this internship project be public and named with Dehurdle?
+- **Resolved 2026-09-28:** current owner-supplied résumé authorizes naming Dehurdle and Project Edge Node in internship copy. It does not authorize private repository material or résumé-only metrics.
 
 ### 4.2 Cited Multi-Agent Researcher
 - **Title:** Cited Multi-Agent Researcher
@@ -413,7 +413,7 @@ BuisnessHQ, smb-safeops, UNIfied, PointAI, trading-bot, learning-hq — **privat
 
    Provide a source, or accept them as resume-attested.
 9. **Date mismatch:** the resume dates Cited Researcher to Jun 2026, but the repo was created 2026-07-26. Confirm the date.
-10. **Dehurdle disclosure:** confirm that Project Edge Node may be shown publicly and attributed to Dehurdle.
+10. **Resolved 2026-09-28:** owner-supplied current résumé authorizes public Dehurdle attribution for the internship and Project Edge Node.
 11. **StudyOS:** solo or team? Were there any hackathon results?
 12. **Repo hygiene (optional before linking):**
     - Placeholder `yourusername` clone URLs in Image_Alignment, Sentiment and Virtual-Mouse.
@@ -430,7 +430,7 @@ BuisnessHQ, smb-safeops, UNIfied, PointAI, trading-bot, learning-hq — **privat
 
 Command: `python -c "import fitz; d=fitz.open(r'C:\Users\user\Downloads\resume (2).pdf'); print('\n'.join(p.get_text() for p in d))"`. Extraction succeeded. The PDF explicitly gives **arnavkhandelwal446@gmail.com**, resolving the earlier email transcription error. The institution address is not proof of current residence, so `location` remains null. The bare `arnav-khandelwal` text is not a full LinkedIn URL and remains unverified; `linkedin` stays null. Personal phone and institutional email are not added to public page copy.
 
-The user's instruction to use this résumé supplies biographical facts, but does not override G1's policy requiring public metric evidence. Cited Researcher 152s → 26s is retained as pending-source, hidden by the UI. BusinessHQ remains outside the six flagship studies because its public repository has no code evidence. Internship copy omits employer attribution until the existing disclosure question is resolved. StudyOS uses “Project contributor” instead of an unsupported solo-builder claim.
+The user's instruction to use this résumé supplies biographical facts and authorizes Dehurdle attribution for the internship and Project Edge Node. It does not override G1's policy requiring public metric evidence. Cited Researcher 152s → 26s is retained as pending-source, hidden by the UI. BusinessHQ remains outside the six flagship studies because its repository is private. StudyOS uses “Project contributor” instead of an unsupported solo-builder claim.
 
 The six public READMEs and Edge Node benchmark report were retrieved again with `gh api repos/Arrnnnaav/<repo>/readme` and `gh api repos/Arrnnnaav/Project-Edge-Node/contents/benchmark_report.md`. Snapshots in `docs/source-snapshots/` preserve what was checked; counts are repository-reported, not fresh project test runs. The NeuroUX text timing is omitted because its README mixes extrapolated and observed baselines; the video observation is explicitly approximate and hardware-specific.
 

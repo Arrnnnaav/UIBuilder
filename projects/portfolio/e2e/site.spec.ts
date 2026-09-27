@@ -1,6 +1,20 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import routes from "../content/seo/routes.json" with { type: "json" };
+import site from "../content/site.json" with { type: "json" };
+
+const faqDir = join(process.cwd(), "content/faq");
+const faqByRoute = new Map(
+  readdirSync(faqDir).filter((file) => file.endsWith(".json")).map((file) => {
+    const faq = JSON.parse(readFileSync(join(faqDir, file), "utf8")) as {
+      route: string;
+      items: { q: string; a: string }[];
+    };
+    return [faq.route, faq.items] as const;
+  }),
+);
 
 // The deliberate throwing route has its own recovery test below.
 const pages = Object.keys(routes).filter((route) => route !== "/e2e-error");
@@ -23,7 +37,12 @@ for (const route of pages) {
       expect(res?.status()).toBe(200);
       await expect(page).toHaveTitle(routes[route as keyof typeof routes].title);
       await expect(page.locator("h1")).toHaveCount(1);
-      await expect(page.locator('link[rel="canonical"]')).toHaveCount(1);
+      const meta = routes[route as keyof typeof routes];
+      const canonical = meta.canonical === "/"
+        ? new URL(site.url).origin
+        : new URL(meta.canonical, site.url).toString();
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", canonical);
+      await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", canonical);
       await page.waitForLoadState("load");
       expect(errors).toEqual([]);
     });
@@ -177,7 +196,32 @@ test("resume download resolves to a PDF", async ({ page, request }) => {
   expect(href).toBeTruthy();
   const response = await request.get(href!);
   expect(response.status()).toBe(200);
+  expect(response.headers()["content-type"]).toMatch(/^application\/pdf(?:;|$)/);
   expect((await response.body()).subarray(0, 5).toString()).toBe("%PDF-");
+});
+
+test("visible FAQ questions and answers match FAQPage JSON-LD", async ({ page }) => {
+  for (const [route, expected] of faqByRoute) {
+    await page.goto(route);
+    const visible = await page.locator(".faq-item").evaluateAll((items) =>
+      items.map((item) => ({
+        q: item.querySelector("h3")?.textContent?.trim(),
+        a: item.querySelector("p")?.textContent?.trim(),
+      })),
+    );
+    const blocks = await page.locator('script[type="application/ld+json"]').allTextContents();
+    const faqPage = blocks.map((block) => JSON.parse(block) as {
+      "@type"?: string;
+      mainEntity?: { "@type": string; name: string; acceptedAnswer: { text: string } }[];
+    }).find((block) => block["@type"] === "FAQPage");
+
+    expect(visible, `${route} visible answers`).toEqual(expected);
+    expect(faqPage?.mainEntity, `${route} FAQPage`).toEqual(expected.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })));
+  }
 });
 
 test("security headers are set", async ({ request }) => {
@@ -189,7 +233,28 @@ test("security headers are set", async ({ request }) => {
 });
 
 test("SEO files are served", async ({ request }) => {
-  for (const path of ["/robots.txt", "/sitemap.xml", "/llms.txt"]) {
-    expect((await request.get(path)).status(), path).toBe(200);
-  }
+  const indexable = Object.entries(routes)
+    .filter(([, metadata]) => metadata.robots.startsWith("index"))
+    .map(([, metadata]) => new URL(metadata.canonical, site.url).toString())
+    .sort();
+  const [robots, sitemap, llms] = await Promise.all([
+    request.get("/robots.txt"),
+    request.get("/sitemap.xml"),
+    request.get("/llms.txt"),
+  ]);
+  expect(robots.status()).toBe(200);
+  expect(sitemap.status()).toBe(200);
+  expect(llms.status()).toBe(200);
+
+  const robotsText = await robots.text();
+  expect(robotsText).toContain(`Sitemap: ${new URL("/sitemap.xml", site.url)}`);
+  expect(robotsText).not.toMatch(/Disallow:\s*\/styleguide(?:\s|$)/i);
+
+  const sitemapText = (await sitemap.text()).replaceAll("&amp;", "&");
+  const sitemapUrls = [...sitemapText.matchAll(/<loc>([^<]+)<\/loc>/g)].map(([, url]) => url).sort();
+  expect(sitemapUrls).toEqual(indexable);
+
+  const llmsText = await llms.text();
+  for (const routeUrl of indexable) expect(llmsText).toContain(routeUrl);
+  expect(llmsText).not.toContain(new URL("/e2e-error", site.url).toString());
 });

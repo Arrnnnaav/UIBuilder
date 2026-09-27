@@ -1,6 +1,6 @@
 {
-  "base": "http://localhost:3400",
-  "at": "2026-09-27T01:34:30.121Z",
+  "base": "http://localhost:3401",
+  "at": "2026-09-27T22:27:15.311Z",
   "rows": [
     {
       "route": "/",
@@ -10,7 +10,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 600,
+      "lcp": 598,
       "cls": 0,
       "pass": true
     },
@@ -22,12 +22,96 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 553,
+      "lcp": 559,
       "cls": 0,
       "pass": true
     },
     {
       "route": "/work/edge-node",
+      "formFactor": "desktop",
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1,
+      "lcp": 558,
+      "cls": 0,
+      "pass": true
+    },
+    {
+      "route": "/work/cited-researcher",
+      "formFactor": "desktop",
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1,
+      "lcp": 556,
+      "cls": 0,
+      "pass": true
+    },
+    {
+      "route": "/work/ledgerbridge",
+      "formFactor": "desktop",
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1,
+      "lcp": 557,
+      "cls": 0,
+      "pass": true
+    },
+    {
+      "route": "/work/ghostcursor",
+      "formFactor": "desktop",
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1,
+      "lcp": 557,
+      "cls": 0,
+      "pass": true
+    },
+    {
+      "route": "/work/neuroux",
+      "formFactor": "desktop",
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1,
+      "lcp": 558,
+      "cls": 0,
+      "pass": true
+    },
+    {
+      "route": "/work/studyos",
+      "formFactor": "desktop",
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1,
+      "lcp": 556,
+      "cls": 0,
+      "pass": true
+    },
+    {
+      "route": "/about",
+      "formFactor": "desktop",
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1,
+      "lcp": 525,
+      "cls": 0,
+      "pass": true
+    },
+    {
+      "route": "/contact",
       "formFactor": "desktop",
       "performance": 1,
       "accessibility": 1,
@@ -39,90 +123,6 @@
       "pass": true
     },
     {
-      "route": "/work/cited-researcher",
-      "formFactor": "desktop",
-      "performance": 1,
-      "accessibility": 1,
-      "best-practices": 1,
-      "seo": 1,
-      "agentic-browsing": 1,
-      "lcp": 558,
-      "cls": 0,
-      "pass": true
-    },
-    {
-      "route": "/work/ledgerbridge",
-      "formFactor": "desktop",
-      "performance": 1,
-      "accessibility": 1,
-      "best-practices": 1,
-      "seo": 1,
-      "agentic-browsing": 1,
-      "lcp": 558,
-      "cls": 0,
-      "pass": true
-    },
-    {
-      "route": "/work/ghostcursor",
-      "formFactor": "desktop",
-      "performance": 1,
-      "accessibility": 1,
-      "best-practices": 1,
-      "seo": 1,
-      "agentic-browsing": 1,
-      "lcp": 560,
-      "cls": 0,
-      "pass": true
-    },
-    {
-      "route": "/work/neuroux",
-      "formFactor": "desktop",
-      "performance": 1,
-      "accessibility": 1,
-      "best-practices": 1,
-      "seo": 1,
-      "agentic-browsing": 1,
-      "lcp": 558,
-      "cls": 0,
-      "pass": true
-    },
-    {
-      "route": "/work/studyos",
-      "formFactor": "desktop",
-      "performance": 1,
-      "accessibility": 1,
-      "best-practices": 1,
-      "seo": 1,
-      "agentic-browsing": 1,
-      "lcp": 559,
-      "cls": 0,
-      "pass": true
-    },
-    {
-      "route": "/about",
-      "formFactor": "desktop",
-      "performance": 1,
-      "accessibility": 1,
-      "best-practices": 1,
-      "seo": 1,
-      "agentic-browsing": 1,
-      "lcp": 544,
-      "cls": 0,
-      "pass": true
-    },
-    {
-      "route": "/contact",
-      "formFactor": "desktop",
-      "performance": 1,
-      "accessibility": 1,
-      "best-practices": 1,
-      "seo": 1,
-      "agentic-browsing": 1,
-      "lcp": 543,
-      "cls": 0,
-      "pass": true
-    },
-    {
       "route": "/resume",
       "formFactor": "desktop",
       "performance": 1,
@@ -130,7 +130,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 541,
+      "lcp": 526,
       "cls": 0,
       "pass": true
     },
@@ -142,19 +142,19 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 609,
+      "lcp": 595,
       "cls": 0,
       "pass": true
     },
     {
       "route": "/",
       "formFactor": "mobile",
-      "performance": 0.95,
+      "performance": 0.96,
       "accessibility": 1,
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2719,
+      "lcp": 2706,
       "cls": 0,
       "pass": false
     },
@@ -166,7 +166,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2570,
+      "lcp": 2556,
       "cls": 0,
       "pass": false
     },
@@ -178,7 +178,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2724,
+      "lcp": 2706,
       "cls": 0,
       "pass": false
     },
@@ -190,7 +190,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2721,
+      "lcp": 2706,
       "cls": 0,
       "pass": false
     },
@@ -202,7 +202,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2718,
+      "lcp": 2705,
       "cls": 0,
       "pass": false
     },
@@ -214,7 +214,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2718,
+      "lcp": 2705,
       "cls": 0,
       "pass": false
     },
@@ -226,19 +226,19 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2619,
+      "lcp": 2705,
       "cls": 0,
       "pass": false
     },
     {
       "route": "/work/studyos",
       "formFactor": "mobile",
-      "performance": 0.97,
+      "performance": 0.96,
       "accessibility": 1,
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2624,
+      "lcp": 2705,
       "cls": 0,
       "pass": false
     },
@@ -250,7 +250,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2571,
+      "lcp": 2555,
       "cls": 0,
       "pass": false
     },
@@ -262,7 +262,7 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2589,
+      "lcp": 2560,
       "cls": 0,
       "pass": false
     },
@@ -274,19 +274,19 @@
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2561,
+      "lcp": 2556,
       "cls": 0,
       "pass": false
     },
     {
       "route": "/styleguide",
       "formFactor": "mobile",
-      "performance": 0.94,
+      "performance": 0.96,
       "accessibility": 1,
       "best-practices": 1,
       "seo": 1,
       "agentic-browsing": 1,
-      "lcp": 2768,
+      "lcp": 2857,
       "cls": 0,
       "pass": false
     }

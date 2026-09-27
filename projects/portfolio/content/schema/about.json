@@ -4,7 +4,7 @@
   "@id": "https://arnav-khandelwal.vercel.app/about#page",
   "url": "https://arnav-khandelwal.vercel.app/about",
   "name": "About Arnav Khandelwal · Backend & AI Engineering",
-  "description": "Meet Arnav Khandelwal, MNIT Jaipur Electrical Engineering undergraduate building Python and Java backends, local AI systems and measurable software.",
+  "description": "Meet Arnav Khandelwal, MNIT Jaipur Electrical Engineering undergraduate and Dehurdle backend intern building Python, Java and AI systems.",
   "isPartOf": {
     "@id": "https://arnav-khandelwal.vercel.app/#website"
   },
@@ -15,5 +15,5 @@
   "mainEntity": {
     "@id": "https://arnav-khandelwal.vercel.app/#person"
   },
-  "dateModified": "2026-09-27"
+  "dateModified": "2026-09-28"
 }

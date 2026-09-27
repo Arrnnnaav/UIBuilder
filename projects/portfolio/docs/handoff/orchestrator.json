@@ -29,10 +29,10 @@
     "Portfolio app and growth files remain starter placeholders despite approved G2.",
     "QA and growth reports have no S6 results; G3 and deployment have not run.",
     "The UIBuilder root has an initial commit, but the portfolio does not yet have an independent deployment repository or remote.",
-    "No confirmed domain, email, LinkedIn URL or public consent for the Dehurdle name."
+    "No confirmed production domain or LinkedIn URL. Current résumé confirms email and authorizes Dehurdle attribution; private BusinessHQ source remains excluded."
   ],
   "open_questions": [
-    "Owner: confirm email, LinkedIn, domain or intended Vercel fallback, availability and Dehurdle naming before publishing those details."
+    "Owner: confirm LinkedIn, hiring availability and production domain before publishing those details."
   ],
   "next_agent": "frontend",
   "next_instructions": [

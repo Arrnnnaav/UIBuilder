@@ -4,7 +4,6 @@ import { Ledger } from "@/components/portfolio/Ledger";
 import { EvidenceFigure } from "@/components/portfolio/EvidenceFigure";
 import { MoreWork } from "@/components/portfolio/WorkIndex";
 import { ContactForm } from "@/components/contact/ContactForm";
-import { Faq } from "@/components/seo/Faq";
 import { Intro } from "@/components/portfolio/Intro";
 import { PageSchema } from "@/components/portfolio/PageSchema";
 
@@ -55,7 +54,7 @@ export default function Styleguide() {
       <section><h2>Ledger states</h2><Ledger id="styleguide-ledger" caption="Comparison, single value and qualitative facts." rows={portfolio.projects.flatMap(p => { const e = evidenceFor(p.slug); return e.metrics.slice(0, 1).map(metric => ({ metric, evidence: e, title: p.title, slug: p.slug })); })} /></section>
       <section><h2>Evidence figures</h2><div className="resume-projects">{portfolio.projects.map(p => <EvidenceFigure key={p.slug} project={p} />)}</div></section>
       <section><h2>Contact form</h2><ContactForm /></section>
-      <Faq route="/" /><MoreWork />
+      <MoreWork />
       <section aria-labelledby="sg-components">
         <h2 id="sg-components" className="font-semibold mb-4">
           Components

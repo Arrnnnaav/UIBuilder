@@ -14,6 +14,7 @@
     "scripts/gate.mjs (G1 IA/wireframe parser)"
   ],
   "decisions": [
+    "Owner-supplied current résumé authorizes Dehurdle attribution in internship and Project Edge Node context (2026-09-28).",
     "Adopted SEO_STRATEGY slugs unchanged: /work/edge-node, /work/cited-researcher, /work/ledgerbridge, /work/ghostcursor, /work/neuroux, /work/studyos. BusinessHQ gets no route in V1.",
     "IA routes: /, /work, 6 case studies, /about, /contact, /resume (conditional on PDF), /styleguide and /e2e-error (noindex utilities). 404 and error boundary wireframed but not IA routes.",
     "Evidence differentiator is a reusable section new:metric-ledger (before -> after, computed delta, n/method, source link, source-type tag committed benchmark | README | resume-attested). It is used in the home hero (one row), the home ledger (6 rows) and every case study Result. All numbers come from one data source, content/evidence/<slug>.json, shared with FAQ, OG and llms.txt.",
@@ -67,7 +68,6 @@
   ],
   "open_questions": [
     "Owner: approve 'resume-attested' labelling (OQ6)? It decides the Cited Researcher headline and the Edge Node Q4_K_M row.",
-    "Owner: may Dehurdle be named (OQ4)? It affects the hero row credit, the Edge Node rail and the about timeline.",
     "Owner: StudyOS solo or team (OQ8)? Cited Researcher date (OQ7)?",
     "Owner: résumé PDF? If none, /resume is dropped from IA, footer and /about.",
     "Owner: may we capture a screenshot of LedgerBridge's committed demo_dashboard.html and self-host neuroux docs/demo.mp4?",

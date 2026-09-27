@@ -80,7 +80,8 @@
         "research",
         "growth",
         "frontend",
-        "backend"
+        "backend",
+        "domain-ops"
       ],
       "cost": "free",
       "enabled_if": "always",
@@ -433,6 +434,16 @@
       "enabled_if": "user:enable",
       "fallback": null,
       "approval": true
+    },
+    {
+      "id": "dns_lookup_cli",
+      "capabilities": ["authoritative_dns_verification"],
+      "agents": ["domain-ops"],
+      "cost": "free",
+      "enabled_if": "always",
+      "fallback": "registrar_or_host_dns_lookup_tool",
+      "approval": false,
+      "notes": "Read-only DNS verification with nslookup or Resolve-DnsName; never changes records. Live DNS mutation requires explicit owner approval."
     },
     {
       "id": "antislop_review_skill",

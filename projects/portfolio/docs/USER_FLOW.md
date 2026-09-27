@@ -85,5 +85,5 @@ Every page must offer a next step that isn't the browser back button.
 - **LinkedIn not verified:** hidden everywhere, including `sameAs`.
 - **Résumé PDF not supplied:** `/resume` is not built; remove it from the footer and `/about`.
 - **Availability not stated:** home FAQ Q3 is omitted, not stubbed.
-- **Dehurdle naming not approved:** copy says "a backend internship (2026)", and the timeline row does not name the company.
+- **Dehurdle naming approved 2026-09-28:** the supplied résumé authorizes employer attribution in internship copy and for Project Edge Node. Public metric evidence rules remain unchanged.
 - **Résumé-attested numbers not approved** (Cited Researcher 152 s → 26 s): the row is omitted and the Cited Researcher headline falls back to "33 unit tests" (README).

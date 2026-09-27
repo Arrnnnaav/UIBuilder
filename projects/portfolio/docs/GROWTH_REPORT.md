@@ -1,4 +1,4 @@
-# Growth report: final static review, 2026-09-27
+# Growth report: final static and runtime review, 2026-09-28
 
 ## Current coverage
 
@@ -10,6 +10,10 @@
   breadcrumb and software entities. Case-study Articles cite verified sources.
 - **11 answer-first FAQ files**, with at least 40 words per answer, llms.txt and
   the BusinessOS editable-path manifest.
+- Every FAQ is rendered from its route data. The full Chromium/WebKit matrix now
+  asserts exact visible question/answer parity with FAQPage JSON-LD for all 11
+  FAQ files; `/resume` and `/work` now render their existing FAQ content, and
+  `/styleguide` no longer duplicates the home FAQ.
 - Six case studies, **10 verified metrics** and **one pending-source metric**.
   Verified means corroborated in a public source, not independently rerun here.
 
@@ -62,16 +66,16 @@ uptime, hiring availability, LinkedIn URL or residential location is inferred.
 
 ## Runtime audit evidence and limits
 
-The current clean production build was audited from the running local server:
+The fresh clean production build on 2026-09-28 was audited from the running local server:
 
 ```text
 $ node scripts/seo-audit.mjs "http://localhost:3400"
-seo:audit http://localhost:3400 — 0 findings (0 high)
+seo:audit http://localhost:3401 — 0 findings (0 high)
 ```
 
 The fresh result is also summarized in `docs/QA_REPORT.md`; it has 0 findings and
-0 high findings. The full browser suite passed with 190 passes and two expected
-desktop-only skips. The complete mobile Lighthouse matrix still fails the strict
+0 high findings. The full browser suite passed with 194 passes and two expected
+desktop-only skips, including exact route/FAQ parity and sitemap/llms checks. The complete mobile Lighthouse matrix still fails the strict
 LCP threshold on every public route, so this report does not mark G3 or deployment
 passed.
 

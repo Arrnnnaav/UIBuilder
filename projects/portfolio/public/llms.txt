@@ -2,12 +2,16 @@
 
 > Software engineer and Electrical Engineering undergraduate at MNIT Jaipur. Builds Python and Java backends and AI-enabled systems, with public sources and explicit evidence limits.
 
+## Home
+- [Portfolio home](https://arnav-khandelwal.vercel.app): Arnav Khandelwal's software engineering portfolio, with a summary of backend and AI work, measured results and links to original public sources.
+
 ## Profile
-- [About](https://arnav-khandelwal.vercel.app/about): Education, backend internship, skills and résumé-attested recognition.
+- [About](https://arnav-khandelwal.vercel.app/about): Education at MNIT Jaipur, Backend Engineering Internship at Dehurdle (June–August 2026), skills and résumé-attested recognition.
 - [Contact](https://arnav-khandelwal.vercel.app/contact): Email arnavkhandelwal446@gmail.com; GitHub https://github.com/Arrnnnaav. Availability and response times are not promised.
 - [Résumé](https://arnav-khandelwal.vercel.app/resume): Original owner-supplied résumé; résumé-only performance metrics are not independently verified.
 
 ## Selected work
+- [Selected projects](https://arnav-khandelwal.vercel.app/work): Six source-linked case studies covering offline inference, concurrent research, financial reconciliation, bounded desktop assistance, experimental media analysis and learning workflows.
 - [Project Edge Node](https://arnav-khandelwal.vercel.app/work/edge-node): A local telemetry classifier with validated inputs, structured output and a documented localhost latency fix. The committed report records mean latency decreasing from 5.356s to 0.973s, with 50 latency requests and zero failures. Time to first token was measured separately over 10 requests.
 - [Cited Multi-Agent Researcher](https://arnav-khandelwal.vercel.app/work/cited-researcher): A research pipeline that scales search effort to the question and keeps citations attached to its synthesis. The public README documents up to five concurrent search agents and a 33-unit-test suite. A separate résumé timing claim is excluded until a public benchmark is committed.
 - [LedgerBridge](https://arnav-khandelwal.vercel.app/work/ledgerbridge): An auditable bank, ledger and Razorpay reconciliation engine with deterministic matching and a read-only narration layer. The README reports 103,049 records processed in 5.114s median engine time over five runs. Its sealed-benchmark consistency scores are explicitly not real-world accuracy.

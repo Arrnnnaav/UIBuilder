@@ -132,7 +132,7 @@ Purpose: pass the 60-second test (USER_FLOW primary journey). Meets the recipe d
      - H1: "Arnav Khandelwal", followed by the descriptor "Backend & AI engineer, MNIT Jaipur" as part of the H1, for disambiguation.
      - Subline (≤60ch): the positioning line the owner picks (default option 1).
      - Primary CTA: "Contact Arnav" → `/contact`. Quiet secondary: "See the measured work" → `#work`.
-     - **Offset asset:** instead of a headshot, a **single `new:metric-ledger` row** from Edge Node: "Mean latency 5.36 s → 0.97 s · −82% · n=50, 0 failed · committed benchmark · source". Its label credits it to "backend internship, 2026" (plus Dehurdle only if the owner consents). The row links to `/work/edge-node` and to its source.
+     - **Offset asset:** instead of a headshot, a **single `new:metric-ledger` row** from Edge Node: "Mean latency 5.36 s → 0.97 s · −82% · n=50, 0 failed · committed benchmark · source". Its label credits the Dehurdle backend internship. The row links to `/work/edge-node` and to its source.
    - **Motion:** the headline line stagger uses transform/clip only. Text is visible in SSR and never starts from opacity 0, which protects LCP (the H1 is the LCP element).
    - **Mobile:** the order is H1 → subline → CTA → the ledger row as a stacked record. All of it fits in or just below the first viewport, with no reveal animation and no media.
 3. **measured results**, `new:metric-ledger` (home variant, 6 rows)
@@ -164,7 +164,7 @@ Purpose: pass the 60-second test (USER_FLOW primary journey). Meets the recipe d
    - **Content:** one line plus 6 group names as chips, e.g. "18 more public repos: agents & evaluation, retrieval & NLP, learning tools, hyperspectral classification, classical CV, 2025 CV experiments" → `/work#more-work`. No repo links here.
    - **Mobile:** the chips wrap, and the whole line is a single link target.
 6. **bio teaser**, `new:bio-teaser`
-   - **Content:** 2–3 sentences from the CONTENT_SOURCE §5 bio (with the Dehurdle clause dependent on consent); the fact list; a link "More about Arnav: timeline, skills and recognition" → `/about`.
+   - **Content:** 2–3 sentences from the CONTENT_SOURCE §5 bio, including the Dehurdle internship; the fact list; a link "More about Arnav: timeline, skills and recognition" → `/about`.
    - **Mobile:** stacked. Reveal allowed.
 7. **FAQ**, `faq-answer-first`
    - **Content:** `content/faq/home.json`. Each question is an H3 followed directly by a 40–60 word answer paragraph, then optional detail with internal links (Q2 → `/work`, Q4 → `/about`, Q5 explains the three source types).
@@ -250,7 +250,7 @@ Pattern: `case-study-sticky-meta`. It is filled per slug in the next six section
 Template as above. Specifics:
 - **Header:** H1 "Edge Node: an offline LLM telemetry classifier (FastAPI + Ollama)". Lede: mean latency 5.36 s → 0.97 s after tracing an IPv6-first `localhost` lookup.
 - **Rail:**
-  - Role: "Backend Engineering Intern, 2026" ("at Dehurdle" only with consent).
+  - Role: "Backend Engineering Intern at Dehurdle, 2026".
   - Dates: Jun–Aug 2026.
   - Stack: Python, FastAPI, Pydantic, Ollama (Qwen3 4B), Docker Compose, pynvml.
 - **Approach beats:**
@@ -420,7 +420,7 @@ Purpose: recruiter due diligence and the MNIT disambiguation query.
    - H1 "About Arnav Khandelwal". An answer-first lede (≤60 words): software engineer, B.Tech Electrical Engineering at MNIT Jaipur (2023–), builds local-first backends and AI systems and publishes where his numbers come from.
    - No headshot. An optional slot for one exists only if the owner supplies it, below the lede, with explicit dimensions.
 4. **bio**, prose (part of `new:bio-teaser`, long variant)
-   - The full first-person bio from CONTENT_SOURCE §5, with the Dehurdle clause gated.
+  - The full first-person bio from CONTENT_SOURCE §5, including Dehurdle attribution.
    - Mobile: single column, ≤70ch.
 5. **timeline**, `new:timeline-ledger`
    - Rows, newest first:

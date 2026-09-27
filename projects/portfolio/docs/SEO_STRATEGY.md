@@ -12,7 +12,7 @@
 | `description` | Backend and AI engineer who builds local-first LLM systems and measures them | PRODUCT one-line, option 1. The owner picks at G1 |
 | `alumniOf` / `affiliation` | CollegeOrUniversity "Malaviya National Institute of Technology Jaipur" (MNIT Jaipur), B.Tech Electrical Engineering, Aug 2023 onward. `sameAs` → `https://en.wikipedia.org/wiki/Malaviya_National_Institute_of_Technology_Jaipur`, `https://mnit.ac.in` | [R]. A linked, well-known institution is the strongest disambiguator we have (see collisions below) |
 | `knowsAbout` | Python, Java, SQL, FastAPI, Spring Boot, PyTorch, Transformers, LLMs, RAG, LangChain, Ollama, Docker | [R] skills list, verbatim |
-| Experience | Backend Engineering Intern, Dehurdle, Jun–Aug 2026 | [R]. **TODO(owner):** PRODUCT open question 4 asks whether Dehurdle may be named publicly. Until confirmed, schema omits Dehurdle and copy says "a backend internship" |
+| Experience | Backend Engineering Intern, Dehurdle, Jun–Aug 2026 | [R]. Owner-supplied current résumé authorizes employer attribution. Résumé-only performance claims remain hidden unless supported by public evidence. |
 | `award` | "Bronze, Asian Championship (skating), 2018" | [R]. Amazon ML Summer School '25 goes in the description or `knowsAbout` context, not in `award` (it is a programme, not a prize). JEE Main 98.6 percentile goes in the About copy only |
 | `address` | `addressLocality: Jaipur`, `addressCountry: IN` | **TODO(owner):** inferred from MNIT; GitHub has no location |
 | `email` | none until confirmed | **TODO(owner):** `arnavkhandelwal446@email.com` looks like a typo. Never publish it unconfirmed |
@@ -84,7 +84,7 @@ Each question becomes an `h2`/`h3` question heading followed immediately by a di
 
 ### About (`content/faq/about.json`)
 6. **Where does Arnav Khandelwal study?** B.Tech Electrical Engineering, MNIT Jaipur, since Aug 2023. [R]
-7. **What was Arnav's backend internship?** Backend Engineering Intern, Jun–Aug 2026: an offline FastAPI telemetry service with Pydantic validation, retry/backoff and Docker Compose. Latency went from 5.3s to 1.0s after he fixed IPv6-first localhost DNS. [R] Naming Dehurdle is gated on owner consent.
+7. **What was Arnav's backend internship?** Backend Engineering Intern at Dehurdle, Jun–Aug 2026: an offline FastAPI telemetry service with Pydantic validation, retry/backoff and Docker Compose. The public benchmark reports mean latency decreasing from 5.356s to 0.973s over 50 requests after an IPv6-first localhost DNS issue was fixed. [R, public repository benchmark]
 8. **What recognition has Arnav received?** Amazon ML Summer School '25; JEE Main 98.6 percentile; Asian Championship skating bronze (2018). [R]
 
 ### Contact (`content/faq/contact.json`)
@@ -134,7 +134,7 @@ All nodes use `@context: "https://schema.org"` and stable `@id`s rooted at `{SIT
 ## Optional
 - [Résumé]({SITE_URL}/resume): only if the PDF is supplied
 ```
-Rules: numbers match the case-study pages exactly (S4 copies them from the same content source). Edge Node's line drops the Dehurdle name unless the owner consents. Cited Researcher's 152s→26s stays out of llms.txt while it is [R only] and unconfirmed.
+Rules: numbers match the case-study pages exactly (S4 copies them from the same content source). Owner-supplied résumé authorizes Dehurdle attribution. Cited Researcher's 152s→26s stays out of llms.txt while it is [R only] and unconfirmed.
 
 ## AI crawler policy (allow/deny: GPTBot, ClaudeBot, PerplexityBot, Google-Extended, OAI-SearchBot)
 - **Allow:** GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, PerplexityBot, Google-Extended, Applebot-Extended. For a job-seeker's portfolio, being present in model training data and in AI answers is the goal: recruiters increasingly ask assistants "who is X".
@@ -172,6 +172,6 @@ The search tool's synthesized answer acts as a proxy for an answer engine. For "
 
 
 ## S4 implementation update — 2026-09-26
-The new résumé resolves the email to `arnavkhandelwal446@gmail.com`. `sameAs` includes only the verified GitHub identity; location, LinkedIn and employer attribution remain omitted. All 11 main public page routes have route metadata, direct answer-first FAQ content and route-scoped entities. Owner update, 2026-09-26: the styleguide is also public and indexable, included in sitemap and llms.txt and allowed by crawler policy. This supersedes earlier styleguide exclusions in the strategy tables. The gated error-test route remains noindex. Person + WebSite are shared entities; case studies include SoftwareSourceCode and an authored Article embedded in their WebPage. Stable entity URLs use the provisional hosting target and must be reconciled with the actual deployment URL.
+The new résumé resolves the email to `arnavkhandelwal446@gmail.com`. `sameAs` includes only the verified GitHub identity; location and LinkedIn remain omitted. Owner-supplied résumé authorizes Dehurdle attribution for the internship and Edge Node. All main public routes have metadata, direct answer-first FAQ content and route-scoped entities. Owner update, 2026-09-26: the styleguide is public and indexable, included in sitemap and llms.txt and allowed by crawler policy; this supersedes earlier styleguide exclusions. The gated error-test route remains noindex. Person + WebSite are shared entities; case studies include SoftwareSourceCode and an authored Article embedded in their WebPage. Stable entity URLs use the provisional hosting target and must be reconciled with the actual deployment URL.
 
 Editorial dates represent this update, not invented upstream release dates. Test counts are README-reported; NeuroUX is an experimental proxy, LedgerBridge sealed scores are specification consistency, GhostCursor intent scores describe a small frozen set, and StudyOS has no measured learning-outcome claim. Cited Researcher résumé-only speedup remains hidden. This improves answer extraction and provenance without promising search rankings or citation by generative engines.

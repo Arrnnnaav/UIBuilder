@@ -1,0 +1,54 @@
+{
+  "base": "http://localhost:3401",
+  "at": "2026-09-27T22:36:10.348Z",
+  "rows": [
+    {
+      "route": "/",
+      "formFactor": "mobile",
+      "performance": 0.96,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1,
+      "lcp": 2682,
+      "cls": 0,
+      "pass": false
+    },
+    {
+      "route": "/work",
+      "formFactor": "mobile",
+      "performance": 0.96,
+      "accessibility": 0.98,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1,
+      "lcp": 2679,
+      "cls": 0,
+      "pass": false
+    },
+    {
+      "route": "/work/edge-node",
+      "formFactor": "mobile",
+      "performance": 0.96,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1,
+      "lcp": 2706,
+      "cls": 0,
+      "pass": false
+    },
+    {
+      "route": "/styleguide",
+      "formFactor": "mobile",
+      "performance": 0.96,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1,
+      "agentic-browsing": 1,
+      "lcp": 2724,
+      "cls": 0,
+      "pass": false
+    }
+  ]
+}
