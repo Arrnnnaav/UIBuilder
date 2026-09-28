@@ -34,6 +34,16 @@ Each source edit was temporary and has been reverted.
 
 The font experiment does not justify changing approved typography. The prior measured font-subset and `font-display` probes in `PERF_REPORT.md` likewise showed no reliable gain. The `content-visibility` result rejects that below-fold hypothesis for home; no broader claim is made.
 
+## Shared-shell client-boundary probe (2026-09-28)
+
+A reversible branch experiment converted the global navigation and footer to server-rendered markup, replaced global internal `Link` components with ordinary anchors, conditioned analytics rendering on an actual public key, and used a small deferred `public/navigation.js` to preserve the full-screen menu interaction. A native `<details>` fallback kept mobile navigation available if the enhancement failed. The contact-page footer CTA switched using CSS against its existing `.contact-grid` marker, avoiding script mutation during hydration.
+
+- Browser verification: the 12 targeted Chromium/WebKit × desktop/mobile cases passed for route navigation, menu focus containment, Escape close, trigger focus restoration, no-script fallback, active route state and the contact footer CTA. A direct production runtime check reported no console/hydration errors.
+- Build output still included the shared React/Next root runtime (`26-1rt-bpkfke.js`, 232,447 bytes raw). On `/resume`, the measured HTML requested 12 JavaScript files totaling 162,093 transferred bytes; removing the shared React boundary did not remove the App Router runtime.
+- Exact 3-run mobile subset (`PERF_ROUTES=/about,/resume`, `PERF_FACTORS=mobile`, `PERF_RUNS=3`): `/about` and `/resume` both measured 2709ms LCP, performance 96, all other categories 100 and CLS 0. This is not a full-gate run, and it did not demonstrate an improvement over the prior complete-matrix medians. Product changes were reverted; raw subset summary: `docs/evidence/perf-native-shell-experiment.json`.
+
+The experiment confirms that reducing a few shared client references is insufficient while Next's root runtime remains. Do not roll this shell experiment into the product. A meaningful next step needs an architecture that avoids loading the App Router runtime on static marketing routes, with the existing accessible menu, evidence interactions, contact behavior and SEO output preserved and retested.
+
 ## Commands used
 
 Baseline commands: `PERF_RUNS=3 pnpm perf -- http://localhost:3401` and `pnpm build` followed by `pnpm start -- --port 3401`.

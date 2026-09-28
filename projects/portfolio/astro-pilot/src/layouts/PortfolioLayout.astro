@@ -1,0 +1,72 @@
+---
+import "../styles/portfolio.css";
+import { site, routes } from "@/lib/site";
+import { globalJsonLd } from "@/lib/seo";
+
+interface Props {
+  route: string;
+}
+
+const { route } = Astro.props;
+const page = routes[route];
+if (!page) throw new Error(`Missing SEO route: ${route}`);
+const title = page.title;
+const description = page.description;
+const canonical = new URL(page.canonical, site.url).toString();
+const globalSchemas = globalJsonLd();
+const socialImage = new URL(page.og?.image ?? "/opengraph-image", site.url).toString();
+---
+
+<!doctype html>
+<html lang="en" class="portfolio-static">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={page.robots.replace(",", ", ")} />
+    <title>{title}</title>
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={page.og?.title ?? title} />
+    <meta property="og:description" content={page.og?.description ?? description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={page.og?.title ?? title} />
+    <meta name="twitter:description" content={page.og?.description ?? description} />
+    <meta name="twitter:image" content={socialImage} />
+    {globalSchemas.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema).replaceAll("<", "\\u003c")} />)}
+  </head>
+  <body class="min-h-dvh flex flex-col">
+    <a href="#main" class="skip-link">Skip to content</a>
+    <header class="site-header">
+      <div class="container nav-bar">
+        <a href="/" class="wordmark">Arnav Khandelwal</a>
+        <nav class="desktop-nav" aria-label="Primary">
+          <a href="/work">Work</a><a href="/about">About</a>
+          <a href="https://github.com/Arrnnnaav" target="_blank" rel="me noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        </nav>
+        <a class="button nav-contact" href="/contact">Contact Arnav</a>
+        <details class="mobile-nav-fallback">
+          <summary class="menu-button" role="button">Menu</summary>
+          <nav aria-label="Mobile primary">
+            <a href="/work">Work</a><a href="/about">About</a><a href="https://github.com/Arrnnnaav" rel="me">GitHub</a>
+            <a href="/contact">Contact Arnav</a><a href="/resume">Résumé</a>
+          </nav>
+        </details>
+      </div>
+    </header>
+    <main id="main" tabindex="-1" class="container flex-1"><slot /></main>
+    <footer class="container site-footer">
+      <a class="footer-cta" href="/contact">Contact Arnav</a>
+      <div class="footer-columns">
+        <div><h2>Site</h2><nav aria-label="Footer"><a href="/">Home</a><a href="/work">Work</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/resume">Résumé</a></nav></div>
+        <div><h2>Case studies</h2><a href="/work/edge-node">Edge Node</a><a href="/work/cited-researcher">Cited Researcher</a><a href="/work/ledgerbridge">LedgerBridge</a><a href="/work/ghostcursor">GhostCursor</a><a href="/work/neuroux">NeuroUX</a><a href="/work/studyos">StudyOS</a></div>
+        <div><h2>Profiles</h2><a href="https://github.com/Arrnnnaav" rel="me">GitHub</a></div>
+      </div>
+      <div class="footer-note"><a href="/#evidence">Numbers on this site link to their sources.</a><p>© 2026 Arnav Khandelwal</p></div>
+    </footer>
+  </body>
+</html>

@@ -9,15 +9,17 @@
     "projects/portfolio/docs/DESIGN.md",
     "projects/portfolio/docs/WIREFRAMES.md",
     "projects/portfolio/docs/handoff/design-director.json",
-    "2026-09-26 screenshot of Claude API 429 and failed /intake"
+    "2026-09-26 screenshot of Claude API 429 and failed /intake",
+    "2026-09-28 Astro static HTML and Next beforeFiles rewrite pilot"
   ],
   "decisions": [
     "G1 and G2 are already owner-approved and passed structural gates (10/10 and 8/8). Resume at S4 without reopening the design gate.",
     "Corrected the anti-slop repository owner in the screenshot to miqdadbadjuber.",
     "Installed project-local skills as available references; new optional or paid tools remain disabled in brain/tools.json.",
     "Keep the approved DESIGN.md as the portfolio design contract and defer media-heavy scroll-world work.",
+    "Keep Next as the production architecture while testing isolated Astro HTML for /resume; do not automate hybrid routing before full route, menu, contact-security, and G3 validation (D28).",
     "2026-09-28 integrated verification: production build, 35 unit tests, lint, typecheck, token lint, content validation, dependency audit, 198 browser checks and clean-production runtime/security scan pass.",
-    "Do not pass G3 or deploy: fresh mobile simulated Lighthouse LCP remains 2558–2857ms on every route against the strict <2500ms contract. The custom domain remains deferred."
+    "Do not pass G3 or deploy: the clean Next mobile matrix still has LCP 2558–2857ms on every route against the strict <2500ms contract. A one-route Astro/Next pilot passed at 1355ms but its rewrite/build packaging was temporary and is not a complete migration. The custom domain remains deferred."
   ],
   "files_created": [
     "docs/handoff/orchestrator.json",
@@ -26,7 +28,11 @@
     "docs/ACCEPTANCE.md",
     "docs/STATE.md",
     "docs/evidence/perf-lcp-investigation.md",
-    "docs/evidence/security-runtime.txt"
+    "docs/evidence/security-runtime.txt",
+    "projects/portfolio/astro-pilot/",
+    "projects/portfolio/docs/evidence/perf-astro-resume-pilot.md",
+    "projects/portfolio/docs/evidence/perf-astro-resume-pilot.json",
+    "projects/portfolio/docs/evidence/perf-astro-next-rewrite-pilot.json"
   ],
   "resources_used": [
     "brain/resources.json",
@@ -35,14 +41,16 @@
   "patterns_used": [],
   "risks": [
     "Fresh 2026-09-28 full clean-production Lighthouse matrix: all 12 public routes miss the required mobile simulated Lighthouse LCP threshold at 2558–2857ms; gate and throttling settings remain unchanged. Evidence: docs/evidence/perf-final-summary.json and docs/evidence/perf-run-final.txt.",
+    "Astro static HTML passed LCP and score checks for /resume only. The host rewrite proved one-page packaging, but the contact form action, full-screen mobile dialog, all-route build, deployment packaging and full G3 matrix remain unverified. Do not deploy this pilot as a migration.",
     "Deployment, live provider receipts, BusinessOS dogfood and launch artifacts remain S7 work after G3; the actual URL must be observed before reconciling provisional references."
   ],
   "open_questions": [
     "None for the local G3 verification; revisit production hostname and provider configuration only when S7 is authorized."
   ],
-  "next_agent": "ship",
+  "next_agent": "backend",
   "next_instructions": [
-    "Resolve mobile simulated LCP below 2500ms across all public routes without weakening the acceptance contract, then rerun the full clean matrix.",
+    "Prototype a same-origin contact API that retains the existing Zod validation, rate limit, Turnstile, Resend, privacy and error behavior; verify it with the current contact tests before moving the page off Next.",
+    "Complete a route-by-route Astro static pilot and preserve the approved full-screen menu behavior. Only then automate public asset packaging and Next rewrites, and rerun mobile Lighthouse across all public routes.",
     "After A17 passes, rerun all G3 checks against one clean candidate and update evidence; G3 is currently pending only on A17.",
     "Begin S7 deployment only after G3 passes. Keep custom domain deferred, verify the observed deployment URL, and obtain owner-controlled provider configuration before enabling real integrations."
   ]

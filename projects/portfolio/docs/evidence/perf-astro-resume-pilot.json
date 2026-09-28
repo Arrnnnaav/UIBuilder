@@ -1,0 +1,49 @@
+{
+  "experiment": "Astro static HTML résumé route",
+  "date": "2026-09-28",
+  "base": "http://127.0.0.1:3418",
+  "route": "/resume",
+  "runs": [
+    {
+      "run": 1,
+      "performance": 1,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcpMs": 1353,
+      "cls": 0.002,
+      "tbtMs": 0
+    },
+    {
+      "run": 2,
+      "performance": 1,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcpMs": 1356,
+      "cls": 0.002,
+      "tbtMs": 0
+    },
+    {
+      "run": 3,
+      "performance": 1,
+      "accessibility": 1,
+      "bestPractices": 1,
+      "seo": 1,
+      "lcpMs": 1357,
+      "cls": 0.002,
+      "tbtMs": 0
+    }
+  ],
+  "median": {
+    "performance": 1,
+    "accessibility": 1,
+    "bestPractices": 1,
+    "seo": 1,
+    "lcpMs": 1356,
+    "cls": 0.002,
+    "tbtMs": 0
+  },
+  "pass": true,
+  "scope": "One-route architecture pilot only; not G3 evidence for the Next.js site or full migration."
+}
