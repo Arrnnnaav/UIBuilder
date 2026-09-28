@@ -1,0 +1,61 @@
+{
+  "slug": "portfolio",
+  "pipeline": "portfolio",
+  "project_type": "portfolio",
+  "started": "2026-09-25",
+  "finished": "2026-09-28",
+  "live_url": null,
+  "design_direction": "Hybrid of direction A's restrained grid and calibrated result marks, direction B's Archivo type system and machined details, and direction C's technical report grammar. The approved signature is the evidence retract followed by the citation mark; no section scroll reveals.",
+  "resources_used": [
+    "airborne-studio",
+    "noth",
+    "elu-dev",
+    "planetscale-benchmarks",
+    "meinhard-taxer"
+  ],
+  "patterns_used": [
+    "case-study-sticky-meta",
+    "work-grid-hover-reveal",
+    "faq-answer-first",
+    "contact-inline-form",
+    "nav-minimal-overlay",
+    "footer-big-cta"
+  ],
+  "lineage": [
+    { "section": "Home identity and evidence hero", "sources": ["docs/PRODUCT.md", "docs/DESIGN.md#direction", "docs/directions/A.md", "docs/directions/B.md", "docs/directions/C.md", "content/evidence/", "content/seo/routes.json"] },
+    { "section": "Global navigation and footer", "sources": ["docs/DESIGN.md#nav", "docs/DESIGN.md#footer", "brain/patterns/sections.json", "components/portfolio/"] },
+    { "section": "Work index and six case studies", "sources": ["docs/WIREFRAMES.md", "docs/DESIGN.md#case-study", "docs/REFERENCE_BREAKDOWN.md", "content/projects/", "content/evidence/", "content/schema/", "content/faq/"] },
+    { "section": "About and profile", "sources": ["content/site.json", "content/schema/person.json", "docs/PRODUCT_REQUIREMENTS.md", "public/arnav-khandelwal-resume.pdf"] },
+    { "section": "Contact form", "sources": ["docs/WIREFRAMES.md", "app/api/contact/route.ts", "tests/unit/contact-api.test.ts", "content/faq/contact.json"] },
+    { "section": "HTML résumé and downloadable PDF", "sources": ["public/arnav-khandelwal-resume.pdf", "app/resume/", "docs/evidence/growth-audit-current-2026-09-28.txt"] },
+    { "section": "Styleguide", "sources": ["docs/DESIGN.md", "app/styleguide/", "owner decision: public and indexable"] },
+    { "section": "SEO, AEO and GEO data", "sources": ["content/seo/routes.json", "content/schema/", "content/faq/", "content/seo/crawlers.json", "public/llms.txt", "seo.manifest.json", "docs/SEO_STRATEGY.md"] },
+    { "section": "Static delivery architecture", "sources": ["astro-pilot/src/pages/", "scripts/build-astro-pilot.mjs", "next.config.ts", "plan/DECISIONS.md#D30"] }
+  ],
+  "scores": {
+    "gate": "G3 passed locally",
+    "lighthouse": { "routes": 12, "profiles": 24, "performance": 100, "accessibility": 100, "best_practices": 100, "seo": 100, "lcp_desktop_ms": [327, 330], "lcp_mobile_ms": [1357, 1359], "cls_desktop_max": 0.026, "cls_mobile_max": 0.035 },
+    "axe_serious_critical": 0,
+    "seo_audit": { "high": 0, "medium": 0, "low": 0 },
+    "visual_review_loops": 1,
+    "browser_matrix": { "passed": 202, "expected_skips": 2 },
+    "owner_rating": null,
+    "live_search_visibility": "not measured; deployment is not live"
+  },
+  "feedback": [
+    { "target": "owner rating and qualitative feedback", "verdict": "awaiting owner response; no rating or trust promotion recorded" }
+  ],
+  "worked": [
+    "Static HTML for all 12 public routes reduced mobile LCP from 2555–2858ms on the Next-rendered fallback to 1357–1359ms on the default candidate.",
+    "Route-scoped metadata, schema, answer-first FAQs and llms.txt pass local validators and live local SEO audit with zero findings.",
+    "Source-pinned project evidence keeps 10 supported metrics visible and filters the one pending-source metric.",
+    "The résumé PDF hash matches the exact owner-supplied file.",
+    "The default candidate passes Chromium and WebKit at 390px and 1440px, with 48 Windows and 48 Linux visual baselines.",
+    "BusinessOS connector health and snapshot are verified read-only against the feature branch with five portfolio-scoped editable paths."
+  ],
+  "failed": [
+    "The Next-rendered fallback exceeded the strict mobile LCP gate on all 12 routes; D30 made the passing Astro static hybrid the default and retained Next as a rollback path.",
+    "The configured provisional Vercel URL returns 404. No deployment, live indexing, rankings or AI citations are claimed.",
+    "BusinessOS default-branch health still lacks the root gateway manifest because the feature branch has not been integrated into main; no PR or publish was created."
+  ]
+}
