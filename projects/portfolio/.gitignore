@@ -47,3 +47,4 @@ next-env.d.ts
 /.lighthouseci
 /.lighthouse
 /lib/generated
+/astro-pilot/.astro/
