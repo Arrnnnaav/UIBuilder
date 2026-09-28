@@ -18,10 +18,10 @@
     "Corrected the anti-slop repository owner in the screenshot to miqdadbadjuber.",
     "Installed project-local skills as available references; new optional or paid tools remain disabled in brain/tools.json.",
     "Keep the approved DESIGN.md as the portfolio design contract and defer media-heavy scroll-world work.",
-    "Keep Next as the production architecture while testing isolated Astro HTML for /resume; do not automate hybrid routing before full route, menu, contact-security, and G3 validation (D28).",
+    "D30 selects Astro static HTML for all 12 public content routes, with Next retaining contact API, headers, error handling, and a rollback path.",
     "2026-09-28 integrated verification: production build, 35 unit tests, lint, typecheck, token lint, content validation, dependency audit, 198 browser checks and clean-production runtime/security scan pass.",
-    "Do not pass G3 or deploy: the clean Next mobile matrix still has LCP 2558–2857ms on every route against the strict <2500ms contract. A one-route Astro/Next pilot passed at 1355ms but its rewrite/build packaging was temporary and is not a complete migration. The custom domain remains deferred.",
-    "D29: retain the Astro/Next hybrid as an isolated opt-in pilot for /contact and /resume; keep production Next unchanged pending all-route packaging and G3."
+    "G3 passed locally for D30 after all-route build, browser, accessibility, security, growth and Lighthouse checks; GitHub Actions source and Linux snapshot jobs also passed.",
+    "Custom domain and DNS remain deferred. No live deployment, production alias, BusinessOS PR or publish has been made."
   ],
   "files_created": [
     "docs/handoff/orchestrator.json",
@@ -49,19 +49,18 @@
   ],
   "patterns_used": [],
   "risks": [
-    "The Astro pilot covers only /contact and /resume; home, about, work/case studies and styleguide are still Next. Pilot Lighthouse evidence does not pass G3 or justify production migration.",
-    "Static route packaging currently requires generated assets to be copied for a local pilot; no production build pipeline or deploy integration has been added.",
-    "The full 12-route Next mobile Lighthouse matrix still fails the strict LCP <2500ms threshold; retain the current evidence and do not waive it.",
-    "Deployment, live provider receipts, BusinessOS connection and launch artifacts remain S7 work after G3; custom domain remains deferred."
+    "S7 preview deployment is pending Vercel authentication; the provisional URL currently returns 404. No production deployment or live search visibility is claimed.",
+    "BusinessOS connector health and snapshot pass read-only on the feature branch, but main lacks the root gateway manifest and no real PR/publish lifecycle has been exercised.",
+    "Provider receipts remain unavailable until owner-controlled credentials are configured; the contact fallback and monitoring no-op behavior pass locally.",
+    "The playable launch video and owner-rated build feedback remain outstanding; brain/builds/portfolio.json records measured results with owner_rating null. Custom domain remains deferred."
   ],
   "open_questions": [
     "None for the local G3 verification; revisit production hostname and provider configuration only when S7 is authorized."
   ],
-  "next_agent": "frontend",
+  "next_agent": "ship",
   "next_instructions": [
-    "Make Astro pilot packaging reproducible without changing the default production routing: copy only files referenced by generated HTML and preserve all current public assets.",
-    "Extend the pilot page set incrementally to the remaining approved portfolio routes, preserving source content, metadata, design and interactions; review route coverage before any architecture decision.",
-    "Keep the shared contact endpoint same-origin and covered by validation, rate-limit, Turnstile, email, size-limit and origin tests.",
-    "After a complete route candidate exists, rerun the full G3 matrix against one clean build. Do not pass G3 or begin S7 until every required gate has current command evidence."
+    "After owner Vercel authentication, create and verify a temporary preview only; check every route, canonical URLs, sitemap, robots, structured data, résumé and contact endpoint. Do not use --prod or change DNS.",
+    "Then complete the approved S7 checklist: owner-controlled provider review, BusinessOS connection after default-branch integration, playable launch video, and owner feedback for /learn.",
+    "Do not claim search rankings, AI citations, production readiness or live provider receipts without direct evidence."
   ]
 }

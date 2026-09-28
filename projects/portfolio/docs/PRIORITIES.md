@@ -12,7 +12,7 @@ authority.
 | 1 | Must / S7 | Deploy the G3 candidate and verify the observed URL, canonical/entity/PDF URLs, sitemap, robots, contact endpoint and SEO output. Keep custom domain deferred. | G3 satisfied; deployment access | ship/growth | A19 |
 | 2 | Must / S7 | Review deployed contact and telemetry settings. Use owner-controlled credentials for enabled providers, otherwise preserve direct-email fallback and monitoring no-op behavior. Never release E2E keys or `CONTACT_DRY_RUN`. | Deployed site; owner-controlled provider configuration if enabled | backend/ship | A22 |
 | 3 | Must / S7 | Dogfood BusinessOS `/connect`; demonstrate editable-path limits, owner-approved PR and separate publish approval. | Deployed site; owner GitHub credentials and approvals | orchestrator/ship | A21 |
-| 4 | Must / S7 | Produce playable launch video and schema-valid `/learn` build memory from the delivered site and measured outcomes. | Deployed/verified site | ship/orchestrator | A20 |
+| 4 | Must / S7 | Produce playable launch video and complete `/learn` with owner rating and feedback on the delivered site and measured outcomes. | Deployed/verified site; owner feedback | ship/orchestrator | A20 |
 
 ## Current evidence and remaining risks
 
@@ -21,7 +21,7 @@ authority.
 | No production deployment is evidenced. | Public URL and post-deploy metadata/endpoint behavior cannot yet be verified. | `docs/STATE.md`; `docs/DEPLOY.md`; A19 | Deploy the accepted G3 candidate and run endpoint/SEO smoke checks / ship+growth | Open S7 task |
 | Provider credentials and receipts are owner-controlled release settings. | Real email or telemetry receipt cannot be claimed without configured providers and deployment. | `docs/SECURITY_REPORT.md`; `docs/QA_REPORT.md`; A22 | Configure only explicitly enabled providers after deployment; absent keys retain verified safe fallback/no-op / backend+ship | Unavailable until release configuration; no G3 blocker |
 | BusinessOS real-site connection and approvals have not been exercised. | Health on `Arrnnnaav/UIBuilder` found no root manifest because the portfolio manifest is nested; the branch-scoped gateway now limits edits to `projects/portfolio`, but default-branch integration still requires main to receive the approved change. | BusinessOS connector self-test passes; read-only health returned `site.manifest.missing` on main. | After deployment and owner-approved merge, exercise `/connect`, approved PR and separate publish approval / orchestrator+ship | Open S7 task |
-| Launch artifact and build memory are not recorded. | Delivery story and measured outcomes are not packaged for the owner. | `brain/builds/portfolio.json`; A20 | Create launch video and `/learn` memory after deployed-site verification / ship+orchestrator | Open S7 task |
+| Launch artifact and owner feedback are pending. | Delivery story needs a playable video; learning memory exists but has no owner rating. | `brain/builds/portfolio.json`; A20 | Create launch video after deployment and update memory after owner feedback / ship+orchestrator | Open S7 task |
 | Search rankings, AI citations and hiring outcomes need post-launch observation. | Technical SEO cannot guarantee third-party visibility or recruiting outcomes. | `docs/GROWTH_REPORT.md`; product outcome check in `ACCEPTANCE.md` | Track observed results after launch without promising outcomes / growth | Expected measurement |
 
 ## Resolved owner decisions (do not reopen)
