@@ -1,4 +1,5 @@
 # Local agent and test state
+/projects/
 /.playwright-mcp/
 /.ruff_cache/
 /.git-metadata-backup/

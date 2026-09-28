@@ -1,0 +1,70 @@
+{
+  "model": "jev-1.13.0",
+  "mode": "shadow",
+  "date": "2026-09-28T07:56:08.849Z",
+  "cases": [
+    {
+      "id": "route-ux",
+      "expected": "ux",
+      "status": "advisory",
+      "observed": "ux",
+      "confidence": 1,
+      "correct": true,
+      "milliseconds": 443,
+      "input_tokens": 557
+    },
+    {
+      "id": "route-growth",
+      "expected": "growth",
+      "status": "advisory",
+      "observed": "growth",
+      "confidence": 1,
+      "correct": true,
+      "milliseconds": 353,
+      "input_tokens": 559
+    },
+    {
+      "id": "route-backend",
+      "expected": "backend",
+      "status": "advisory",
+      "observed": "backend",
+      "confidence": 0.99,
+      "correct": true,
+      "milliseconds": 342,
+      "input_tokens": 557
+    },
+    {
+      "id": "route-taste",
+      "expected": "taste-research",
+      "status": "advisory",
+      "observed": "taste-research",
+      "confidence": 0.98,
+      "correct": true,
+      "milliseconds": 309,
+      "input_tokens": 555
+    },
+    {
+      "id": "link-good",
+      "expected": "relevant",
+      "status": "advisory",
+      "observed": "relevant",
+      "confidence": 0.81,
+      "correct": true,
+      "milliseconds": 310,
+      "input_tokens": 350
+    },
+    {
+      "id": "link-bad",
+      "expected": "irrelevant",
+      "status": "advisory",
+      "observed": "irrelevant",
+      "confidence": 0.99,
+      "correct": true,
+      "milliseconds": 306,
+      "input_tokens": 346
+    }
+  ],
+  "correct": 6,
+  "abstained": 0,
+  "note": "Synthetic cases are a smoke test only; no production routing until a larger labeled domain sample is evaluated."
+}

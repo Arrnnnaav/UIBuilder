@@ -1,9 +1,0 @@
-{
-  "route": "/work/studyos",
-  "items": [
-    {
-      "q": "What learning workflow does StudyOS support?",
-      "a": "StudyOS connects prerequisite-aware topic selection with contextual questions and spaced review. A Chrome extension lets a student ask about selected text or a region, then save useful answers for later review. The repository documents an AWS delivery pipeline, but does not publish measured learning gains or establish that its demo is currently online."
-    }
-  ]
-}

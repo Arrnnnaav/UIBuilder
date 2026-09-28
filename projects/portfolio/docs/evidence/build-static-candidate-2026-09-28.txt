@@ -1,3 +1,0 @@
-Commands: `pnpm build:astro-pilot` followed by `PORTFOLIO_STATIC_PILOT=1 NEXT_BUILD_CPUS=2 pnpm build`; no Turnstile test key, secret, CONTACT_DRY_RUN or E2E_ERROR_ROUTE was set.
-Result: both builds exit 0. Astro emitted and packaged all 12 public routes and the one referenced CSS asset; Next built the rewrite and contact API candidate successfully.
-Runtime proof: `docs/evidence/security-runtime-current-2026-09-28.txt`; runtime SEO: `docs/evidence/seo-audit-current-2026-09-28.txt`; 12-route Lighthouse matrix: `docs/evidence/perf-astro-static-current-2026-09-28.json`.

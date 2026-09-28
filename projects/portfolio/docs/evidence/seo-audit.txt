@@ -1,3 +1,0 @@
-$ node scripts/seo-audit.mjs "http://localhost:3400"
-
-seo:audit http://localhost:3400 — 0 findings (0 high)

@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "description": "Curated selector fixtures from the current Brain catalog; not owner-rated task outcomes",
+  "cases": [
+    {
+      "id": "target_form_word_collision",
+      "suite": "target",
+      "domain": "engineering",
+      "task": "contact form backend",
+      "expected_ready": ["rate-limiting"],
+      "forbidden_review": ["webdev-animation-rendering-guide"]
+    },
+    {
+      "id": "target_browser_tool",
+      "suite": "target",
+      "domain": "research",
+      "task": "browser inspection",
+      "available_tools": ["agent_browser_cli"],
+      "expected_ready": ["agent-browser"]
+    },
+    {
+      "id": "regression_growth_rights",
+      "suite": "regression",
+      "domain": "growth",
+      "task": "seo audit internal links",
+      "expected_review": ["open-seo", "typesafe-jev"],
+      "forbidden_ready": ["open-seo", "typesafe-jev"]
+    },
+    {
+      "id": "regression_motion",
+      "suite": "regression",
+      "domain": "taste",
+      "task": "scroll motion animation",
+      "expected_ready": ["motion"],
+      "forbidden_ready": ["lightswind", "scroll-world"]
+    },
+    {
+      "id": "regression_security",
+      "suite": "regression",
+      "domain": "quality",
+      "task": "security review",
+      "expected_ready": ["dependency-vuln", "input-validation"]
+    },
+    {
+      "id": "regression_ux",
+      "suite": "regression",
+      "domain": "experience",
+      "task": "wireframe information architecture",
+      "expected_review": ["mobbin"],
+      "forbidden_ready": ["mobbin"]
+    },
+    {
+      "id": "decline_unlicensed_gallery",
+      "suite": "decline",
+      "domain": "research",
+      "task": "lightswind hero",
+      "expected_review": ["lightswind"],
+      "forbidden_ready": ["lightswind"],
+      "expect_no_ready": true
+    },
+    {
+      "id": "decline_jev_shadow",
+      "suite": "decline",
+      "domain": "research",
+      "task": "jev routing",
+      "expected_review": ["typesafe-jev"],
+      "forbidden_ready": ["typesafe-jev"],
+      "expect_no_ready": true
+    },
+    {
+      "id": "decline_domain_change",
+      "suite": "decline",
+      "domain": "launch",
+      "task": "domain dns tls",
+      "expect_no_ready": true
+    }
+  ]
+}

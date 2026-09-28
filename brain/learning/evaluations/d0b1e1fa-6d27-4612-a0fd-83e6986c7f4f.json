@@ -1,0 +1,426 @@
+{
+  "schema_version": 1,
+  "evaluation_id": "d0b1e1fa-6d27-4612-a0fd-83e6986c7f4f",
+  "generated_at": "2026-09-28T11:32:56.708Z",
+  "baseline_version": "router-v1",
+  "candidate_version": "router-v2-token-match",
+  "candidate_sha256": "fabd95d3373feba0205d6acbcaede65798509e6e515d8e2019a7418e2689a065",
+  "eval_set_sha256": "c5d462329492ea23b56bf24db091f7305cc15ae7180409279086619bccd0f1d5",
+  "eval_set_ref": "brain/learning/evals/resource-routing-v1.json",
+  "baseline": {
+    "cases": [
+      {
+        "id": "target_form_word_collision",
+        "suite": "target",
+        "pass": false,
+        "ready": [
+          "rate-limiting"
+        ],
+        "review": [
+          "formboost",
+          "motion-primitives",
+          "twentyfirst-components",
+          "scroll-world",
+          "webdev-animation-rendering-guide"
+        ],
+        "missed": [],
+        "misplaced": [],
+        "forbidden": [],
+        "forbidden_review": [
+          "webdev-animation-rendering-guide"
+        ],
+        "latency_ms": 16.509,
+        "cost_usd": 0
+      },
+      {
+        "id": "target_browser_tool",
+        "suite": "target",
+        "pass": true,
+        "ready": [
+          "agent-browser"
+        ],
+        "review": [
+          "mobbin",
+          "crawlee",
+          "lusion-studio-storytelling-study",
+          "agent-reach-public",
+          "airborne-studio"
+        ],
+        "missed": [],
+        "misplaced": [],
+        "forbidden": [],
+        "forbidden_review": [],
+        "latency_ms": 1.845,
+        "cost_usd": 0
+      },
+      {
+        "id": "regression_growth_rights",
+        "suite": "regression",
+        "pass": true,
+        "ready": [],
+        "review": [
+          "open-seo",
+          "typesafe-jev",
+          "agent-browser",
+          "agent-reach-public",
+          "crawl4ai"
+        ],
+        "missed": [],
+        "misplaced": [],
+        "forbidden": [],
+        "forbidden_review": [],
+        "latency_ms": 0.948,
+        "cost_usd": 0
+      },
+      {
+        "id": "regression_motion",
+        "suite": "regression",
+        "pass": true,
+        "ready": [
+          "motion"
+        ],
+        "review": [
+          "componentry",
+          "scroll-world",
+          "lightswind",
+          "twentyfirst-components",
+          "ui-skills"
+        ],
+        "missed": [],
+        "misplaced": [],
+        "forbidden": [],
+        "forbidden_review": [],
+        "latency_ms": 0.588,
+        "cost_usd": 0
+      },
+      {
+        "id": "regression_security",
+        "suite": "regression",
+        "pass": true,
+        "ready": [
+          "dependency-vuln",
+          "input-validation",
+          "rate-limiting",
+          "upload-safety"
+        ],
+        "review": [
+          "open-code-review",
+          "agent-browser",
+          "impeccable",
+          "web-design-guidelines",
+          "crawlee"
+        ],
+        "missed": [],
+        "misplaced": [],
+        "forbidden": [],
+        "forbidden_review": [],
+        "latency_ms": 0.661,
+        "cost_usd": 0
+      },
+      {
+        "id": "regression_ux",
+        "suite": "regression",
+        "pass": true,
+        "ready": [],
+        "review": [
+          "mobbin",
+          "airborne-studio",
+          "anti-slop",
+          "awesome-claude-design",
+          "brik"
+        ],
+        "missed": [],
+        "misplaced": [],
+        "forbidden": [],
+        "forbidden_review": [],
+        "latency_ms": 0.736,
+        "cost_usd": 0
+      },
+      {
+        "id": "decline_unlicensed_gallery",
+        "suite": "decline",
+        "pass": true,
+        "ready": [],
+        "review": [
+          "mobbin",
+          "threejs-paris",
+          "lightswind",
+          "agent-browser",
+          "agent-reach-public"
+        ],
+        "missed": [],
+        "misplaced": [],
+        "forbidden": [],
+        "forbidden_review": [],
+        "latency_ms": 0.618,
+        "cost_usd": 0
+      },
+      {
+        "id": "decline_jev_shadow",
+        "suite": "decline",
+        "pass": true,
+        "ready": [],
+        "review": [
+          "typesafe-jev",
+          "mobbin",
+          "agent-browser",
+          "agent-reach-public",
+          "airborne-studio"
+        ],
+        "missed": [],
+        "misplaced": [],
+        "forbidden": [],
+        "forbidden_review": [],
+        "latency_ms": 0.674,
+        "cost_usd": 0
+      },
+      {
+        "id": "decline_domain_change",
+        "suite": "decline",
+        "pass": true,
+        "ready": [],
+        "review": [
+          "openmontage",
+          "agent-reach-public",
+          "comfy",
+          "heygen",
+          "free-for-dev"
+        ],
+        "missed": [],
+        "misplaced": [],
+        "forbidden": [],
+        "forbidden_review": [],
+        "latency_ms": 0.819,
+        "cost_usd": 0
+      }
+    ],
+    "suites": {
+      "target": {
+        "passed": 1,
+        "total": 2
+      },
+      "regression": {
+        "passed": 4,
+        "total": 4
+      },
+      "decline": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    "passed": 8,
+    "total": 9,
+    "total_latency_ms": 23.398,
+    "cost_usd": 0
+  },
+  "candidate": {
+    "cases": [
+      {
+        "id": "target_form_word_collision",
+        "suite": "target",
+        "pass": true,
+        "ready": [
+          "rate-limiting"
+        ],
+        "review": [
+          "formboost",
+          "motion-primitives",
+          "twentyfirst-components",
+          "resend",
+          "anime-js"
+        ],
+        "missed": [],
+        "misplaced": [],
+        "forbidden": [],
+        "forbidden_review": [],
+        "latency_ms": 0.465,
+        "cost_usd": 0
+      },
+      {
+        "id": "target_browser_tool",
+        "suite": "target",
+        "pass": true,
+        "ready": [
+          "agent-browser"
+        ],
+        "review": [
+          "mobbin",
+          "crawlee",
+          "lusion-studio-storytelling-study",
+          "agent-reach-public",
+          "airborne-studio"
+        ],
+        "missed": [],
+        "misplaced": [],
+        "forbidden": [],
+        "forbidden_review": [],
+        "latency_ms": 0.39,
+        "cost_usd": 0
+      },
+      {
+        "id": "regression_growth_rights",
+        "suite": "regression",
+        "pass": true,
+        "ready": [],
+        "review": [
+          "open-seo",
+          "typesafe-jev",
+          "agent-browser",
+          "agent-reach-public",
+          "crawl4ai"
+        ],
+        "missed": [],
+        "misplaced": [],
+        "forbidden": [],
+        "forbidden_review": [],
+        "latency_ms": 0.403,
+        "cost_usd": 0
+      },
+      {
+        "id": "regression_motion",
+        "suite": "regression",
+        "pass": true,
+        "ready": [
+          "motion"
+        ],
+        "review": [
+          "componentry",
+          "scroll-world",
+          "lightswind",
+          "twentyfirst-components",
+          "ui-skills"
+        ],
+        "missed": [],
+        "misplaced": [],
+        "forbidden": [],
+        "forbidden_review": [],
+        "latency_ms": 0.44,
+        "cost_usd": 0
+      },
+      {
+        "id": "regression_security",
+        "suite": "regression",
+        "pass": true,
+        "ready": [
+          "dependency-vuln",
+          "input-validation",
+          "rate-limiting",
+          "upload-safety"
+        ],
+        "review": [
+          "open-code-review",
+          "agent-browser",
+          "impeccable",
+          "web-design-guidelines",
+          "crawlee"
+        ],
+        "missed": [],
+        "misplaced": [],
+        "forbidden": [],
+        "forbidden_review": [],
+        "latency_ms": 0.351,
+        "cost_usd": 0
+      },
+      {
+        "id": "regression_ux",
+        "suite": "regression",
+        "pass": true,
+        "ready": [],
+        "review": [
+          "mobbin",
+          "airborne-studio",
+          "anti-slop",
+          "awesome-claude-design",
+          "brik"
+        ],
+        "missed": [],
+        "misplaced": [],
+        "forbidden": [],
+        "forbidden_review": [],
+        "latency_ms": 0.49,
+        "cost_usd": 0
+      },
+      {
+        "id": "decline_unlicensed_gallery",
+        "suite": "decline",
+        "pass": true,
+        "ready": [],
+        "review": [
+          "mobbin",
+          "threejs-paris",
+          "lightswind",
+          "agent-browser",
+          "agent-reach-public"
+        ],
+        "missed": [],
+        "misplaced": [],
+        "forbidden": [],
+        "forbidden_review": [],
+        "latency_ms": 1.096,
+        "cost_usd": 0
+      },
+      {
+        "id": "decline_jev_shadow",
+        "suite": "decline",
+        "pass": true,
+        "ready": [],
+        "review": [
+          "typesafe-jev",
+          "mobbin",
+          "agent-browser",
+          "agent-reach-public",
+          "airborne-studio"
+        ],
+        "missed": [],
+        "misplaced": [],
+        "forbidden": [],
+        "forbidden_review": [],
+        "latency_ms": 0.475,
+        "cost_usd": 0
+      },
+      {
+        "id": "decline_domain_change",
+        "suite": "decline",
+        "pass": true,
+        "ready": [],
+        "review": [
+          "openmontage",
+          "agent-reach-public",
+          "comfy",
+          "heygen",
+          "free-for-dev"
+        ],
+        "missed": [],
+        "misplaced": [],
+        "forbidden": [],
+        "forbidden_review": [],
+        "latency_ms": 0.424,
+        "cost_usd": 0
+      }
+    ],
+    "suites": {
+      "target": {
+        "passed": 2,
+        "total": 2
+      },
+      "regression": {
+        "passed": 4,
+        "total": 4
+      },
+      "decline": {
+        "passed": 3,
+        "total": 3
+      }
+    },
+    "passed": 9,
+    "total": 9,
+    "total_latency_ms": 4.534,
+    "cost_usd": 0
+  },
+  "regressions": [],
+  "improvements": [
+    "target_form_word_collision"
+  ],
+  "gate_passed": true,
+  "note": "Fixture checks measure this deterministic selector only; real user outcome improvement is not established."
+}

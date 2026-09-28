@@ -1,9 +1,0 @@
-{
-  "route": "/work/edge-node",
-  "items": [
-    {
-      "q": "Why was the local Ollama service slow on localhost?",
-      "a": "The committed Project Edge Node benchmark attributes excess latency to IPv6-first localhost resolution. Switching local Ollama communication to 127.0.0.1 reduced reported mean request latency from 5.356 seconds to 0.973 seconds. The report records 50 latency requests with zero failures, plus a separate 10-request time-to-first-token measurement; results depend on that environment."
-    }
-  ]
-}

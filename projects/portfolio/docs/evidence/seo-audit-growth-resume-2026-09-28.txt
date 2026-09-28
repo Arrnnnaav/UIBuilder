@@ -1,2 +1,0 @@
-
-seo:audit http://localhost:3410 — 0 findings (0 high)

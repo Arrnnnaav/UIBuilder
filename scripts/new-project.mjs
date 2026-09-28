@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // node scripts/new-project.mjs <pipeline> <slug> [--standalone]
 // Copies templates/marketing-starter → projects/<slug>, seeds docs/ from templates/docs,
-// Projects belong to the monorepo by default; --standalone initializes a site repo.
+// Projects live locally under this checkout and are ignored by root Git; --standalone initializes a site repo.
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join, dirname, relative, sep } from "node:path";
 import { fileURLToPath } from "node:url";

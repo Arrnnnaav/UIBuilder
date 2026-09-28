@@ -8,12 +8,16 @@ unmodified from the [Apache Software Foundation](https://www.apache.org/licenses
 ## Scope
 
 The grant covers original reusable pipeline work: scripts, tests, templates,
-agent definitions, commands, original skills, recipes and project application
-code. It does **not** grant reuse of personal or client résumé text, biographical
+agent definitions, commands, original skills and recipes. Site application code
+under the local-only `projects/` folder is not part of the current public harness
+tree and is licensed in its own repository, if published. The root license does
+**not** grant reuse of personal or client résumé text, biographical
 copy, contact data, project descriptions/evidence, branding, photographs, artwork
 or other site content/assets unless the owner separately licenses them. In
 particular, portfolio `content/`, `public/arnav-khandelwal-resume.pdf`, other personal assets and
-project-specific documents are outside this broad reuse grant. Reference-site
+project-specific documents are outside this broad reuse grant. Older Git history
+may contain project files; their presence there does not broaden the current
+license. Reference-site
 assets and third-party works remain subject to their owners' terms.
 
 Vendored skills retain their own upstream terms rather than being relicensed by

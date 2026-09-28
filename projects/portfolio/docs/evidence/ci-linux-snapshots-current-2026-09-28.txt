@@ -1,7 +1,0 @@
-GitHub Actions run: https://github.com/Arrnnnaav/UIBuilder/actions/runs/36373755566
-Branch: experiment/astro-static-lcp-pilot
-Result: success
-Jobs: source (portfolio), source (demo), source (abizcreator), portfolio-static-snapshots all passed.
-Portfolio source job: frozen install, typecheck, lint, token/content validation, tests, high severity dependency audit, and production build passed on ubuntu-latest.
-Snapshot job: generated and uploaded 48 Linux visual baselines for Chromium/WebKit × desktop/mobile × 12 public routes.
-Artifact: portfolio-linux-static-snapshots; downloaded and committed under e2e/__snapshots__/linux/.

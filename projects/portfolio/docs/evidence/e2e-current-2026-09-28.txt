@@ -1,4 +1,0 @@
-Command: `$env:CI='1'; $env:E2E_SKIP_BUILD='1'; $env:E2E_PORT='3435'; pnpm test:e2e -- --reporter=line`
-Build: fresh production Playwright artifact, test Turnstile keys and error fixture enabled only for this run.
-Result: exit 0; 202 passed, 2 expected desktop-only mobile-menu skips (204 total), 0 failures.
-Coverage: Chromium and WebKit at 390px and 1440px; 12 public routes; metadata, console errors, axe, committed visual snapshots, keyboard navigation, mobile dialog focus, contact validation/submission, 404, error boundary, headers, résumé PDF, FAQs and schema, sitemap, canonical parity, robots, llms.txt, source precision, reduced motion, and semantic project-heading order.

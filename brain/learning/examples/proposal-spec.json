@@ -1,0 +1,6 @@
+{
+  "title": "Reduce misleading resource matches for engineering tasks",
+  "expected_benefit": "Fewer unrelated resources appear in the review queue for real engineering requests.",
+  "regression_risk": "Exact token matching may miss useful compound words or aliases in some tasks.",
+  "rollback": "Point active.json back to router-v1 after an owner-reviewed rollback receipt."
+}

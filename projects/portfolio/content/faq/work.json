@@ -1,9 +1,0 @@
-{
-  "route": "/work",
-  "items": [
-    {
-      "q": "Which projects are included in this portfolio?",
-      "a": "The selected work includes Project Edge Node, Cited Multi-Agent Researcher, LedgerBridge, GhostCursor, NeuroUX and StudyOS. Together they cover offline inference, concurrent research, auditable reconciliation, bounded desktop assistance, experimental media analysis and learning workflows. Each case study links its public repository and states what the published evidence can establish."
-    }
-  ]
-}

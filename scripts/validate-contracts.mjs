@@ -19,7 +19,7 @@ for (const file of readdirSync(join(root, '.claude/agents')).filter((name) => na
 for (const agent of schema.properties.agent.enum) if (!agents.has(agent)) errors.push(`handoff schema references missing agent ${agent}`);
 for (const agent of agents) if (!schema.properties.agent.enum.includes(agent)) errors.push(`agent ${agent} missing from handoff schema`);
 let handoffs = 0;
-for (const project of readdirSync(join(root, 'projects'), { withFileTypes: true }).filter((entry) => entry.isDirectory())) {
+for (const project of (existsSync(join(root, 'projects')) ? readdirSync(join(root, 'projects'), { withFileTypes: true }) : []).filter((entry) => entry.isDirectory())) {
   const directory = join(root, 'projects', project.name, 'docs/handoff');
   if (!existsSync(directory)) continue;
   for (const file of readdirSync(directory).filter((name) => name.endsWith('.json'))) {

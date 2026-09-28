@@ -1,9 +1,0 @@
-{
-  "route": "/work/neuroux",
-  "items": [
-    {
-      "q": "Are NeuroUX scores validated predictions of user behavior?",
-      "a": "No. NeuroUX is an experimental application built around predicted brain responses and transparent region-weighting formulas. Its UX and virality scores are exploratory proxies, not validated forecasts of actual audience behavior. The repository reports hardware-specific inference improvements; without model weights, a deterministic stub exercises the application pipeline and must not be mistaken for neuroscience inference."
-    }
-  ]
-}

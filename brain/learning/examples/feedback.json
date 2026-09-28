@@ -1,0 +1,7 @@
+{
+  "verdict": "negative",
+  "rating": 4,
+  "category": "evidence_quality",
+  "evidence_ref": "projects/example-site/docs/QA_REPORT.md",
+  "source": "owner"
+}
