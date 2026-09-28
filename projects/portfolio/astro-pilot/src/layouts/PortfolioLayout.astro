@@ -45,22 +45,28 @@ const socialImage = new URL(page.og?.image ?? "/opengraph-image", site.url).toSt
       <div class="container nav-bar">
         <a href="/" class="wordmark">Arnav Khandelwal</a>
         <nav class="desktop-nav" aria-label="Primary">
-          <a href="/work">Work</a><a href="/about">About</a>
+          <a href="/work" aria-current={route.startsWith("/work") ? "page" : undefined}>Work</a><a href="/about" aria-current={route === "/about" ? "page" : undefined}>About</a>
           <a href="https://github.com/Arrnnnaav" target="_blank" rel="me noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
         </nav>
-        <a class="button nav-contact" href="/contact">Contact Arnav</a>
-        <details class="mobile-nav-fallback">
-          <summary class="menu-button" role="button">Menu</summary>
-          <nav aria-label="Mobile primary">
-            <a href="/work">Work</a><a href="/about">About</a><a href="https://github.com/Arrnnnaav" rel="me">GitHub</a>
-            <a href="/contact">Contact Arnav</a><a href="/resume">Résumé</a>
-          </nav>
-        </details>
+        <a class="button nav-contact" href="/contact" aria-current={route === "/contact" ? "page" : undefined}>Contact Arnav</a>
+        <button type="button" class="menu-button" aria-haspopup="dialog" data-menu-trigger>Menu</button>
       </div>
+      <dialog class="nav-dialog" aria-label="Main menu" data-nav-dialog>
+        <div class="container">
+          <button type="button" class="menu-close text-link" data-menu-close>Close menu</button>
+          <nav aria-label="Mobile primary">
+            <a href="/work" aria-current={route.startsWith("/work") ? "page" : undefined}>Work</a>
+            <a href="/about" aria-current={route === "/about" ? "page" : undefined}>About</a>
+            <a href="https://github.com/Arrnnnaav" target="_blank" rel="me noopener noreferrer">GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+            <a href="/contact">Contact Arnav</a>
+            <a href="/resume">Résumé</a>
+          </nav>
+        </div>
+      </dialog>
     </header>
     <main id="main" tabindex="-1" class="container flex-1"><slot /></main>
     <footer class="container site-footer">
-      <a class="footer-cta" href="/contact">Contact Arnav</a>
+      <a class="footer-cta" href={route === "/contact" ? "/work" : "/contact"}>{route === "/contact" ? "See the work" : "Contact Arnav"}</a>
       <div class="footer-columns">
         <div><h2>Site</h2><nav aria-label="Footer"><a href="/">Home</a><a href="/work">Work</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/resume">Résumé</a></nav></div>
         <div><h2>Case studies</h2><a href="/work/edge-node">Edge Node</a><a href="/work/cited-researcher">Cited Researcher</a><a href="/work/ledgerbridge">LedgerBridge</a><a href="/work/ghostcursor">GhostCursor</a><a href="/work/neuroux">NeuroUX</a><a href="/work/studyos">StudyOS</a></div>
@@ -70,3 +76,51 @@ const socialImage = new URL(page.og?.image ?? "/opengraph-image", site.url).toSt
     </footer>
   </body>
 </html>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>("[data-nav-dialog]");
+  const trigger = document.querySelector<HTMLButtonElement>("[data-menu-trigger]");
+  const closeButton = dialog?.querySelector<HTMLButtonElement>("[data-menu-close]");
+
+  const closeDialog = () => {
+    if (dialog?.open) dialog.close();
+    document.body.style.overflow = "";
+    trigger?.focus();
+  };
+
+  if (dialog && trigger) {
+    trigger.addEventListener("click", () => {
+      dialog.showModal();
+      document.body.style.overflow = "hidden";
+    });
+    closeButton?.addEventListener("click", closeDialog);
+    dialog.addEventListener("close", () => {
+      document.body.style.overflow = "";
+      trigger.focus();
+    });
+    dialog.addEventListener("cancel", event => {
+      event.preventDefault();
+      closeDialog();
+    });
+    dialog.addEventListener("click", event => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const link = target.closest("a[href]");
+      if (link && link.getAttribute("href")?.startsWith("/")) closeDialog();
+    });
+    dialog.addEventListener("keydown", event => {
+      if (event.key !== "Tab") return;
+      const items = [...dialog.querySelectorAll<HTMLElement>('a[href],button:not([disabled]),[tabindex="0"]')]
+        .filter(item => item.getClientRects().length > 0);
+      const first = items[0];
+      const last = items.at(-1);
+      if (!first || !last) return;
+      const index = items.indexOf(document.activeElement as HTMLElement);
+      const next = index < 0
+        ? (event.shiftKey ? items.length - 1 : 0)
+        : (index + (event.shiftKey ? -1 : 1) + items.length) % items.length;
+      event.preventDefault();
+      items[next].focus();
+    });
+  }
+</script>
