@@ -10,5 +10,5 @@
 | S5 polish | design-director/ship | ✅ | 48 Next baselines and 48 static-candidate baselines; current static browser matrix passes 202 tests with 2 expected desktop-only skips | 2026-09-28 |
 | S6 ship | ship/growth | ✅ | Default clean build, typecheck/lint/unit, runtime SEO/security, all-route browser/contrast checks and clean dependency audit pass; static Lighthouse passes all 12 routes on desktop/mobile | 2026-09-28 |
 | G3 | automatic | ✅ passed | Default static hybrid candidate meets build, browser, accessibility, security, growth and visual requirements. Three-run Lighthouse: mobile LCP 1357–1359ms, CLS ≤0.035, all categories 100. Evidence in QA_REPORT.md, SECURITY_REPORT.md, PERF_REPORT.md and evidence/. | 2026-09-28 |
-| S7 deploy | ship | ⬜ | Not deployed; actual deployment URL and production environment are unverified. Custom domain is deferred; provider receipts are conditional on owner-configured keys. | |
+| S7 deploy | ship | 🟡 in progress | Provisional Vercel URL returns 404; Vercel CLI device authentication is pending before preview deployment. No production deploy or DNS changes. Custom domain remains deferred. | 2026-09-28 |
 | BusinessOS `/connect` | orchestrator | ⬜ | Connector implementation exists; real-site dogfood needs deployed site and owner GitHub PAT | |

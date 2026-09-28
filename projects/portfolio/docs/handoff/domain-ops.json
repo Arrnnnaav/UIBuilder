@@ -2,34 +2,41 @@
   "agent": "domain-ops",
   "status": "partial",
   "inputs_used": [
-    "C:\\Users\\user\\Downloads\\domain_launch_checklist.pdf",
     "AGENTS.md",
-    "projects/portfolio/docs/PERF_REPORT.md",
-    "plan/DOMAIN-LAUNCH.md"
-  ],
-  "decisions": [
-    "Domain activation is deferred until G3 and owner hostname/provider selection.",
-    "A marketing portfolio does not need an app subdomain or marketing email subdomain by default.",
-    "DMARC enforcement must wait until legitimate senders and alignment are verified."
-  ],
-  "files_created": [
     ".claude/agents/domain-ops.md",
     "plan/DOMAIN-LAUNCH.md",
+    "projects/portfolio/docs/DOMAIN_PLAN.md",
+    "G3 passed on 2026-09-28",
+    "Provisional origin https://arnav-khandelwal.vercel.app returns HTTP 404",
+    "Vercel CLI is not authenticated",
+    "Owner has deferred custom hostname, DNS, and provider selection"
+  ],
+  "decisions": [
+    "G3 is complete, so S7 preparation may proceed, but deployment and live domain verification remain incomplete.",
+    "The provisional Vercel hostname returning 404 does not establish a live production deployment.",
+    "Vercel CLI authentication in the intended owner account is required before ship can deploy.",
+    "Custom-hostname, DNS, registrar, and provider work remains deferred until the owner selects and authorizes the exact changes.",
+    "Do not purchase a domain, change live DNS, configure mail, or deploy from the domain-ops role."
+  ],
+  "files_created": [
     "projects/portfolio/docs/DOMAIN_PLAN.md",
     "projects/portfolio/docs/handoff/domain-ops.json"
   ],
   "resources_used": [],
   "patterns_used": [],
   "risks": [
-    "G3 remains open because mobile LCP exceeds the 2.5 second threshold.",
-    "No registrar, production hostname, sending provider, or Search Console account is selected."
+    "The provisional Vercel hostname currently returns HTTP 404; no production deployment is evidenced.",
+    "Vercel CLI is unauthenticated, so the ship agent cannot use it to deploy until the owner authenticates the intended account.",
+    "No custom hostname, registrar, DNS provider/account, sending domain, or Search Console account is selected."
   ],
   "open_questions": [
-    "Owner must select a production hostname and provider when S7 is authorized."
+    "When S7 deployment is authorized, the owner must authenticate Vercel CLI in the intended account.",
+    "Custom domain remains deferred; when resumed, the owner must choose the hostname/provider and approve an exact DNS change plan."
   ],
   "next_agent": "ship",
   "next_instructions": [
-    "Complete G3 before scheduling domain activation.",
-    "When S7 starts, coordinate deployment with domain-ops and live SEO validation with growth."
+    "Coordinate S7 deployment only after the owner authenticates Vercel CLI in the intended account and authorizes deployment.",
+    "After deployment, give domain-ops the live hostname and provider-issued DNS instructions for a reviewed plan; do not change records without explicit owner approval.",
+    "Keep custom-hostname/DNS/provider work deferred until the owner explicitly resumes and approves it."
   ]
 }

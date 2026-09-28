@@ -1,6 +1,6 @@
 # Domain launch plan
 
-This is a deferred S7 workstream. Do not buy, connect, or change a domain until the site passes G3 and the owner selects the hostname/provider. The portfolio currently uses a provisional Vercel URL in its canonical metadata; that is not proof of deployment.
+This is a deferred custom-domain workstream. G3 passed on 2026-09-28. Do not buy, connect, or change a domain until the owner selects the hostname/provider and approves the exact changes. The portfolio currently uses a provisional Vercel URL in its canonical metadata; it currently returns HTTP 404 and is not proof of deployment.
 
 ## Checklist mapped from `domain_launch_checklist.pdf`
 
@@ -21,4 +21,4 @@ The PDF's `app` CNAME and two email subdomains are examples, not universal requi
 
 ## Current portfolio status
 
-Deferred. G3 remains open because mobile LCP is above the required 2.5 seconds. No production hostname, registrar, email sender domain, or Search Console account has been selected. S7 has not started.
+Custom domain deferred by owner. G3 passed; S7 deployment is pending Vercel authentication. No production hostname, registrar, email sender domain, or Search Console account has been selected. No DNS changes have been made.
