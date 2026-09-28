@@ -7,9 +7,9 @@
 2. `.claude/commands/`: `build.md`, `intake.md`, `gate.md`, `learn.md`, `connect.md`.
 3. `pipelines/portfolio/` and `pipelines/company-site/`: PIPELINE.md (stages, which agents run), PAGES.md, DESIGN.base.md (constraints, not a look), QA.md, PROMPTS.md, stack.json.
 4. `scripts/gate.mjs`: checks that each gate's artifacts exist and are valid, and for G3 runs the DoD commands in the project.
-5. `scripts/new-project.mjs <pipeline> <slug>`: copies marketing-starter to `projects/<slug>`, runs git init, and creates `docs/` from the templates.
+5. `scripts/new-project.mjs <pipeline> <slug>`: copies marketing-starter to `D:\UiBuildProj\<slug>`, initializes its Git repository and private GitHub remote, and creates `docs/` from the templates.
 
 ## Done when
-- `node scripts/new-project.mjs portfolio demo` creates a working project.
+- `node scripts/new-project.mjs portfolio demo` creates a separate project and private GitHub repository (requires authenticated `gh`).
 - `node scripts/gate.mjs demo G1` reports which artifacts are missing.
 - The agent files parse (valid frontmatter).

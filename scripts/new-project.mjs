@@ -1,18 +1,26 @@
 #!/usr/bin/env node
-// node scripts/new-project.mjs <pipeline> <slug> [--standalone]
-// Copies templates/marketing-starter → projects/<slug>, seeds docs/ from templates/docs,
-// Projects live locally under this checkout and are ignored by root Git; --standalone initializes a site repo.
+// node scripts/new-project.mjs <pipeline> <slug> [--root <directory>]
+// Copies the starter to an external project root and initializes an independent Git repo.
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
-import { join, dirname, relative, sep } from "node:path";
+import { join, dirname, relative, sep, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const [pipeline, slug, ...options] = process.argv.slice(2);
+const args = process.argv.slice(2);
+const [pipeline, slug, ...options] = args;
 const pipelines = readdirSync(join(root, "pipelines"));
 
-if (!pipeline || !slug || options.some((option) => option !== "--standalone") || options.length > 1) {
-  console.error(`usage: node scripts/new-project.mjs <${pipelines.join("|")}> <slug> [--standalone]`);
+let projectRoot = process.env.UIBUILDER_PROJECTS_ROOT || (process.platform === "win32" ? "D:\\UiBuildProj" : join(dirname(root), "UiBuildProj"));
+if (options.length) {
+  if (options.length !== 2 || options[0] !== "--root" || !options[1]) {
+    console.error(`usage: node scripts/new-project.mjs <${pipelines.join("|")}> <slug> [--root <directory>]`);
+    process.exit(2);
+  }
+  projectRoot = options[1];
+}
+if (!pipeline || !slug) {
+  console.error(`usage: node scripts/new-project.mjs <${pipelines.join("|")}> <slug> [--root <directory>]`);
   process.exit(2);
 }
 if (!pipelines.includes(pipeline)) {
@@ -25,9 +33,9 @@ if (!/^[a-z0-9][a-z0-9-]*$/.test(slug)) {
 }
 
 const src = join(root, "templates/marketing-starter");
-const dest = join(root, "projects", slug);
+const dest = resolve(projectRoot, slug);
 if (existsSync(dest)) {
-  console.error(`projects/${slug} already exists — refusing to overwrite`);
+  console.error(`${dest} already exists - refusing to overwrite`);
   process.exit(1);
 }
 
@@ -59,6 +67,12 @@ const pkg = JSON.parse(readFileSync(pkgPath, "utf8"));
 pkg.name = slug;
 writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n");
 
-if (options.includes("--standalone")) execFileSync("git", ["init", "-q", "-b", "main"], { cwd: dest });
-console.log(`✓ projects/${slug} created from marketing-starter (${pipeline})`);
-console.log(`  next: cd projects/${slug} && pnpm install   ·   then /build ${pipeline} ${slug}`);
+execFileSync("git", ["init", "-q", "-b", "main"], { cwd: dest });
+execFileSync("git", ["add", "-A"], { cwd: dest });
+execFileSync("git", ["commit", "-q", "-m", "chore: initialize UIBuilder site"], { cwd: dest });
+if (process.env.UIBUILDER_SKIP_GITHUB !== "1") {
+  const owner = process.env.UIBUILDER_GITHUB_OWNER || "Arrnnnaav";
+  execFileSync("gh", ["repo", "create", `${owner}/${slug}`, "--private", "--source", dest, "--remote", "origin", "--push"], { cwd: dest, stdio: "inherit" });
+}
+console.log(`Created ${dest} from marketing-starter (${pipeline}) as an independent Git repository`);
+console.log(`  next: cd "${dest}" && pnpm install; then /build ${pipeline} ${slug}`);

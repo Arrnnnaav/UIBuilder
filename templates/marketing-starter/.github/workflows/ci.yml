@@ -1,9 +1,10 @@
-name: ci
+name: Site CI
 
 on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
 
 concurrency:
   group: ci-${{ github.ref }}

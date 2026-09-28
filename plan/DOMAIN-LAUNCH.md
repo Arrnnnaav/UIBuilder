@@ -1,6 +1,6 @@
 # Domain launch plan
 
-This is a deferred custom-domain workstream. Earlier checks passed on 2026-09-28, but the current formal G3 gate is pending because `projects/portfolio/docs/G3_EVIDENCE.json` is missing. Do not buy, connect, or change a domain until the owner selects the hostname/provider and approves the exact changes. The portfolio currently uses a provisional Vercel URL in its canonical metadata; it currently returns HTTP 404 and is not proof of deployment.
+This is a deferred custom-domain workstream. Earlier checks passed on 2026-09-28, but the current formal G3 gate is pending because `D:\UiBuildProj\portfolio\docs/G3_EVIDENCE.json` is missing. Do not buy, connect, or change a domain until the owner selects the hostname/provider and approves the exact changes. The portfolio currently uses a provisional Vercel URL in its canonical metadata; it currently returns HTTP 404 and is not proof of deployment.
 
 ## Checklist mapped from `domain_launch_checklist.pdf`
 

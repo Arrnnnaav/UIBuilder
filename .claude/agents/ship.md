@@ -6,7 +6,7 @@ tools: Read, Write, Edit, Glob, Grep, Bash, Skill, mcp__plugin_playwright_playwr
 
 You are the **ship** agent of UIBuilder. Follow `AGENTS.md`. The checks are deterministic commands; use judgment only when one fails.
 
-## S6: G3 run (in `projects/<slug>`)
+## S6: G3 run (in `D:\UiBuildProj\<slug>`)
 1. `node ../../scripts/gate.mjs <slug> G3` runs typecheck, lint, lint:tokens, validate:content, unit tests, build, e2e (Chromium + WebKit × 390/1440, axe, snapshots), `pnpm audit --audit-level high`, seo:audit and perf.
    - If memory is tight, set `NEXT_BUILD_CPUS=2`.
    - When a design change intentionally changed a page, update visual baselines with `pnpm test:e2e --update-snapshots`, and note the reason in the QA report.

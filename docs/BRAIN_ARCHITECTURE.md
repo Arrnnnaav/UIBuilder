@@ -72,7 +72,7 @@ G1 approves scope/wireframes. G2 approves the visual system. G2.5 approves an ex
 ## Near-term completion work
 
 1. Gather owner feedback on the Evidence Atlas options and amend locked design files only for the selected direction.
-2. Use the timecoded source ledger now in `projects/portfolio/docs/TASTE_REPORT.md`; test any identified live sites at desktop/mobile before promotion from REVIEWED.
+2. Use the timecoded source ledger in `D:\UiBuildProj\portfolio\docs/TASTE_REPORT.md`; test any identified live sites at desktop/mobile before promotion from REVIEWED.
 3. Restore the portfolio's missing `docs/G3_EVIDENCE.json`, rerun the formal gate on final source, and address any failure. The earlier separate test results are useful evidence, but the formal gate is pending.
 4. Prepare `RELEASE_REVIEW.md` with exact target and local walkthrough, then seek G3.5 approval. No new external deploy before it.
 5. Evaluate Jev on representative labeled real tasks/link pairs before changing it from shadow mode. Keep Agent Reach optional; install only if it beats current public-source research flow.

@@ -3,7 +3,7 @@
 **Goal:** create the repo skeleton and a brain seeded from `links.docx`.
 
 ## Tasks
-1. Create the directories: `brain/{patterns,builds,seo-rules}`, `pipelines/`, `templates/{docs,marketing-starter}`, `projects/`, `.claude/{agents,commands,skills}`.
+1. Create the harness directories: `brain/{patterns,builds,seo-rules}`, `pipelines/`, `templates/{docs,marketing-starter}`, `.claude/{agents,commands,skills}`. Site projects are scaffolded separately under `D:\UiBuildProj\<slug>`.
 2. Add doc templates in `templates/docs/`: PRODUCT, USER_FLOW, IA, WIREFRAMES, DESIGN, MOTION, SEO_STRATEGY, VISUAL_REVIEW, QA_REPORT, STATE, plus `HANDOFF.schema.json`.
 3. `brain/tools.json`: the capability → tool registry with an agent allowlist, cost, `enabled_if` and fallback. Media tools are disabled.
 4. `brain/resources.json`: all ~60 links from `C:\Users\user\Downloads\links.docx` with category, usage_mode, best_for, trust and provenance.

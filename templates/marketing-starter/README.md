@@ -1,7 +1,8 @@
 # marketing-starter
 
 The UIBuilder production starter for marketing sites: portfolios and company sites. Every
-project in `projects/<slug>` is a copy of this template (`node scripts/new-project.mjs`).
+project in `D:\UiBuildProj\<slug>` is a copy of this template (`node scripts/new-project.mjs`)
+and starts as its own Git repository with its own CI workflow.
 
 It works with zero accounts. Each integration switches on when its env key is present (see
 `.env.example`).

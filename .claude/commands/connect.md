@@ -3,7 +3,7 @@ description: Hand a shipped site to BusinessOS for SEO/AEO/GEO maintenance — /
 argument-hint: <slug>
 ---
 
-Project: `projects/$ARGUMENTS`.
+Project: `D:\UiBuildProj\$ARGUMENTS`.
 
 1. Verify that `seo.manifest.json` exists and that `site.url` matches the live URL. Update it if needed, commit it, and ask the user before pushing.
 2. Collect the connection values:

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // node scripts/gate.mjs <slug> <G1|G2|G3>
 // G1/G2 check that the stage artifacts exist and are filled in. G3 runs the Definition of
-// Done (AGENTS.md §4) inside projects/<slug>. Exit 0 only when every check passes.
+// Done (AGENTS.md §4) inside the external site repository. Exit 0 only when every check passes.
 import { existsSync, readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -11,14 +11,19 @@ import { validateEvidence, validatePerf, monitoringKeys } from "./lib/g3-evidenc
 import { checkOwnerGate } from "./lib/owner-gates.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+const projectsRoot = process.env.UIBUILDER_PROJECTS_ROOT || (process.platform === "win32" ? "D:\\UiBuildProj" : join(dirname(root), "UiBuildProj"));
 const [slug, gate] = process.argv.slice(2);
 if (!slug || !["G1", "G2", "G2.5", "G3", "G3.5"].includes(gate)) {
   console.error("usage: node scripts/gate.mjs <slug> <G1|G2|G2.5|G3|G3.5>");
   process.exit(2);
 }
-const proj = join(root, "projects", slug);
+if (!/^[a-z0-9][a-z0-9-]*$/.test(slug)) {
+  console.error("slug must be kebab-case");
+  process.exit(2);
+}
+const proj = join(projectsRoot, slug);
 if (!existsSync(proj)) {
-  console.error(`projects/${slug} not found`);
+  console.error(`${proj} not found`);
   process.exit(2);
 }
 const doc = (f) => join(proj, "docs", f);
@@ -52,7 +57,6 @@ if (gate === "G2.5" || gate === "G3.5") {
     check('G2.5 visual approval', earlier.length === 0, earlier.join('; '));
   }
 }
-
 if (gate === "G1") {
   for (const f of ["PRODUCT.md", "SEO_STRATEGY.md", "INSPIRATION.md", "USER_FLOW.md", "IA.md", "WIREFRAMES.md"]) check(`docs/${f}`, ...filled(f));
   for (const a of ["research", "ux", "growth"]) check(`handoff/${a}.json`, ...handoff(a));
@@ -126,10 +130,10 @@ if (gate === "G3") {
   );
   try {
     const routes = Object.keys(JSON.parse(readFileSync(join(proj, "content/seo/routes.json"), "utf8")));
-    const git = spawnSync("git", ["ls-tree", "-r", "--name-only", "HEAD", "--", `projects/${slug}/e2e/__snapshots__`], { cwd: root, encoding: "utf8" });
-    const unchanged = spawnSync("git", ["diff", "--quiet", "HEAD", "--", `projects/${slug}/e2e/__snapshots__`], { cwd: root });
+    const git = spawnSync("git", ["ls-tree", "-r", "--name-only", "HEAD", "--", "e2e/__snapshots__"], { cwd: proj, encoding: "utf8" });
+    const unchanged = spawnSync("git", ["diff", "--quiet", "HEAD", "--", "e2e/__snapshots__"], { cwd: proj });
     check("reviewed snapshots match committed bytes", unchanged.status === 0);
-    const trackedSnapshots = new Set((git.stdout ?? "").split(/\r?\n/).map(p => p.replace(`projects/${slug}/`, "")));
+    const trackedSnapshots = new Set((git.stdout ?? "").split(/\r?\n/).filter(Boolean));
     const errors = validateEvidence(proj, JSON.parse(readFileSync(doc("G3_EVIDENCE.json"), "utf8")), {
       routes, platform: process.platform, trackedSnapshots,
       monitoringEnabled: monitoringKeys(proj),
@@ -138,7 +142,7 @@ if (gate === "G3") {
   } catch (error) { check("G3 evidence record", false, error.message); }
 }
 
-console.log(`\n${gate} — projects/${slug}`);
+console.log(`\n${gate} — ${proj}`);
 for (const r of results) console.log(`${r.ok ? "✓" : "✗"} ${r.name}${r.detail ? `  (${r.detail})` : ""}`);
 const failed = results.filter((r) => !r.ok).length;
 console.log(failed ? `\n✗ ${gate} FAILED (${failed}/${results.length})` : `\n✓ ${gate} PASSED (${results.length} checks)`);

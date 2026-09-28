@@ -2,7 +2,7 @@
 
 The root site matrix proves source checks, dependency audit and production builds.
 It does not run browser or performance gates. Standalone site workflows under
-`projects/*/.github/` become active when the corresponding site is its own repository.
+Each site's `.github/workflows/ci.yml` runs from its independent repository under `D:\UiBuildProj`.
 
 Standalone CI first builds with production defaults, then runs SEO/performance
 against that artifact. The bounded readiness probe and server cleanup live in one
