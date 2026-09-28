@@ -30,7 +30,7 @@
     "A17 is verified: mobile LCP 1356-1359ms, desktop LCP 327-329ms, and every measured CLS is below 0.1. A18 is verified against the clean candidate security/runtime evidence and dependency audit.",
     "A07 is verified by the production no-provider regression test: no Resend configuration with CONTACT_DRY_RUN=0 returns direct-email fallback and does not construct Resend.",
     "S7 remains pending: deployment and post-deploy URL/SEO checks; owner-controlled provider configuration and receipts if providers are enabled; BusinessOS connection and separate approval steps; launch video and /learn memory. Custom domain remains deferred.",
-    "Linux static snapshot baseline and remote CI portability validation are recorded as follow-up work, not a G3 blocker. New Windows static baselines exist in the worktree; do not describe them as committed until tracked."
+    "Linux static snapshot baseline and remote CI portability both passed in GitHub Actions run 36373755566; all 48 Linux static snapshots are committed."
   ],
   "files_created": [
     "projects/portfolio/docs/ACCEPTANCE.md",
@@ -43,8 +43,8 @@
   "risks": [
     "No deployment is evidenced; deployment URL and post-deploy checks remain S7 work.",
     "Real email/telemetry provider receipts require owner-controlled release configuration; no-provider fallback/no-op behavior is verified and is not a G3 blocker.",
-    "BusinessOS live-site dogfood, launch video and /learn build memory remain S7 work.",
-    "Linux static snapshot baselines and remote CI portability validation remain follow-up work, not a G3 blocker."
+    "BusinessOS live-site dogfood and launch video remain S7 work. The /learn build memory exists, but owner rating and qualitative feedback are pending.",
+    "Preview deployment remains blocked on owner Vercel device authentication; the configured provisional hostname returns 404."
   ],
   "open_questions": [
     "Owner-controlled deployment account and provider configuration, if enabled, are needed to complete S7 release evidence. Custom-domain selection remains deferred."
@@ -53,7 +53,7 @@
   "next_instructions": [
     "Proceed with S7 deployment and post-deploy URL/SEO/contact smoke checks when deployment access is available; custom domain remains deferred.",
     "Configure only owner-approved production providers if enabled and capture receipts; otherwise retain the verified direct-email fallback and clean monitoring no-op behavior. Never release test credentials or CONTACT_DRY_RUN.",
-    "After deployment, complete BusinessOS /connect dogfood with owner-approved PR and separate publish approval, then produce the launch video and /learn memory.",
-    "Track Linux static snapshot baseline and remote CI portability validation as follow-up; do not reopen or block G3 on it."
+    "After preview deployment, complete BusinessOS /connect dogfood subject to owner approval for default-branch integration, a PR and separate publish approval; then produce the launch video and complete /learn after owner feedback.",
+    "Do not reopen G3 for Linux snapshots; CI run 36373755566 generated and committed all 48 static snapshots."
   ]
 }

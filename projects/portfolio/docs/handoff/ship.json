@@ -12,7 +12,8 @@
   "decisions": [
     "Keep the Lighthouse simulated mobile threshold and throttling unchanged; the repository gate uses simulated LCP, while the LCP breakdown table reports observed trace phases.",
     "Reject and revert temporary content-visibility and font-display optional experiments because they did not produce a repeatable gate pass.",
-    "Treat URL-blocked JavaScript and CSS Lighthouse results as diagnostics only; these variants broke runtime or design styling and are not product fixes."
+    "Treat URL-blocked JavaScript and CSS Lighthouse results as diagnostics only; these variants broke runtime or design styling and are not product fixes.",
+    "Later D30 all-route Astro static HTML candidate passes G3: all 24 route/profile Lighthouse rows pass, with mobile LCP 1357–1359ms and desktop LCP 327–330ms. This supersedes the earlier Next-rendered fallback failure."
   ],
   "files_created": [
     "projects/portfolio/docs/evidence/perf-lcp-investigation.md",
@@ -24,18 +25,16 @@
   ],
   "patterns_used": [],
   "risks": [
-    "The strict simulated mobile LCP gate remains unmet on all 12 portfolio routes.",
-    "Observed unthrottled local LCP is not representative proof for the simulated mobile gate or field users.",
-    "Reducing or deferring Next/React client runtime may affect navigation, mobile menu, contact form, analytics, or approved motion; validate these before accepting an optimization."
+    "S7 preview deployment awaits owner Vercel authentication; the provisional URL returns 404, so no live production or indexing claim is made.",
+    "The Next-rendered fallback retains its historical mobile LCP failure and remains a rollback path; D30 static HTML is the default candidate.",
+    "BusinessOS real PR and publish flow, provider receipts, and launch video are not yet verified. Custom domain remains deferred."
   ],
   "open_questions": [
-    "What design-preserving change can reduce first-load hydration/runtime work enough to clear the simulated LCP gate across all routes?",
-    "Would a static HTML architecture for marketing pages be acceptable if the contact action remains a separate server endpoint?"
+    "Owner must complete Vercel device authentication before a temporary preview can be deployed."
   ],
   "next_agent": "orchestrator",
   "next_instructions": [
-    "Read docs/evidence/perf-lcp-investigation.md for the raw metric discrepancy and all probe results.",
-    "Do not mark G3 performance passed until a clean 3-run Lighthouse matrix proves every mobile route has LCP strictly below 2500ms.",
-    "Pursue a concrete client-runtime reduction or static-site architecture experiment without changing threshold, mobile throttling, or approved design."
+    "After authentication, deploy only the temporary preview and verify routes, headers, contact action, sitemap, robots, metadata and structured data against the actual URL.",
+    "Do not deploy production or alter DNS without explicit owner direction. Preserve the prior Next-rendered performance evidence as a historical fallback comparison."
   ]
 }
