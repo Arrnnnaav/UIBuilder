@@ -116,7 +116,9 @@ an owner-approved PR followed by a separate owner approval to publish. See the B
 Projects must be scaffolded under `D:\UiBuildProj\<slug>` and initialized as independent Git
 repositories. The root command `node scripts/new-project.mjs <pipeline> <slug>` creates the
 external folder, commits the starter, and creates/pushes a private GitHub repository by default.
-GitHub CLI (`gh`) must be authenticated; `UIBUILDER_GITHUB_OWNER` selects the owner account.
+GitHub CLI (`gh`) must be authenticated with `repo` and `workflow` scopes; run
+`gh auth refresh -h github.com -s workflow` if CI workflow pushes are rejected.
+`UIBUILDER_GITHUB_OWNER` selects the owner account.
 `UIBUILDER_PROJECTS_ROOT` may override the folder for another machine. Each project owns its GitHub remote, CI/CD workflows, deployment settings,
 secrets and site-specific rulebook; site CI runs from that project repository. Do not put site
 source, site CI, or site deployments inside the UIBuilder repository. Root CI checks the harness

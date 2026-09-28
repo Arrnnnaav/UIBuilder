@@ -13,7 +13,7 @@ UIBuilder is a file-driven, multi-agent harness for designing, building, testing
 | `scripts/` and `tests/platform/` | Scaffolding, routing, gates, validation, evaluation and rollback checks |
 | `plan/` and `docs/` | Decisions, progress, architecture, research and operating guides |
 
-**UIBuilder is the harness repository.** Site folders live outside this checkout at `D:\UiBuildProj\<slug>`, with one GitHub repository per site. `node scripts/new-project.mjs portfolio my-site` creates the folder, commits the starter, and creates/pushes a private repository using the authenticated `gh` account. Set `UIBUILDER_GITHUB_OWNER` to select another owner and `UIBUILDER_PROJECTS_ROOT` to use another parent folder. Each site's CI and deployment settings belong to its repository; the UIBuilder root workflow validates only the harness. Older UIBuilder Git history contains project snapshots, although the current tree does not.
+**UIBuilder is the harness repository.** Site folders live outside this checkout at `D:\UiBuildProj\<slug>`, with one GitHub repository per site. `node scripts/new-project.mjs portfolio my-site` creates the folder, commits the starter, and creates/pushes a private repository using the authenticated `gh` account. GitHub CLI needs `repo` and `workflow` scopes; if a workflow push is refused, run `gh auth refresh -h github.com -s workflow`. Set `UIBUILDER_GITHUB_OWNER` to select another owner and `UIBUILDER_PROJECTS_ROOT` to use another parent folder. Each site's CI and deployment settings belong to its repository; the UIBuilder root workflow validates only the harness. Older UIBuilder Git history contains project snapshots, although the current tree does not.
 
 ## Pipeline and approval gates
 
