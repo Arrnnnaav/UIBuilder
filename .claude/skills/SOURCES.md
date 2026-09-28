@@ -11,6 +11,7 @@
 | antislop, antislop-ui, antislop-copywriting, antislop-human, antislop-layoutmobile, antislop-code | github.com/miqdadbadjuber/anti-slop/skills | 339e364 | MIT |
 | improve-ui, fixing-accessibility, fixing-metadata, fixing-motion-performance | github.com/ibelick/ui-skills/skills | fd0889b | MIT |
 | scroll-world | github.com/oso95/scroll-world/skills/scroll-world | 71cc36d | MIT |
+| agent-browser | github.com/vercel-labs/agent-browser/skills/agent-browser | d01253d9db28d75080e36da3c1c31ef89454731e | Apache-2.0; LICENSE retained |
 
 brag: installed as a user plugin (`brag@brag` in ~/.claude/settings.json).
 Update with: re-clone, diff, copy.

@@ -1,0 +1,14 @@
+{
+  "agent": "research",
+  "project": "example-site",
+  "input_ref": "projects/example-site/docs/PRODUCT.md",
+  "evidence_refs": ["projects/example-site/docs/INSPIRATION.md"],
+  "tool_calls": [
+    { "tool_id": "agent_browser_cli", "status": "ok", "duration_ms": 1200, "cost_usd": 0, "evidence_ref": "projects/example-site/docs/INSPIRATION.md" }
+  ],
+  "output_ref": "projects/example-site/docs/handoff/research.json",
+  "errors": [],
+  "metrics": { "latency_ms": 3200, "input_tokens": null, "output_tokens": null, "cost_usd": null },
+  "outcome": { "status": "pending", "signals": [] },
+  "failure_categories": []
+}

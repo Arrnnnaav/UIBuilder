@@ -1,3 +1,0 @@
-Command: PERF_ROUTES=/; PERF_FACTORS=mobile; pnpm perf -- http://localhost:3400 (run included in the full 24-route matrix)
-Result: 3-run mobile-home median performance 95, accessibility/best-practices/SEO/agentic-browsing 100, LCP 2719ms, CLS 0; strict LCP contract fails. Authoritative clean-build full matrix: docs/evidence/perf-final-summary.json.
-Production artifact verified before measurement: /contact had no Turnstile test key or challenge script; /e2e-error returned 404. Then PERF_RUNS=3 covered 12 public routes × desktop/mobile.

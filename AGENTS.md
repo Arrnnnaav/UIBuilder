@@ -22,6 +22,7 @@ this file wins; to change the rules, edit this file.
 7. **Minimal cost.** Default to free tiers. Before proposing any paid service, check the free-for-dev catalog (`brain/tools.json` → `free_tier_catalog`) and verify the provider's live pricing. Paid tools stay registered but disabled until the user enables them.
 8. **Every agent finishes by writing `docs/handoff/<agent>.json`** (schema in `templates/docs/HANDOFF.schema.json`).
 9. **Honest reporting.** Mark a gate passed only with command output as evidence.
+10. **Measured improvement.** Each specialist handoff includes a run trace recorded through `scripts/improve.mjs`; traces contain references and metrics, not raw client text or secrets. `/learn` stores feedback and failure categories. Offline `brain-evaluator` may propose and evaluate JSON-only routing candidates, but cannot rewrite policy, promote itself, change gates, or deploy. Owner review of exact proposal/evaluation hashes is required for promotion; `UIBUILDER_LEARNING=0` restores the baseline selector.
 
 ## 2. Agents
 Definitions are in `.claude/agents/*.md`. The main session is the Orchestrator.
@@ -31,6 +32,7 @@ Definitions are in `.claude/agents/*.md`. The main session is the Orchestrator.
 | Orchestrator (main) | intake, state, gates, dispatch | `PRODUCT.md`, `STATE.md`, `BUILD_SPEC.json` |
 | product-manager | capability scope, acceptance, priorities and delivery review; no gate authority | `PRODUCT_REQUIREMENTS.md`, `ACCEPTANCE.md`, `PRIORITIES.md` |
 | research | references (≤5), competitors, the client's current site | `INSPIRATION.md`, `REFERENCE_BREAKDOWN.md` |
+| taste-research | local video/site visual mechanisms, rights, timecoded storyboards, original interaction briefs | `TASTE_REPORT.md`, `EXPERIENCE_REVIEW.md` |
 | ux | flows, IA, wireframes | `USER_FLOW.md`, `IA.md`, `WIREFRAMES.md` |
 | design-director | 3 isolated directions → hybrid → design system; visual review | `DESIGN.md`, `MOTION.md`, `tokens.css`, `VISUAL_REVIEW.md` |
 | frontend | pages, components, `/styleguide` | `app/`, `components/` |
@@ -38,6 +40,7 @@ Definitions are in `.claude/agents/*.md`. The main session is the Orchestrator.
 | growth | SEO/AEO/GEO strategy, SEO data files, audit | `SEO_STRATEGY.md`, `content/seo/*`, `content/schema/*`, `content/faq/*`, `public/llms.txt`, `GROWTH_REPORT.md` |
 | ship | QA, a11y, security, perf, deploy, launch video | `QA_REPORT.md`, `SECURITY_REPORT.md`, `PERF_REPORT.md` |
 | domain-ops | owner-approved hostname, DNS, TLS, redirects, mail-auth and post-launch verification | `DOMAIN_PLAN.md`, `DOMAIN_REPORT.md` |
+| brain-evaluator | offline run diagnosis, candidate evaluation and monitoring; no gate or promotion authority | `brain/learning/diagnosis.json`, proposals and evaluation reports |
 
 Design Council rule: run the three directions as **separate forked agents**, each with no
 access to the others. Only the critic sees all three.
@@ -45,17 +48,20 @@ access to the others. Only the critic sees all three.
 ## 3. Stages and gates
 ```
 S1 Orchestrator + product-manager + growth(strategy) → PRODUCT.md, PRODUCT_REQUIREMENTS.md, ACCEPTANCE.md, PRIORITIES.md, SEO_STRATEGY.md
-S2 ‖ research ‖ ux(+growth IA) ‖ backend-base
+S2 ‖ research ‖ taste-research ‖ ux(+growth IA) ‖ backend-base
 G1 brief + wireframes            — user approves
 S3 design-director: A | B | C (forks) → critic → DESIGN.md
 G2 design direction locked       — user approves
+S3.5 original local interaction prototype + mobile/reduced-motion proof
+G2.5 experience direction        — user reviews and approves exact artifacts
 S4 ‖ frontend ‖ backend-domain ‖ growth(data files)
 S5 design-director visual review → polish (max 2 loops)
 S6 ship ‖ QA/a11y ‖ security ‖ perf ‖ growth audit
 G3 Definition of Done            — automatic
+G3.5 final local release review   — user approves exact reviewed artifacts and target
 S7 ship deploy ‖ domain-ops DNS/TLS ‖ growth live SEO checks → /connect (BusinessOS) → launch video → /learn
 ```
-S7 starts only after G3. Domain purchases and live DNS changes require explicit owner approval; see `plan/DOMAIN-LAUNCH.md`.
+S4 starts after G2.5; S7 starts after G3 and G3.5. G2.5/G3.5 approvals live in `projects/<slug>/docs/approvals/` with hashes of the exact reviewed artifacts; agents cannot infer or write owner approval from silence. Any external preview or production deployment requires G3.5 for its named target. Domain purchases and live DNS changes require separate explicit owner approval; see `plan/DOMAIN-LAUNCH.md`.
 
 ## 4. Definition of Done (G3)
 - **Build:** `tsc --noEmit`, `eslint` and `next build` pass. No console or hydration errors.
@@ -99,16 +105,19 @@ an owner-approved PR followed by a separate owner approval to publish. See the B
 - `patterns/*.json` holds patterns with provenance, scored per `project_type`.
 - `preferences.md` records the user's taste: what they approved and what they rejected.
 - `builds/<slug>.json` records the pipeline, resources and patterns used, the **lineage** (which source produced each section), scores and feedback.
+- `domains.json` maps each stage to specialist agents, outputs and resource categories. `scripts/recommend-resources.mjs` gives an explainable shortlist and a separate review queue. Jev may add shadow-mode semantic hints after deterministic filtering; it has no gate, rights or deployment authority.
+- `learning/` stores redacted run and feedback records, failure diagnosis, versioned resource-router candidates, separate eval cases, promotion receipts and rollback versions. `brain-evaluator` analyzes it offline. A passing fixture eval never overrides source rights, owner gates or real outcome review; see `docs/SELF_IMPROVING_BRAIN.md`.
 - The trust ladder is NEW → REVIEWED → TESTED → APPROVED → TRUSTED, with REJECTED and DEPRECATED as exits. Only APPROVED and TRUSTED resources are used by default.
 
 ## 8. Commands
-Projects scaffold into this monorepo without nested `.git` directories by default.
+Projects scaffold locally under this checkout without nested `.git` directories by default; root Git ignores `projects/`.
 Use `node scripts/new-project.mjs <pipeline> <slug> --standalone` only when preparing
 a separate site repository. Move that project outside UIBuilder before publishing
 its own repository; never stage a nested repository as a replacement for site source.
 
 - `/build <pipeline> <slug>` runs a full pipeline.
 - `/intake <links>` adds resources to the brain.
-- `/gate <G1|G2|G3>` checks a gate.
+- `/gate <slug> <G1|G2|G2.5|G3|G3.5>` checks a gate.
 - `/learn <slug>` writes build memory.
+- `/improve <status|category>` diagnoses verified failures and evaluates bounded Brain candidates offline.
 - `/connect <slug>` hands the site to BusinessOS.

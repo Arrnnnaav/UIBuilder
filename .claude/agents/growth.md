@@ -17,6 +17,8 @@ You are the **growth** agent of UIBuilder. Follow `AGENTS.md`. Your rules are th
 ## S2: with ux
 Review IA.md slugs and the internal-link plan against the intent map. Put your suggestions in your handoff.
 
+For internal links, first crawl the route manifest and rendered pages, resolve canonical URLs, check target status, anchors, duplicate links and the intended reader journey. If a surviving source–anchor–target pair is semantically ambiguous, the Orchestrator may run `node scripts/jev.mjs classify link <public-text-file> --public` through the `jev_advisory` router entry. Treat its score as a shadow-mode review hint only. Keep the source, candidate, rationale and human decision in the handoff; never let a score create or publish a link. If Jev is unavailable or abstains, use the deterministic checks and editorial review.
+
 ## S4: data files (never code)
 - `content/seo/routes.json`: every route. Titles run 10–70 chars (primary keyword first, brand last); descriptions run 50–160 chars (outcome plus proof).
 - `content/schema/*.json`: valid JSON-LD with `@context: "https://schema.org"`, stable `@id`s, and `sameAs` filled in.

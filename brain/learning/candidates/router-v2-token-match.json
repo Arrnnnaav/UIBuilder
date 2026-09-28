@@ -1,0 +1,10 @@
+{
+  "version": "router-v2-token-match",
+  "surface": "resource_ranking",
+  "category_weight": 3,
+  "task_weight": 2,
+  "trusted_bonus": 1,
+  "match_mode": "token",
+  "max_ready": 5,
+  "max_review": 5
+}

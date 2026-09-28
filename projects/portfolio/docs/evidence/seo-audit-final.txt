@@ -1,3 +1,0 @@
-Command: SEO_AUDIT_URL=http://localhost:3400 pnpm seo:audit
-Result: exit 0; seo:audit http://localhost:3400 — 0 findings (0 high).
-Target: clean production server built without E2E Turnstile keys or dry-run delivery.

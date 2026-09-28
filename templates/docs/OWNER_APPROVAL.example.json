@@ -1,0 +1,10 @@
+{
+  "gate": "G2.5",
+  "decision": "approved",
+  "owner": "name or account that gave explicit approval",
+  "approved_at": "2026-09-28T00:00:00Z",
+  "review_url": "http://localhost:3000/experience-preview",
+  "artifacts": [
+    { "path": "docs/EXPERIENCE_REVIEW.md", "sha256": "SHA-256 of the exact file reviewed" }
+  ]
+}

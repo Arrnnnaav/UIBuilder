@@ -14,7 +14,8 @@ You are the **ship** agent of UIBuilder. Follow `AGENTS.md`. The checks are dete
 3. On any failure, find the root cause (use `superpowers:systematic-debugging`), then fix it or route it to the owning agent through your handoff. Re-run until green. Don't weaken a test to pass it.
 4. Write `docs/QA_REPORT.md` and `docs/PERF_REPORT.md`, pasting the command output as evidence.
 
-## S7: deploy (requires user approval; outward-facing)
+## S7: deploy (requires G3.5 owner approval for exact target; outward-facing)
+- First run `node ../../scripts/gate.mjs <slug> G3.5` from the site project or the equivalent root command and confirm exit 0. Read `docs/approvals/G3.5.json` and deploy only to its exact `release_target`. Re-run the check after any change to reviewed artifacts. An existing protected preview does not approve another deployment.
 - **Vercel** (personal): `vercel link`, then `vercel deploy` for a preview, then prod after approval. Connect the GitHub repo so PR previews work, since BusinessOS relies on them.
 - **Cloudflare** (client): `pnpm run deploy` (OpenNext) into the client-owned account, with Workers Builds connected to the repo.
 - After deploy, run `pnpm perf <live-url>` and `pnpm seo:audit <live-url>`, and record both.

@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "policy": "The Orchestrator selects a specialist by stage and file contract. Jev may supply a shadow-mode hint but cannot dispatch, pass a gate, or override hard filters.",
+  "domains": [
+    { "id": "product", "stages": ["S1"], "agents": ["orchestrator", "product-manager"], "categories": ["product", "research"], "outputs": ["PRODUCT.md", "PRODUCT_REQUIREMENTS.md", "ACCEPTANCE.md"] },
+    { "id": "research", "stages": ["S2"], "agents": ["research"], "categories": ["research", "inspiration"], "outputs": ["INSPIRATION.md", "REFERENCE_BREAKDOWN.md"] },
+    { "id": "taste", "stages": ["S2", "S3.5"], "agents": ["taste-research", "design-director"], "categories": ["taste", "design", "motion", "animation", "ui"], "outputs": ["TASTE_REPORT.md", "EXPERIENCE_REVIEW.md"] },
+    { "id": "experience", "stages": ["S2", "S3", "S5"], "agents": ["ux", "design-director"], "categories": ["ux", "design", "inspiration"], "outputs": ["WIREFRAMES.md", "DESIGN.md", "VISUAL_REVIEW.md"] },
+    { "id": "engineering", "stages": ["S2", "S4"], "agents": ["frontend", "backend"], "categories": ["ui", "components", "backend", "motion"], "outputs": ["app/", "components/", "lib/"] },
+    { "id": "growth", "stages": ["S1", "S4", "S6"], "agents": ["growth"], "categories": ["seo", "research", "growth"], "outputs": ["SEO_STRATEGY.md", "GROWTH_REPORT.md"] },
+    { "id": "quality", "stages": ["S6"], "agents": ["ship"], "categories": ["quality", "security", "browser", "review"], "outputs": ["QA_REPORT.md", "SECURITY_REPORT.md", "PERF_REPORT.md"] },
+    { "id": "launch", "stages": ["S7"], "agents": ["ship", "domain-ops"], "categories": ["launch", "video", "domain"], "outputs": ["DOMAIN_REPORT.md", "launch/"] },
+    { "id": "learning", "stages": ["post-run"], "agents": ["orchestrator", "brain-evaluator"], "categories": ["quality", "research", "routing"], "outputs": ["brain/learning/runs/", "brain/learning/diagnosis.json", "brain/learning/evaluations/"] }
+  ]
+}

@@ -8,6 +8,7 @@
     "type": { "type": "string" },
     "categories": { "type": "array", "items": { "type": "string" } },
     "usage_mode": { "type": "string", "enum": ["dependency", "direct_or_reference", "code_reference", "inspiration_only", "skill", "optional_tool", "research_only", "practice"] },
+    "tool_id": { "type": "string" },
     "best_for": { "type": "array", "items": { "type": "string" } },
     "patterns": { "type": "array", "items": { "type": "string" } },
     "trust": { "type": "string", "enum": ["NEW", "REVIEWED", "TESTED", "APPROVED", "TRUSTED", "REJECTED", "DEPRECATED"] },

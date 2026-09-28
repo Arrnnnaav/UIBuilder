@@ -8,11 +8,12 @@ import { fileURLToPath } from "node:url";
 import { spawn, spawnSync } from "node:child_process";
 import { validate } from "./lib/mini-schema.mjs";
 import { validateEvidence, validatePerf, monitoringKeys } from "./lib/g3-evidence.mjs";
+import { checkOwnerGate } from "./lib/owner-gates.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const [slug, gate] = process.argv.slice(2);
-if (!slug || !["G1", "G2", "G3"].includes(gate)) {
-  console.error("usage: node scripts/gate.mjs <slug> <G1|G2|G3>");
+if (!slug || !["G1", "G2", "G2.5", "G3", "G3.5"].includes(gate)) {
+  console.error("usage: node scripts/gate.mjs <slug> <G1|G2|G2.5|G3|G3.5>");
   process.exit(2);
 }
 const proj = join(root, "projects", slug);
@@ -42,6 +43,15 @@ const handoff = (agent) => {
     return [false, e.message];
   }
 };
+
+if (gate === "G2.5" || gate === "G3.5") {
+  const errors = checkOwnerGate(proj, gate);
+  check('owner approval and unchanged reviewed artifacts', errors.length === 0, errors.join('; '));
+  if (gate === 'G3.5') {
+    const earlier = checkOwnerGate(proj, 'G2.5');
+    check('G2.5 visual approval', earlier.length === 0, earlier.join('; '));
+  }
+}
 
 if (gate === "G1") {
   for (const f of ["PRODUCT.md", "SEO_STRATEGY.md", "INSPIRATION.md", "USER_FLOW.md", "IA.md", "WIREFRAMES.md"]) check(`docs/${f}`, ...filled(f));

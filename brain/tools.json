@@ -12,6 +12,7 @@
       ],
       "agents": [
         "research",
+        "taste-research",
         "design-director",
         "ship",
         "growth"
@@ -30,7 +31,10 @@
       ],
       "agents": [
         "ship",
-        "frontend"
+        "frontend",
+        "research",
+        "taste-research",
+        "design-director"
       ],
       "cost": "free",
       "enabled_if": "always",
@@ -64,6 +68,7 @@
       ],
       "agents": [
         "research",
+        "taste-research",
         "growth"
       ],
       "cost": "free_tier",
@@ -78,6 +83,7 @@
       ],
       "agents": [
         "research",
+        "taste-research",
         "growth",
         "frontend",
         "backend",
@@ -139,6 +145,7 @@
       ],
       "agents": [
         "design-director",
+        "taste-research",
         "frontend"
       ],
       "cost": "free",
@@ -154,6 +161,7 @@
       ],
       "agents": [
         "design-director",
+        "taste-research",
         "frontend"
       ],
       "cost": "free",
@@ -168,6 +176,7 @@
       ],
       "agents": [
         "design-director",
+        "taste-research",
         "ship"
       ],
       "cost": "free",
@@ -413,7 +422,8 @@
         "backend",
         "ship",
         "growth",
-        "research"
+        "research",
+        "taste-research"
       ],
       "cost": "free",
       "enabled_if": "always",
@@ -502,6 +512,65 @@
       "enabled_if": "user:enable",
       "fallback": "design_md",
       "approval": true
+    },
+    {
+      "id": "ffprobe_cli",
+      "capabilities": ["video_metadata", "duration", "dimensions"],
+      "agents": ["taste-research", "ship"],
+      "cost": "free",
+      "enabled_if": "cli:ffprobe",
+      "fallback": null,
+      "approval": false
+    },
+    {
+      "id": "ffmpeg_cli",
+      "capabilities": ["sample_video_frames", "local_video_capture"],
+      "agents": ["taste-research", "ship"],
+      "cost": "free",
+      "enabled_if": "cli:ffmpeg",
+      "fallback": null,
+      "approval": false,
+      "notes": "Local source sampling and approved launch video only; retain timecodes and rights notes."
+    },
+    {
+      "id": "agent_browser_cli",
+      "capabilities": ["browser_navigation", "accessibility_snapshot", "visual_capture", "interaction_probe"],
+      "agents": ["research", "taste-research", "design-director", "frontend", "ship"],
+      "cost": "free local CLI and Chrome download",
+      "enabled_if": "cli:agent-browser",
+      "fallback": "playwright_cli",
+      "approval": false,
+      "notes": "Installed globally at 0.38.1 on 2026-09-28; Chrome 154 and project skill installed. Load agent-browser skills get core before use and create a named worktree session. Do not import cookies or change the G3 Playwright matrix without equivalent coverage."
+    },
+    {
+      "id": "agent_reach_public",
+      "capabilities": ["public_video_research", "public_social_research"],
+      "agents": ["research", "taste-research"],
+      "cost": "free CLI; target services may impose limits",
+      "enabled_if": "cli:agent-reach",
+      "fallback": "web_search",
+      "approval": false,
+      "notes": "Narrow public-source adapter only. No bundled all-web skill, cookies, private client data, or automatic system install."
+    },
+    {
+      "id": "jev_advisory",
+      "capabilities": ["task_intent_hint", "link_relevance_hint"],
+      "agents": ["orchestrator", "research", "taste-research", "growth"],
+      "cost": "usage-based; see current TypeSafe pricing",
+      "enabled_if": "user:enable",
+      "fallback": "deterministic_resource_selector",
+      "approval": false,
+      "notes": "Owner enabled with a key on 2026-09-28. Run scripts/jev.mjs explicitly in shadow mode. No gate, license, publish, deployment or security authority."
+    },
+    {
+      "id": "learning_cli",
+      "capabilities": ["record_trace", "record_feedback", "diagnose_failures", "evaluate_candidate", "monitor_version"],
+      "agents": ["orchestrator", "product-manager", "research", "taste-research", "ux", "design-director", "frontend", "backend", "growth", "ship", "domain-ops", "brain-evaluator"],
+      "cost": "free local Node.js",
+      "enabled_if": "always",
+      "fallback": null,
+      "approval": false,
+      "notes": "Local scripts/improve.mjs. Promotion and rollback require a separate owner-created hash-bound approval. Never log raw client data or secrets."
     },
     {
       "id": "reticle_mcp",

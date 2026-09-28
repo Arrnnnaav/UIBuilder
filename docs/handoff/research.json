@@ -3,48 +3,52 @@
   "status": "complete",
   "inputs_used": [
     "AGENTS.md",
-    ".claude/agents/research.md",
     ".claude/commands/intake.md",
     "brain/schema/resource.schema.json",
     "brain/schema/pattern.schema.json",
-    "Five opened author/publisher pages"
+    "brain/resources.json",
+    "brain/patterns/hero.json",
+    "brain/patterns/motion.json",
+    "brain/patterns/sections.json",
+    "Official GOV.UK, IBM Carbon, and Apple guidance pages",
+    "Official Locomotive and MONOGRID live pages"
   ],
   "decisions": [
-    "Five core reading/live-site references only; developing-taste is supplemental reading.",
-    "REVIEWED trust does not claim tested browser motion.",
-    "Preserve approved portfolio design; no code or assets copied.",
-    "Four mechanism candidates are research options, not silently approved production patterns."
+    "Added five distinct learning and inspiration sources after checking canonical URLs and page content; skipped duplicates.",
+    "Reading/guideline resources use research_only; live websites use inspiration_only; all five remain REVIEWED, not tested or approved.",
+    "Websites include explicit do_not_copy boundaries and notes that browser behavior/performance were not measured.",
+    "No pattern mechanisms were added because this pass did not collect viewport screenshots, computed styles, interaction traces, or performance measurements.",
+    "Existing portfolio DESIGN.md and MOTION.md remain the implementation contract; no UI or growth/PM files were changed."
   ],
   "files_created": [
-    "docs/DESIGN_READING.md",
-    "brain/patterns/motion.json"
+    "docs/DESIGN_RESOURCES_2026-09-28.md"
   ],
   "resources_used": [
-    "rauno-invisible-interaction-details",
-    "emil-practical-animation-tips",
-    "webdev-animation-rendering-guide",
-    "codrops-sticky-grid-scroll-study",
-    "lusion-studio-storytelling-study"
+    "govuk-content-design-guidance",
+    "carbon-content-writing-guidelines",
+    "apple-human-interface-motion",
+    "locomotive-studio-portfolio",
+    "monogrid-web-experiences-index"
   ],
   "patterns_used": [],
   "risks": [
-    "Live-site computed styles and screenshots remain unmeasured.",
-    "Long pinned scroll and immersive media require mobile, reduced-motion and performance checks."
+    "Official page content was reviewed through web extraction; live-site layout, computed motion, keyboard behavior, reduced-motion behavior, mobile presentation, and performance remain unmeasured.",
+    "MONOGRID and Locomotive are high-production inspiration sites; their visual or media-heavy techniques may not fit the portfolio's audience, constraints, or performance budget."
   ],
   "open_questions": [],
   "next_agent": "design-director",
   "next_instructions": [
-    "Read DESIGN_READING.md during S5 critique; preserve DESIGN.md and MOTION.md.",
-    "Run a dedicated browser reference pass before adopting live-site timing or scroll behavior.",
-    "Validation executed: node scripts/validate-brain.mjs → ✓ brain valid — 91 resources, 16 patterns, 36 tools."
+    "Read docs/DESIGN_RESOURCES_2026-09-28.md during future design critique; preserve the approved portfolio design contract.",
+    "Before extracting live-site mechanisms, measure responsive layout, interaction, keyboard behavior, reduced motion, computed timings, and performance in a browser.",
+    "Validation: node scripts/validate-brain.mjs → ✓ brain valid — 97 resources, 16 patterns, 37 tools."
   ],
   "intake": {
     "added": [
-      "rauno-invisible-interaction-details",
-      "emil-practical-animation-tips",
-      "webdev-animation-rendering-guide",
-      "codrops-sticky-grid-scroll-study",
-      "lusion-studio-storytelling-study"
+      "govuk-content-design-guidance",
+      "carbon-content-writing-guidelines",
+      "apple-human-interface-motion",
+      "locomotive-studio-portfolio",
+      "monogrid-web-experiences-index"
     ],
     "skipped": []
   }

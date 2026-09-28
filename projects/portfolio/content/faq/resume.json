@@ -1,9 +1,0 @@
-{
-  "route": "/resume",
-  "items": [
-    {
-      "q": "Where do the résumé and project claims come from?",
-      "a": "The downloadable résumé was supplied by Arnav Khandelwal and is authoritative for the biographical information used here. Public project measurements are checked separately against repository documentation. Résumé-only performance numbers stay out of visible result charts until their public evidence is available; the résumé itself remains the original owner-supplied document."
-    }
-  ]
-}

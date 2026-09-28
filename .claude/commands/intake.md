@@ -10,10 +10,10 @@ For each one:
 2. Classify it: open it via WebFetch, or Playwright for JS-heavy sites. For a GitHub repo, use `gh repo view <owner/repo> --json description,licenseInfo,pushedAt,stargazerCount,isArchived`.
 3. Write the entry against `brain/schema/resource.schema.json`:
    - id (kebab-case), type, categories;
-   - **usage_mode**: dependency | direct_or_reference | code_reference | inspiration_only | skill | optional_tool | research_only;
+   - **usage_mode**: dependency | direct_or_reference | code_reference | inspiration_only | skill | optional_tool | research_only | practice;
    - best_for;
    - trust `NEW`, or `REVIEWED` if you verified it;
-   - license and maintenance (for repos: last push, archived, licence SPDX);
+   - license and maintenance (for repos: last push, archived, licence SPDX). Unverified source/asset rights stay in the review queue. A license prohibition overrides any suggestive `usage_mode`;
    - do_not_copy (for sites);
    - provenance `{type:"intake", url, observed_at}`.
 4. If it shows a reusable mechanism, add a pattern to `brain/patterns/<category>.json` with `sources: [{resource, confidence}]`.

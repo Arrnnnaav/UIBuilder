@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "UIBuilder Website Pipeline",
+    "output": "docs/architecture/uibuilder-pipeline.html",
+    "quality_profile": "showcase",
+    "views": [
+      { "id": "brief-design", "label": "Brief to experience", "focus": ["define", "design"], "note": "G1 locks scope; G2 locks the visual system; G2.5 approves a local interaction prototype before page implementation." },
+      { "id": "build-ship", "label": "Build to release", "focus": ["build", "ship"], "note": "G3 requires test evidence; G3.5 approves the exact local build and external target before deployment." }
+    ]
+  },
+  "lanes": [{ "id": "pipeline", "label": "Orchestrated Website Delivery" }],
+  "phases": [
+    { "id": "planning", "label": "Plan", "fromCol": 0, "toCol": 0 },
+    { "id": "design_phase", "label": "Design", "fromCol": 1, "toCol": 1, "variant": "emphasis" },
+    { "id": "implementation", "label": "Build", "fromCol": 2, "toCol": 2 },
+    { "id": "release_phase", "label": "Verify + Release", "fromCol": 3, "toCol": 3, "variant": "emphasis" }
+  ],
+  "mainPath": ["define", "design", "build", "ship"],
+  "nodes": [
+    { "id": "define", "lane": "pipeline", "col": 0, "width": 112, "type": "backend", "label": "Define", "sublabel": "product · research · UX" },
+    { "id": "design", "lane": "pipeline", "col": 1, "width": 112, "type": "security", "label": "Experience", "sublabel": "G1 · G2 · G2.5", "tag": "owner review" },
+    { "id": "build", "lane": "pipeline", "col": 2, "width": 112, "type": "frontend", "label": "Build", "sublabel": "frontend · backend · growth" },
+    { "id": "ship", "lane": "pipeline", "col": 3, "width": 112, "type": "cloud", "label": "Release", "sublabel": "G3 · G3.5 · learn" }
+  ],
+  "edges": [
+    { "from": "define", "to": "design", "label": "scope and wireframes reach G1" },
+    { "from": "design", "to": "build", "label": "owner approves exact prototype" },
+    { "from": "build", "to": "ship", "label": "G3 evidence and release review" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Specialist brains", "items": ["Orchestrator reads file state and dispatches product, research, taste/design, engineering, growth, quality and launch specialists", "Research and taste-research inspect sources and local video; UX and design-director produce wireframes, three concepts and an original prototype", "Frontend and backend implement the locked design; growth maintains SEO data and validates internal links", "Ship verifies QA, accessibility, security and performance; domain-ops handles only owner-approved DNS/TLS/mail work"] },
+    { "dot": "amber", "title": "Decisions and gates", "items": ["Stage files in projects/<slug>/docs/ are the contract; each agent writes a handoff JSON", "G1 approves scope and wireframes; G2 locks design; G2.5 approves the exact local experience before S4", "G3 requires retained test evidence; G3.5 approves the exact build and target before any external preview or production deployment", "Three design directions use isolated forks; only the critic compares them"] },
+    { "dot": "emerald", "title": "Brain and tool boundaries", "items": ["brain/domains.json routes tasks; resources and patterns have provenance, rights and trust scores", "brain/tools.json controls tool availability; Agent Browser explores live pages and Playwright runs the G3 browser matrix", "Jev offers shadow hints; offline brain-evaluator compares router versions; only owner review can promote", "BusinessOS edits only manifest-listed SEO files through an owner-approved PR and separate publish approval"] }
+  ]
+}
