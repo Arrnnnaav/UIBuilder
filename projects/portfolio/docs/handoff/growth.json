@@ -3,59 +3,46 @@
   "status": "complete",
   "inputs_used": [
     "AGENTS.md",
-    ".claude/agents/growth.md",
-    "docs/S4_CONTENT_CONTRACT.md",
-    "docs/PRODUCT.md",
-    "docs/CONTENT_SOURCE.md",
-    "docs/SEO_STRATEGY.md",
-    "C:/Users/user/Downloads/resume (2).pdf",
-    "Six public GitHub READMEs and Edge Node benchmark retrieved with gh api"
+    "projects/portfolio/docs/SEO_STRATEGY.md",
+    "projects/portfolio/docs/GROWTH_REPORT.md",
+    "projects/portfolio/content/seo/routes.json",
+    "projects/portfolio/content/seo/crawlers.json",
+    "projects/portfolio/content/schema/*.json",
+    "projects/portfolio/content/faq/*.json",
+    "projects/portfolio/public/llms.txt",
+    "projects/portfolio/seo.manifest.json",
+    "Current local production build at http://localhost:3410"
   ],
   "decisions": [
-    "Publish Gmail address from authoritative new résumé; omit unverified LinkedIn, residential location and employer name.",
-    "Keep Cited Researcher résumé timing pending-source per G1.",
-    "Pin visible metric sources to public repository commit URLs.",
-    "Keep NeuroUX approximate video observation as a textual value to avoid inventing comparable units or a controlled benchmark.",
-    "Person and WebSite globals; page, breadcrumb and software companions match S4 contract.",
-    "No claim that provisional hostname or StudyOS demo is live.",
-    "Final static review 2026-09-27: 12 public routes including owner-approved styleguide, one internal noindex route, 30 schema files and 11 FAQ files.",
-    "Final metadata/schema editorial dates are 2026-09-27; case-study Article citations use verified commit-pinned metric sources.",
-    "GhostCursor metadata names the local AI desktop guide to distinguish unrelated namesakes.",
-    "2026-09-28 reconciliation: current Google guidance is documented; llms.txt and FAQ markup are not presented as Google ranking or guaranteed rich-result tactics; historical SERP/AI-answer observations are labelled as dated."
+    "Keep the Vercel hostname provisional until deployment is verified; custom domain remains deferred.",
+    "Treat this localhost production audit as implementation evidence only, not proof of external crawl, indexing, ranking, or AI answer citations.",
+    "No new SEO copy or identity claims were added because the current route metadata, visible FAQs, public-source citations, and factual boundaries are already coherent; unsupported keyword padding would weaken quality."
   ],
   "files_created": [
-    "content/portfolio.json",
-    "content/evidence/*.json",
-    "content/seo/routes.json",
-    "content/site.json",
-    "content/schema/*.json",
-    "content/faq/*.json",
-    "public/llms.txt",
-    "seo.manifest.json",
-    "docs/source-snapshots/*.md",
-    "docs/final-content-review.mjs",
-    "docs/evidence/content-review.json"
+    "projects/portfolio/docs/evidence/seo-audit-growth-resume-2026-09-28.txt",
+    "projects/portfolio/docs/GROWTH_REPORT.md",
+    "projects/portfolio/docs/handoff/growth.json"
   ],
   "resources_used": [
-    "Owner-supplied résumé PDF",
-    "https://github.com/Arrnnnaav"
+    "Current locally served production build",
+    "Portfolio route metadata, schema, FAQ, crawler policy, sitemap, and llms.txt data"
   ],
+  "patterns_used": [],
   "risks": [
-    "Actual deployment URL must be reconciled in site data, manifest, all schema and llms.txt.",
-    "Contact delivery requires orchestrator configuration; no response-time promise is made.",
-    "Public-source presence verifies attribution, not an independent rerun of project performance."
+    "SEO audit passed with 0 findings against localhost:3410, but the public Vercel hostname has not been verified in this task.",
+    "The deployment URL is provisional and must be reconciled against the actual deployment before launch.",
+    "Search indexing, rankings, external backlinks, and generative-engine citations cannot be established from local tests.",
+    "G3 remains open because the current mobile Lighthouse LCP gate fails across all public routes."
   ],
   "open_questions": [
-    "Full LinkedIn URL, hiring availability, employer disclosure, residential location, StudyOS contribution boundaries remain unconfirmed."
+    "After G3, what deployment URL should become the canonical URL? The custom domain is explicitly deferred."
   ],
   "next_agent": "orchestrator",
   "next_instructions": [
-    "Static review confirms route-scoped JSON-LD integration and verified-only metric rendering in current source.",
-    "Public résumé matches supplied original SHA-256 e13747b7fdfe5efd7758b9321c25f8049a432f34ad0e30d3d81fc9157a1cfb7a.",
-    "Persisted runtime SEO audit reports 0 findings; repeat integrated build/audit serially because this review revised metadata/schema.",
-    "Final static review: 12 public routes, 1 internal noindex, 30 schema, 11 FAQ, 10 verified metrics, 1 pending metric, errors: [].",
-    "Reconcile provisional URLs and verify live search files after deployment; no launch/G3 claim is made by this handoff.",
-    "Current focused robots test passed 4/4 profiles; current production SEO audit on localhost:3400 reports 0 findings and 0 high. Detailed port/output evidence is in docs/GROWTH_REPORT.md.",
-    "Deployment URL remains provisional until S7; reconcile canonical/entity/schema/llms/resume URLs after actual deployment, while the custom domain remains deferred."
+    "Current production build audit: node scripts/seo-audit.mjs http://localhost:3410 -> 0 findings (0 high); output is in docs/evidence/seo-audit-growth-resume-2026-09-28.txt.",
+    "Direct /sitemap.xml response contains 12 intended indexable routes on the provisional Vercel hostname and excludes /e2e-error; /robots.txt returns configured crawler policy and disallows the test route.",
+    "pnpm validate:content passed. Bare pnpm seo:audit failed only because its default localhost:3000 server was absent; the explicit audit against the active production server passed.",
+    "Proceed with G3 mobile LCP work. After G3 and deployment, reconcile URLs and verify the live robots, sitemap, canonical tags, structured data, visible FAQs, résumé, and contact flow before S7 closeout.",
+    "Post-deployment, use owner-controlled Search Console and GitHub profile links for discovery work; report indexing/citations as unknown until measured."
   ]
 }

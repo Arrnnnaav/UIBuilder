@@ -80,6 +80,22 @@ $ node scripts/seo-audit.mjs "http://localhost:3402"
 seo:audit http://localhost:3402 — 0 findings (0 high)
 ```
 
+After the earlier server exited, I repeated the same audit against the currently
+running clean production build at `http://localhost:3410`:
+
+```text
+$ node scripts/seo-audit.mjs http://localhost:3410
+seo:audit http://localhost:3410 — 0 findings (0 high)
+```
+
+This current-session output is retained at
+`docs/evidence/seo-audit-growth-resume-2026-09-28.txt`. A direct request to
+`/sitemap.xml` returned the 12 intended indexable routes, each with the
+provisional Vercel canonical host; it excludes `/e2e-error`. The generated
+`/robots.txt` includes the configured AI crawler policy and blocks that test
+route. This is a localhost production-build check, not evidence that the
+provisional hostname currently serves the build or is indexed.
+
 The output is retained in `docs/evidence/seo-audit-growth-2026-09-28.txt`. The
 focused `SEO files are served` Playwright check passed in Chromium and WebKit at
 desktop and mobile sizes (4/4; `docs/evidence/seo-robots-current.txt`). A previous
