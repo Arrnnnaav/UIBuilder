@@ -4,7 +4,7 @@
   "inputs_used": [
     "AGENTS.md",
     "plan/PROGRESS.md",
-    "projects/portfolio/docs/STATE.md",
+    "D:/UiBuildProj/portfolio/docs/STATE.md",
     "clean production Lighthouse summary",
     "final Chromium/WebKit integration output",
     "GitHub CI for commit 0e9cc98"
@@ -16,12 +16,12 @@
     "Do not change Lighthouse throttling or thresholds to make the gate pass"
   ],
   "files_created": [
-    "projects/portfolio/docs/QA_REPORT.md",
-    "projects/portfolio/docs/PERF_REPORT.md",
-    "projects/portfolio/docs/STATE.md",
-    "projects/portfolio/docs/evidence/perf-final-summary.json",
-    "projects/portfolio/docs/evidence/e2e-final.txt",
-    "projects/portfolio/docs/evidence/perf-home-latest.txt"
+    "D:/UiBuildProj/portfolio/docs/QA_REPORT.md",
+    "D:/UiBuildProj/portfolio/docs/PERF_REPORT.md",
+    "D:/UiBuildProj/portfolio/docs/STATE.md",
+    "D:/UiBuildProj/portfolio/docs/evidence/perf-final-summary.json",
+    "D:/UiBuildProj/portfolio/docs/evidence/e2e-final.txt",
+    "D:/UiBuildProj/portfolio/docs/evidence/perf-home-latest.txt"
   ],
   "risks": [
     "The clean full performance matrix passes all desktop routes; all mobile routes fail only the LCP <2500ms contract at 2561–2768ms",

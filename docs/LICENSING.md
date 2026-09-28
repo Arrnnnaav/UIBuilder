@@ -9,7 +9,7 @@ unmodified from the [Apache Software Foundation](https://www.apache.org/licenses
 
 The grant covers original reusable pipeline work: scripts, tests, templates,
 agent definitions, commands, original skills and recipes. Site application code
-under the local-only `projects/` folder is not part of the current public harness
+under the external `D:\UiBuildProj` folder is not part of the current public harness
 tree and is licensed in its own repository, if published. The root license does
 **not** grant reuse of personal or client résumé text, biographical
 copy, contact data, project descriptions/evidence, branding, photographs, artwork
