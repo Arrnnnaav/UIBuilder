@@ -13,7 +13,7 @@ UIBuilder is a file-driven, multi-agent harness for designing, building, testing
 | `scripts/` and `tests/platform/` | Scaffolding, routing, gates, validation, evaluation and rollback checks |
 | `plan/` and `docs/` | Decisions, progress, architecture, research and operating guides |
 
-**Site folders in `projects/` are local-only and ignored by the root repository.** A new project created by `node scripts/new-project.mjs portfolio my-site` stays on your machine. Use `--standalone` when preparing a separate site repository, then move that site outside this checkout before publishing it. Previously published UIBuilder commits contained project folders; removing them from the current tree does not erase Git history.
+**UIBuilder is the harness repository.** Site folders live outside this checkout at `D:\UiBuildProj\<slug>`, with one GitHub repository per site. `node scripts/new-project.mjs portfolio my-site` creates the folder, commits the starter, and creates/pushes a private repository using the authenticated `gh` account. Set `UIBUILDER_GITHUB_OWNER` to select another owner and `UIBUILDER_PROJECTS_ROOT` to use another parent folder. Each site's CI and deployment settings belong to its repository; the UIBuilder root workflow validates only the harness. Older UIBuilder Git history contains project snapshots, although the current tree does not.
 
 ## Pipeline and approval gates
 
@@ -41,6 +41,6 @@ node scripts/validate-contracts.mjs
 node --test tests/platform/*.test.mjs
 ```
 
-To check a local site, enter its `projects/<slug>/` folder and use its own package scripts. The root CI validates the harness; site CI belongs in each separately published site repository. Local site evidence referenced by historical plan files is not included in this public harness snapshot.
+To check a site, enter `D:\UiBuildProj\<slug>` and use its package scripts. Its own GitHub Actions workflow runs site CI from that separate repository. Historical plan records may refer to evidence that moved with the site folders.
 
 Original UIBuilder pipeline code and documentation are licensed under [Apache-2.0](LICENSE). Vendored skills retain their upstream licenses; see [licensing scope](docs/LICENSING.md) and [skill sources](.claude/skills/SOURCES.md).

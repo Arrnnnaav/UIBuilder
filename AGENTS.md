@@ -1,9 +1,12 @@
 # AGENTS.md — UIBuilder rulebook
 
-UIBuilder is a multi-agent pipeline that designs, builds, tests and ships premium websites. It
-then hands each site to BusinessOS (`D:\PROJECTS\abc\business-os`) for approved SEO/AEO/GEO
-maintenance. Every agent, human or AI, follows this file. If this file and a prompt disagree,
-this file wins; to change the rules, edit this file.
+UIBuilder is the harness repository: it contains the multi-agent pipeline, Brain, tools,
+templates, evaluation and documentation used to design, build and verify websites. Site source
+does not live in this repository. All generated sites live in separate repositories under
+`D:\UiBuildProj`, one GitHub repository per site. Each site is handed to BusinessOS
+(`D:\PROJECTS\abc\business-os`) only for approved SEO/AEO/GEO maintenance. Every agent, human
+or AI, follows this file. If this file and a prompt disagree, this file wins; to change the
+rules, edit this file.
 
 ## 0. How work is tracked
 - Plans live in `plan/`, one file per phase (`plan/M0-setup.md` … `plan/M8-later.md`).
@@ -13,7 +16,7 @@ this file wins; to change the rules, edit this file.
 - Don't start a phase until the previous phase's "Done when" is met, or PROGRESS.md records the waiver.
 
 ## 1. Core rules
-1. **Files are the contract.** Agents read and write files in `projects/<slug>/docs/`. No state passes through chat.
+1. **Files are the contract.** Agents read and write files in `D:\UiBuildProj\<slug>\docs/`. No state passes through chat.
 2. **No UI code before `DESIGN.md` and `WIREFRAMES.md` exist and gate G2 has passed.**
 3. **Load the `frontend-design` skill before any visual step.** Also use `web-design-guidelines` and `taste-skill` when they're installed.
 4. **References are mechanisms, not assets.** Take layout ratios, timing and interaction logic. Never copy another site's assets, fonts, copy or code.
@@ -61,7 +64,7 @@ G3 Definition of Done            — automatic
 G3.5 final local release review   — user approves exact reviewed artifacts and target
 S7 ship deploy ‖ domain-ops DNS/TLS ‖ growth live SEO checks → /connect (BusinessOS) → launch video → /learn
 ```
-S4 starts after G2.5; S7 starts after G3 and G3.5. G2.5/G3.5 approvals live in `projects/<slug>/docs/approvals/` with hashes of the exact reviewed artifacts; agents cannot infer or write owner approval from silence. Any external preview or production deployment requires G3.5 for its named target. Domain purchases and live DNS changes require separate explicit owner approval; see `plan/DOMAIN-LAUNCH.md`.
+S4 starts after G2.5; S7 starts after G3 and G3.5. G2.5/G3.5 approvals live in `D:\UiBuildProj\<slug>\docs/approvals/` with hashes of the exact reviewed artifacts; agents cannot infer or write owner approval from silence. Any external preview or production deployment requires G3.5 for its named target. Domain purchases and live DNS changes require separate explicit owner approval; see `plan/DOMAIN-LAUNCH.md`.
 
 ## 4. Definition of Done (G3)
 - **Build:** `tsc --noEmit`, `eslint` and `next build` pass. No console or hydration errors.
@@ -110,10 +113,14 @@ an owner-approved PR followed by a separate owner approval to publish. See the B
 - The trust ladder is NEW → REVIEWED → TESTED → APPROVED → TRUSTED, with REJECTED and DEPRECATED as exits. Only APPROVED and TRUSTED resources are used by default.
 
 ## 8. Commands
-Projects scaffold locally under this checkout without nested `.git` directories by default; root Git ignores `projects/`.
-Use `node scripts/new-project.mjs <pipeline> <slug> --standalone` only when preparing
-a separate site repository. Move that project outside UIBuilder before publishing
-its own repository; never stage a nested repository as a replacement for site source.
+Projects must be scaffolded under `D:\UiBuildProj\<slug>` and initialized as independent Git
+repositories. The root command `node scripts/new-project.mjs <pipeline> <slug>` creates the
+external folder, commits the starter, and creates/pushes a private GitHub repository by default.
+GitHub CLI (`gh`) must be authenticated; `UIBUILDER_GITHUB_OWNER` selects the owner account.
+`UIBUILDER_PROJECTS_ROOT` may override the folder for another machine. Each project owns its GitHub remote, CI/CD workflows, deployment settings,
+secrets and site-specific rulebook; site CI runs from that project repository. Do not put site
+source, site CI, or site deployments inside the UIBuilder repository. Root CI checks the harness
+only. Use `/build <pipeline> <slug>` to work on the external project repository.
 
 - `/build <pipeline> <slug>` runs a full pipeline.
 - `/intake <links>` adds resources to the brain.

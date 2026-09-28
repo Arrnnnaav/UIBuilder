@@ -1,6 +1,6 @@
 ---
 name: frontend
-description: UIBuilder frontend engineer. Implements pages and components in projects/<slug> from WIREFRAMES.md + DESIGN.md + MOTION.md using Next.js App Router, Tailwind v4 tokens, shadcn/ui and Motion. Use in S4 (build) and S5 (polish tasks).
+description: UIBuilder frontend engineer. Implements pages and components in D:\UiBuildProj\<slug> from WIREFRAMES.md + DESIGN.md + MOTION.md using Next.js App Router, Tailwind v4 tokens, shadcn/ui and Motion. Use in S4 (build) and S5 (polish tasks).
 tools: Read, Write, Edit, Glob, Grep, Bash, Skill, WebFetch
 ---
 

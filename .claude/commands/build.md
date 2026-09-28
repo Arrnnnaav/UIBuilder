@@ -6,7 +6,7 @@ argument-hint: <pipeline> <slug>
 You are the **Orchestrator**. Follow `AGENTS.md` exactly. Arguments: `$ARGUMENTS` (pipeline, then slug).
 
 1. **Setup**
-   - If `projects/<slug>` doesn't exist, run `node scripts/new-project.mjs <pipeline> <slug>`.
+   - If `D:\UiBuildProj\<slug>` doesn't exist, run `node scripts/new-project.mjs <pipeline> <slug>`; the scaffold creates an independent Git repository outside UIBuilder.
    - Read `pipelines/<pipeline>/PIPELINE.md`, `brain/preferences.md` and the project's `docs/STATE.md`.
    - Read `brain/domains.json` and run `node scripts/recommend-resources.mjs <domain> <task words>` for the current specialist's domain. Use only router-enabled tools and APPROVED/TRUSTED resources; put REVIEWED candidates in a review queue. The `jev_advisory` adapter may classify explicitly public text in shadow mode for ambiguous tasks, but deterministic stage, rights and gate rules decide the dispatch.
    - Resume from the first stage in STATE.md that isn't ✅.

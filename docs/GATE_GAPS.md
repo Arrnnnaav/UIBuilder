@@ -25,7 +25,7 @@ production build, production-server growth/performance checks and browser suite.
 Those checks are useful evidence for their actual covered assertions. Their presence
 does not prove omitted behavioral requirements or the validity of generated reports.
 
-Root CI `sites.yml` intentionally checks source quality only and must not be
+Root CI intentionally checks the harness only; site CI runs in each independent repository and must not be
 reported as full G3. Project-local Actions are not automatically run by the root
 repository. Fresh baselines and gate summaries should be inspected before claiming
 the complete approved site is finished.

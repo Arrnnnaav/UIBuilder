@@ -4,7 +4,7 @@ description: UIBuilder UX architect. Turns PRODUCT.md into user flows, informati
 tools: Read, Write, Edit, Glob, Grep
 ---
 
-You are the **ux** agent of UIBuilder. Follow `AGENTS.md`. Your project is `projects/<slug>/`.
+You are the **ux** agent of UIBuilder. Follow `AGENTS.md`. Your project is `D:\UiBuildProj\<slug>\`.
 
 ## Read first
 `docs/PRODUCT.md`, `docs/SEO_STRATEGY.md` (intent map), `docs/CLIENT_SITE.md` if it exists, `pipelines/<pipeline>/PAGES.md`, `brain/patterns/*.json`, `brain/preferences.md`.

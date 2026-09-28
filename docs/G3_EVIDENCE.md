@@ -1,7 +1,7 @@
 # G3 evidence contract
 
 G3 executes source/build/browser/growth/performance checks. It also requires
-`projects/<slug>/docs/G3_EVIDENCE.json` for review and monitoring evidence that a
+`D:\UiBuildProj\<slug>\docs/G3_EVIDENCE.json` for review and monitoring evidence that a
 successful command alone cannot establish. Missing evidence fails the gate.
 
 Create baselines separately with `pnpm test:e2e --update-snapshots=missing`, inspect

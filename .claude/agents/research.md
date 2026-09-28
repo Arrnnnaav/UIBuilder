@@ -4,11 +4,11 @@ description: UIBuilder research agent. Picks ≤5 references (layout, type/visua
 tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch, Skill, mcp__plugin_playwright_playwright__browser_navigate, mcp__plugin_playwright_playwright__browser_snapshot, mcp__plugin_playwright_playwright__browser_take_screenshot, mcp__plugin_playwright_playwright__browser_evaluate, mcp__plugin_playwright_playwright__browser_resize, mcp__plugin_playwright_playwright__browser_close
 ---
 
-You are the **research** agent of UIBuilder. Follow `AGENTS.md` (repo root). Your project is `projects/<slug>/`.
+You are the **research** agent of UIBuilder. Follow `AGENTS.md` (repo root). Your project is `D:\UiBuildProj\<slug>\`.
 
 ## Read first
-- `projects/<slug>/docs/PRODUCT.md`
-- `projects/<slug>/docs/SEO_STRATEGY.md` if it exists
+- `D:\UiBuildProj\<slug>\docs/PRODUCT.md`
+- `D:\UiBuildProj\<slug>\docs/SEO_STRATEGY.md` if it exists
 - `brain/resources.json`: use APPROVED/TRUSTED entries by default. REVIEWED resources are candidates for explicit rights and fit review, not automatic reuse. Run `node scripts/recommend-resources.mjs research <task>` for an explainable shortlist.
 - `brain/patterns/*.json` and `brain/preferences.md`
 - `pipelines/<pipeline>/PIPELINE.md`

@@ -16,28 +16,23 @@ function fixture(t) {
   writeFileSync(join(root, 'templates/marketing-starter/.env.example'), 'SECRET=');
   writeFileSync(join(root, 'templates/marketing-starter/app.ts'), 'export const page = true;');
   writeFileSync(join(root, 'templates/docs/PRODUCT.md'), '# {{slug}}');
-  return { root, run: (...args) => spawnSync(process.execPath, [join(root, 'scripts/new-project.mjs'), ...args], { encoding: 'utf8' }) };
+  return { root, run: (...args) => spawnSync(process.execPath, [join(root, 'scripts/new-project.mjs'), ...args], { encoding: 'utf8', env: { ...process.env, UIBUILDER_SKIP_GITHUB: '1', GIT_AUTHOR_NAME: 'UIBuilder Test', GIT_AUTHOR_EMAIL: 'uibuilder@example.invalid', GIT_COMMITTER_NAME: 'UIBuilder Test', GIT_COMMITTER_EMAIL: 'uibuilder@example.invalid' } }) };
 }
 
-test('default scaffold stays in the parent repository and copies only clean source', (t) => {
+test('scaffold creates an external independent Git repository and copies only clean source', (t) => {
   const { root, run } = fixture(t);
-  const result = run('portfolio', 'sample');
+  const projectsRoot = join(root, 'external-sites');
+  const result = run('portfolio', 'sample', '--root', projectsRoot);
   assert.equal(result.status, 0, result.stderr);
-  const dest = join(root, 'projects/sample');
-  for (const excluded of ['.git', 'node_modules', '.next', '.env.local']) assert.equal(existsSync(join(dest, excluded)), false, excluded);
+  const dest = join(projectsRoot, 'sample');
+  for (const excluded of ['node_modules', '.next', '.env.local']) assert.equal(existsSync(join(dest, excluded)), false, excluded);
   assert.equal(readFileSync(join(dest, 'app.ts'), 'utf8'), 'export const page = true;');
   assert.equal(existsSync(join(dest, '.env.example')), true);
   assert.equal(JSON.parse(readFileSync(join(dest, 'package.json'))).name, 'sample');
   assert.equal(readFileSync(join(dest, 'docs/PRODUCT.md'), 'utf8'), '# sample');
-});
-
-test('standalone scaffold explicitly initializes its own repository', (t) => {
-  const { root, run } = fixture(t);
-  const result = run('portfolio', 'sample', '--standalone');
-  assert.equal(result.status, 0, result.stderr);
-  const git = spawnSync('git', ['-C', join(root, 'projects/sample'), 'rev-parse', '--show-toplevel'], { encoding: 'utf8' });
+  const git = spawnSync('git', ['-C', dest, 'rev-parse', '--show-toplevel'], { encoding: 'utf8' });
   assert.equal(git.status, 0, git.stderr);
-  assert.equal(git.stdout.trim().replaceAll('\\', '/'), join(root, 'projects/sample').replaceAll('\\', '/'));
+  assert.equal(git.stdout.trim().replaceAll('\\', '/'), dest.replaceAll('\\', '/'));
 });
 
 test('invalid slug and unknown options leave no project', (t) => {
@@ -48,8 +43,9 @@ test('invalid slug and unknown options leave no project', (t) => {
 
 test('existing project is never overwritten', (t) => {
   const { root, run } = fixture(t);
-  mkdirSync(join(root, 'projects/sample'), { recursive: true });
-  writeFileSync(join(root, 'projects/sample/owner.txt'), 'keep');
-  assert.equal(run('portfolio', 'sample').status, 1);
-  assert.equal(readFileSync(join(root, 'projects/sample/owner.txt'), 'utf8'), 'keep');
+  const projectsRoot = join(root, 'external-sites');
+  mkdirSync(join(projectsRoot, 'sample'), { recursive: true });
+  writeFileSync(join(projectsRoot, 'sample/owner.txt'), 'keep');
+  assert.equal(run('portfolio', 'sample', '--root', projectsRoot).status, 1);
+  assert.equal(readFileSync(join(projectsRoot, 'sample/owner.txt'), 'utf8'), 'keep');
 });
