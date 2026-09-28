@@ -28,7 +28,7 @@
     "A Ready, SSO-protected Vercel preview has live evidence for all routes, metadata, API rejection, PDF and one-run performance. It has X-Robots-Tag noindex and provisional canonicals; no public production host is selected.",
     "The first CLI deployment defaulted to production; its aliases and deployment were removed. Only the explicitly targeted preview remains, with no production URL in the account.",
     "The Next-rendered fallback retains its historical mobile LCP failure and remains a rollback path; D30 static HTML is the default candidate.",
-    "BusinessOS real PR and publish flow, provider receipts, and launch video are not yet verified. Custom domain remains deferred."
+    "BusinessOS real PR and publish flow and provider receipts are not yet verified. A silent 23.2-second protected-preview walkthrough is recorded at projects/portfolio/docs/launch/portfolio-preview-walkthrough.webm. Custom domain remains deferred."
   ],
   "open_questions": [
     "Owner must select a stable public host before canonical reconciliation and public production checks; custom-domain selection is deferred."

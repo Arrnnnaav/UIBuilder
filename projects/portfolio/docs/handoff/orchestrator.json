@@ -53,7 +53,7 @@
     "Vercel's first CLI deployment defaulted to target production despite omitting --prod; its aliases were removed and that deployment was deleted. The only remaining deployment targets preview and the alias list is empty.",
     "BusinessOS connector health and snapshot pass read-only on the feature branch, but main lacks the root gateway manifest and no real PR/publish lifecycle has been exercised.",
     "Provider receipts remain unavailable until owner-controlled credentials are configured; the contact fallback and monitoring no-op behavior pass locally.",
-    "The playable launch video and owner-rated build feedback remain outstanding; brain/builds/portfolio.json records measured results with owner_rating null. Custom domain remains deferred."
+    "The playable protected-preview walkthrough is recorded at projects/portfolio/docs/launch/portfolio-preview-walkthrough.webm; owner-rated build feedback remains outstanding and brain/builds/portfolio.json keeps owner_rating null. Custom domain remains deferred."
   ],
   "open_questions": [
     "None for the local G3 verification; revisit production hostname and provider configuration only when S7 is authorized."
@@ -61,7 +61,7 @@
   "next_agent": "ship",
   "next_instructions": [
     "Keep the verified Vercel preview protected and noindex. Do not promote it or change DNS. Reconcile the canonical origin after the owner selects a stable public host.",
-    "Then complete the approved S7 checklist: owner-controlled provider review, BusinessOS connection after default-branch integration, playable launch video, and owner feedback for /learn.",
+    "Then complete the approved S7 checklist: owner-controlled provider review, BusinessOS connection after default-branch integration, and owner feedback for /learn.",
     "Do not claim search rankings, AI citations, production readiness or live provider receipts without direct evidence."
   ]
 }

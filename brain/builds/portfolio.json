@@ -40,6 +40,13 @@
     "visual_review_loops": 1,
     "browser_matrix": { "passed": 202, "expected_skips": 2 },
     "owner_rating": null,
+    "launch_video": {
+      "path": "projects/portfolio/docs/launch/portfolio-preview-walkthrough.webm",
+      "duration_seconds": 23.2,
+      "scenes": 9,
+      "console_errors": 0,
+      "source": "protected Vercel preview; not a production launch"
+    },
     "live_search_visibility": "not measured; protected noindex preview only",
     "live_preview": {
       "deployment_id": "dpl_GZ2Cx1CbLfxbAaZgt6cbRw9SYmnw",
