@@ -1,6 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 
 const PORT = Number(process.env.E2E_PORT ?? 3100);
+const pilotSuffix = process.env.PORTFOLIO_STATIC_PILOT === "0" ? "" : "-static-pilot";
 
 // Runs against a production build (`next start`), never the dev server, so hydration
 // and CSP behave as in production. Turnstile uses Cloudflare's always-pass test keys.
@@ -16,10 +17,10 @@ export default defineConfig({
   snapshotPathTemplate: "{testDir}/__snapshots__/{platform}/{projectName}/{arg}{ext}",
   use: { baseURL: `http://localhost:${PORT}`, trace: "retain-on-failure" },
   projects: [
-    { name: "chromium-desktop", use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 } } },
-    { name: "chromium-mobile", use: { ...devices["Pixel 7"], viewport: { width: 390, height: 844 } } },
-    { name: "webkit-desktop", use: { ...devices["Desktop Safari"], viewport: { width: 1440, height: 900 } } },
-    { name: "webkit-mobile", use: { ...devices["iPhone 14"], viewport: { width: 390, height: 844 } } },
+    { name: `chromium-desktop${pilotSuffix}`, use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 } } },
+    { name: `chromium-mobile${pilotSuffix}`, use: { ...devices["Pixel 7"], viewport: { width: 390, height: 844 } } },
+    { name: `webkit-desktop${pilotSuffix}`, use: { ...devices["Desktop Safari"], viewport: { width: 1440, height: 900 } } },
+    { name: `webkit-mobile${pilotSuffix}`, use: { ...devices["iPhone 14"], viewport: { width: 390, height: 844 } } },
   ],
   webServer: {
     // Builds with the Turnstile always-pass test site key baked in, unless E2E_SKIP_BUILD=1.

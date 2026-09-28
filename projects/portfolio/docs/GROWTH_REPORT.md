@@ -47,6 +47,21 @@ matches `C:/Users/user/Downloads/resume (2).pdf`:
 `e13747b7fdfe5efd7758b9321c25f8049a432f34ad0e30d3d81fc9157a1cfb7a`.
 No network, build, browser or performance process ran during this review.
 
+### Current branch recheck, 2026-09-28
+
+Re-ran `node docs/final-content-review.mjs` and `pnpm validate:content` after
+the current branch change. The review again reports 12 public routes, one
+internal noindex route, 30 schema files, 11 FAQ files, six projects, 10
+verified metrics, one pending-source metric, and no errors. The original resume
+PDF still matches the published PDF at SHA-256
+`e13747b7fdfe5efd7758b9321c25f8049a432f34ad0e30d3d81fc9157a1cfb7a`.
+
+GitHub API lookup resolved all six commit-pinned README/source references in
+`content/evidence/*.json` to the exact recorded commit IDs. This verifies that
+the citations resolve to immutable commits; it does not independently rerun
+the projects' measurements. Current command output is retained in
+`docs/evidence/growth-audit-current-2026-09-28.txt`.
+
 ## Provenance and numerical precision
 
 The original résumé supplies identity, education and the corrected Gmail address.
@@ -87,6 +102,12 @@ running clean production build at `http://localhost:3410`:
 $ node scripts/seo-audit.mjs http://localhost:3410
 seo:audit http://localhost:3410 — 0 findings (0 high)
 ```
+
+The current branch's local production server on `http://localhost:3410` still
+returns HTTP 200 for `/` and `/contact`, with the expected route titles, and
+the explicit production SEO audit remains at zero findings. The generic
+`pnpm seo:audit` script defaults to port 3000, where no server was listening;
+the explicit URL check is the valid runtime result for this run.
 
 This current-session output is retained at
 `docs/evidence/seo-audit-growth-resume-2026-09-28.txt`. A direct request to

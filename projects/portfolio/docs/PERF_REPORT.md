@@ -1,32 +1,39 @@
 # Portfolio performance report
 
-Status: G3 performance requirement not met. Full clean production matrix completed 2026-09-28.
+Status: the default static hybrid candidate passes the full G3 performance contract. The retained Next-rendered fallback still misses mobile LCP. Measurements are three-run Lighthouse medians with the committed thresholds unchanged.
 
-## Full route coverage
+## Current clean production candidate: static HTML with Next API
 
-Command (PowerShell): `$env:PERF_RUNS='3'; pnpm perf -- http://localhost:3410` (three-run median; clean production build; all public routes and profiles).
-Result: exit 1 only because mobile LCP exceeds the strict 2500ms limit. The fresh run finished 2026-09-28 local time (2026-09-27T23:37Z). Complete route/profile medians are retained in `docs/evidence/perf-final-summary.json`; command output is `docs/evidence/perf-run-final.txt`.
+Command: `$env:PERF_RUNS='3'; pnpm perf -- http://localhost:3436` against a clean build with Astro static pages and Next rewrites enabled; no test keys or dry-run flags.
+Result: exit 0; all 24 route/profile combinations pass. Full output and JSON: `docs/evidence/perf-astro-static-current-2026-09-28.txt` and `docs/evidence/perf-default-static-current-2026-09-28.json`.
 
-- Desktop: 12/12 routes pass. All category scores are at least 0.98; LCP 525–598ms; CLS 0.
-- Mobile: 0/12 routes pass the full performance gate. Performance scores are 0.96–0.97; all other category scores are at least 0.98; CLS 0. LCP range 2558–2857ms.
-- Every category meets the 90-point requirement. LCP is the sole measured performance blocker. Do not alter Lighthouse throttling or thresholds.
+- Desktop: 12/12 routes pass; all categories score 100; LCP 327–330ms; CLS 0–0.026.
+- Mobile: 12/12 routes pass; all categories score 100; LCP 1357–1359ms; CLS 0.001–0.035.
+- Compared with Next rendering, mobile LCP improves by about 1.2–1.5 seconds on every route. The contact page keeps its same-origin Next API, validation, rate limit and optional Turnstile/Resend configuration.
 
-Mobile medians by route:
+Mobile medians by route on the current candidate:
 
 | Route | Performance | LCP | CLS |
 |---|---:|---:|---:|
-| `/` | 96 | 2709ms | 0 |
-| `/work` | 97 | 2558ms | 0 |
-| `/work/edge-node` | 96 | 2707ms | 0 |
-| `/work/cited-researcher` | 96 | 2707ms | 0 |
-| `/work/ledgerbridge` | 96 | 2706ms | 0 |
-| `/work/ghostcursor` | 96 | 2707ms | 0 |
-| `/work/neuroux` | 96 | 2707ms | 0 |
-| `/work/studyos` | 96 | 2706ms | 0 |
-| `/about` | 97 | 2559ms | 0 |
-| `/contact` | 97 | 2558ms | 0 |
-| `/resume` | 97 | 2558ms | 0 |
-| `/styleguide` | 96 | 2857ms | 0 |
+| `/` | 100 | 1358ms | 0.001 |
+| `/work` | 100 | 1357ms | 0.001 |
+| `/work/edge-node` | 100 | 1356ms | 0.001 |
+| `/work/cited-researcher` | 100 | 1358ms | 0.001 |
+| `/work/ledgerbridge` | 100 | 1358ms | 0.002 |
+| `/work/ghostcursor` | 100 | 1358ms | 0.001 |
+| `/work/neuroux` | 100 | 1358ms | 0.002 |
+| `/work/studyos` | 100 | 1358ms | 0.002 |
+| `/about` | 100 | 1359ms | 0.001 |
+| `/contact` | 100 | 1356ms | 0.001 |
+| `/resume` | 100 | 1357ms | 0.002 |
+| `/styleguide` | 100 | 1358ms | 0.001 |
+
+## Next-rendered fallback comparison
+
+The clean Next-rendered fallback matrix remains useful for comparison. It passes desktop but misses the strict mobile LCP requirement on all routes; it is no longer the default candidate. Results: `docs/evidence/perf-current-summary-2026-09-28.json` and `docs/evidence/perf-current-2026-09-28.txt`.
+
+- Desktop: 12/12 routes pass; LCP 521–604ms; CLS 0.
+- Mobile: 0/12 routes pass; performance 96–97, LCP 2555–2858ms; CLS 0.
 
 ## Prior measured experiments
 

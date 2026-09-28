@@ -1,0 +1,31 @@
+Command: PERF_RUNS=3 pnpm perf -- http://localhost:3436
+Candidate: clean production static hybrid; PORTFOLIO_STATIC_PILOT=1; no E2E or Turnstile test keys
+Result: exit 0 / all route gates passed
+
+desktop (12 routes):
+/ LCP=328ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.002, pass=true
+/work LCP=328ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0, pass=true
+/work/edge-node LCP=327ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.001, pass=true
+/work/cited-researcher LCP=328ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.001, pass=true
+/work/ledgerbridge LCP=329ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.025, pass=true
+/work/ghostcursor LCP=327ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.026, pass=true
+/work/neuroux LCP=327ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.001, pass=true
+/work/studyos LCP=328ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.001, pass=true
+/about LCP=327ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.007, pass=true
+/contact LCP=327ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0, pass=true
+/resume LCP=328ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.001, pass=true
+/styleguide LCP=327ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.001, pass=true
+
+mobile (12 routes):
+/ LCP=1358ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.002, pass=true
+/work LCP=1357ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.01, pass=true
+/work/edge-node LCP=1356ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.002, pass=true
+/work/cited-researcher LCP=1358ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.002, pass=true
+/work/ledgerbridge LCP=1358ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.002, pass=true
+/work/ghostcursor LCP=1358ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.002, pass=true
+/work/neuroux LCP=1358ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.002, pass=true
+/work/studyos LCP=1358ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.035, pass=true
+/about LCP=1359ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.001, pass=true
+/contact LCP=1356ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.001, pass=true
+/resume LCP=1357ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.002, pass=true
+/styleguide LCP=1358ms, performance=100, accessibility=100, best-practices=100, SEO=100, agentic=100, CLS=0.001, pass=true

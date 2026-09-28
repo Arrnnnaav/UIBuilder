@@ -6,9 +6,9 @@
 | G1 | user | ✅ | Owner-approved positioning and evidence rules | 2026-09-25 |
 | S3 design | design-director | ✅ | DESIGN.md, MOTION.md, tokens.css; 3 directions → hybrid | 2026-09-26 |
 | G2 | user | ✅ | Approved hybrid design | 2026-09-25 |
-| S4 build | frontend/backend/growth | ✅ | 12 indexable pages, 6 case studies, data-driven SEO, contact, résumé, styleguide; résumé-backed Dehurdle attribution aligned across copy | 2026-09-28 |
-| S5 polish | design-director/ship | ✅ | 48 committed Windows baselines; refreshed FAQ captures; current 200-test matrix passes with 198 passed and 2 expected desktop-only skips | 2026-09-28 |
-| S6 ship | ship/growth | 🟡 | Clean build, unit/lint/typecheck, runtime SEO and 198 browser checks pass; 96 contrast cases, production no-provider fallback, dependency audit and fresh clean-production security/client scan pass; full mobile LCP contract fails | 2026-09-28 |
-| G3 | automatic | 🟡 pending | Current clean-build mobile LCP 2558–2857ms vs required <2500ms. All 12 desktop routes pass; security, contrast and no-provider behavior are verified. Evidence in QA_REPORT.md, SECURITY_REPORT.md, PERF_REPORT.md and evidence/ | 2026-09-28 |
+| S4 build | frontend/backend/growth | ✅ | 12 indexable Astro static routes, six case studies, data-driven SEO, contact form/API, résumé, styleguide; `pnpm build` packages static pages by default | 2026-09-28 |
+| S5 polish | design-director/ship | ✅ | 48 Next baselines and 48 static-candidate baselines; current static browser matrix passes 202 tests with 2 expected desktop-only skips | 2026-09-28 |
+| S6 ship | ship/growth | ✅ | Default clean build, typecheck/lint/unit, runtime SEO/security, all-route browser/contrast checks and clean dependency audit pass; static Lighthouse passes all 12 routes on desktop/mobile | 2026-09-28 |
+| G3 | automatic | ✅ passed | Default static hybrid candidate meets build, browser, accessibility, security, growth and visual requirements. Three-run Lighthouse: mobile LCP 1357–1359ms, CLS ≤0.035, all categories 100. Evidence in QA_REPORT.md, SECURITY_REPORT.md, PERF_REPORT.md and evidence/. | 2026-09-28 |
 | S7 deploy | ship | ⬜ | Not deployed; actual deployment URL and production environment are unverified. Custom domain is deferred; provider receipts are conditional on owner-configured keys. | |
 | BusinessOS `/connect` | orchestrator | ⬜ | Connector implementation exists; real-site dogfood needs deployed site and owner GitHub PAT | |

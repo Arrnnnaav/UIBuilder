@@ -11,15 +11,18 @@
     "projects/portfolio/content/faq/*.json",
     "projects/portfolio/public/llms.txt",
     "projects/portfolio/seo.manifest.json",
-    "Current local production build at http://localhost:3410"
+    "Current local production build at http://localhost:3410",
+    "Owner-supplied resume PDF and six commit-pinned GitHub source references"
   ],
   "decisions": [
     "Keep the Vercel hostname provisional until deployment is verified; custom domain remains deferred.",
     "Treat this localhost production audit as implementation evidence only, not proof of external crawl, indexing, ranking, or AI answer citations.",
-    "No new SEO copy or identity claims were added because the current route metadata, visible FAQs, public-source citations, and factual boundaries are already coherent; unsupported keyword padding would weaken quality."
+    "No new SEO copy or identity claims were added because the current route metadata, visible FAQs, public-source citations, and factual boundaries are already coherent; unsupported keyword padding would weaken quality.",
+    "Current source recheck resolves the six cited GitHub commit SHAs through GitHub API and confirms the published resume SHA-256 against the supplied original."
   ],
   "files_created": [
     "projects/portfolio/docs/evidence/seo-audit-growth-resume-2026-09-28.txt",
+    "projects/portfolio/docs/evidence/growth-audit-current-2026-09-28.txt",
     "projects/portfolio/docs/GROWTH_REPORT.md",
     "projects/portfolio/docs/handoff/growth.json"
   ],
@@ -40,6 +43,9 @@
   "next_agent": "orchestrator",
   "next_instructions": [
     "Current production build audit: node scripts/seo-audit.mjs http://localhost:3410 -> 0 findings (0 high); output is in docs/evidence/seo-audit-growth-resume-2026-09-28.txt.",
+    "Current source review: node docs/final-content-review.mjs -> 12 public routes, 1 internal noindex route, 30 schema files, 11 FAQs, 6 projects, 10 verified metrics, 1 pending metric, no errors; pnpm validate:content passed.",
+    "All six GitHub commit-pinned evidence references resolved via `gh api`; the current review confirms the published résumé SHA-256 matches the supplied source. Exact outputs: docs/evidence/growth-audit-current-2026-09-28.txt.",
+    "The 3410 audit server returned 200 for home/contact and expected page titles; explicit SEO audit on 3410 is clean. The default pnpm seo:audit uses absent port 3000 and should not be cited for this run.",
     "Direct /sitemap.xml response contains 12 intended indexable routes on the provisional Vercel hostname and excludes /e2e-error; /robots.txt returns configured crawler policy and disallows the test route.",
     "pnpm validate:content passed. Bare pnpm seo:audit failed only because its default localhost:3000 server was absent; the explicit audit against the active production server passed.",
     "Proceed with G3 mobile LCP work. After G3 and deployment, reconcile URLs and verify the live robots, sitemap, canonical tags, structured data, visible FAQs, résumé, and contact flow before S7 closeout.",

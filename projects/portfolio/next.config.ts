@@ -37,6 +37,22 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },
+  async rewrites() {
+    if (process.env.PORTFOLIO_STATIC_PILOT === "0") return [];
+    return {
+      beforeFiles: [
+        { source: "/", destination: "/_astro-pilot/home.html" },
+        { source: "/about", destination: "/_astro-pilot/about.html" },
+        { source: "/contact", destination: "/_astro-pilot/contact.html" },
+        { source: "/resume", destination: "/_astro-pilot/resume.html" },
+        { source: "/styleguide", destination: "/_astro-pilot/styleguide.html" },
+        { source: "/work", destination: "/_astro-pilot/work.html" },
+        { source: "/work/:slug", destination: "/_astro-pilot/work/:slug.html" },
+      ],
+      afterFiles: [],
+      fallback: [],
+    };
+  },
 };
 
 export default nextConfig;

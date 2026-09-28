@@ -14,8 +14,11 @@ const eslintConfig = defineConfig([
     "playwright-report/**",
     "test-results/**",
     ".lighthouse/**",
+    ".astro/**",
     "astro-pilot/.astro/**",
     "astro-pilot/dist/**",
+    "public/_astro-pilot/**",
+    "public/portfolio-static-assets/**",
     "next-env.d.ts",
   ]),
 ]);

@@ -65,6 +65,9 @@ for (const route of pages) {
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", canonical);
       await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", canonical);
       await page.waitForLoadState("load");
+      if (process.env.PORTFOLIO_STATIC_PILOT !== "0") {
+        await expect(page.locator('script[src*="/_next/"]')).toHaveCount(0);
+      }
       expect(errors).toEqual([]);
     });
 
@@ -118,6 +121,14 @@ test("primary nav reaches every linked page", async ({ page }) => {
   await expect(page).toHaveURL(/\/contact$/);
   await page.locator("header").getByRole("link", { name: "Arnav Khandelwal", exact: true }).click();
   await expect(page).toHaveURL(/\/$/);
+});
+
+test("work index project headings follow the page heading", async ({ page }) => {
+  await page.goto("/work");
+
+  const projectHeadings = page.locator('[data-work-row] .work-row-heading > :is(h2, h3)');
+  await expect(projectHeadings).toHaveCount(6);
+  await expect(projectHeadings.first()).toHaveJSProperty("tagName", "H2");
 });
 
 test("mobile menu contains keyboard focus and restores it on Escape", async ({ page }) => {

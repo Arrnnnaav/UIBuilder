@@ -12,11 +12,13 @@ The project procedure `.claude/skills/security-review/SKILL.md` was read and
 applied after it was added. The installed `security-and-hardening` skill also
 informed the threat model and supply-chain checks. The named procedure's source
 checks and no-key monitoring checks are complete for the refreshed source.
-The local production HTTP/client-asset checks were repeated after a clean rebuild
-on 2026-09-28 and are retained in `docs/evidence/security-runtime.txt`. The live
-deployment's environment and behavior require verification after deployment.
+The local production HTTP/client-asset checks were repeated against the current
+clean build on 2026-09-28 and are retained in
+`docs/evidence/security-runtime-current-2026-09-28.txt`. The live deployment's
+environment and behavior require verification after deployment.
 
-Inspected files: `app/actions/contact.ts`, `app/e2e-error/page.tsx`,
+Inspected files: `app/api/contact/route.ts`, `lib/submit-contact.ts`,
+`app/actions/contact.ts`, `app/e2e-error/page.tsx`,
 `lib/{contact-schema,client-ip,rate-limit,turnstile,env,pageview}.ts`,
 `components/{analytics/Analytics,seo/JsonLd}.tsx`, `instrumentation.ts`,
 `instrumentation-client.ts`, `next.config.ts`, `.env.example`, root/project
@@ -143,6 +145,19 @@ recognized GitHub/live-payment/cloud-access credential signatures, and comparing
 any configured private environment values without printing them. Private values
 were absent in this environment. Pattern matching cannot prove arbitrary secrets
 are absent; the inspected environment boundary and zero-key build supplement it.
+
+## Current clean-candidate refresh — 2026-09-28
+
+After the shared contact API extraction, the current clean production build was
+served on localhost and checked with `node scripts/security-runtime-audit.mjs
+http://localhost:3436`. All checks passed: expected CSP/HSTS/frame/content/referrer
+headers on `/` and `/contact`; no Turnstile test widget in production HTML;
+`/e2e-error` returns 404; a multipart request with no `Origin` receives 403; and
+39 generated client/public text assets contain zero credential-shaped matches.
+`pnpm audit --audit-level=high` reports no known vulnerabilities. The scan reports
+counts only and does not print matched values. It cannot prove arbitrary unknown
+secrets absent; source boundary review and owner-controlled deployment environment
+remain necessary.
 
 The first audit attempt was blocked by sandbox socket permissions (OS 10013).
 The approved network rerun succeeded. The native pnpm audit includes development

@@ -3,65 +3,57 @@
   "status": "complete",
   "inputs_used": [
     "AGENTS.md",
-    ".claude/agents/product-manager.md",
+    "plan/DECISIONS.md (D30)",
+    "projects/portfolio/docs/PRODUCT.md",
     "projects/portfolio/docs/PRODUCT_REQUIREMENTS.md",
     "projects/portfolio/docs/ACCEPTANCE.md",
     "projects/portfolio/docs/PRIORITIES.md",
-    "projects/portfolio/docs/QA_REPORT.md",
     "projects/portfolio/docs/STATE.md",
+    "projects/portfolio/docs/QA_REPORT.md",
     "projects/portfolio/docs/PERF_REPORT.md",
     "projects/portfolio/docs/SECURITY_REPORT.md",
     "projects/portfolio/docs/GROWTH_REPORT.md",
-    "projects/portfolio/docs/DESIGN.md",
-    "projects/portfolio/docs/evidence/e2e-final.txt",
-    "projects/portfolio/docs/evidence/unit-final.txt",
-    "projects/portfolio/docs/evidence/contact-production-test.txt",
-    "projects/portfolio/docs/evidence/perf-final-summary.json",
-    "projects/portfolio/docs/evidence/security-review.json",
-    "projects/portfolio/docs/evidence/security-runtime.txt",
-    "projects/portfolio/e2e/site.spec.ts",
-    "projects/portfolio/e2e/contrast.spec.ts",
+    "projects/portfolio/docs/evidence/e2e-static-candidate-current-2026-09-28.txt",
+    "projects/portfolio/docs/evidence/perf-astro-static-current-2026-09-28.json",
+    "projects/portfolio/docs/evidence/perf-astro-static-current-2026-09-28.txt",
+    "projects/portfolio/docs/evidence/build-static-candidate-2026-09-28.txt",
+    "projects/portfolio/docs/evidence/seo-audit-current-2026-09-28.txt",
+    "projects/portfolio/docs/evidence/security-audit.txt",
+    "projects/portfolio/docs/evidence/security-runtime-current-2026-09-28.txt",
     "projects/portfolio/tests/unit/contact-production.test.ts",
-    "projects/portfolio/docs/evidence/contrast-audit-chromium-desktop.json",
-    "projects/portfolio/docs/evidence/contrast-audit-chromium-mobile.json",
-    "projects/portfolio/docs/evidence/contrast-audit-webkit-desktop.json",
-    "projects/portfolio/docs/evidence/contrast-audit-webkit-mobile.json",
-    "projects/portfolio/app/actions/contact.ts",
-    "projects/portfolio/components/contact/ContactForm.tsx",
-    "projects/portfolio/content/seo/routes.json",
-    "projects/portfolio/content/seo/crawlers.json"
+    "projects/portfolio/docs/evidence/contact-production-test.txt"
   ],
   "decisions": [
-    "Evidence reconciliation refreshed on 2026-09-28 against local HEAD 587ed89 on experiment/html-first-lcp; source audit reports this HEAD is pushed to origin/main.",
-    "A15 is verified by the current retained browser matrix: 198 passed, 2 expected desktop-only skips (200 total), across Chromium/WebKit at 390px and 1440px.",
-    "A07 is verified by the production-mode no-provider unit test (1/1); the full portfolio unit suite passes 35/35. This verifies the safe fallback path, not live email delivery.",
-    "A08 and A10 are verified by the current browser matrix, including PDF MIME/signature and FAQ/schema, sitemap/canonical, robots and llms.txt checks.",
-    "A16 is verified by all-route axe checks, four explicit contrast browser/profile outputs, token contrast calculations, keyboard tests and reduced-motion tests; unscored pseudo-element/SVG nodes remain labeled incomplete in the raw audit.",
-    "A18 is verified by the current clean-production security/header/client scan and current security review; this is local candidate evidence, not a live deployment check.",
-    "G3 remains unpassed solely on A17 mobile LCP. Fresh 24-profile clean-production Lighthouse run completed 2026-09-28; desktop passes and all 12 mobile routes miss LCP at 2558–2857ms. Evidence: docs/evidence/perf-final-summary.json and docs/evidence/perf-run-final.txt.",
-    "G3 contact failure-state correctness (A07) is separate from owner-controlled provider credentials, live delivery and conditional telemetry receipts at S7 (A22). Missing provider credentials alone do not block G3; never deploy E2E keys or CONTACT_DRY_RUN.",
-    "The owner-approved indexing decision remains: /styleguide is public/indexable; /e2e-error is internal/noindex."
+    "Reconciled PM-owned acceptance, requirements and priorities with D30 and the current static hybrid candidate. Product scope P01-P11 remains unchanged.",
+    "D30 serves all 12 Astro-generated static content routes by default through Next rewrites. Next retains contact API, response headers, error handling and rollback rendering via PORTFOLIO_STATIC_PILOT=0; pnpm build generates static output.",
+    "Current evidence records G3 satisfied: clean build; 46 unit tests; 202 browser checks passed with 2 expected skips across Chromium/WebKit at 390/1440; SEO audit has zero findings; security and dependency audit pass; all 12 route/device Lighthouse checks pass with all categories 100.",
+    "A17 is verified: mobile LCP 1356-1359ms, desktop LCP 327-329ms, and every measured CLS is below 0.1. A18 is verified against the clean candidate security/runtime evidence and dependency audit.",
+    "A07 is verified by the production no-provider regression test: no Resend configuration with CONTACT_DRY_RUN=0 returns direct-email fallback and does not construct Resend.",
+    "S7 remains pending: deployment and post-deploy URL/SEO checks; owner-controlled provider configuration and receipts if providers are enabled; BusinessOS connection and separate approval steps; launch video and /learn memory. Custom domain remains deferred.",
+    "Linux static snapshot baseline and remote CI portability validation are recorded as follow-up work, not a G3 blocker. New Windows static baselines exist in the worktree; do not describe them as committed until tracked."
   ],
   "files_created": [
     "projects/portfolio/docs/ACCEPTANCE.md",
+    "projects/portfolio/docs/PRODUCT_REQUIREMENTS.md",
     "projects/portfolio/docs/PRIORITIES.md",
-    "projects/portfolio/docs/evidence/contact-production-test.txt",
     "projects/portfolio/docs/handoff/product-manager.json"
   ],
   "resources_used": [],
   "patterns_used": [],
   "risks": [
-    "A17 mobile Lighthouse LCP is the sole current G3 blocker; the fresh 24-profile clean-production run is recorded and all mobile route medians are 2558–2857ms.",
-    "The E2E browser contact flow uses Turnstile test keys and CONTACT_DRY_RUN; the production no-provider unit regression does not prove live delivery.",
-    "The actual deployment URL, Resend delivery and telemetry receipts are unavailable until owner-controlled release configuration; telemetry receipts remain conditional on enabled keys.",
-    "BusinessOS dogfood and launch artifacts remain S7 work after G3."
+    "No deployment is evidenced; deployment URL and post-deploy checks remain S7 work.",
+    "Real email/telemetry provider receipts require owner-controlled release configuration; no-provider fallback/no-op behavior is verified and is not a G3 blocker.",
+    "BusinessOS live-site dogfood, launch video and /learn build memory remain S7 work.",
+    "Linux static snapshot baselines and remote CI portability validation remain follow-up work, not a G3 blocker."
   ],
-  "open_questions": [],
+  "open_questions": [
+    "Owner-controlled deployment account and provider configuration, if enabled, are needed to complete S7 release evidence. Custom-domain selection remains deferred."
+  ],
   "next_agent": "orchestrator",
   "next_instructions": [
-    "Keep G3 pending until a new full Lighthouse matrix satisfies A17 without changing thresholds; current fresh evidence is 2558–2857ms mobile LCP on all routes.",
-    "A07 and A18 are verified; do not list A18 as a remaining G3 blocker unless new current evidence fails.",
-    "Treat A22 provider setup/receipts as release configuration; no live receipts are required when keys are absent, and missing provider credentials alone do not block G3.",
-    "After G3, complete S7 deployment, verify live URLs and environment, dogfood BusinessOS with owner-controlled PAT and separate approvals, and produce launch video plus /learn memory. Never use E2E credentials or CONTACT_DRY_RUN in release."
+    "Proceed with S7 deployment and post-deploy URL/SEO/contact smoke checks when deployment access is available; custom domain remains deferred.",
+    "Configure only owner-approved production providers if enabled and capture receipts; otherwise retain the verified direct-email fallback and clean monitoring no-op behavior. Never release test credentials or CONTACT_DRY_RUN.",
+    "After deployment, complete BusinessOS /connect dogfood with owner-approved PR and separate publish approval, then produce the launch video and /learn memory.",
+    "Track Linux static snapshot baseline and remote CI portability validation as follow-up; do not reopen or block G3 on it."
   ]
 }

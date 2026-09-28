@@ -12,7 +12,7 @@ const page = routes[route];
 if (!page) throw new Error(`Missing SEO route: ${route}`);
 const title = page.title;
 const description = page.description;
-const canonical = new URL(page.canonical, site.url).toString();
+const canonical = page.canonical === "/" ? new URL(site.url).origin : new URL(page.canonical, site.url).toString();
 const globalSchemas = globalJsonLd();
 const socialImage = new URL(page.og?.image ?? "/opengraph-image", site.url).toString();
 ---
@@ -121,6 +121,40 @@ const socialImage = new URL(page.og?.image ?? "/opengraph-image", site.url).toSt
         : (index + (event.shiftKey ? -1 : 1) + items.length) % items.length;
       event.preventDefault();
       items[next].focus();
+    });
+  }
+
+  document.querySelectorAll<HTMLElement>(".work-dock").forEach(dock => {
+    const preview = dock.querySelector<HTMLElement>(".work-preview");
+    if (!preview) return;
+
+    const activate = (event: Event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const row = target.closest<HTMLElement>("[data-work-row]");
+      if (!row || !dock.contains(row)) return;
+      preview.style.transform = `translateY(${row.offsetTop}px)`;
+      preview.querySelectorAll<HTMLElement>("[data-preview]").forEach(item => {
+        item.dataset.active = String(item.dataset.preview === row.dataset.workRow);
+      });
+    };
+
+    dock.addEventListener("pointerover", activate);
+    dock.addEventListener("focusin", activate);
+  });
+
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.5) continue;
+        const row = entry.target as HTMLElement;
+        requestAnimationFrame(() => requestAnimationFrame(() => row.removeAttribute("data-armed")));
+        observer.unobserve(row);
+      }
+    }, { threshold: 0.5 });
+    document.querySelectorAll<HTMLElement>("[data-retract]").forEach(row => {
+      row.setAttribute("data-armed", "");
+      observer.observe(row);
     });
   }
 </script>

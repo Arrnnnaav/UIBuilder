@@ -1,0 +1,7 @@
+Commands:
+- `$env:CI='1'; $env:E2E_SKIP_BUILD='1'; $env:E2E_PORT='3437'; $env:PORTFOLIO_STATIC_PILOT='1'; pnpm test:e2e -- --reporter=line`
+- Snapshot refresh, after manual visual review: same environment plus `--grep 'matches the visual snapshot' --update-snapshots`.
+
+Result: exit 0; 202 passed, 2 expected desktop-only mobile-menu skips (204 total), 0 failures. All four browser/viewport profiles passed across 12 public routes. The run checked that static pages emit no `/_next/` page scripts, alongside metadata, console, axe, committed pilot visual baselines, keyboard/menu focus, contact form submission through the Next API, 404/error boundary, headers, PDF, FAQs/JSON-LD, sitemap, robots and llms.txt.
+
+The static pilot snapshots live under `e2e/__snapshots__/win32/*-static-pilot/`; existing Next snapshots remain unchanged for rollback testing.

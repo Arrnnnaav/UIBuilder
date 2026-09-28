@@ -1,0 +1,3 @@
+Command: `$env:NEXT_BUILD_CPUS='2'; pnpm build` with E2E and Turnstile environment variables removed.
+Result: exit 0; Next.js production build and type generation passed; 12 public routes prerendered.
+The app retains the test-only `/e2e-error` route in the route manifest, but clean production runtime returns 404 when `E2E_ERROR_ROUTE` is unset. `/contact` is built without the test Turnstile widget.

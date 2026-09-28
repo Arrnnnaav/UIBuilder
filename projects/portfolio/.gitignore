@@ -46,5 +46,9 @@ next-env.d.ts
 /playwright-report
 /.lighthouseci
 /.lighthouse
+/dist/
+/public/_astro-pilot/
+/public/portfolio-static-assets/
 /lib/generated
+/.astro/
 /astro-pilot/.astro/

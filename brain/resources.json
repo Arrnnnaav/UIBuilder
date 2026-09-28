@@ -2865,7 +2865,132 @@
    "success_count": 0,
    "failure_count": 0,
    "provenance": {"type": "intake", "url": "https://github.com/garrytan/gstack", "commit": "2a113ae7e623f590095bcaaa0cc581c9a10a6632", "observed_at": "2026-09-27"},
-   "last_reviewed": "2026-09-27"
-  }
- ]
+    "last_reviewed": "2026-09-27"
+   },
+   {
+    "id": "govuk-content-design-guidance",
+    "name": "GOV.UK content design guidance",
+    "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/plan-manage-content/understand-content-design/",
+    "type": "guideline",
+    "categories": ["editorial", "content-design", "writing", "accessibility"],
+    "usage_mode": "research_only",
+    "best_for": ["audience-first page structure", "plain-language content", "content prioritization"],
+    "patterns": [],
+    "trust": "REVIEWED",
+    "license": null,
+    "maintenance": null,
+    "notes": "Official GOV.UK guidance says to start from user needs, choose content amount and format, use clear accessible language, and keep pages current. GOV.UK-specific rules are not UIBuilder policy; adapt only the content-design principles.",
+    "do_not_copy": "Do not reproduce GOV.UK prose or treat UK government conventions as binding; use the principles and write for this site's audience.",
+    "used_in": [],
+    "scores": {},
+    "success_count": 0,
+    "failure_count": 0,
+    "provenance": {
+     "type": "intake",
+     "url": "https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/plan-manage-content/understand-content-design/",
+     "observed_at": "2026-09-28"
+    },
+    "last_reviewed": "2026-09-28"
+   },
+   {
+    "id": "carbon-content-writing-guidelines",
+    "name": "IBM Carbon content guidelines",
+    "url": "https://carbondesignsystem.com/guidelines/content/overview/",
+    "type": "guideline",
+    "categories": ["editorial", "content-design", "writing", "ui-copy"],
+    "usage_mode": "research_only",
+    "best_for": ["UI labels and action text", "voice and tone", "error and form copy", "sentence case"],
+    "patterns": [],
+    "trust": "REVIEWED",
+    "license": null,
+    "maintenance": null,
+    "notes": "Official Carbon guidance covers writing style, action labels, voice and tone, and accessible content. Its examples and IBM voice are product-specific; study the editorial decisions, not the brand wording.",
+    "do_not_copy": "Do not copy IBM/Carbon wording, examples, or brand voice verbatim; adapt general writing principles to the project's approved voice.",
+    "used_in": [],
+    "scores": {},
+    "success_count": 0,
+    "failure_count": 0,
+    "provenance": {
+     "type": "intake",
+     "url": "https://carbondesignsystem.com/guidelines/content/overview/",
+     "observed_at": "2026-09-28"
+    },
+    "last_reviewed": "2026-09-28"
+   },
+   {
+    "id": "apple-human-interface-motion",
+    "name": "Apple Human Interface Guidelines: Motion",
+    "url": "https://developer.apple.com/design/human-interface-guidelines/motion",
+    "type": "guideline",
+    "categories": ["interaction", "motion", "accessibility"],
+    "usage_mode": "research_only",
+    "best_for": ["purposeful motion critique", "interruptible feedback", "reduced-motion review"],
+    "patterns": [],
+    "trust": "REVIEWED",
+    "license": null,
+    "maintenance": null,
+    "notes": "Official HIG guidance reviewed: make motion purposeful and optional, keep feedback brief and precise, avoid unnecessary motion on frequent interactions, and let users cancel motion. These are principles, not measured web timing values; platform examples are Apple-specific.",
+    "do_not_copy": "Do not copy Apple's assets, interface compositions, or platform-specific behaviors; translate only applicable motion principles to the web and test accessibility.",
+    "used_in": [],
+    "scores": {},
+    "success_count": 0,
+    "failure_count": 0,
+    "provenance": {
+     "type": "intake",
+     "url": "https://developer.apple.com/design/human-interface-guidelines/motion",
+     "observed_at": "2026-09-28"
+    },
+    "last_reviewed": "2026-09-28"
+   },
+   {
+    "id": "locomotive-studio-portfolio",
+    "name": "Locomotive studio site",
+    "url": "https://locomotive.ca/en",
+    "type": "website",
+    "categories": ["inspiration", "portfolio", "storytelling", "editorial"],
+    "usage_mode": "inspiration_only",
+    "best_for": ["studio positioning", "featured-work hierarchy", "project storytelling", "editorial navigation"],
+    "patterns": [],
+    "trust": "REVIEWED",
+    "license": null,
+    "maintenance": null,
+    "notes": "Official live site text confirms a featured-work section, studio positioning, hiring/contact paths, and an articles index that includes pieces about scroll and frontend-framework choices. Page content checked; scroll choreography, timings, responsive behavior, and performance were not browser-measured.",
+    "do_not_copy": "Inspiration only: do not copy assets, fonts, copy, exact layout, animation, or code. Extract questions about hierarchy and narrative, then create an original solution.",
+    "used_in": [],
+    "scores": {},
+    "success_count": 0,
+    "failure_count": 0,
+    "provenance": {
+     "type": "intake",
+     "url": "https://locomotive.ca/en",
+     "observed_at": "2026-09-28"
+    },
+    "last_reviewed": "2026-09-28"
+   },
+   {
+    "id": "monogrid-web-experiences-index",
+    "name": "MONOGRID web experiences index",
+    "url": "https://monogrid.com/en/works/websites/",
+    "type": "website",
+    "categories": ["inspiration", "portfolio", "project-index", "storytelling"],
+    "usage_mode": "inspiration_only",
+    "best_for": ["project archive hierarchy", "filterable work taxonomy", "immersive brand-story examples"],
+    "patterns": [],
+    "trust": "REVIEWED",
+    "license": null,
+    "maintenance": null,
+    "notes": "Official work index reviewed. It presents a searchable project archive and filters for all work, web experiences, content, installations/events, AR, VR, and games. The site is a high-production reference; specific scroll behavior, media cost, accessibility, and mobile behavior have not been measured.",
+    "do_not_copy": "Inspiration only: do not copy project assets, fonts, copy, exact compositions, interaction, or code. Treat immersive techniques as study questions, not defaults.",
+    "used_in": [],
+    "scores": {},
+    "success_count": 0,
+    "failure_count": 0,
+    "provenance": {
+     "type": "intake",
+     "url": "https://monogrid.com/en/works/websites/",
+     "observed_at": "2026-09-28"
+    },
+    "last_reviewed": "2026-09-28"
+   }
+  ]
 }

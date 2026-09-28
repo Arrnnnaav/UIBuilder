@@ -32,6 +32,16 @@ it("rejects a cross-origin POST before processing form data", async () => {
   expect(submission.run).not.toHaveBeenCalled();
 });
 
+it("rejects a POST with no Origin header before processing form data", async () => {
+  const response = await POST(new Request("https://portfolio.example/api/contact", {
+    method: "POST",
+    body: validForm(),
+  }));
+
+  expect(response.status).toBe(403);
+  expect(submission.run).not.toHaveBeenCalled();
+});
+
 it("requires multipart form data", async () => {
   const response = await POST(new Request("https://portfolio.example/api/contact", {
     method: "POST",

@@ -1,0 +1,16 @@
+PASS / returns 200
+PASS / content-security-policy
+PASS / strict-transport-security
+PASS / x-content-type-options
+PASS / x-frame-options
+PASS / referrer-policy
+PASS /contact returns 200
+PASS /contact content-security-policy
+PASS /contact strict-transport-security
+PASS /contact x-content-type-options
+PASS /contact x-frame-options
+PASS /contact referrer-policy
+PASS production contact has no test Turnstile widget
+PASS E2E-only error route is hidden
+PASS contact API rejects requests without Origin
+PASS generated client/public scan: 38 text assets, 0 credential-pattern matches
