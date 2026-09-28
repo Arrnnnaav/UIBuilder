@@ -6,10 +6,11 @@ import { extname, join } from "node:path";
 
 const pnpmCli = process.env.npm_execpath;
 if (!pnpmCli) throw new Error("Run this script through pnpm so it can locate the project package manager.");
-const command = extname(pnpmCli).toLowerCase() === ".exe" ? pnpmCli : process.execPath;
-const args = extname(pnpmCli).toLowerCase() === ".exe"
-  ? ["exec", "astro", "build", "--root", "astro-pilot"]
-  : [pnpmCli, "exec", "astro", "build", "--root", "astro-pilot"];
+const isJavaScriptCli = /\.(?:c|m)?js$/i.test(pnpmCli);
+const command = isJavaScriptCli ? process.execPath : pnpmCli;
+const args = isJavaScriptCli
+  ? [pnpmCli, "exec", "astro", "build", "--root", "astro-pilot"]
+  : ["exec", "astro", "build", "--root", "astro-pilot"];
 const run = spawnSync(command, args, {
   cwd: process.cwd(),
   env: process.env,
