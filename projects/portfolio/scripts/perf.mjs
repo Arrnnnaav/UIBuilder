@@ -26,6 +26,8 @@ const MIN = 0.9;
 // Lighthouse's simulated throttling is noisy on a busy machine; take the median run.
 const RUNS = Number(process.env.PERF_RUNS ?? 3);
 if (!Number.isInteger(RUNS) || RUNS < 1) throw new Error("PERF_RUNS must be a positive integer");
+const previewBypass = process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
+const extraHeaders = previewBypass ? { "x-vercel-protection-bypass": previewBypass } : undefined;
 const median = (xs) => [...xs].sort((a, b) => a - b)[Math.floor(xs.length / 2)];
 mkdirSync(join(root, ".lighthouse"), { recursive: true });
 
@@ -39,8 +41,12 @@ try {
       const runs = [];
       for (let i = 0; i < RUNS; i++) {
         console.log(`Lighthouse ${formFactor} ${route}, run ${i + 1}/${RUNS}`);
-        const { lhr } = await lighthouse(`${base}${route}`, { port: PORT, output: "json", logLevel: "error" }, config);
-        writeFileSync(join(root, ".lighthouse", `${formFactor}-${route === "/" ? "home" : route.slice(1).replaceAll("/", "_")}-${i + 1}.json`), JSON.stringify(lhr));
+        const { lhr } = await lighthouse(`${base}${route}`, { port: PORT, output: "json", logLevel: "error", extraHeaders }, config);
+        // Lighthouse may retain request headers in raw reports; don't persist reports when the
+        // Vercel preview bypass secret is present. The aggregate metrics contain no credentials.
+        if (!previewBypass) {
+          writeFileSync(join(root, ".lighthouse", `${formFactor}-${route === "/" ? "home" : route.slice(1).replaceAll("/", "_")}-${i + 1}.json`), JSON.stringify(lhr));
+        }
         runs.push(lhr);
       }
       const cats = Object.keys(runs[0].categories);

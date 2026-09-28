@@ -2,7 +2,7 @@
 // Build the experimental static pages and package their HTML/CSS behind Next rewrites.
 import { spawnSync } from "node:child_process";
 import { copyFile, mkdir, readFile, readdir, unlink } from "node:fs/promises";
-import { extname, join } from "node:path";
+import { join } from "node:path";
 
 const pnpmCli = process.env.npm_execpath;
 if (!pnpmCli) throw new Error("Run this script through pnpm so it can locate the project package manager.");

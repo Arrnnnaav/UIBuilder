@@ -28,6 +28,22 @@ Mobile medians by route on the current candidate:
 | `/resume` | 100 | 1357ms | 0.002 |
 | `/styleguide` | 100 | 1358ms | 0.001 |
 
+## Authenticated deployed preview observation
+
+One Lighthouse run per route/device profile was collected from the protected
+Vercel preview on 2026-09-28. Performance scores were 0.92–1.00 desktop and
+0.94–1.00 mobile; accessibility and best-practices were 1.00. LCP measured
+277–352ms desktop and 856–1,244ms mobile; CLS was ≤0.026 desktop and ≤0.035
+mobile. The 24-row output is `docs/evidence/live-preview-lighthouse-one-run-2026-09-28.json`.
+
+The full preview Lighthouse command exited non-zero because Vercel adds
+`X-Robots-Tag: noindex` to previews and protects direct requests. Lighthouse's
+SEO score was 0.58 and agentic-browsing 0.50–0.67; the page-level live SEO
+audit, run with a temporary bypass header, found zero issues. These preview-only
+crawlability results are not evidence about a future public production host.
+The preview is deliberately protected while the owner defers a stable public
+hostname. See `docs/evidence/live-preview-check-2026-09-28.md`.
+
 ## Next-rendered fallback comparison
 
 The clean Next-rendered fallback matrix remains useful for comparison. It passes desktop but misses the strict mobile LCP requirement on all routes; it is no longer the default candidate. Results: `docs/evidence/perf-current-summary-2026-09-28.json` and `docs/evidence/perf-current-2026-09-28.txt`.

@@ -40,7 +40,19 @@
     "visual_review_loops": 1,
     "browser_matrix": { "passed": 202, "expected_skips": 2 },
     "owner_rating": null,
-    "live_search_visibility": "not measured; deployment is not live"
+    "live_search_visibility": "not measured; protected noindex preview only",
+    "live_preview": {
+      "deployment_id": "dpl_GZ2Cx1CbLfxbAaZgt6cbRw9SYmnw",
+      "target": "preview",
+      "route_browser_checks": 12,
+      "mobile_browser_checks": 3,
+      "seo_audit_findings": 0,
+      "lighthouse_runs": 24,
+      "performance_score_range": { "desktop": [0.92, 1], "mobile": [0.94, 1] },
+      "lcp_ms": { "desktop": [277, 352], "mobile": [856, 1244] },
+      "noindex_reason": "Vercel applies X-Robots-Tag: noindex to protected preview deployments",
+      "not_public_production": true
+    }
   },
   "feedback": [
     { "target": "owner rating and qualitative feedback", "verdict": "awaiting owner response; no rating or trust promotion recorded" }
@@ -51,11 +63,13 @@
     "Source-pinned project evidence keeps 10 supported metrics visible and filters the one pending-source metric.",
     "The résumé PDF hash matches the exact owner-supplied file.",
     "The default candidate passes Chromium and WebKit at 390px and 1440px, with 48 Windows and 48 Linux visual baselines.",
-    "BusinessOS connector health and snapshot are verified read-only against the feature branch with five portfolio-scoped editable paths."
+    "BusinessOS connector health and snapshot are verified read-only against the feature branch with five portfolio-scoped editable paths.",
+    "Protected Vercel preview target is Ready; all 12 public routes pass live browser metadata/schema checks, the bypass-authenticated SEO audit has 0 findings, and live contact-origin rejection/PDF checks pass."
   ],
   "failed": [
     "The Next-rendered fallback exceeded the strict mobile LCP gate on all 12 routes; D30 made the passing Astro static hybrid the default and retained Next as a rollback path.",
-    "The configured provisional Vercel URL returns 404. No deployment, live indexing, rankings or AI citations are claimed.",
+    "The configured provisional canonical URL returns 404. A protected noindex preview is deployed, but no public production URL, indexing, rankings or AI citations are claimed.",
+    "Vercel auto-assigned the project's first CLI deployment to production; the accidental deployment and its aliases were removed. The current deployment target is preview.",
     "BusinessOS default-branch health still lacks the root gateway manifest because the feature branch has not been integrated into main; no PR or publish was created."
   ]
 }

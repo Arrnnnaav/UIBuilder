@@ -11,11 +11,16 @@ all 24 route/device Lighthouse rows pass with every category at 100, mobile LCP
 passed locally. GitHub Actions run `36373755566` passed the source matrices and
 generated all 48 Linux baselines.
 
-S7 is still pending: the provisional Vercel hostname returns 404 and preview
-deployment awaits owner authentication. No live indexing, search ranking, AI
-citation, production deployment, or custom-domain setup is claimed. The earlier
-Next-rendered mobile performance failure below is historical evidence for the
-replaced candidate; D30's current static candidate supersedes it.
+S7 now has an authenticated Vercel preview, but no public production host. The
+preview is protected by Vercel Authentication and receives
+`X-Robots-Tag: noindex`; its canonical URLs still point to the provisional hostname, which
+returns 404. A bypass-authenticated live SEO audit reports zero findings, and
+browser checks cover all 12 public routes. Reconcile the canonical origin only
+after the owner selects a stable public host. No live indexing, search ranking,
+AI citation, production deployment, or custom-domain setup is claimed. See
+`docs/evidence/live-preview-check-2026-09-28.md`. The earlier Next-rendered
+mobile performance failure below is historical evidence for the replaced
+candidate; D30's current static candidate supersedes it.
 
 ## Search policy references
 
@@ -104,6 +109,21 @@ uptime, hiring availability, LinkedIn URL or residential location is inferred.
 - Reconciled report coverage with the owner's public styleguide decision.
 
 ## Runtime audit evidence and limits
+
+### Authenticated Vercel preview, 2026-09-28
+
+The owner authenticated Vercel and authorized a temporary preview. Its current
+deployment is `dpl_GZ2Cx1CbLfxbAaZgt6cbRw9SYmnw` (target `preview`, Ready). The
+preview is SSO-protected and noindex by Vercel policy. With the generated
+bypass held only in process memory, `node scripts/seo-audit.mjs <preview-url>`
+reported 0 findings; Chromium verified all 12 routes, metadata/schema, three
+mobile layouts, résumé download and contact-origin rejection. The one-run 24-row
+Lighthouse observation passes performance, accessibility and best-practices
+thresholds but the overall audit reports reduced SEO/agent-discoverability
+scores because Lighthouse's direct crawler fetches encounter deployment
+protection and the preview noindex header. Do not interpret those preview-only
+scores as the public production SEO result. Full outputs:
+`docs/evidence/live-preview-check-2026-09-28.md` and the adjacent JSON/screenshots.
 
 The current production runtime on 2026-09-28 was audited from the running local server:
 

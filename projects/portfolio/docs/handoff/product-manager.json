@@ -29,7 +29,7 @@
     "Current evidence records G3 satisfied: clean build; 46 unit tests; 202 browser checks passed with 2 expected skips across Chromium/WebKit at 390/1440; SEO audit has zero findings; security and dependency audit pass; all 12 route/device Lighthouse checks pass with all categories 100.",
     "A17 is verified: mobile LCP 1356-1359ms, desktop LCP 327-329ms, and every measured CLS is below 0.1. A18 is verified against the clean candidate security/runtime evidence and dependency audit.",
     "A07 is verified by the production no-provider regression test: no Resend configuration with CONTACT_DRY_RUN=0 returns direct-email fallback and does not construct Resend.",
-    "S7 remains pending: deployment and post-deploy URL/SEO checks; owner-controlled provider configuration and receipts if providers are enabled; BusinessOS connection and separate approval steps; launch video and /learn memory. Custom domain remains deferred.",
+    "S7 remains partial: protected preview is ready and all-route smoke checks pass, but canonical remains provisional and preview is noindex. Owner-controlled providers, BusinessOS connection/approvals, launch video, and owner-rated /learn remain open. Custom domain remains deferred.",
     "Linux static snapshot baseline and remote CI portability both passed in GitHub Actions run 36373755566; all 48 Linux static snapshots are committed."
   ],
   "files_created": [
@@ -41,10 +41,10 @@
   "resources_used": [],
   "patterns_used": [],
   "risks": [
-    "No deployment is evidenced; deployment URL and post-deploy checks remain S7 work.",
+    "A preview is evidenced, but no stable public production URL exists. The original canonical host returns 404 and must be reconciled after owner host selection.",
     "Real email/telemetry provider receipts require owner-controlled release configuration; no-provider fallback/no-op behavior is verified and is not a G3 blocker.",
     "BusinessOS live-site dogfood and launch video remain S7 work. The /learn build memory exists, but owner rating and qualitative feedback are pending.",
-    "Preview deployment remains blocked on owner Vercel device authentication; the configured provisional hostname returns 404."
+    "Vercel's first CLI deploy was automatically assigned to production; that single deployment and its two aliases were removed. The current protected preview is explicitly target=preview."
   ],
   "open_questions": [
     "Owner-controlled deployment account and provider configuration, if enabled, are needed to complete S7 release evidence. Custom-domain selection remains deferred."

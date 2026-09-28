@@ -6,10 +6,10 @@ Status: partial — G3 passed on 2026-09-28, but S7 deployment/domain verificati
 
 - Site metadata uses the provisional origin `https://arnav-khandelwal.vercel.app`.
 - That hostname currently returns HTTP 404. It is not evidence of a live production deployment.
-- Vercel CLI is not authenticated in the current environment. Deployment and account-level verification cannot proceed until the owner authenticates the CLI in the intended Vercel account.
+- Vercel CLI is authenticated in the owner's Hobby scope. A protected preview is Ready at `https://arnav-khandelwal-portfolio-dz7z8450s-arrnnnaavs-projects.vercel.app` (deployment `dpl_GZ2Cx1CbLfxbAaZgt6cbRw9SYmnw`); current project has no production URL/alias. The first CLI deployment was automatically assigned to production, so its aliases were removed and that deployment was deleted before keeping the explicit preview deployment.
 - No custom hostname, registrar, DNS account, sending domain, or connected Search Console account is selected in the project evidence.
 - G3 passed on 2026-09-28 against all 12 static routes. Local build, SEO, security, and performance evidence is recorded in the project reports; that evidence does not establish a live deployment.
-- No production deployment or live DNS changes have occurred.
+- No active production deployment/alias or live DNS changes remain. The preview is SSO-protected and noindex; it is not the public final host.
 
 ## Activation sequence
 
@@ -23,4 +23,4 @@ Follow [`plan/DOMAIN-LAUNCH.md`](../../../plan/DOMAIN-LAUNCH.md) after the owner
 - Submit the sitemap only after Search Console domain verification. Record submission separately from actual indexing.
 - Configure mail authentication only if a sender provider is selected; preserve unrelated MX records and stage DMARC based on observed sender alignment.
 
-No production deployment or live domain changes have been made. The Vercel CLI authentication requirement and provisional hostname 404 are current S7 blockers; custom-domain work remains owner-deferred.
+The authenticated preview has passed live route/SEO smoke checks; its noindex/protection and provisional canonical are expected until a stable public host is selected. The original provisional hostname still returns 404. Production-host reconciliation, owner-controlled release credentials, and any DNS work remain S7/owner-controlled; custom-domain work remains deferred.

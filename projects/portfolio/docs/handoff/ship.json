@@ -25,16 +25,17 @@
   ],
   "patterns_used": [],
   "risks": [
-    "S7 preview deployment awaits owner Vercel authentication; the provisional URL returns 404, so no live production or indexing claim is made.",
+    "A Ready, SSO-protected Vercel preview has live evidence for all routes, metadata, API rejection, PDF and one-run performance. It has X-Robots-Tag noindex and provisional canonicals; no public production host is selected.",
+    "The first CLI deployment defaulted to production; its aliases and deployment were removed. Only the explicitly targeted preview remains, with no production URL in the account.",
     "The Next-rendered fallback retains its historical mobile LCP failure and remains a rollback path; D30 static HTML is the default candidate.",
     "BusinessOS real PR and publish flow, provider receipts, and launch video are not yet verified. Custom domain remains deferred."
   ],
   "open_questions": [
-    "Owner must complete Vercel device authentication before a temporary preview can be deployed."
+    "Owner must select a stable public host before canonical reconciliation and public production checks; custom-domain selection is deferred."
   ],
   "next_agent": "orchestrator",
   "next_instructions": [
-    "After authentication, deploy only the temporary preview and verify routes, headers, contact action, sitemap, robots, metadata and structured data against the actual URL.",
-    "Do not deploy production or alter DNS without explicit owner direction. Preserve the prior Next-rendered performance evidence as a historical fallback comparison."
+    "Keep the temporary preview protected/noindex and preserve the live evidence. Do not deploy production, assign aliases or alter DNS without explicit owner direction.",
+    "After the owner selects a stable public host, reconcile canonical metadata, rerun public SEO/Lighthouse and verify routes, headers, contact action, sitemap, robots and structured data."
   ]
 }

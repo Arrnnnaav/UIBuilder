@@ -21,4 +21,4 @@ The PDF's `app` CNAME and two email subdomains are examples, not universal requi
 
 ## Current portfolio status
 
-Custom domain deferred by owner. G3 passed; S7 deployment is pending Vercel authentication. No production hostname, registrar, email sender domain, or Search Console account has been selected. No DNS changes have been made.
+Custom domain deferred by owner. G3 passed and a protected Vercel preview is Ready; there is no active production URL/alias. No stable public hostname, registrar, email sender domain, or Search Console account has been selected. No DNS changes have been made.
