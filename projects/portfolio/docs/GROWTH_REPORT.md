@@ -1,5 +1,22 @@
 # Growth report: final static and runtime review, 2026-09-28
 
+## Current release status
+
+The current default candidate is D30's Astro static HTML for all 12 public
+content routes, with Next retaining the contact API, headers, error handling and
+rollback path. The latest full candidate evidence is in `PERF_REPORT.md`,
+`QA_REPORT.md` and `docs/evidence/perf-default-static-current-2026-09-28.json`:
+all 24 route/device Lighthouse rows pass with every category at 100, mobile LCP
+1357–1359ms, desktop LCP 327–330ms, and zero local SEO audit findings. G3 is
+passed locally. GitHub Actions run `36373755566` passed the source matrices and
+generated all 48 Linux baselines.
+
+S7 is still pending: the provisional Vercel hostname returns 404 and preview
+deployment awaits owner authentication. No live indexing, search ranking, AI
+citation, production deployment, or custom-domain setup is claimed. The earlier
+Next-rendered mobile performance failure below is historical evidence for the
+replaced candidate; D30's current static candidate supersedes it.
+
 ## Search policy references
 
 - Google's [generative AI Search guidance](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide) emphasizes useful, original content and foundational SEO; it provides no special length, schema or `llms.txt` shortcut.
@@ -124,9 +141,12 @@ PowerShell attempt to run the full robots test matrix stalled and is retained in
 `docs/evidence/seo-robots-stalled-pwsh-attempt.txt`; the successful focused run
 is the current robots evidence. The full browser suite separately passed with
 198 passes and two expected desktop-only skips, including exact route/FAQ parity
-and sitemap/llms checks. The complete mobile Lighthouse matrix still fails the
-strict LCP threshold on every public route, so this report does not mark G3 or
-deployment passed.
+and sitemap/llms checks. **Historical result for the earlier Next-rendered
+candidate:** its mobile Lighthouse matrix failed the strict LCP threshold on
+every public route. D30 replaced that candidate with the all-route static
+hybrid. The current candidate's passing three-run Lighthouse results and G3
+status are recorded above and in `PERF_REPORT.md`; this earlier result does not
+describe the current candidate.
 
 ## Remaining launch requirements
 
