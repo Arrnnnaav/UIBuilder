@@ -1,7 +1,7 @@
 {
   "agent": "ship",
   "status": "complete",
-  "inputs_used": ["AGENTS.md", "docs/GATE_GAPS.md", "scripts/gate.mjs", "projects/portfolio/scripts/perf.mjs", "skill-creator/SKILL.md"],
+  "inputs_used": ["AGENTS.md", "docs/GATE_GAPS.md", "scripts/gate.mjs", "D:/UiBuildProj/portfolio/scripts/perf.mjs", "skill-creator/SKILL.md"],
   "decisions": ["G3 does not seed its own passing visual baselines", "Review evidence is bound to source/artifact bytes and Git HEAD snapshot bytes", "Security-review is original project-local instructions; no third-party skill redistributed"],
   "files_created": ["scripts/lib/g3-evidence.mjs", "tests/platform/g3-evidence.test.mjs", "docs/G3_EVIDENCE.md", ".claude/skills/security-review/SKILL.md"],
   "risks": ["Artifact hashes establish identity, not truth; Orchestrator must review retained logs/provider receipts", "Full portfolio G3 not executed by this agent", "Root must register security-review router path and populate evidence after actual review"],
