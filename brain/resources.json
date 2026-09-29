@@ -3127,20 +3127,6 @@
     "license": null,
     "notes": "Cataloged but not installed; review license and overlap before adding another project skill.",
     "provenance": {"type":"intake","url":"https://github.com/pbakaus/impeccable","observed_at":"2026-09-28"}
-   },
-   {
-    "id": "lattice-agent-visualizer",
-    "name": "Lattice agent workflow visualizer",
-    "url": "https://github.com/DahunHan/lattice",
-    "type": "agent_observability",
-    "categories": ["agent-workflow", "observability", "dashboard", "architecture"],
-    "usage_mode": "code_reference",
-    "best_for": ["read-only topology and workflow visualization for UIBuilder traces", "studying React Flow agent dashboards", "project-file and log discovery patterns"],
-    "trust": "REVIEWED",
-    "license": {"spdx":"MIT","url":"https://github.com/DahunHan/lattice/blob/main/LICENSE"},
-    "do_not_copy": "UI, assets, copy or implementation without an independent review; use mechanisms only",
-    "notes": "Best legal starting reference among the reviewed repositories. It visualizes workflows from project files and supports multiple agent frameworks, but it is not the UIBuilder runtime or gate authority. Build a native read-only Control Room around UIBuilder traces and handoffs instead of replacing the file-driven pipeline.",
-    "provenance": {"type":"intake","url":"https://github.com/DahunHan/lattice","observed_at":"2026-09-29"}
    }
   ]
 }
