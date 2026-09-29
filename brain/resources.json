@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-09-27",
+ "updated": "2026-09-29",
  "resources": [
   {
    "id": "lightswind",
@@ -3128,5 +3128,106 @@
     "notes": "Cataloged but not installed; review license and overlap before adding another project skill.",
     "provenance": {"type":"intake","url":"https://github.com/pbakaus/impeccable","observed_at":"2026-09-28"}
    }
+  ,{
+   "id": "codrops-scroll-driven-css-2024",
+   "name": "Codrops: Practical scroll-driven animations with CSS",
+   "url": "https://tympanus.net/codrops/2024/01/17/a-practical-introduction-to-scroll-driven-animations-with-css-scroll-and-view/",
+   "type": "design_reference",
+   "categories": [
+    "ui",
+    "motion",
+    "scroll",
+    "accessibility"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [
+    "progressive scroll enhancement",
+    "view-timeline experiments",
+    "reduced-motion review"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": null,
+   "notes": "Research reference reviewed 2026-09-29. Use mechanism and browser-support guidance as input to original implementations; progressive enhancement and prefers-reduced-motion are required.",
+   "do_not_copy": "demo code, assets, copy, exact compositions",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "web_research",
+    "observed_at": "2026-09-29",
+    "source_note": "Codrops tutorial by Adam Argyle; browser support and reduced-motion caveats recorded."
+   },
+   "last_reviewed": "2026-09-29"
+  }
+  ,{
+   "id": "codrops-sticky-grid-scroll-2026",
+   "name": "Codrops: Sticky grid scroll case study",
+   "url": "https://tympanus.net/codrops/2026/03/02/sticky-grid-scroll-building-a-scroll-driven-animated-grid/",
+   "type": "design_reference",
+   "categories": [
+    "ui",
+    "motion",
+    "scroll",
+    "storytelling"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [
+    "sticky scene composition",
+    "scroll-to-timeline mapping",
+    "motion pacing"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": null,
+   "notes": "Research reference reviewed 2026-09-29. Study separation of scene, content and timeline phases; create original layouts and verify mobile, keyboard and reduced-motion behavior.",
+   "do_not_copy": "demo code, images, copy, exact layout or timing",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "web_research",
+    "observed_at": "2026-09-29",
+    "source_note": "Codrops case study; mechanism-level notes only."
+   },
+   "last_reviewed": "2026-09-29"
+  }
+  ,{
+   "id": "nngroup-nonstandard-scrolling-guidance",
+   "name": "Nielsen Norman Group: non-standard scrolling guidance",
+   "url": "https://www.nngroup.com/articles/horizontal-scrolling/",
+   "type": "design_reference",
+   "categories": [
+    "ux",
+    "accessibility",
+    "interaction"
+   ],
+   "usage_mode": "research_only",
+   "best_for": [
+    "interaction convention review",
+    "horizontal-scroll risk assessment",
+    "navigation usability"
+   ],
+   "patterns": [],
+   "trust": "REVIEWED",
+   "license": null,
+   "maintenance": null,
+   "notes": "Research reference reviewed 2026-09-29. Use to challenge unusual scrolling patterns and preserve standard vertical navigation unless a gallery or explicit control makes the alternate axis clear.",
+   "do_not_copy": "article text, examples, visual assets",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "provenance": {
+    "type": "web_research",
+    "observed_at": "2026-09-29",
+    "source_note": "Nielsen Norman Group guidance surfaced through its public research index."
+   },
+   "last_reviewed": "2026-09-29"
+  }
   ]
 }
