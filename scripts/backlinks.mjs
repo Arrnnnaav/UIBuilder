@@ -37,9 +37,11 @@ for (const [index, target] of (data.targets ?? []).entries()) {
   if (!target.id || ids.has(target.id)) errors.push(`${at}.id missing or duplicate`); ids.add(target.id);
   if (!target.category) errors.push(`${at}.category missing`);
   if (!statuses.has(target.status)) errors.push(`${at}.status invalid`);
+  if (target.quality_score !== undefined && (!Number.isInteger(target.quality_score) || target.quality_score < 0 || target.quality_score > 100)) errors.push(`${at}.quality_score must be an integer from 0 to 100`);
   for (const key of ["source_url", "target_url"]) if (target[key] && !validUrl(target[key])) errors.push(`${at}.${key} must be https`);
   if (["published", "verified"].includes(target.status) && !target.evidence_path) errors.push(`${at}.evidence_path required for ${target.status}`);
   if (target.status === "verified" && !target.last_checked) errors.push(`${at}.last_checked required for verified link`);
+  if (["published", "verified"].includes(target.status) && target.quality_score === undefined) errors.push(`${at}.quality_score required for ${target.status}`);
 }
 if (data.search_console?.evidence_path && !data.search_console.exported_at) errors.push("search_console.exported_at required with evidence_path");
 if (errors.length) { console.error(errors.join("\n")); process.exit(1); }
@@ -48,6 +50,9 @@ if (command === "validate") { console.log(`✓ backlinks valid — ${(data.targe
 const counts = Object.fromEntries([...statuses].map((status) => [status, (data.targets ?? []).filter((target) => target.status === status).length]));
 const verified = (data.targets ?? []).filter((target) => target.status === "verified");
 const stale = verified.filter((target) => !target.last_checked || (Date.now() - Date.parse(target.last_checked)) > 1000 * 60 * 60 * 24 * 90);
-const lines = ["# Backlink report", "", `Generated: ${iso()}`, `Project: ${slug}`, "", "## Counts", "", ...Object.entries(counts).map(([key, value]) => `- ${key}: ${value}`), "", `- verified links: ${verified.length}`, `- stale verified links (>90 days): ${stale.length}`, `- Search Console evidence: ${data.search_console?.evidence_path ?? "not recorded"}`, "", "## Quality policy", "", "A verified link is counted only when its public referring page, destination, anchor, rel attribute and last-checked date are recorded. No ranking or traffic causality is inferred.", "", "## Open approvals", "", ...Object.entries(data.owner_approval).filter(([, value]) => !value).map(([key]) => `- ${key}: pending owner approval`)];
+const tier = (score) => score === null ? "unscored" : score >= 80 ? "strong" : score >= 60 ? "good" : score >= 40 ? "review" : "reject";
+const qualityCounts = Object.fromEntries(["strong", "good", "review", "reject", "unscored"].map((name) => [name, (data.targets ?? []).filter((target) => tier(target.quality_score ?? null) === name).length]));
+const qualityRows = (data.targets ?? []).map((target) => `- ${target.id}: ${tier(target.quality_score ?? null)}${target.quality_score === undefined ? " (no score)" : ` (${target.quality_score}/100)`} — ${target.status}`).join("\n");
+const lines = ["# Backlink quality dashboard", "", `Generated: ${iso()}`, `Project: ${slug}`, "", "## Counts", "", ...Object.entries(counts).map(([key, value]) => `- ${key}: ${value}`), "", `- verified links: ${verified.length}`, `- stale verified links (>90 days): ${stale.length}`, `- Search Console evidence: ${data.search_console?.evidence_path ?? "not recorded"}`, "", "## Quality tiers", "", ...Object.entries(qualityCounts).map(([key, value]) => `- ${key}: ${value}`), "", qualityRows || "No targets recorded yet.", "", "## Quality policy", "", "Score links from 0–100 using audience relevance, editorial legitimacy, source trust, destination fit and spam risk. A verified link is counted only when its public referring page, destination, anchor, rel attribute, last-checked date and quality score are recorded. No ranking or traffic causality is inferred.", "", "## Open approvals", "", ...Object.entries(data.owner_approval).filter(([, value]) => !value).map(([key]) => `- ${key}: pending owner approval`)];
 writeFileSync(join(docs, "BACKLINK_REPORT.md"), lines.join("\n") + "\n");
 console.log(lines.join("\n"));
