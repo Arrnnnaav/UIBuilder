@@ -221,3 +221,6 @@ Legend: ✅ done · 🟡 in progress · ⬜ todo · ⛔ blocked (reason)
 - [x] GitHub CI run 1: platform tests and Gitleaks passed; the initial Semgrep fixture probe failed because the temp mount was not scanned. Run 2 proved all five unsafe examples are detected and the safe sample has zero findings. Full scan identified one reviewed, escaped innerHTML implementation in the vendored scroll-world reference. Added a documented Semgrep ignore for vendored skill references; the next full scan is pending.
 - [ ] Migrate the existing site repositories only after owner reviews the dry-run target and approves writes outside the harness root.
 - [ ] Extend recipe comparisons with production outcome cohorts; current trace volume and token/cost telemetry remain too small for evidence-backed improvement claims.
+
+- [x] GitHub CI run 36564322154 at commit 1291b9b: platform contract checks and all 32 tests passed; Semgrep positive/negative probes and full harness scan passed; Gitleaks full-history scan passed. https://github.com/Arrnnnaav/UIBuilder/actions/runs/36564322154
+
