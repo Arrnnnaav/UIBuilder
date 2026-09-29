@@ -5,9 +5,9 @@ UIBuilder is the harness for building, reviewing and shipping high-quality websi
 ## What the harness does
 
 ```text
-brief → research → UX → design council → owner review
-      → interaction review → implementation → QA/security/perf/growth
-      → release review → deploy/domain checks → learn/improve
+brief Ã¢â€ â€™ research Ã¢â€ â€™ UX Ã¢â€ â€™ design council Ã¢â€ â€™ owner review
+      Ã¢â€ â€™ interaction review Ã¢â€ â€™ implementation Ã¢â€ â€™ QA/security/perf/growth
+      Ã¢â€ â€™ release review Ã¢â€ â€™ deploy/domain checks Ã¢â€ â€™ learn/improve
 ```
 
 The Orchestrator owns state and dispatch. Specialist agents own bounded artifacts. Files are the contract, so a paused session can be resumed without relying on chat history.
@@ -66,14 +66,14 @@ The Brain is a controlled knowledge and routing layer, not an unbounded self-edi
 - `brain/builds/` stores project lineage, scores and feedback.
 - `brain/learning/` stores redacted traces, failure categories, proposals, evaluations and rollback versions.
 
-The default trust ladder is `NEW → REVIEWED → TESTED → APPROVED → TRUSTED`. Only `APPROVED` and `TRUSTED` resources are used by default. Jev can provide shadow-mode semantic hints after deterministic filtering; it cannot pass gates, bypass rights checks or deploy.
+The default trust ladder is `NEW Ã¢â€ â€™ REVIEWED Ã¢â€ â€™ TESTED Ã¢â€ â€™ APPROVED Ã¢â€ â€™ TRUSTED`. Only `APPROVED` and `TRUSTED` resources are used by default. Jev can provide shadow-mode semantic hints after deterministic filtering; it cannot pass gates, bypass rights checks or deploy.
 
 The improvement loop is:
 
 ```text
-trace → feedback/objective checks → failure category
-      → bounded proposal → baseline/candidate evaluation
-      → exact owner review → promote or reject → monitor/rollback
+trace Ã¢â€ â€™ feedback/objective checks Ã¢â€ â€™ failure category
+      Ã¢â€ â€™ bounded proposal Ã¢â€ â€™ baseline/candidate evaluation
+      Ã¢â€ â€™ exact owner review Ã¢â€ â€™ promote or reject Ã¢â€ â€™ monitor/rollback
 ```
 
 Run it with:
@@ -90,11 +90,11 @@ node scripts/improve.mjs evaluate brain/learning/candidates/router-v2-token-matc
 
 `/brag <slug> [product|company]` prepares a promotional package for a shipped product or company site. It reads approved project evidence and writes reviewable files under the external site repository:
 
-- `docs/launch/BRAG_BRIEF.md` — audience, promise, proof and campaign angle
-- `docs/launch/PROMO_COPY.md` — hero, feature, social and email variants
-- `docs/launch/LAUNCH_SCRIPT.md` — short promotional video/storyboard script
-- `docs/launch/SHOT_LIST.md` — product-led scenes and required captures
-- `docs/launch/BRAG_HANDOFF.json` — sources, evidence, rights and open approvals
+- `docs/launch/BRAG_BRIEF.md` Ã¢â‚¬â€ audience, promise, proof and campaign angle
+- `docs/launch/PROMO_COPY.md` Ã¢â‚¬â€ hero, feature, social and email variants
+- `docs/launch/LAUNCH_SCRIPT.md` Ã¢â‚¬â€ short promotional video/storyboard script
+- `docs/launch/SHOT_LIST.md` Ã¢â‚¬â€ product-led scenes and required captures
+- `docs/launch/BRAG_HANDOFF.json` Ã¢â‚¬â€ sources, evidence, rights and open approvals
 
 The command can use the `brag` tool for a launch video, poster or share copy when available. It does not invent product claims, copy reference assets, change the website or deploy. A promotional landing page is a normal product scope change and must pass G1/G2/G2.5/G3/G3.5.
 
@@ -129,7 +129,7 @@ node scripts/validate-contracts.mjs
 node --test tests/platform/*.test.mjs
 ```
 
-The root CI validates this harness only. Each site repository owns its own CI/CD workflow and deployment settings.
+The root CI validates this harness only. Each site repository owns its own CI/CD workflow and deployment settings. See [`docs/COMMANDS.md`](docs/COMMANDS.md) for the difference between Claude Code commands, installed skills and the CLI surface.
 
 ## License
 
