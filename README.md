@@ -1,29 +1,82 @@
 # UIBuilder
 
-UIBuilder is a file-driven, multi-agent harness for designing, building, testing and shipping websites. It keeps briefs, design decisions, tool permissions, test evidence and owner approvals in files so a build can be reviewed and resumed. The rules are in [AGENTS.md](AGENTS.md), and the status board is [plan/PROGRESS.md](plan/PROGRESS.md).
+UIBuilder is the harness for building, reviewing and shipping high-quality websites with a controlled team of specialist agents. It is the **pipeline and brain repository**. Site source, site CI and deployment configuration live in independent repositories under `D:\UiBuildProj\<slug>`.
 
-## What is in this repository
+## What the harness does
+
+```text
+brief → research → UX → design council → owner review
+      → interaction review → implementation → QA/security/perf/growth
+      → release review → deploy/domain checks → learn/improve
+```
+
+The Orchestrator owns state and dispatch. Specialist agents own bounded artifacts. Files are the contract, so a paused session can be resumed without relying on chat history.
+
+## Repository map
 
 | Path | Purpose |
 |---|---|
-| `brain/` | Curated resources and patterns, specialist domains, tool router, preferences, build lineage and the measured improvement loop |
-| `.claude/` | Specialist agent definitions, slash commands and redistributable project skills |
-| `pipelines/` | Website recipes and stack choices |
-| `templates/` | Site starter and project document contracts |
-| `scripts/` and `tests/platform/` | Scaffolding, routing, gates, validation, evaluation and rollback checks |
-| `plan/` and `docs/` | Decisions, progress, architecture, research and operating guides |
+| [`AGENTS.md`](AGENTS.md) | Rulebook, stages, gates, agent ownership and quality contract |
+| `.claude/agents/` | Specialist agent contracts |
+| `.claude/commands/` | `/build`, `/intake`, `/gate`, `/learn`, `/improve`, `/connect` and `/brag` |
+| `brain/` | Resources, patterns, preferences, tool router, lineage and learning records |
+| `pipelines/` | Website recipes and stack-specific rules |
+| `templates/` | Project starters, document contracts and approval schemas |
+| `scripts/` | Scaffolding, recommendation, gate, validation and improvement CLIs |
+| `tests/platform/` | Harness-level tests |
+| `docs/` | Architecture, routing, licensing, gates and self-improvement guidance |
+| `plan/` | Milestones, decisions and the single progress board |
 
-**UIBuilder is the harness repository.** Site folders live outside this checkout at `D:\UiBuildProj\<slug>`, with one GitHub repository per site. `node scripts/new-project.mjs portfolio my-site` creates the folder, commits the starter, and creates/pushes a private repository using the authenticated `gh` account. GitHub CLI needs `repo` and `workflow` scopes; if a workflow push is refused, run `gh auth refresh -h github.com -s workflow`. Set `UIBUILDER_GITHUB_OWNER` to select another owner and `UIBUILDER_PROJECTS_ROOT` to use another parent folder. Each site's CI and deployment settings belong to its repository; the UIBuilder root workflow validates only the harness. Older UIBuilder Git history contains project snapshots, although the current tree does not.
+## Agents
 
-## Pipeline and approval gates
+The main session is the Orchestrator. It dispatches:
 
-The Orchestrator assigns work to product, research, taste, UX, design, engineering, growth, quality and domain specialists. Agents write named project documents and handoff records. G1 approves scope and wireframes; G2 locks design; G2.5 approves a local interaction prototype before UI implementation; G3 requires automated quality evidence; G3.5 approves the exact final local build and external target before any new preview or production deployment. Domain and BusinessOS publish changes have separate owner approvals. See the [Brain architecture](docs/BRAIN_ARCHITECTURE.md) and [interactive pipeline diagram](docs/architecture/uibuilder-pipeline.html).
+- `product-manager`: scope, acceptance and priorities
+- `research`: references, competitors and client evidence
+- `taste-research`: visual mechanisms, rights and interaction studies
+- `ux`: flows, information architecture and wireframes
+- `design-director`: isolated design directions, critique, system and visual review
+- `frontend`: pages and components
+- `backend`: contact, CMS and server integrations
+- `growth`: SEO, AEO, GEO, structured data and FAQs
+- `ship`: QA, accessibility, security, performance and deployment
+- `domain-ops`: owner-approved DNS, TLS, redirects and post-launch checks
+- `brain-evaluator`: offline diagnosis and bounded routing experiments
 
-The Brain recommends resources through deterministic trust, rights, relevance and availability checks. TypeSafe Jev may provide a shadow-mode suggestion for ambiguous public-text routing or link relevance; it cannot pass a gate or select a restricted resource. Agent Browser is available for exploratory browser inspection; Playwright remains the cross-browser release test runner. See [tool and skill routing](docs/TOOL_AND_SKILL_ROUTING.md).
+Every specialist writes named project artifacts and a JSON handoff. The handoff cites evidence and never grants a gate by itself.
 
-## Measured improvement
+## Gates
 
-`/learn` records owner feedback and build lineage. The offline `/improve` flow records redacted run traces, groups verified failures, evaluates versioned resource-router candidates on the same target, regression and decline cases, and requires exact owner review before promotion. `UIBUILDER_LEARNING=0` forces the baseline router. The active version is still `router-v1`; curated fixtures are not proof of real-world improvement. See the [operating guide](docs/SELF_IMPROVING_BRAIN.md).
+- **G1:** owner approves the brief and wireframes.
+- **G2:** owner locks one design direction.
+- **G2.5:** owner approves the exact local interaction prototype, mobile proof and reduced-motion behavior.
+- **G3:** automated definition of done: build, browser tests, accessibility, security, performance and growth checks.
+- **G3.5:** owner approves the exact final local artifacts and named external target.
+
+No external preview or production deployment is allowed before G3.5. Domain purchases and DNS changes require a separate explicit approval.
+
+## The Brain
+
+The Brain is a controlled knowledge and routing layer, not an unbounded self-editing model.
+
+- `brain/resources.json` stores sourced resources with rights, provenance, trust and usage metadata.
+- `brain/patterns/` stores reusable design and implementation mechanisms.
+- `brain/tools.json` defines agent allowlists, preconditions, fallbacks and cost controls.
+- `brain/preferences.md` stores verified owner taste and rejected patterns.
+- `brain/builds/` stores project lineage, scores and feedback.
+- `brain/learning/` stores redacted traces, failure categories, proposals, evaluations and rollback versions.
+
+The default trust ladder is `NEW → REVIEWED → TESTED → APPROVED → TRUSTED`. Only `APPROVED` and `TRUSTED` resources are used by default. Jev can provide shadow-mode semantic hints after deterministic filtering; it cannot pass gates, bypass rights checks or deploy.
+
+The improvement loop is:
+
+```text
+trace → feedback/objective checks → failure category
+      → bounded proposal → baseline/candidate evaluation
+      → exact owner review → promote or reject → monitor/rollback
+```
+
+Run it with:
 
 ```sh
 node scripts/improve.mjs diagnose
@@ -31,9 +84,44 @@ node scripts/improve.mjs monitor
 node scripts/improve.mjs evaluate brain/learning/candidates/router-v2-token-match.json brain/learning/evals/resource-routing-v1.json
 ```
 
+`UIBUILDER_LEARNING=0` restores the baseline selector. See [`docs/SELF_IMPROVING_BRAIN.md`](docs/SELF_IMPROVING_BRAIN.md).
+
+## Product promotion with `/brag`
+
+`/brag <slug> [product|company]` prepares a promotional package for a shipped product or company site. It reads approved project evidence and writes reviewable files under the external site repository:
+
+- `docs/launch/BRAG_BRIEF.md` — audience, promise, proof and campaign angle
+- `docs/launch/PROMO_COPY.md` — hero, feature, social and email variants
+- `docs/launch/LAUNCH_SCRIPT.md` — short promotional video/storyboard script
+- `docs/launch/SHOT_LIST.md` — product-led scenes and required captures
+- `docs/launch/BRAG_HANDOFF.json` — sources, evidence, rights and open approvals
+
+The command can use the `brag` tool for a launch video, poster or share copy when available. It does not invent product claims, copy reference assets, change the website or deploy. A promotional landing page is a normal product scope change and must pass G1/G2/G2.5/G3/G3.5.
+
+## Create an independent site repository
+
+```sh
+node scripts/new-project.mjs portfolio my-site
+node scripts/new-project.mjs company-site client-site
+```
+
+The command creates `D:\UiBuildProj\<slug>`, initializes its Git repository, commits the starter and creates/pushes a private GitHub repository using the authenticated `gh` account. Set `UIBUILDER_GITHUB_OWNER` to choose the owner or `UIBUILDER_PROJECTS_ROOT` to change the parent folder. Do not put site source, site CI or site deployments in this repository.
+
+## Core commands
+
+| Command | Purpose |
+|---|---|
+| `/build <pipeline> <slug>` | Run or resume the gated website pipeline |
+| `/intake <links>` | Add researched resources to the Brain |
+| `/gate <slug> <G1\|G2\|G2.5\|G3\|G3.5>` | Check a gate using current evidence |
+| `/learn <slug>` | Record lineage, outcomes and owner feedback |
+| `/improve <status\|category>` | Diagnose and evaluate bounded Brain changes |
+| `/brag <slug> [product\|company]` | Prepare a promotional launch package |
+| `/connect <slug>` | Hand an approved site to BusinessOS |
+
 ## Validate the harness
 
-Requires Node.js 24 for parity with GitHub Actions. These commands do not need a site folder or paid service:
+Requires Node.js 24 for parity with GitHub Actions:
 
 ```sh
 node scripts/validate-brain.mjs
@@ -41,6 +129,8 @@ node scripts/validate-contracts.mjs
 node --test tests/platform/*.test.mjs
 ```
 
-To check a site, enter `D:\UiBuildProj\<slug>` and use its package scripts. Its own GitHub Actions workflow runs site CI from that separate repository. Historical plan records may refer to evidence that moved with the site folders.
+The root CI validates this harness only. Each site repository owns its own CI/CD workflow and deployment settings.
 
-Original UIBuilder pipeline code and documentation are licensed under [Apache-2.0](LICENSE). Vendored skills retain their upstream licenses; see [licensing scope](docs/LICENSING.md) and [skill sources](.claude/skills/SOURCES.md).
+## License
+
+Original UIBuilder pipeline code and documentation are Apache-2.0. Vendored skills retain their upstream licenses; see [`docs/LICENSING.md`](docs/LICENSING.md) and [`.claude/skills/SOURCES.md`](.claude/skills/SOURCES.md).

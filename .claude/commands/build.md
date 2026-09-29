@@ -30,7 +30,7 @@ You are the **Orchestrator**. Follow `AGENTS.md` exactly. Arguments: `$ARGUMENTS
 11. **G3.5 owner release review** — present the locally running final site, screenshots/video, release target, exact routes, accepted risks and G3 evidence. After explicit owner approval, hash the reviewed report into `docs/approvals/G3.5.json`; run `gate.mjs G3.5`. A new build or changed reviewed artifact requires fresh review.
 12. **S7**
     - No external preview or production deploy until G3.5 passes for the named target. Domain/DNS changes still require their own explicit approval.
-    - Dispatch **ship** for deploy, `/connect`, then brag.
+    - Dispatch **ship** for deploy, `/connect`, then run `/brag <slug> product` or `/brag <slug> company` when a promotional package is part of the approved scope.
     - Then run `/learn <slug>`.
 
 Update `docs/STATE.md` after every stage, and add a line to `plan/PROGRESS.md` under the relevant milestone.

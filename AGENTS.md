@@ -129,4 +129,5 @@ only. Use `/build <pipeline> <slug>` to work on the external project repository.
 - `/gate <slug> <G1|G2|G2.5|G3|G3.5>` checks a gate.
 - `/learn <slug>` writes build memory.
 - `/improve <status|category>` diagnoses verified failures and evaluates bounded Brain candidates offline.
+- `/brag <slug> [product|company]` prepares a source-backed promotional launch package; it does not bypass gates or deploy.
 - `/connect <slug>` hands the site to BusinessOS.
