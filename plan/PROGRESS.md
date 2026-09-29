@@ -218,6 +218,6 @@ Legend: ✅ done · 🟡 in progress · ⬜ todo · ⛔ blocked (reason)
 - [x] Added improve outcomes PROJECT reporting grouped runs, feedback, failure categories and measured latency/token/cost coverage. Unknown telemetry stays unknown and the report rejects causal claims.
 - [x] Added product-site marketing/launch recipe and owner-authored visual outcome record/validator with evidence references and six human dimensions. It cannot pass pipeline gates.
 - [x] Verification: brain 113 resources/19 patterns/59 tools/11 domains/2 router configs; contracts 14 roles; platform tests 32/32 passed; git diff --check passed after progress cleanup; both CI workflow YAML files parsed.
-- [ ] Local Semgrep probes remain unverified because Docker Desktop is stopped. The probe is part of GitHub CI; GitHub CI has not run until push.
+- [ ] Local Semgrep probes remain unverified because Docker Desktop is stopped. The probe is part of GitHub CI; the branch has been pushed, and CI result is pending.
 - [ ] Migrate the existing site repositories only after owner reviews the dry-run target and approves writes outside the harness root.
 - [ ] Extend recipe comparisons with production outcome cohorts; current trace volume and token/cost telemetry remain too small for evidence-backed improvement claims.
