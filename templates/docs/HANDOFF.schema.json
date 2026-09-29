@@ -2,7 +2,7 @@
   "type": "object",
   "required": ["agent", "status", "inputs_used", "decisions", "files_created", "risks", "next_agent", "next_instructions"],
   "properties": {
-    "agent": { "type": "string", "enum": ["orchestrator", "product-manager", "research", "taste-research", "ux", "design-director", "frontend", "backend", "growth", "ship", "domain-ops", "brain-evaluator"] },
+    "agent": { "type": "string", "enum": ["orchestrator", "product-manager", "research", "taste-research", "ux", "design-director", "frontend", "backend", "growth", "link-building", "ship", "domain-ops", "brain-evaluator"] },
     "status": { "type": "string", "enum": ["complete", "blocked", "partial"] },
     "inputs_used": { "type": "array", "items": { "type": "string" } },
     "decisions": { "type": "array", "items": { "type": "string" } },

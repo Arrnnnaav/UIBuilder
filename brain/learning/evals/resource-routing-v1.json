@@ -7,55 +7,85 @@
       "suite": "target",
       "domain": "engineering",
       "task": "contact form backend",
-      "expected_ready": ["rate-limiting"],
-      "forbidden_review": ["webdev-animation-rendering-guide"]
+      "expected_ready": [
+        "rate-limiting"
+      ],
+      "forbidden_review": [
+        "webdev-animation-rendering-guide"
+      ]
     },
     {
       "id": "target_browser_tool",
       "suite": "target",
       "domain": "research",
       "task": "browser inspection",
-      "available_tools": ["agent_browser_cli"],
-      "expected_ready": ["agent-browser"]
+      "available_tools": [
+        "agent_browser_cli"
+      ],
+      "expected_ready": [
+        "agent-browser"
+      ]
     },
     {
       "id": "regression_growth_rights",
       "suite": "regression",
       "domain": "growth",
       "task": "seo audit internal links",
-      "expected_review": ["open-seo", "typesafe-jev"],
-      "forbidden_ready": ["open-seo", "typesafe-jev"]
+      "expected_review": [
+        "open-seo",
+        "typesafe-jev"
+      ],
+      "forbidden_ready": [
+        "open-seo",
+        "typesafe-jev"
+      ]
     },
     {
       "id": "regression_motion",
       "suite": "regression",
       "domain": "taste",
       "task": "scroll motion animation",
-      "expected_ready": ["motion"],
-      "forbidden_ready": ["lightswind", "scroll-world"]
+      "expected_ready": [
+        "motion"
+      ],
+      "forbidden_ready": [
+        "lightswind",
+        "scroll-world"
+      ]
     },
     {
       "id": "regression_security",
       "suite": "regression",
       "domain": "quality",
       "task": "security review",
-      "expected_ready": ["dependency-vuln", "input-validation"]
+      "expected_ready": [
+        "dependency-vuln",
+        "input-validation"
+      ]
     },
     {
       "id": "regression_ux",
       "suite": "regression",
       "domain": "experience",
       "task": "wireframe information architecture",
-      "expected_review": ["mobbin"],
-      "forbidden_ready": ["mobbin"]
+      "expected_review": [
+        "mobbin"
+      ],
+      "forbidden_ready": [
+        "mobbin"
+      ]
     },
     {
       "id": "decline_unlicensed_gallery",
       "suite": "decline",
       "domain": "research",
       "task": "lightswind hero",
-      "expected_review": ["lightswind"],
-      "forbidden_ready": ["lightswind"],
+      "expected_review": [
+        "lightswind"
+      ],
+      "forbidden_ready": [
+        "lightswind"
+      ],
       "expect_no_ready": true
     },
     {
@@ -63,8 +93,12 @@
       "suite": "decline",
       "domain": "research",
       "task": "jev routing",
-      "expected_review": ["typesafe-jev"],
-      "forbidden_ready": ["typesafe-jev"],
+      "expected_review": [
+        "typesafe-jev"
+      ],
+      "forbidden_ready": [
+        "typesafe-jev"
+      ],
       "expect_no_ready": true
     },
     {
@@ -74,5 +108,115 @@
       "task": "domain dns tls",
       "expect_no_ready": true
     }
+  ],
+  "resource_catalog": "brain/resources.json at 4cfa790 (fixture snapshot)",
+  "resource_ids": [
+    "lightswind",
+    "rolling-kitlabgton",
+    "getlayers",
+    "fancy-components",
+    "vengeance-ui",
+    "componentry",
+    "motion",
+    "ascii-art",
+    "liquid-glass-widgets",
+    "mirofish",
+    "collectui",
+    "ditto",
+    "floto",
+    "framer-foldex",
+    "awesome-gpt-image-2",
+    "comfy",
+    "lexspace",
+    "laxspace",
+    "threejs-paris",
+    "poch-studio",
+    "airborne-studio",
+    "yelm-watch",
+    "sondaven",
+    "brik",
+    "bruno-simon",
+    "elu-dev",
+    "moah-studio",
+    "noth",
+    "meinhard-taxer",
+    "k95",
+    "senbuzy",
+    "website-to-code",
+    "slam3r",
+    "bible-strong-avatar-lab",
+    "awesome-design-md",
+    "capacitor",
+    "pinchtab",
+    "heygen",
+    "clerk",
+    "sentry",
+    "posthog",
+    "supabase",
+    "resend",
+    "cloudflare-workers",
+    "vercel",
+    "rate-limiting",
+    "input-validation",
+    "dependency-vuln",
+    "error-handling",
+    "upload-safety",
+    "archify",
+    "apache-maka",
+    "freellmapi",
+    "openhuman",
+    "screenshot-to-code",
+    "keystatic",
+    "gtmetrix",
+    "littlebird",
+    "agency-agents",
+    "codebase-memory-mcp",
+    "onorca",
+    "taste-skill",
+    "web-design-guidelines",
+    "awesome-claude-design",
+    "agent-skills-addy",
+    "ponytail",
+    "manus",
+    "google-adk-python",
+    "tagsen",
+    "planetscale-benchmarks",
+    "samwho-dev",
+    "free-for-dev",
+    "better-stack",
+    "formboost",
+    "scroll-world",
+    "crawlee",
+    "crawl4ai",
+    "firecrawl",
+    "open-telemetry",
+    "lenis",
+    "haikei",
+    "motion-primitives",
+    "doop",
+    "anti-slop",
+    "reticle",
+    "ui-skills",
+    "rauno-invisible-interaction-details",
+    "emil-practical-animation-tips",
+    "webdev-animation-rendering-guide",
+    "codrops-sticky-grid-scroll-study",
+    "lusion-studio-storytelling-study",
+    "gstack-workflow-review",
+    "govuk-content-design-guidance",
+    "carbon-content-writing-guidelines",
+    "apple-human-interface-motion",
+    "locomotive-studio-portfolio",
+    "monogrid-web-experiences-index",
+    "agent-reach-public",
+    "typesafe-jev",
+    "anime-js",
+    "mobbin",
+    "open-code-review",
+    "agent-browser",
+    "openmontage",
+    "open-seo",
+    "twentyfirst-components",
+    "impeccable"
   ]
 }

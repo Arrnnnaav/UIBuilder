@@ -41,6 +41,7 @@ Definitions are in `.claude/agents/*.md`. The main session is the Orchestrator.
 | frontend | pages, components, `/styleguide` | `app/`, `components/` |
 | backend | contact action, email, CMS, env | `lib/`, `app/actions/`, `keystatic.config.ts` |
 | growth | SEO/AEO/GEO strategy, SEO data files, audit | `SEO_STRATEGY.md`, `content/seo/*`, `content/schema/*`, `content/faq/*`, `public/llms.txt`, `GROWTH_REPORT.md` |
+| link-building | source-backed backlinks, editorial targets, launch submissions and Search Console evidence; no publishing authority | `BACKLINKS.json`, `BACKLINK_PLAN.md`, `BACKLINK_REPORT.md`, `backlinks/*` |
 | ship | QA, a11y, security, perf, deploy, launch video | `QA_REPORT.md`, `SECURITY_REPORT.md`, `PERF_REPORT.md` |
 | domain-ops | owner-approved hostname, DNS, TLS, redirects, mail-auth and post-launch verification | `DOMAIN_PLAN.md`, `DOMAIN_REPORT.md` |
 | brain-evaluator | offline run diagnosis, candidate evaluation and monitoring; no gate or promotion authority | `brain/learning/diagnosis.json`, proposals and evaluation reports |
@@ -50,7 +51,7 @@ access to the others. Only the critic sees all three.
 
 ## 3. Stages and gates
 ```
-S1 Orchestrator + product-manager + growth(strategy) → PRODUCT.md, PRODUCT_REQUIREMENTS.md, ACCEPTANCE.md, PRIORITIES.md, SEO_STRATEGY.md
+S1 Orchestrator + product-manager + growth(strategy) + link-building(plan) → PRODUCT.md, PRODUCT_REQUIREMENTS.md, ACCEPTANCE.md, PRIORITIES.md, SEO_STRATEGY.md, BACKLINK_PLAN.md
 S2 ‖ research ‖ taste-research ‖ ux(+growth IA) ‖ backend-base
 G1 brief + wireframes            — user approves
 S3 design-director: A | B | C (forks) → critic → DESIGN.md
@@ -59,7 +60,7 @@ S3.5 original local interaction prototype + mobile/reduced-motion proof
 G2.5 experience direction        — user reviews and approves exact artifacts
 S4 ‖ frontend ‖ backend-domain ‖ growth(data files)
 S5 design-director visual review → polish (max 2 loops)
-S6 ship ‖ QA/a11y ‖ security ‖ perf ‖ growth audit
+S6 ship ‖ QA/a11y ‖ security ‖ perf ‖ growth audit ‖ link-building audit
 G3 Definition of Done            — automatic
 G3.5 final local release review   — user approves exact reviewed artifacts and target
 S7 ship deploy ‖ domain-ops DNS/TLS ‖ growth live SEO checks → /connect (BusinessOS) → launch video → /learn
@@ -131,3 +132,4 @@ only. Use `/build <pipeline> <slug>` to work on the external project repository.
 - `/improve <status|category>` diagnoses verified failures and evaluates bounded Brain candidates offline.
 - `/brag <slug> [product|company]` prepares a source-backed promotional launch package; it does not bypass gates or deploy.
 - `/connect <slug>` hands the site to BusinessOS.
+- `/backlinks <slug> <init|validate|report>` manages source-backed backlink records without publishing.

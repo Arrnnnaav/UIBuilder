@@ -43,3 +43,10 @@ node scripts/health.mjs --json
 ```
 
 Health checks validate required files, agent and command definitions, Brain contracts and the external projects root. It does not run a site build and does not mutate a project.
+
+## `/backlinks` and `scripts/backlinks.mjs`
+
+Backlink work is tracked per external project in `docs/BACKLINKS.json`. The record stores target
+qualification sources, outreach/publishing/submission states, verified referring-page evidence and
+Search Console export metadata. It has separate owner approvals for outreach, publishing and launch
+submissions. The CLI only initializes, validates and reports; it never sends or publishes.

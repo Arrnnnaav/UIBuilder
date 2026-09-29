@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "site": "{{slug}}",
+  "updated": null,
+  "owner_approval": { "outreach": false, "publishing": false, "launch_submissions": false },
+  "targets": [],
+  "search_console": { "property": null, "exported_at": null, "evidence_path": null, "referring_domains": null, "top_pages": [] }
+}

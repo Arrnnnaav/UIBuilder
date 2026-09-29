@@ -173,8 +173,9 @@ export function createProposal(root, category, candidatePath, specPath) {
   return proposal;
 }
 
-function scoreCases(root, config, cases) {
-  const resources = json(join(root, 'brain', 'resources.json')).resources;
+function scoreCases(root, config, cases, resourceIds = null) {
+  const allResources = json(join(root, 'brain', 'resources.json')).resources;
+  const resources = resourceIds ? allResources.filter((resource) => resourceIds.includes(resource.id)) : allResources;
   const domains = json(join(root, 'brain', 'domains.json')).domains;
   const results = cases.map((item) => {
     const domain = domains.find((entry) => entry.id === item.domain);
@@ -219,8 +220,9 @@ export function evaluateCandidate(root, candidatePath, evalPath) {
       typeof item.task !== 'string' || item.task.length > 200) throw new Error('invalid eval case');
     ids.add(item.id);
   }
-  const baseline = scoreCases(root, loadActiveRouterConfig(root), suite.cases);
-  const candidateResult = scoreCases(root, candidate, suite.cases);
+  if (suite.resource_ids !== undefined && (!Array.isArray(suite.resource_ids) || suite.resource_ids.some((id) => typeof id !== 'string'))) throw new Error('invalid resource_ids snapshot');
+  const baseline = scoreCases(root, loadActiveRouterConfig(root), suite.cases, suite.resource_ids ?? null);
+  const candidateResult = scoreCases(root, candidate, suite.cases, suite.resource_ids ?? null);
   const perCase = new Map(baseline.cases.map((item) => [item.id, item]));
   const regressions = candidateResult.cases.filter((item) => perCase.get(item.id).pass && !item.pass).map((item) => item.id);
   const improvements = candidateResult.cases.filter((item) => !perCase.get(item.id).pass && item.pass).map((item) => item.id);

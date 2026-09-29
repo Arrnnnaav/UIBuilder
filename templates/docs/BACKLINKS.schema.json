@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "required": ["schema_version", "site", "owner_approval", "targets", "search_console"],
+  "properties": {
+    "schema_version": { "type": "number", "const": 1 },
+    "site": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "updated": { "type": ["string", "null"] },
+    "owner_approval": { "type": "object", "required": ["outreach", "publishing", "launch_submissions"] },
+    "targets": { "type": "array" },
+    "search_console": { "type": "object", "required": ["property", "exported_at", "evidence_path", "referring_domains", "top_pages"] }
+  }
+}

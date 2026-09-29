@@ -39,6 +39,7 @@ The main session is the Orchestrator. It dispatches:
 - `frontend`: pages and components
 - `backend`: contact, CMS and server integrations
 - `growth`: SEO, AEO, GEO, structured data and FAQs
+- `link-building`: source-backed backlink planning, editorial/launch tracking and Search Console evidence
 - `ship`: QA, accessibility, security, performance and deployment
 - `domain-ops`: owner-approved DNS, TLS, redirects and post-launch checks
 - `brain-evaluator`: offline diagnosis and bounded routing experiments
@@ -118,6 +119,7 @@ The command creates `D:\UiBuildProj\<slug>`, initializes its Git repository, com
 | `/improve <status\|category>` | Diagnose and evaluate bounded Brain changes |
 | `/brag <slug> [product\|company]` | Prepare a promotional launch package |
 | `/connect <slug>` | Hand an approved site to BusinessOS |
+| `/backlinks <slug> <init\|validate\|report>` | Maintain a source-backed backlink plan and quality report without publishing |
 
 ## Validate the harness
 
@@ -128,6 +130,11 @@ node scripts/validate-brain.mjs
 node scripts/validate-contracts.mjs
 node --test tests/platform/*.test.mjs
 ```
+
+Backlink records are project-local. Initialize them after scaffolding with
+`node scripts/backlinks.mjs init <slug>`; validate with `node scripts/backlinks.mjs validate <slug>`
+and generate `docs/BACKLINK_REPORT.md` with `node scripts/backlinks.mjs report <slug>`. The harness
+never sends outreach, publishes articles, submits launch listings or claims ranking impact.
 
 The root CI validates this harness only. Each site repository owns its own CI/CD workflow and deployment settings. See [`docs/COMMANDS.md`](docs/COMMANDS.md) for the difference between Claude Code commands, installed skills and the CLI surface.
 

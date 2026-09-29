@@ -16,6 +16,8 @@ function fixture(t) {
   writeFileSync(join(root, 'templates/marketing-starter/.env.example'), 'SECRET=');
   writeFileSync(join(root, 'templates/marketing-starter/app.ts'), 'export const page = true;');
   writeFileSync(join(root, 'templates/docs/PRODUCT.md'), '# {{slug}}');
+  writeFileSync(join(root, 'templates/docs/BACKLINKS.json'), '{"site":"{{slug}}"}');
+  writeFileSync(join(root, 'templates/docs/BACKLINKS.schema.json'), '{}');
   return { root, run: (...args) => spawnSync(process.execPath, [join(root, 'scripts/new-project.mjs'), ...args], { encoding: 'utf8', env: { ...process.env, UIBUILDER_SKIP_GITHUB: '1', GIT_AUTHOR_NAME: 'UIBuilder Test', GIT_AUTHOR_EMAIL: 'uibuilder@example.invalid', GIT_COMMITTER_NAME: 'UIBuilder Test', GIT_COMMITTER_EMAIL: 'uibuilder@example.invalid' } }) };
 }
 
@@ -30,6 +32,8 @@ test('scaffold creates an external independent Git repository and copies only cl
   assert.equal(existsSync(join(dest, '.env.example')), true);
   assert.equal(JSON.parse(readFileSync(join(dest, 'package.json'))).name, 'sample');
   assert.equal(readFileSync(join(dest, 'docs/PRODUCT.md'), 'utf8'), '# sample');
+  assert.equal(JSON.parse(readFileSync(join(dest, 'docs/BACKLINKS.json'), 'utf8')).site, 'sample');
+  assert.equal(existsSync(join(dest, 'docs/BACKLINKS.schema.json')), true);
   const git = spawnSync('git', ['-C', dest, 'rev-parse', '--show-toplevel'], { encoding: 'utf8' });
   assert.equal(git.status, 0, git.stderr);
   assert.equal(git.stdout.trim().replaceAll('\\', '/'), dest.replaceAll('\\', '/'));

@@ -52,7 +52,7 @@ const docs = join(dest, "docs");
 mkdirSync(join(docs, "handoff"), { recursive: true });
 mkdirSync(join(docs, "directions"), { recursive: true });
 for (const f of readdirSync(docsSrc)) {
-  if (!f.endsWith(".md")) continue;
+  if (!f.endsWith(".md") && !["BACKLINKS.json", "BACKLINKS.schema.json"].includes(f)) continue;
   writeFileSync(join(docs, f), readFileSync(join(docsSrc, f), "utf8").replaceAll("{{slug}}", slug));
 }
 const stack = JSON.parse(readFileSync(join(root, "pipelines", pipeline, "stack.json"), "utf8"));
