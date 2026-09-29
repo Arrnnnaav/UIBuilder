@@ -17,17 +17,20 @@ try {
   writeFileSync(join(fixture, 'unsafe.ts'), `eval(input); new Function(input); el.innerHTML = input; el.outerHTML = input; el.insertAdjacentHTML('beforeend', input); document.write(input);`);
   writeFileSync(join(fixture, 'safe.ts'), `const parsed = JSON.parse(input); el.textContent = parsed.label;`);
   const scan = (file) => {
-    const result = spawnSync('docker', ['run', '--rm', '--mount', `type=bind,source=${fixture},target=/probe,readonly`, image,
-      'semgrep', 'scan', '--json', '--config', '/probe/ui-builder.yml', '--metrics=off', `/probe/${file}`], { encoding: 'utf8' });
+    const result = spawnSync('docker', ['run', '--rm', '--workdir', '/probe', '--mount', `type=bind,source=${fixture},target=/probe,readonly`, image,
+      'semgrep', 'scan', '--json', '--config', '/probe/ui-builder.yml', '--metrics=off', '--no-git-ignore', file], { encoding: 'utf8' });
     if (result.error) throw result.error;
     if (result.status !== 0) throw new Error(result.stderr || `Semgrep exited ${result.status}`);
-    return JSON.parse(result.stdout).results.map((finding) => finding.check_id);
+    return JSON.parse(result.stdout);
   };
-  const found = new Set(scan('unsafe.ts'));
+  const positive = scan('unsafe.ts');
+  if (positive.errors?.length || !positive.paths?.scanned?.length) throw new Error(`positive probe was not scanned cleanly: ${JSON.stringify({ errors: positive.errors, paths: positive.paths })}`);
+  const found = new Set(positive.results.map((finding) => finding.check_id));
   const missing = [...ids].filter((id) => !found.has(id));
-  if (missing.length) throw new Error(`unsafe probe missed rules: ${missing.join(', ')}`);
+  if (missing.length) throw new Error(`unsafe probe missed rules: ${missing.join(', ')}; observed: ${JSON.stringify({ errors: positive.errors, paths: positive.paths, findings: [...found] })}`);
   const safe = scan('safe.ts');
-  if (safe.length) throw new Error(`safe probe produced findings: ${safe.join(', ')}`);
-  console.log(JSON.stringify({ positive_rule_ids: [...found].sort(), positive_probe_passed: true, negative_findings: safe.length,
+  if (safe.errors?.length || !safe.paths?.scanned?.length) throw new Error(`safe probe was not scanned cleanly: ${JSON.stringify({ errors: safe.errors, paths: safe.paths })}`);
+  if (safe.results.length) throw new Error(`safe probe produced findings: ${safe.results.map((finding) => finding.check_id).join(', ')}`);
+  console.log(JSON.stringify({ positive_rule_ids: [...found].sort(), positive_probe_passed: true, negative_findings: safe.results.length,
     negative_probe_passed: true }, null, 2));
 } finally { rmSync(fixture, { recursive: true, force: true }); }
