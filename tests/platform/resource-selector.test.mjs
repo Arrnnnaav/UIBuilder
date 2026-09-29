@@ -5,12 +5,13 @@ import { recommend } from '../../scripts/lib/resource-selector.mjs';
 test('selector keeps unapproved and unlicensed code in review queue', () => {
   const domain = { id: 'taste', agents: ['taste-research'], outputs: [], categories: ['motion'] };
   const resources = [
-    { id: 'a', name: 'Motion A', categories: ['motion'], best_for: ['hero'], usage_mode: 'inspiration_only', trust: 'APPROVED', url: 'a' },
+    { id: 'a', name: 'Motion A', categories: ['motion'], best_for: ['hero'], usage_mode: 'inspiration_only', trust: 'APPROVED', url: 'a', my_take: 'Use for scene pacing; redraw the artwork.' },
     { id: 'b', name: 'Motion B', categories: ['motion'], best_for: ['hero'], usage_mode: 'code_reference', trust: 'TRUSTED', url: 'b' },
     { id: 'c', name: 'Motion C', categories: ['motion'], best_for: ['hero'], usage_mode: 'inspiration_only', trust: 'REVIEWED', url: 'c' },
   ];
   const result = recommend(resources, domain, 'motion hero');
   assert.deepEqual(result.ready.map((r) => r.id), ['a']);
+  assert.equal(result.ready[0].my_take, 'Use for scene pacing; redraw the artwork.');
   assert.deepEqual(new Set(result.review.map((r) => r.id)), new Set(['b', 'c']));
   assert.match(result.review.find((r) => r.id === 'b').reasons.join(' '), /rights unverified/);
 });

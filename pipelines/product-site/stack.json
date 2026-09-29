@@ -1,0 +1,9 @@
+{
+  "app": "Next.js App Router",
+  "language": "TypeScript",
+  "styling": "Tailwind CSS v4",
+  "motion": "Motion (only where it clarifies product story)",
+  "content": "JSON/data files unless an editor is required",
+  "tests": ["Playwright", "axe", "Lighthouse"],
+  "hosting": "Vercel Hobby for personal/non-commercial; client-owned Cloudflare for commercial"
+}

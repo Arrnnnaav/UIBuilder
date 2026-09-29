@@ -30,7 +30,8 @@ flowchart LR
   X --> G25{G2.5 owner experience}
   G25 --> E
   E --> Q
-  Q --> G3{G3 automatic evidence}
+  Q --> AU[Production-readiness auditor]
+  AU --> G3{G3 automatic evidence}
   G3 --> G35{G3.5 owner release target}
   G35 --> L
   L --> B[BusinessOS approved SEO PRs]
@@ -54,16 +55,20 @@ flowchart LR
 |---|---|---|---|
 | Product | Orchestrator, product-manager | Brief, acceptance, priorities | Owner G1 |
 | Research | research | Official sites, competitors, ≤5 references, Agent Reach only for public media | Trust and source rights |
-| Taste/design | taste-research, ux, design-director | Local video storyboard, live browser, original interaction brief, frontend/taste skills | Owner G2 and G2.5 |
+| Taste/design | taste-research, ux, design-director | Local video storyboard, visual concept HTML + short decision MD, live browser, original interaction brief, frontend/taste skills | Owner hash-approved G2 and G2.5 |
 | Engineering | frontend, backend | Golden stack, licensed components, original code | DESIGN.md and acceptance |
-| Quality | ship | Playwright G3 matrix, axe, Lighthouse, dependency/secret/security scans; Agent Browser for exploratory snapshots | Automatic G3 with retained evidence |
+| Quality | production-auditor, ship | Phased cross-stack audit, Playwright G3 matrix, axe, Lighthouse, dependency/secret/security scans; Agent Browser for exploratory snapshots | Auditor reports evidence/routes repairs; automatic G3 remains authoritative |
 | Growth | growth | SEO data files, route graph, deterministic link audit; Jev relevance only as advisory | `seo.manifest.json` and owner-reviewed PRs |
 | Launch | ship, domain-ops | Preview/host, DNS/TLS/mail, video, BusinessOS connection | Owner G3.5 plus separate DNS approval |
 | Learning | brain-evaluator, Orchestrator | Run/feedback records, failure diagnosis, held-out selector cases, versioned router JSON | Exact owner review for promotion; no gate or deployment authority |
 
 ## Taste and source-use loop
 
-The taste agent collects references, samples video frames with timecodes, verifies live behavior where possible, then separates a mechanism from its assets and code. It writes 2–3 original options with performance, accessibility and rights notes. The design council turns those into a coherent system; the owner sees a local interactive prototype at G2.5. Only then does frontend implement it. Components from licensed galleries can be used only within their license and with dependency/asset checks. Lightswind is inspiration only for UIBuilder. The local portfolio's Evidence Atlas study applies this loop; site-specific files are intentionally absent from this public harness repository.
+The taste agent collects references, samples video frames with timecodes, verifies live behavior where possible, then separates a mechanism from its assets and code. The design council creates a concise decision sheet paired with a self-contained HTML comparison, normally showing 2–3 original options. The owner reviews both at G2; approval hashes bind the exact files. At G2.5 the owner reviews a paired local interaction prototype and written explanation. Only then does frontend implement the approved direction. Components from licensed galleries can be used only within their license and with dependency/asset checks. Lightswind is inspiration only for UIBuilder. Reusable, paraphrased visual-story mechanisms live in `brain/playbooks/visual-storytelling.md`; project clip transcripts, exact timecodes and private assets stay in the external site repo or owner's local research cache.
+
+## Production-readiness audit layer
+
+The `production-auditor` uses a shared phased prompt and tool-router allowlist to discover the actual stack, establish a baseline, inspect production failure categories, repair verified low-risk defects, and route specialist-owned repairs. It keeps a launch checklist separate from the evidence report. It cannot approve G3/G3.5 or perform release actions. The final independent pass and existing gate results determine readiness; checklist completion alone does not.
 
 ## How quality and approval work
 
@@ -71,7 +76,7 @@ G1 approves scope/wireframes. G2 approves the visual system. G2.5 approves an ex
 
 ## Near-term completion work
 
-1. Gather owner feedback on the Evidence Atlas options and amend locked design files only for the selected direction.
+1. Prepare paired G2 visual HTML/Markdown for portfolio direction options, including the owner-requested skating theme and project-film actions; wait for explicit owner selection before design-law updates.
 2. Use the timecoded source ledger in `D:\UiBuildProj\portfolio\docs/TASTE_REPORT.md`; test any identified live sites at desktop/mobile before promotion from REVIEWED.
 3. Restore the portfolio's missing `docs/G3_EVIDENCE.json`, rerun the formal gate on final source, and address any failure. The earlier separate test results are useful evidence, but the formal gate is pending.
 4. Prepare `RELEASE_REVIEW.md` with exact target and local walkthrough, then seek G3.5 approval. No new external deploy before it.

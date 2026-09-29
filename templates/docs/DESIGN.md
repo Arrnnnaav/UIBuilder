@@ -4,6 +4,8 @@
 - Hybrid of: A (…) + B (…) + C (…) — critic notes:
 - Mood (3 words):
 - Signature hook (the one memorable thing):
+- Experience thesis (what visitors should understand, feel and remember):
+- Motion arc (entry → key story beats → conversion; include static/reduced-motion equivalents):
 ## Color (tokens in app/styles/tokens.css)
 ## Typography (families, scale, weights; Google Fonts/Fontshare only)
 ## Spacing + grid

@@ -5,7 +5,7 @@ import { cpSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } f
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createProposal, diagnose, evaluateCandidate, monitor, promote, recordFeedback,
+import { createProposal, diagnose, evaluateCandidate, monitor, outcomes, promote, recordFeedback,
   recordRun, rollback } from '../../scripts/lib/improvement.mjs';
 import { loadActiveRouterConfig } from '../../scripts/lib/learning-config.mjs';
 
@@ -54,6 +54,11 @@ test('traces reject raw content paths and unknown fields; feedback remains linke
       outcome: { status: 'pass', signals: [] }, failure_categories: [] });
     assert.equal(unauthorized.outcome.status, 'fail');
     assert.deepEqual(unauthorized.failure_categories, ['policy_violation']);
+    const report = outcomes(root, 'example-site');
+    assert.equal(report.causal_improvement_claim, false);
+    assert.equal(report.groups[0].measured_cost, 2);
+    assert.equal(report.groups[0].measured_latency, 2);
+    assert.equal(report.groups[0].owner_negative, 1);
   } finally { rmSync(root, { recursive: true, force: true }); }
 });
 

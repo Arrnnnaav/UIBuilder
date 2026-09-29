@@ -58,7 +58,7 @@
       "id": "faq-answer-first",
       "category": "faq",
       "name": "Answer-first FAQ (AEO)",
-      "mechanism": "Each question is written the way a buyer would ask it, as an H3. The answer that follows opens with a direct 40–60 word reply before any detail. The whole block is sourced from content/faq/*.json and emitted as FAQPage JSON-LD.",
+      "mechanism": "Each question is written the way a buyer would ask it, as an H3. The answer that follows opens with a direct 40\u201360 word reply before any detail. The whole block is sourced from content/faq/*.json and emitted as FAQPage JSON-LD.",
       "good_for": [
         "company-site",
         "portfolio",
@@ -168,7 +168,7 @@
       "id": "motion-scroll-reveal-restrained",
       "category": "motion",
       "name": "Restrained scroll reveals",
-      "mechanism": "Content reveals once, on entering the viewport: opacity 0→1 and y 16→0 over 500ms with ease [0.22,1,0.36,1]. Items stagger by 40ms. There are no parallax stacks. Under reduced motion content appears instantly. Never on content that can sit in the first viewport at any breakpoint: initial opacity 0 until hydration pushed starter mobile LCP from 2.46s to 3.9s (observed 2026-09-25, marketing-starter).",
+      "mechanism": "Content reveals once, on entering the viewport: opacity 0\u21921 and y 16\u21920 over 500ms with ease [0.22,1,0.36,1]. Items stagger by 40ms. There are no parallax stacks. Under reduced motion content appears instantly. Never on content that can sit in the first viewport at any breakpoint: initial opacity 0 until hydration pushed starter mobile LCP from 2.46s to 3.9s (observed 2026-09-25, marketing-starter).",
       "good_for": [
         "portfolio",
         "company-site",
@@ -193,12 +193,108 @@
       "category": "motion",
       "name": "Scroll driven cinematic sequence",
       "mechanism": "Pre-render scene clips with frame-identical seams and map scroll progress to playback time. Keep the narrative and fallback readable without video.",
-      "good_for": ["media-led launch pages with a tested lightweight fallback"],
-      "bad_for": ["content-first portfolios", "low-bandwidth or low-motion contexts"],
+      "good_for": [
+        "media-led launch pages with a tested lightweight fallback"
+      ],
+      "bad_for": [
+        "content-first portfolios",
+        "low-bandwidth or low-motion contexts"
+      ],
       "perf_cost": "high",
-      "sources": [{"resource": "scroll-world", "confidence": 0.9, "observed_at": "2026-09-26"}],
-      "scores": {"portfolio": 0, "company-site": 0},
+      "sources": [
+        {
+          "resource": "scroll-world",
+          "confidence": 0.9,
+          "observed_at": "2026-09-26"
+        }
+      ],
+      "scores": {
+        "portfolio": 0,
+        "company-site": 0
+      },
       "trust": "NEW"
+    },
+    {
+      "id": "portfolio-story-sequence",
+      "category": "case-study",
+      "name": "Tell the project as a sequence of decisions and proof",
+      "mechanism": "Structure each project as situation \u2192 problem \u2192 system decision \u2192 real interaction \u2192 verified outcome \u2192 limit/source. Every crucial fact remains readable without animation or video. A film illustrates the sequence; its source and limits sit next to the claim.",
+      "good_for": [
+        "portfolio",
+        "case study",
+        "product walkthrough",
+        "launch film"
+      ],
+      "bad_for": [
+        "unverified metrics",
+        "projects without public-safe evidence",
+        "long autoplay video"
+      ],
+      "perf_cost": "low",
+      "sources": [
+        {
+          "resource": "owner-visual-story-clips-20260929",
+          "confidence": 0.76,
+          "observed_at": "2026-09-29",
+          "evidence": "Owner clips 3debcee4 and 02528445 (0:03\u20130:19): sequential scenes and interactive storytelling; mechanism paraphrased, outcome untested."
+        }
+      ],
+      "scores": {},
+      "trust": "APPROVED"
+    },
+    {
+      "id": "portfolio-owner-theme-motif",
+      "category": "case-study",
+      "name": "Use an owner-chosen motif to connect chapters",
+      "mechanism": "When the owner explicitly supplies a personal craft or experience as the story theme, translate one recognizable mechanism (e.g. a skate line or wheel marks) into navigation and chapter transitions. Keep the actual projects, claims and actions primary; ask for source proof before publishing biographical achievements.",
+      "good_for": [
+        "owner-led portfolio",
+        "personal story",
+        "editorial navigation"
+      ],
+      "bad_for": [
+        "client marketing without explicit owner choice",
+        "theme that obscures project identity",
+        "invented biography"
+      ],
+      "perf_cost": "low",
+      "sources": [
+        {
+          "resource": "owner-visual-story-clips-20260929",
+          "confidence": 0.72,
+          "observed_at": "2026-09-29",
+          "evidence": "Clip 6baaa3d7 (0:03\u20130:16) presents a distinctive portfolio identity with an illustrated portrait and project gallery. Applying the mechanism to skating is owner-directed; no underlying asset is reused."
+        }
+      ],
+      "scores": {},
+      "trust": "APPROVED"
+    },
+    {
+      "id": "project-film-action",
+      "category": "case-study",
+      "name": "Make a real project film an explicit user action",
+      "mechanism": "Offer separate case navigation and a labeled Play film action only after an actual source-backed clip is reviewed and available. Click-to-play with a poster, duration, native controls, captions/transcript and text summary; no autoplay audio. Do not treat promotional editing as benchmark evidence.",
+      "good_for": [
+        "portfolio project index",
+        "case-study detail",
+        "approved launch media"
+      ],
+      "bad_for": [
+        "missing/unreviewed footage",
+        "auto-playing heroes",
+        "claims supported only by edited promotional video"
+      ],
+      "perf_cost": "medium",
+      "sources": [
+        {
+          "resource": "owner-visual-story-clips-20260929",
+          "confidence": 0.81,
+          "observed_at": "2026-09-29",
+          "evidence": "Clip 6baaa3d7 shows projects as visual episodes; clip 02528445 shows interactive site storytelling. Video actions are an owner-requested portfolio feature; implementation and performance are not yet tested."
+        }
+      ],
+      "scores": {},
+      "trust": "APPROVED"
     }
   ]
 }

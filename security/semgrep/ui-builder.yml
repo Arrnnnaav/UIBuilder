@@ -1,0 +1,61 @@
+# UIBuilder's original minimal SAST rules.
+# Copyright 2026 UIBuilder contributors. Licensed under Apache-2.0.
+# Deliberately does not import Semgrep Registry rules. These patterns are guardrails,
+# not a complete security review; findings require human confirmation.
+rules:
+  - id: uibuilder.javascript.dynamic-code-evaluation
+    languages: [javascript, typescript]
+    severity: ERROR
+    message: Avoid dynamic code evaluation. Parse data and dispatch through explicit functions instead.
+    metadata:
+      category: security
+      technology: [javascript, typescript]
+      confidence: HIGH
+      references:
+        - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
+    pattern-either:
+      - pattern: eval($ARG)
+      - pattern: new Function($ARG)
+
+  - id: uibuilder.javascript.dom-raw-html-assignment
+    languages: [javascript, typescript]
+    severity: ERROR
+    message: Review direct innerHTML assignment for untrusted HTML injection; prefer textContent or a reviewed sanitizer.
+    metadata:
+      category: security
+      technology: [javascript, typescript]
+      confidence: MEDIUM
+    pattern: $ELEMENT.innerHTML = $HTML
+
+
+  - id: uibuilder.javascript.dom-outer-html-assignment
+    languages: [javascript, typescript]
+    severity: ERROR
+    message: Review direct outerHTML assignment for untrusted HTML injection; prefer safe DOM construction or a reviewed sanitizer.
+    metadata:
+      category: security
+      technology: [javascript, typescript]
+      confidence: MEDIUM
+    pattern: $ELEMENT.outerHTML = $HTML
+
+  - id: uibuilder.javascript.dom-insert-adjacent-html
+    languages: [javascript, typescript]
+    severity: ERROR
+    message: Review insertAdjacentHTML for untrusted HTML injection; prefer safe DOM construction or a reviewed sanitizer.
+    metadata:
+      category: security
+      technology: [javascript, typescript]
+      confidence: MEDIUM
+    pattern: $ELEMENT.insertAdjacentHTML($POSITION, $HTML)
+
+  - id: uibuilder.javascript.dom-document-write
+    languages: [javascript, typescript]
+    severity: ERROR
+    message: Review document.write for untrusted HTML injection; prefer safe DOM construction or a reviewed sanitizer.
+    metadata:
+      category: security
+      technology: [javascript, typescript]
+      confidence: MEDIUM
+    pattern-either:
+      - pattern: document.write($HTML)
+      - pattern: document.writeln($HTML)

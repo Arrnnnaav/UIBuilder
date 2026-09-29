@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "project": "{{slug}}",
+  "build_id": null,
+  "reviewer": "owner",
+  "reviewed_at": null,
+  "artifact_refs": [],
+  "evidence_refs": [],
+  "ratings": {
+    "distinctiveness": null,
+    "story_clarity": null,
+    "motion_with_purpose": null,
+    "visual_craft": null,
+    "coherence": null,
+    "usability_without_motion": null
+  },
+  "owner_verdict": null,
+  "automated_checks": {
+    "responsive_evidence_ref": null,
+    "reduced_motion_evidence_ref": null,
+    "accessibility_report_ref": null,
+    "performance_report_ref": null
+  },
+  "notes": ""
+}

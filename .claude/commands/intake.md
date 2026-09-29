@@ -12,6 +12,7 @@ For each one:
    - id (kebab-case), type, categories;
    - **usage_mode**: dependency | direct_or_reference | code_reference | inspiration_only | skill | optional_tool | research_only | practice;
    - best_for;
+   - `my_take` (required string): owner-written practical interpretation; initialize to `""` so the owner can fill it later. Never invent the owner's opinion;
    - trust `NEW`, or `REVIEWED` if you verified it;
    - license and maintenance (for repos: last push, archived, licence SPDX). Unverified source/asset rights stay in the review queue. A license prohibition overrides any suggestive `usage_mode`;
    - do_not_copy (for sites);

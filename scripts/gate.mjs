@@ -9,6 +9,7 @@ import { spawn, spawnSync } from "node:child_process";
 import { validate } from "./lib/mini-schema.mjs";
 import { validateEvidence, validatePerf, monitoringKeys } from "./lib/g3-evidence.mjs";
 import { checkOwnerGate } from "./lib/owner-gates.mjs";
+import { validateConceptHtml, validateDesignReviewMarkdown } from "./lib/design-review.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const projectsRoot = process.env.UIBUILDER_PROJECTS_ROOT || (process.platform === "win32" ? "D:\\UiBuildProj" : join(dirname(root), "UiBuildProj"));
@@ -49,7 +50,7 @@ const handoff = (agent) => {
   }
 };
 
-if (gate === "G2.5" || gate === "G3.5") {
+if (gate === "G2" || gate === "G2.5" || gate === "G3.5") {
   const errors = checkOwnerGate(proj, gate);
   check('owner approval and unchanged reviewed artifacts', errors.length === 0, errors.join('; '));
   if (gate === 'G3.5') {
@@ -71,6 +72,18 @@ if (gate === "G1") {
 if (gate === "G2") {
   for (const x of ["A", "B", "C"]) check(`docs/directions/${x}.md`, existsSync(doc(`directions/${x}.md`)));
   for (const f of ["DESIGN.md", "MOTION.md"]) check(`docs/${f}`, ...filled(f));
+  check("docs/DESIGN_REVIEW.md", ...filled("DESIGN_REVIEW.md"));
+  let reviewMarkdown = "";
+  try { reviewMarkdown = readFileSync(doc("DESIGN_REVIEW.md"), "utf8"); } catch {}
+  const markdownIssues = validateDesignReviewMarkdown(reviewMarkdown);
+  check("docs/DESIGN_REVIEW.md (experience thesis, signature interaction, safety and budget)", markdownIssues.length === 0, markdownIssues.join("; "));
+  const visualReview = doc("DESIGN_REVIEW.html");
+  let reviewHtml = "";
+  try { reviewHtml = readFileSync(visualReview, "utf8"); } catch {}
+  const reviewIssues = validateConceptHtml(reviewHtml);
+  check("docs/DESIGN_REVIEW.html (offline visual review with ≥2 options)", existsSync(visualReview) && reviewIssues.length === 0, reviewIssues.join("; "));
+  const g2ApprovalErrors = checkOwnerGate(proj, "G2");
+  check("owner approval for exact G2 artifacts", g2ApprovalErrors.length === 0, g2ApprovalErrors.join("; "));
   const tokens = join(proj, "app/styles/tokens.css");
   check("tokens.css rewritten from DESIGN.md", existsSync(tokens) && !readFileSync(tokens, "utf8").includes("Neutral placeholder values"));
   if (existsSync(doc("DESIGN.md"))) {
@@ -92,6 +105,8 @@ const run = (label, cmd, env = {}) => {
 };
 
 if (gate === "G3") {
+  check("production-readiness report", ...filled("PRODUCTION_READINESS_REPORT.md"));
+  check("handoff/production-auditor.json", ...handoff("production-auditor"));
   const cpus = { NEXT_BUILD_CPUS: process.env.NEXT_BUILD_CPUS ?? "2" };
   run("typecheck", "pnpm run typecheck");
   run("eslint", "pnpm run lint");

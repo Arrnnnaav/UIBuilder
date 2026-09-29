@@ -72,7 +72,10 @@ For promotion, the owner reviews the proposal and evaluation report, then create
 ```powershell
 node scripts/improve.mjs promote PROPOSAL_ID EVALUATION_ID path/to/owner-approval.json
 node scripts/improve.mjs monitor
+node scripts/improve.mjs outcomes [project-slug]
 ```
+
+`outcomes` groups trace counts by project, agent and router version; separates owner feedback from objective checks; shows latency/token/cost coverage as measured-sample counts; and reports failure categories. It never treats unknown telemetry as zero and explicitly sets `causal_improvement_claim` to false. Current real traces are still too few and telemetry is incomplete, so UIBuilder remains **instrumented for improvement**, not proven to improve real website outcomes.
 
 Rollback uses a separate owner file with `action: "rollback"`, `target_version`, `target_sha256`, `reviewer: "owner"`, and `approved_at`. Then run `node scripts/improve.mjs rollback router-v1 path/to/rollback-approval.json`. For an immediate local diagnostic, set `UIBUILDER_LEARNING=0`; this bypasses the active pointer without changing stored versions.
 

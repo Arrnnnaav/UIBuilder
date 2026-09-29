@@ -25,7 +25,7 @@ export function recommend(resources, domain, task, { includeReview = true, avail
     const status = reasons.length ? 'review' : 'ready';
     return { id: resource.id, name: resource.name, usage_mode: resource.usage_mode,
       trust: resource.trust, score, status, reasons, matched_categories: categoryHits,
-      matched_terms: taskHits, url: resource.url };
+      matched_terms: taskHits, url: resource.url, my_take: resource.my_take };
   }).filter((item) => item.score > 0)
     .sort((a, b) => b.score - a.score || a.id.localeCompare(b.id));
   return { domain: domain.id, task, agents: domain.agents, outputs: domain.outputs,

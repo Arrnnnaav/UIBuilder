@@ -1,0 +1,12 @@
+{
+  "gate": "G2",
+  "decision": "approved",
+  "owner": "name or account that gave explicit approval",
+  "approved_at": "YYYY-MM-DDTHH:MM:SSZ",
+  "artifacts": [
+    { "path": "docs/DESIGN.md", "sha256": "SHA-256 of the exact design law reviewed" },
+    { "path": "docs/MOTION.md", "sha256": "SHA-256 of the exact motion rules reviewed" },
+    { "path": "docs/DESIGN_REVIEW.md", "sha256": "SHA-256 of the concise decision sheet reviewed" },
+    { "path": "docs/DESIGN_REVIEW.html", "sha256": "SHA-256 of the visual options reviewed" }
+  ]
+}

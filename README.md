@@ -18,7 +18,7 @@ The Orchestrator owns state and dispatch. Specialist agents own bounded artifact
 |---|---|
 | [`AGENTS.md`](AGENTS.md) | Rulebook, stages, gates, agent ownership and quality contract |
 | `.claude/agents/` | Specialist agent contracts |
-| `.claude/commands/` | `/build`, `/intake`, `/gate`, `/learn`, `/improve`, `/connect` and `/brag` |
+| `.claude/commands/` | `/build`, `/audit`, `/intake`, `/gate`, `/learn`, `/improve`, `/connect` and `/brag` |
 | `brain/` | Resources, patterns, preferences, tool router, lineage and learning records |
 | `pipelines/` | Website recipes and stack-specific rules |
 | `templates/` | Project starters, document contracts and approval schemas |
@@ -36,6 +36,7 @@ The main session is the Orchestrator. It dispatches:
 - `taste-research`: visual mechanisms, rights and interaction studies
 - `ux`: flows, information architecture and wireframes
 - `design-director`: isolated design directions, critique, system and visual review
+- `production-auditor`: phased cross-stack audit, verified low-risk repairs, readiness report and launch checklist; no gate/deploy authority
 - `frontend`: pages and components
 - `backend`: contact, CMS and server integrations
 - `growth`: SEO, AEO, GEO, structured data and FAQs
@@ -49,21 +50,33 @@ Every specialist writes named project artifacts and a JSON handoff. The handoff 
 ## Gates
 
 - **G1:** owner approves the brief and wireframes.
-- **G2:** owner locks one design direction.
-- **G2.5:** owner approves the exact local interaction prototype, mobile proof and reduced-motion behavior.
+- **G2:** owner compares a standalone visual HTML with its concise Markdown decision sheet and approves exact hashes.
+- **G2.5:** owner approves paired local prototype HTML/Markdown, mobile proof and reduced-motion behavior.
 - **G3:** automated definition of done: build, browser tests, accessibility, security, performance and growth checks.
 - **G3.5:** owner approves the exact final local artifacts and named external target.
 
 No external preview or production deployment is allowed before G3.5. Domain purchases and DNS changes require a separate explicit approval.
+
+The shared `/audit <slug>` workflow uses the canonical phased production-readiness prompt under `templates/prompts/`, copied into each site's `docs/prompts/`. It records the real stack and baseline, works through generated-code, UI/mobile, routes/states, SEO, accessibility, media/performance, backend, security, AI, maintainability, tests and release configuration, and creates a project report plus launch-day checklist. It cannot replace G3/G3.5.
+
+Security and AI review adapters are cataloged in [`docs/TOOL_AND_SKILL_ROUTING.md`](docs/TOOL_AND_SKILL_ROUTING.md). The harness and future-site starter CI now run pinned, tokenless Semgrep Community Edition and Gitleaks CLI container scans, alongside deterministic project checks and the package-manager audit. CodeRabbit, PR-Agent, Kodus, CodeQL, SonarQube Scanner, OSV-Scanner, TruffleHog, Nuclei and Strix remain optional routes, not connected services. Active security testing requires an authorized local/staging target.
+
+Existing site repositories can preview an additive security setup with `node scripts/migrate-site-security.mjs <slug>` and apply it with `--apply`; the utility refuses to overwrite any workflow or scanner files. The original Apache-2.0 Semgrep rules have positive and safe-negative fixture probes in CI. These rules are small guardrails, not comprehensive SAST coverage.
+
+For provider-neutral dispatch, `node scripts/runtime.mjs packet <pipeline> <slug> <stage> <agent>` emits a bounded task packet. Claude Code, Codex or another host runs it and records lifecycle events; UIBuilder does not spawn unattended workers. `node scripts/improve.mjs outcomes [slug]` exposes measured telemetry coverage and verified feedback without treating missing metrics as zero or claiming causality.
+
+The `product-site` pipeline targets product marketing and launch sites (not application functionality). Its owner-reviewed visual scorecard records story, distinction, motion and usability separately from automated gates; `node scripts/visual-eval.mjs <project>/docs/VISUAL_OUTCOME.json` checks completeness and evidence references but cannot approve a gate.
 
 ## The Brain
 
 The Brain is a controlled knowledge and routing layer, not an unbounded self-editing model.
 
 - `brain/resources.json` stores sourced resources with rights, provenance, trust and usage metadata.
+- Resource-specific owner guidance lives in each `my_take` field. Export/edit/import the spreadsheet-friendly column with `node scripts/resource-notes.mjs export` and `node scripts/resource-notes.mjs import`; see [`docs/RESOURCE_LIBRARY.md`](docs/RESOURCE_LIBRARY.md).
 - `brain/patterns/` stores reusable design and implementation mechanisms.
 - `brain/tools.json` defines agent allowlists, preconditions, fallbacks and cost controls.
 - `brain/preferences.md` stores verified owner taste and rejected patterns.
+- `brain/playbooks/visual-storytelling.md` stores paraphrased narrative mechanisms; user-specific themes remain opt-in and project source lineage remains project-local.
 - `brain/builds/` stores project lineage, scores and feedback.
 - `brain/learning/` stores redacted traces, failure categories, proposals, evaluations and rollback versions.
 
@@ -113,6 +126,7 @@ The command creates `D:\UiBuildProj\<slug>`, initializes its Git repository, com
 | Command | Purpose |
 |---|---|
 | `/build <pipeline> <slug>` | Run or resume the gated website pipeline |
+| `/audit <slug>` | Run the phased production-readiness audit and repair workflow |
 | `/intake <links>` | Add researched resources to the Brain |
 | `/gate <slug> <G1\|G2\|G2.5\|G3\|G3.5>` | Check a gate using current evidence |
 | `/learn <slug>` | Record lineage, outcomes and owner feedback |
@@ -120,6 +134,8 @@ The command creates `D:\UiBuildProj\<slug>`, initializes its Git repository, com
 | `/brag <slug> [product\|company]` | Prepare a promotional launch package |
 | `/connect <slug>` | Hand an approved site to BusinessOS |
 | `/backlinks <slug> <init\|validate\|report>` | Maintain a source-backed backlink plan and quality report without publishing |
+
+Additional harness utilities: `node scripts/runtime.mjs ...`, `node scripts/improve.mjs outcomes [slug]`, `node scripts/migrate-site-security.mjs <slug> [--apply]`, and `node scripts/visual-eval.mjs <project>/docs/VISUAL_OUTCOME.json`.
 
 ## Validate the harness
 

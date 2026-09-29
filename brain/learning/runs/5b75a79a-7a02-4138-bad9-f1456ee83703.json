@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "run_id": "5b75a79a-7a02-4138-bad9-f1456ee83703",
+  "recorded_at": "2026-09-29T03:58:03.634Z",
+  "agent": "design-director",
+  "project": "portfolio",
+  "config_version": "router-v1",
+  "input_ref": "brain/tools.json",
+  "evidence_refs": [
+    "AGENTS.md",
+    "scripts/improve.mjs"
+  ],
+  "tool_calls": [],
+  "output_ref": null,
+  "errors": [],
+  "metrics": {
+    "latency_ms": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "cost_usd": null
+  },
+  "outcome": {
+    "status": "pending",
+    "signals": [
+      {
+        "name": "tool_policy_ok",
+        "value": true,
+        "evidence_ref": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "name": "tool_call_errors",
+        "value": 0,
+        "evidence_ref": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    ]
+  },
+  "tool_policy_violations": [],
+  "failure_categories": []
+}

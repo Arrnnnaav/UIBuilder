@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "run_id": "f5fbca6f-ff45-4209-b49a-80642b63df21",
+  "recorded_at": "2026-09-29T04:01:59.679Z",
+  "agent": "design-director",
+  "project": "portfolio",
+  "config_version": "router-v1",
+  "input_ref": "sha256:e3b497cbb60882e1506acb5bbc408d156fd96a38be20d09e93fe5035f835fe03",
+  "evidence_refs": [
+    "sha256:70319afee7714e167a4dc48a4e707e4c945813f830073822d598dd61bb82a119",
+    "sha256:b15c3be187386d9eef29a5bfd0acd4dd03582ab4cb0ce97db2d241b5002f85af"
+  ],
+  "tool_calls": [],
+  "output_ref": "sha256:75e8488af07eca0a0b83a59eba67e48d3aff0ed781979c49873e958d10063eb7",
+  "errors": [],
+  "metrics": {
+    "latency_ms": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "cost_usd": null
+  },
+  "outcome": {
+    "status": "pass",
+    "signals": [
+      {
+        "name": "g2_proposal_written",
+        "value": true,
+        "evidence_ref": "sha256:70319afee7714e167a4dc48a4e707e4c945813f830073822d598dd61bb82a119"
+      },
+      {
+        "name": "tool_policy_ok",
+        "value": true,
+        "evidence_ref": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      {
+        "name": "tool_call_errors",
+        "value": 0,
+        "evidence_ref": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    ]
+  },
+  "tool_policy_violations": [],
+  "failure_categories": []
+}

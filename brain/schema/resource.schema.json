@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "required": ["id", "name", "url", "type", "categories", "usage_mode", "best_for", "trust", "provenance"],
+  "required": ["id", "name", "url", "type", "categories", "usage_mode", "best_for", "trust", "provenance", "my_take"],
   "properties": {
     "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
     "name": { "type": "string" },
@@ -10,6 +10,7 @@
     "usage_mode": { "type": "string", "enum": ["dependency", "direct_or_reference", "code_reference", "inspiration_only", "skill", "optional_tool", "research_only", "practice"] },
     "tool_id": { "type": "string" },
     "best_for": { "type": "array", "items": { "type": "string" } },
+    "my_take": { "type": "string", "description": "Owner-written interpretation; blank until the owner fills it." },
     "patterns": { "type": "array", "items": { "type": "string" } },
     "trust": { "type": "string", "enum": ["NEW", "REVIEWED", "TESTED", "APPROVED", "TRUSTED", "REJECTED", "DEPRECATED"] },
     "scores": { "type": "object" },

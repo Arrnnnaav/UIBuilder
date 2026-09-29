@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visual concept review — {{slug}}</title>
+  <style>
+    :root { color-scheme: light; font: 16px/1.5 system-ui, sans-serif; color: #201c20; background: #f3f0e9; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { width: min(72rem, 100% - 2rem); margin: 0 auto; padding: 3rem 0; }
+    header { max-width: 50rem; margin-bottom: 2rem; }
+    .options { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,28rem),1fr)); gap: 1rem; }
+    [data-concept-option] { overflow: hidden; border: 1px solid #aaa3a2; border-radius: 1rem; background: #fffdfa; }
+    .preview { min-height: 21rem; padding: 1.25rem; display: grid; align-content: space-between; background: #ded9d1; }
+    .preview h2 { font-size: clamp(2rem,5vw,4rem); line-height: 1; }
+    .details { padding: 1.25rem; }
+    button, a { min-height: 2.75rem; }
+    :focus-visible { outline: 3px solid #175cdf; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header><p>Owner design review · {{slug}}</p><h1>Compare the visual directions</h1><p>This is a starter, not a finished proposal. Design-director replaces it with two or three original, visually distinct concepts and keeps this document separate from production routes.</p></header>
+    <div class="options">
+      <section data-concept-option="A"><div class="preview"><small>OPTION A · REPLACE THIS SCAFFOLD</small><h2>Direction A</h2><p>Show one clear above-the-fold visual and its interaction.</p></div><div class="details"><h2>Story and tradeoffs</h2><p>Replace with the option’s audience, hook, accessible behavior and cost.</p></div></section>
+      <section data-concept-option="B"><div class="preview"><small>OPTION B · REPLACE THIS SCAFFOLD</small><h2>Direction B</h2><p>Show a genuinely different composition, not a recolor.</p></div><div class="details"><h2>Story and tradeoffs</h2><p>Replace with the option’s audience, hook, accessible behavior and cost.</p></div></section>
+    </div>
+  </main>
+</body>
+</html>

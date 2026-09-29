@@ -5,6 +5,7 @@
   "approved_at": "2026-09-28T00:00:00Z",
   "review_url": "http://localhost:3000/experience-preview",
   "artifacts": [
-    { "path": "docs/EXPERIENCE_REVIEW.md", "sha256": "SHA-256 of the exact file reviewed" }
+    { "path": "docs/EXPERIENCE_REVIEW.md", "sha256": "SHA-256 of the exact file reviewed" },
+    { "path": "docs/EXPERIENCE_REVIEW.html", "sha256": "SHA-256 of the paired visual file reviewed" }
   ]
 }

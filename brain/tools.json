@@ -34,8 +34,9 @@
         "frontend",
         "research",
         "taste-research",
-        "design-director"
-      ],
+        "design-director",
+          "production-auditor"
+        ],
       "cost": "free",
       "enabled_if": "always",
       "fallback": null,
@@ -221,8 +222,9 @@
       ],
       "agents": [
         "ship",
-        "growth"
-      ],
+        "growth",
+          "production-auditor"
+        ],
       "cost": "free",
       "enabled_if": "always",
       "fallback": null,
@@ -235,8 +237,9 @@
         "security_review"
       ],
       "agents": [
-        "ship"
-      ],
+        "ship",
+          "production-auditor"
+        ],
       "cost": "free",
       "enabled_if": "always",
       "fallback": null,
@@ -423,8 +426,9 @@
         "ship",
         "growth",
         "research",
-        "taste-research"
-      ],
+        "taste-research",
+          "production-auditor"
+        ],
       "cost": "free",
       "enabled_if": "always",
       "fallback": null,
@@ -565,7 +569,9 @@
     {
       "id": "learning_cli",
       "capabilities": ["record_trace", "record_feedback", "diagnose_failures", "evaluate_candidate", "monitor_version"],
-      "agents": ["orchestrator", "product-manager", "research", "taste-research", "ux", "design-director", "frontend", "backend", "growth", "ship", "domain-ops", "brain-evaluator"],
+      "agents": ["orchestrator", "product-manager", "research", "taste-research", "ux", "design-director", "frontend", "backend", "growth", "ship", "domain-ops", "brain-evaluator",
+          "production-auditor"
+        ],
       "cost": "free local Node.js",
       "enabled_if": "always",
       "fallback": null,
@@ -580,6 +586,244 @@
       "enabled_if": "user:enable",
       "fallback": "playwright_cli",
       "approval": true
+    },
+    {
+      "id": "production_audit_local",
+      "capabilities": [
+        "repo_discovery",
+        "static_checks",
+        "dependency_audit",
+        "local_build_test"
+      ],
+      "agents": [
+        "production-auditor"
+      ],
+      "cost": "free local toolchain already in project",
+      "enabled_if": "always",
+      "fallback": null,
+      "approval": false,
+      "notes": "Run only project-appropriate local read/build/test/audit commands discovered from its manifest. Inspect scripts first. Never publish, deploy, change DNS, rotate secrets, or upgrade dependencies broadly."
+    },
+    {
+      "id": "coderabbit",
+      "capabilities": [
+        "ai_code_review"
+      ],
+      "cost": "hosted; verify current private-repo plan and data terms",
+      "enabled_if": "user:enable",
+      "fallback": "project_quality_checks",
+      "approval": true,
+      "notes": "Hosted PR review only. Not configured; use at most one AI reviewer per PR.",
+      "agents": [
+        "production-auditor",
+        "ship"
+      ]
+    },
+    {
+      "id": "pr_agent",
+      "capabilities": [
+        "ai_code_review"
+      ],
+      "cost": "self-hosted; model/provider usage may cost",
+      "enabled_if": "user:enable",
+      "fallback": "project_quality_checks",
+      "approval": true,
+      "notes": "Community-maintained PR-Agent. Not installed; inspect the active license and provider data policy.",
+      "agents": [
+        "production-auditor",
+        "ship"
+      ]
+    },
+    {
+      "id": "kodus_ai",
+      "capabilities": [
+        "ai_code_review"
+      ],
+      "cost": "AGPL-3.0 core; enterprise paths separately licensed; hosting/model costs",
+      "enabled_if": "user:enable",
+      "fallback": "project_quality_checks",
+      "approval": true,
+      "notes": "Not installed. Inspect exact code paths and license before adoption.",
+      "agents": [
+        "production-auditor",
+        "ship"
+      ]
+    },
+    {
+      "id": "semgrep_cli",
+      "capabilities": [
+        "sast"
+      ],
+      "cost": "free local engine; original project rules",
+      "enabled_if": "cli:semgrep",
+      "fallback": "security_review_skill",
+      "approval": false,
+      "notes": "Native CLI route; not installed globally. Use only original Apache-2.0 project rules or other explicitly compatible rules; Semgrep-maintained public rules are excluded because their license limits use to internal business purposes.",
+      "agents": [
+        "production-auditor",
+        "ship"
+      ]
+    },
+    {
+      "id": "codeql_cli",
+      "capabilities": [
+        "semantic_sast"
+      ],
+      "cost": "free local CLI; hosted private scanning may require paid GitHub Code Security",
+      "enabled_if": "cli:codeql",
+      "fallback": "security_review_skill",
+      "approval": false,
+      "notes": "Optional; check repository visibility and GitHub plan before hosted scanning.",
+      "agents": [
+        "production-auditor",
+        "ship"
+      ]
+    },
+    {
+      "id": "sonar_scanner_cli",
+      "capabilities": [
+        "sast",
+        "maintainability"
+      ],
+      "cost": "scanner free; server/edition/resource requirements vary",
+      "enabled_if": "cli:sonar-scanner",
+      "fallback": "security_review_skill",
+      "approval": false,
+      "notes": "Optional; no SonarQube server is configured.",
+      "agents": [
+        "production-auditor",
+        "ship"
+      ]
+    },
+    {
+      "id": "osv_scanner_cli",
+      "capabilities": [
+        "dependency_vulnerability_scan"
+      ],
+      "cost": "free local CLI",
+      "enabled_if": "cli:osv-scanner",
+      "fallback": "package_manager_audit",
+      "approval": false,
+      "notes": "Optional dependency scan. Do not run automated remediation or package scripts from scanner output.",
+      "agents": [
+        "production-auditor",
+        "ship"
+      ]
+    },
+    {
+      "id": "gitleaks_cli",
+      "capabilities": [
+        "secret_scan"
+      ],
+      "cost": "free local CLI; verify terms for hosted/action use",
+      "enabled_if": "cli:gitleaks",
+      "fallback": "security_review_skill",
+      "approval": false,
+      "notes": "Native CLI route; not installed globally. CI uses the pinned official scanner image; redact all findings and never print secret values.",
+      "agents": [
+        "production-auditor",
+        "ship"
+      ]
+    },
+    {
+      "id": "trufflehog_cli",
+      "capabilities": [
+        "secret_scan",
+        "history_scan"
+      ],
+      "cost": "free local CLI; verify edition and service terms",
+      "enabled_if": "cli:trufflehog",
+      "fallback": "gitleaks_cli",
+      "approval": false,
+      "notes": "Optional local scan. Do not verify credentials externally or upload source without explicit approval.",
+      "agents": [
+        "production-auditor",
+        "ship"
+      ]
+    },
+    {
+      "id": "nuclei_cli",
+      "capabilities": [
+        "dynamic_security_scan"
+      ],
+      "cost": "free local CLI; verify template terms and target scope",
+      "enabled_if": "cli:nuclei",
+      "fallback": "playwright_cli",
+      "approval": true,
+      "notes": "Not installed. Narrow scans of explicitly authorized local/staging targets only.",
+      "agents": [
+        "production-auditor",
+        "ship"
+      ]
+    },
+    {
+      "id": "strix_agent",
+      "capabilities": [
+        "ai_pentest",
+        "dynamic_security_scan"
+      ],
+      "cost": "open-source runner; model/provider and compute may cost",
+      "enabled_if": "user:enable",
+      "fallback": "security_review_skill",
+      "approval": true,
+      "notes": "Not installed. Requires explicit target authorization, container/provider review and controlled local/staging scope.",
+      "agents": [
+        "production-auditor",
+        "ship"
+      ]
+    },
+    {
+      "id": "project_quality_checks",
+      "capabilities": [
+        "lint",
+        "typecheck",
+        "tests",
+        "build"
+      ],
+      "agents": [
+        "production-auditor",
+        "ship"
+      ],
+      "cost": "free project toolchain",
+      "enabled_if": "always",
+      "fallback": null,
+      "approval": false,
+      "notes": "Run only commands discovered in the site repository manifest and instructions; establish baseline before repair."
+    },
+    {
+      "id": "package_manager_audit",
+      "capabilities": [
+        "dependency_vulnerability_scan"
+      ],
+      "agents": [
+        "production-auditor",
+        "ship"
+      ],
+      "cost": "free package-manager command; provider terms vary",
+      "enabled_if": "always",
+      "fallback": null,
+      "approval": false,
+      "notes": "Use the project-appropriate lockfile/package-manager audit command; do not auto-fix or broadly upgrade dependencies."
+    },
+    {
+      "id": "semgrep_docker",
+      "capabilities": ["sast"],
+      "agents": ["production-auditor", "ship"],
+      "cost": "free Semgrep Community Edition engine; original Apache-2.0 rules; no model calls",
+      "enabled_if": "cli:docker",
+      "fallback": "security_review_skill",
+      "approval": false,
+      "notes": "Set up in root and site-starter CI with pinned image digest; runs only original UIBuilder rules in security/semgrep, licensed Apache-2.0. No remote rule registry. Findings need human triage."
+    },
+    {
+      "id": "gitleaks_docker",
+      "capabilities": ["secret_scan", "history_scan"],
+      "agents": ["production-auditor", "ship"],
+      "cost": "free official Gitleaks CLI container; no model calls",
+      "enabled_if": "cli:docker",
+      "fallback": "security_review_skill",
+      "approval": false,
+      "notes": "Set up in root and site-starter CI with pinned image digest. Scans Git history; redact output and rotate any credential that is found."
     }
   ]
 }

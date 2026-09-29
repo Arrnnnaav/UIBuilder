@@ -52,8 +52,14 @@ const docs = join(dest, "docs");
 mkdirSync(join(docs, "handoff"), { recursive: true });
 mkdirSync(join(docs, "directions"), { recursive: true });
 for (const f of readdirSync(docsSrc)) {
-  if (!f.endsWith(".md") && !["BACKLINKS.json", "BACKLINKS.schema.json"].includes(f)) continue;
+  if (!f.endsWith(".md") && !f.endsWith(".html") && !["BACKLINKS.json", "BACKLINKS.schema.json", "VISUAL_OUTCOME.json"].includes(f)) continue;
   writeFileSync(join(docs, f), readFileSync(join(docsSrc, f), "utf8").replaceAll("{{slug}}", slug));
+}
+const promptSrc = join(root, "templates/prompts");
+const promptDest = join(docs, "prompts");
+mkdirSync(promptDest, { recursive: true });
+for (const f of readdirSync(promptSrc)) {
+  if (f.endsWith(".md")) writeFileSync(join(promptDest, f), readFileSync(join(promptSrc, f), "utf8").replaceAll("{{slug}}", slug));
 }
 const stack = JSON.parse(readFileSync(join(root, "pipelines", pipeline, "stack.json"), "utf8"));
 writeFileSync(

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "mode": "host_managed",
+  "auto_spawn": false,
+  "adapters": [
+    { "id": "claude-code", "kind": "interactive_cli", "enabled": true },
+    { "id": "codex", "kind": "interactive_cli", "enabled": true },
+    { "id": "other-cli", "kind": "manual_task_packet", "enabled": true }
+  ],
+  "dispatch_contract": "scripts/runtime.mjs emits inspectable task JSON; the user-selected host executes it.",
+  "event_store": "<project>/docs/runtime/events.jsonl",
+  "controls": {
+    "workers_started_by_harness": false,
+    "agent_may_change_gates": false,
+    "retrieved_content_is_untrusted": true,
+    "tool_allowlist_source": "brain/tools.json"
+  }
+}

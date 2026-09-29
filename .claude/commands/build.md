@@ -19,13 +19,13 @@ You are the **Orchestrator**. Follow `AGENTS.md` exactly. Arguments: `$ARGUMENTS
 4. **G1** — run `node scripts/gate.mjs <slug> G1`. Show the user PRODUCT, IA and WIREFRAMES summaries and ask for approval. Nothing proceeds without it.
 5. **S3 Design Council**
    - Dispatch three **design-director** agents in parallel, in ONE message, with modes `direction:A`, `direction:B` and `direction:C`. Their contexts must be isolated: give each only the input file paths, never another direction.
-   - Then dispatch **design-director** with mode `critic`.
+   - Then dispatch **design-director** with mode `critic`. The critic writes design law plus paired `docs/DESIGN_REVIEW.md` and standalone `docs/DESIGN_REVIEW.html`. Show 2–3 visually distinct original options when a meaningful choice exists, with recommendation, tradeoffs, motion, mobile/reduced-motion/accessibility and performance notes. This visual review is not app code, an app route or a release artifact.
    - Stitch is optional; the user decides.
-6. **G2** — run `gate.mjs G2`. Show DESIGN.md highlights plus the direction lineage, and ask for approval.
-7. **G2.5 owner experience review** — design-director prepares an original local interaction prototype, `docs/EXPERIENCE_REVIEW.md`, mobile/reduced-motion proof and a walkthrough. Show the owner the reviewable local URL/video and choices. Only after explicit approval, write `docs/approvals/G2.5.json` with hashes of reviewed artifacts and run `gate.mjs G2.5`. An old G2 approval does not imply G2.5 approval.
+6. **G2** — show both review files (`DESIGN_REVIEW.html` and concise `DESIGN_REVIEW.md`) with `DESIGN.md`/`MOTION.md`. Ask for a clear owner choice. Only after explicit approval, create `docs/approvals/G2.json` with SHA-256 hashes of `DESIGN.md`, `MOTION.md`, `DESIGN_REVIEW.md` and `DESIGN_REVIEW.html`, then run `gate.mjs G2`. A previous G2 does not approve changed files.
+7. **G2.5 owner experience review** — design-director prepares an original local interaction prototype, paired `docs/EXPERIENCE_REVIEW.md` and `docs/EXPERIENCE_REVIEW.html`, mobile/reduced-motion proof and a walkthrough. Show the owner the local URL/video and choices. Only after explicit approval, create `docs/approvals/G2.5.json` with hashes of both paired files and other reviewed artifacts; run `gate.mjs G2.5`. An old G2 approval does not imply G2.5 approval.
 8. **S4** — after G2.5 passes, dispatch **frontend**, **backend** (domain) and **growth** (data files) in parallel.
 9. **S5** — dispatch **design-director** `review`, then **frontend** to apply the polish tasks. At most 2 loops.
-10. **S6** — dispatch **ship** (G3) and **growth** (audit) in parallel. G3 must be green, with evidence.
+10. **S6** — dispatch **production-auditor** first with the canonical phased audit prompt. Resolve or route findings to specialist owners; after repairs, dispatch **ship** (G3) and **growth** (audit) in parallel. G3 must be green, with evidence and the readiness report/handoff.
    - Dispatch **product-manager** to audit delivered capabilities against ACCEPTANCE.md; resolve incomplete Must items before G3 is reported complete.
 11. **G3.5 owner release review** — present the locally running final site, screenshots/video, release target, exact routes, accepted risks and G3 evidence. After explicit owner approval, hash the reviewed report into `docs/approvals/G3.5.json`; run `gate.mjs G3.5`. A new build or changed reviewed artifact requires fresh review.
 12. **S7**

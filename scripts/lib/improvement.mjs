@@ -8,7 +8,7 @@ import { recommend } from './resource-selector.mjs';
 const categories = new Set(['routing_miss', 'evidence_quality', 'tool_failure', 'gate_failure',
   'rights_block', 'performance', 'owner_rejection', 'policy_violation', 'other']);
 const agents = new Set(['orchestrator', 'product-manager', 'research', 'taste-research', 'ux',
-  'design-director', 'frontend', 'backend', 'growth', 'ship', 'domain-ops']);
+  'design-director', 'frontend', 'backend', 'growth', 'ship', 'domain-ops', 'production-auditor']);
 const verdicts = new Set(['positive', 'negative', 'neutral']);
 const safeId = (value) => typeof value === 'string' && /^[a-z0-9][a-z0-9_-]{0,80}$/i.test(value);
 const isoNow = () => new Date().toISOString();
@@ -304,4 +304,43 @@ export function monitor(root) {
   for (const row of Object.values(byVersion)) row.avg_latency_ms = row.latency_samples ? Math.round(row.measured_latency_ms / row.latency_samples) : null;
   return { active_version: active, baseline_version: baselineVersion, versions: byVersion,
     note: 'Observed counts are not causal proof; compare like-for-like tasks and owner outcomes before claiming improvement.' };
+}
+
+// Descriptive evidence report. It deliberately does not infer causality or convert
+// missing telemetry into zero-valued metrics.
+export function outcomes(root, projectFilter = null) {
+  const runs = files(join(learning(root), 'runs')).filter((run) => !projectFilter || run.project === projectFilter);
+  const feedback = files(join(learning(root), 'feedback'));
+  const runById = new Map(runs.map((run) => [run.run_id, run]));
+  const groups = new Map();
+  for (const run of runs) {
+    const key = `${run.project}/${run.agent}/${run.config_version}`;
+    const group = groups.get(key) ?? { project: run.project, agent: run.agent, config_version: run.config_version,
+      runs: 0, pass: 0, fail: 0, pending: 0, measured_latency: 0, measured_tokens: 0,
+      measured_cost: 0, owner_positive: 0, owner_negative: 0, objective_positive: 0, categories: {} };
+    group.runs++;
+    group[run.outcome.status]++;
+    if (run.metrics.latency_ms !== null) group.measured_latency++;
+    if (run.metrics.input_tokens !== null || run.metrics.output_tokens !== null) group.measured_tokens++;
+    if (run.metrics.cost_usd !== null) group.measured_cost++;
+    for (const category of run.failure_categories) group.categories[category] = (group.categories[category] ?? 0) + 1;
+    groups.set(key, group);
+  }
+  for (const item of feedback) {
+    const run = runById.get(item.run_id);
+    if (!run) continue;
+    const group = groups.get(`${run.project}/${run.agent}/${run.config_version}`);
+    if (item.source === 'owner' && item.verdict === 'positive') group.owner_positive++;
+    if (item.source === 'owner' && item.verdict === 'negative') group.owner_negative++;
+    if (item.source === 'objective_check' && item.verdict === 'positive') group.objective_positive++;
+  }
+  const summaries = [...groups.values()].map((group) => ({ ...group,
+    evidence_coverage: { latency: `${group.measured_latency}/${group.runs}`,
+      token_usage: `${group.measured_tokens}/${group.runs}`, cost: `${group.measured_cost}/${group.runs}` },
+    conclusion: group.owner_positive + group.owner_negative + group.objective_positive === 0
+      ? 'instrumented_only_no_verified_outcome_signal' : 'observed_signals_require_like_for_like_review' }));
+  return { schema_version: 1, generated_at: isoNow(), project_filter: projectFilter,
+    run_count: runs.length, feedback_count: feedback.filter((item) => runById.has(item.run_id)).length,
+    groups: summaries, causal_improvement_claim: false,
+    note: 'Counts are descriptive. Unknown telemetry remains unknown; comparisons do not establish causation.' };
 }

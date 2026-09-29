@@ -9,6 +9,7 @@
     { "id": "engineering", "stages": ["S2", "S4"], "agents": ["frontend", "backend"], "categories": ["ui", "components", "backend", "motion"], "outputs": ["app/", "components/", "lib/"] },
     { "id": "growth", "stages": ["S1", "S4", "S6"], "agents": ["growth"], "categories": ["seo", "research", "growth"], "outputs": ["SEO_STRATEGY.md", "GROWTH_REPORT.md"] },
     { "id": "link-building", "stages": ["S1", "S6", "S7"], "agents": ["link-building"], "categories": ["seo", "growth", "research", "launch"], "outputs": ["BACKLINK_PLAN.md", "BACKLINKS.json", "BACKLINK_REPORT.md"] },
+    { "id": "production-readiness", "stages": ["S6", "post-build"], "agents": ["production-auditor"], "categories": ["quality", "security", "accessibility", "performance", "seo", "backend", "launch"], "outputs": ["PRODUCTION_READINESS_REPORT.md", "LAUNCH_DAY_CHECKLIST.md"] },
     { "id": "quality", "stages": ["S6"], "agents": ["ship"], "categories": ["quality", "security", "browser", "review"], "outputs": ["QA_REPORT.md", "SECURITY_REPORT.md", "PERF_REPORT.md"] },
     { "id": "launch", "stages": ["S7"], "agents": ["ship", "domain-ops"], "categories": ["launch", "video", "domain"], "outputs": ["DOMAIN_REPORT.md", "launch/"] },
     { "id": "learning", "stages": ["post-run"], "agents": ["orchestrator", "brain-evaluator"], "categories": ["quality", "research", "routing"], "outputs": ["brain/learning/runs/", "brain/learning/diagnosis.json", "brain/learning/evaluations/"] }

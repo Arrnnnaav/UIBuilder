@@ -17,10 +17,11 @@ rules, edit this file.
 
 ## 1. Core rules
 1. **Files are the contract.** Agents read and write files in `D:\UiBuildProj\<slug>\docs/`. No state passes through chat.
-2. **No UI code before `DESIGN.md` and `WIREFRAMES.md` exist and gate G2 has passed.**
-3. **Load the `frontend-design` skill before any visual step.** Also use `web-design-guidelines` and `taste-skill` when they're installed.
+2. **No production-site UI code before `DESIGN.md` and `WIREFRAMES.md` exist and gate G2 has passed.** Before G2, design-director may create only standalone visual-review HTML in `docs/`; it must not import app code, become an app route, call services, or ship. The owner sees this HTML and its short Markdown companion together.
+3. **Load the `frontend-design` skill before any visual step.** Also use `web-design-guidelines` and `taste-skill` when installed. If `frontend-design` is unavailable, use `frontend-ui-engineering` plus available taste/accessibility skills, and record the missing skill in the handoff.
 4. **References are mechanisms, not assets.** Take layout ratios, timing and interaction logic. Never copy another site's assets, fonts, copy or code.
 5. **Order: function first, polish second, 3D and media last.**
+   Every project must still have a distinctive, bespoke experience thesis and memorable, story-led motion/interaction. “Function first” controls implementation order; it does not authorize a generic or static template. Show at least two distinct concepts in paired offline HTML + concise Markdown at G2. Require owner choice before production UI. Keep the experience clear, performant, accessible, keyboard/touch operable, and respectful of reduced motion.
 6. **Tools go through the router.** An agent uses only the tools listed for it in `brain/tools.json`. A tool whose `enabled_if` isn't met is not used; use its `fallback`.
 7. **Minimal cost.** Default to free tiers. Before proposing any paid service, check the free-for-dev catalog (`brain/tools.json` → `free_tier_catalog`) and verify the provider's live pricing. Paid tools stay registered but disabled until the user enables them.
 8. **Every agent finishes by writing `docs/handoff/<agent>.json`** (schema in `templates/docs/HANDOFF.schema.json`).
@@ -38,6 +39,7 @@ Definitions are in `.claude/agents/*.md`. The main session is the Orchestrator.
 | taste-research | local video/site visual mechanisms, rights, timecoded storyboards, original interaction briefs | `TASTE_REPORT.md`, `EXPERIENCE_REVIEW.md` |
 | ux | flows, IA, wireframes | `USER_FLOW.md`, `IA.md`, `WIREFRAMES.md` |
 | design-director | 3 isolated directions → hybrid → design system; visual review | `DESIGN.md`, `MOTION.md`, `tokens.css`, `VISUAL_REVIEW.md` |
+| production-auditor | cross-stack production-readiness audit, phased repair coordination, evidence and launch checklist; no gate/deploy authority | `PRODUCTION_READINESS_REPORT.md`, `LAUNCH_DAY_CHECKLIST.md`, `handoff/production-auditor.json` |
 | frontend | pages, components, `/styleguide` | `app/`, `components/` |
 | backend | contact action, email, CMS, env | `lib/`, `app/actions/`, `keystatic.config.ts` |
 | growth | SEO/AEO/GEO strategy, SEO data files, audit | `SEO_STRATEGY.md`, `content/seo/*`, `content/schema/*`, `content/faq/*`, `public/llms.txt`, `GROWTH_REPORT.md` |
@@ -54,25 +56,25 @@ access to the others. Only the critic sees all three.
 S1 Orchestrator + product-manager + growth(strategy) + link-building(plan) → PRODUCT.md, PRODUCT_REQUIREMENTS.md, ACCEPTANCE.md, PRIORITIES.md, SEO_STRATEGY.md, BACKLINK_PLAN.md
 S2 ‖ research ‖ taste-research ‖ ux(+growth IA) ‖ backend-base
 G1 brief + wireframes            — user approves
-S3 design-director: A | B | C (forks) → critic → DESIGN.md
-G2 design direction locked       — user approves
-S3.5 original local interaction prototype + mobile/reduced-motion proof
+S3 design-director: A | B | C (forks) → critic → DESIGN.md + DESIGN_REVIEW.md + DESIGN_REVIEW.html
+G2 design direction locked       — owner compares visual HTML + Markdown and approves exact hashes
+S3.5 original local interaction prototype + mobile/reduced-motion proof + paired review HTML/Markdown
 G2.5 experience direction        — user reviews and approves exact artifacts
 S4 ‖ frontend ‖ backend-domain ‖ growth(data files)
 S5 design-director visual review → polish (max 2 loops)
-S6 ship ‖ QA/a11y ‖ security ‖ perf ‖ growth audit ‖ link-building audit
+S6 production-auditor (phased audit/repairs) → ship ‖ QA/a11y ‖ security ‖ perf ‖ growth audit ‖ link-building audit
 G3 Definition of Done            — automatic
 G3.5 final local release review   — user approves exact reviewed artifacts and target
 S7 ship deploy ‖ domain-ops DNS/TLS ‖ growth live SEO checks → /connect (BusinessOS) → launch video → /learn
 ```
-S4 starts after G2.5; S7 starts after G3 and G3.5. G2.5/G3.5 approvals live in `D:\UiBuildProj\<slug>\docs/approvals/` with hashes of the exact reviewed artifacts; agents cannot infer or write owner approval from silence. Any external preview or production deployment requires G3.5 for its named target. Domain purchases and live DNS changes require separate explicit owner approval; see `plan/DOMAIN-LAUNCH.md`.
+S4 starts after G2.5; S7 starts after G3 and G3.5. G2/G2.5/G3.5 approvals live in `D:\UiBuildProj\<slug>\docs/approvals/` with hashes of the exact reviewed artifacts; agents cannot infer or write owner approval from silence. G2 includes `docs/DESIGN_REVIEW.md` and `docs/DESIGN_REVIEW.html`; present two or three visually distinct directions when there is a meaningful choice, recommend one, and let the owner compare them. G2.5 includes `docs/EXPERIENCE_REVIEW.md` and `docs/EXPERIENCE_REVIEW.html`. Any change to a reviewed file invalidates approval. Any external preview or production deployment requires G3.5 for its named target. Domain purchases and live DNS changes require separate explicit owner approval; see `plan/DOMAIN-LAUNCH.md`.
 
 ## 4. Definition of Done (G3)
 - **Build:** `tsc --noEmit`, `eslint` and `next build` pass. No console or hydration errors.
 - **E2E:** Playwright passes on every page, nav, the contact form (Turnstile test key), 404 and the error boundary. Run at 390px and 1440px, in Chromium and WebKit.
 - **Accessibility:** axe finds 0 serious/critical issues. Keyboard navigation works, contrast is AA, `prefers-reduced-motion` is respected.
 - **Performance:** Lighthouse ≥ 90 in every category on every page. LCP < 2.5s, CLS < 0.1.
-- **Security:** the `security-review` skill finds no high issues and `npm audit --audit-level=high` is clean. CSP is set, the contact route uses Zod and is rate-limited, and no secrets reach the client.
+- **Security:** the `security-review` skill finds no high issues, the project's package-manager audit has no high findings, configured Semgrep SAST is triaged clean, and Gitleaks finds no committed secret. CSP is set, the contact route uses Zod and is rate-limited, and no secrets reach the client.
 - **Growth:**
   - every route is in `content/seo/routes.json`
   - JSON-LD is valid
@@ -105,13 +107,19 @@ an owner-approved PR followed by a separate owner approval to publish. See the B
 `docs/superpowers/specs/2026-09-25-git-site-connector-design.md`.
 
 ## 7. Designer Brain (`brain/`)
-- `resources.json` holds each resource's category, usage_mode, best_for, trust and provenance.
+- `resources.json` holds each resource's category, usage_mode, best_for, trust, provenance and owner-editable `my_take`; see `docs/RESOURCE_LIBRARY.md`.
 - `patterns/*.json` holds patterns with provenance, scored per `project_type`.
 - `preferences.md` records the user's taste: what they approved and what they rejected.
 - `builds/<slug>.json` records the pipeline, resources and patterns used, the **lineage** (which source produced each section), scores and feedback.
 - `domains.json` maps each stage to specialist agents, outputs and resource categories. `scripts/recommend-resources.mjs` gives an explainable shortlist and a separate review queue. Jev may add shadow-mode semantic hints after deterministic filtering; it has no gate, rights or deployment authority.
 - `learning/` stores redacted run and feedback records, failure diagnosis, versioned resource-router candidates, separate eval cases, promotion receipts and rollback versions. `brain-evaluator` analyzes it offline. A passing fixture eval never overrides source rights, owner gates or real outcome review; see `docs/SELF_IMPROVING_BRAIN.md`.
 - The trust ladder is NEW → REVIEWED → TESTED → APPROVED → TRUSTED, with REJECTED and DEPRECATED as exits. Only APPROVED and TRUSTED resources are used by default.
+- `brain/playbooks/visual-storytelling.md` stores reusable, paraphrased mechanisms from the owner's design/video research. Read it for story-led portfolios, theme-based design and project films. Personal themes are opt-in and must come from the owner; never invent titles, dates, employers or results. The source ledger stays separate from app assets and never grants rights to copy video frames, code, prompts or layouts.
+
+## 9. Production-readiness audit
+- `/audit <slug>` uses `.claude/agents/production-auditor.md` and `templates/prompts/PRODUCTION_READINESS_AUDIT.md`. It discovers the real stack/commands, records baseline failures, audits in phases, applies verified low-risk fixes, routes specialist-owned work, and writes `docs/PRODUCTION_READINESS_REPORT.md` plus `docs/LAUNCH_DAY_CHECKLIST.md`.
+- It cannot pass G3/G3.5, publish, or deploy. Findings need evidence; changes requiring owner input or unsafe migrations stay open and explicit. It must not assume npm or add tools/dependencies without need.
+- `/build` runs this audit during S6 before final ship verification. Existing projects may use it independently at any stage.
 
 ## 8. Commands
 Projects must be scaffolded under `D:\UiBuildProj\<slug>` and initialized as independent Git
@@ -132,4 +140,9 @@ only. Use `/build <pipeline> <slug>` to work on the external project repository.
 - `/improve <status|category>` diagnoses verified failures and evaluates bounded Brain candidates offline.
 - `/brag <slug> [product|company]` prepares a source-backed promotional launch package; it does not bypass gates or deploy.
 - `/connect <slug>` hands the site to BusinessOS.
+- `/audit <slug>` runs the reusable phased production-readiness audit and repair workflow.
 - `/backlinks <slug> <init|validate|report>` manages source-backed backlink records without publishing.
+- `node scripts/runtime.mjs packet <pipeline> <slug> <stage> <agent>` emits a provider-neutral task packet; a CLI host executes it. `event` and `status` inspect the project's append-only execution ledger. The harness never auto-spawns background agents.
+- `node scripts/improve.mjs outcomes [slug]` reports measured run/feedback coverage without claiming causality.
+- `node scripts/migrate-site-security.mjs <slug>` previews additive scanner setup for an existing site. Add `--apply` only after reviewing the exact target and conflicts; existing files are never overwritten.
+- `node scripts/visual-eval.mjs <project>/docs/VISUAL_OUTCOME.json` validates an owner-authored visual review; it has no gate authority.

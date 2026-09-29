@@ -25,8 +25,14 @@ export function checkOwnerGate(project, gate) {
     if (current !== artifact.sha256) errors.push(`artifact changed since approval: ${artifact.path}`);
   }
   const paths = new Set((approval.artifacts ?? []).map((item) => item.path));
+  if (gate === 'G2') {
+    for (const required of ['docs/DESIGN.md', 'docs/MOTION.md', 'docs/DESIGN_REVIEW.md', 'docs/DESIGN_REVIEW.html']) {
+      if (!paths.has(required)) errors.push(`${required} must be among reviewed artifacts`);
+    }
+  }
   if (gate === 'G2.5') {
     if (!paths.has('docs/EXPERIENCE_REVIEW.md')) errors.push('EXPERIENCE_REVIEW.md must be among reviewed artifacts');
+    if (!paths.has('docs/EXPERIENCE_REVIEW.html')) errors.push('EXPERIENCE_REVIEW.html must be among reviewed artifacts');
     if (!approval.review_url && !approval.review_video) errors.push('local review URL or video required');
   }
   if (gate === 'G3.5') {
