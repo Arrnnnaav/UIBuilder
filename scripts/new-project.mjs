@@ -45,6 +45,8 @@ cpSync(src, dest, {
   recursive: true,
   filter: (p) => !relative(src, p).split(sep).some((part) => SKIP.has(part) || (part.startsWith(".env") && part !== ".env.example")),
 });
+// Keep the task-aware environment check available inside every standalone site repository.
+cpSync(join(root, "scripts/agent-bootstrap.mjs"), join(dest, "scripts/agent-bootstrap.mjs"));
 
 // docs/ from templates, with the slug filled in
 const docsSrc = join(root, "templates/docs");
@@ -52,7 +54,7 @@ const docs = join(dest, "docs");
 mkdirSync(join(docs, "handoff"), { recursive: true });
 mkdirSync(join(docs, "directions"), { recursive: true });
 for (const f of readdirSync(docsSrc)) {
-  if (!f.endsWith(".md") && !f.endsWith(".html") && !["BACKLINKS.json", "BACKLINKS.schema.json", "VISUAL_OUTCOME.json"].includes(f)) continue;
+  if (!f.endsWith(".md") && !f.endsWith(".html") && !["AGENT_BOOTSTRAP.json", "BACKLINKS.json", "BACKLINKS.schema.json", "HANDOFF.schema.json", "VISUAL_OUTCOME.json"].includes(f)) continue;
   writeFileSync(join(docs, f), readFileSync(join(docsSrc, f), "utf8").replaceAll("{{slug}}", slug));
 }
 const promptSrc = join(root, "templates/prompts");

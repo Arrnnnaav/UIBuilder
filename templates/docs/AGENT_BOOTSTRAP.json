@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "installer": {
+    "package": "skills",
+    "version": "1.7.0",
+    "source": "https://github.com/vercel-labs/skills",
+    "license": "MIT"
+  },
+  "agents": ["codex", "claude-code"],
+  "skills": [
+    {
+      "id": "frontend-design",
+      "tasks": ["frontend", "website", "full-site", "visual-research"],
+      "source": "https://github.com/anthropics/skills/archive/33375500bcea98d610eb30ce10ac4e59b89c390d.zip",
+      "revision": "33375500bcea98d610eb30ce10ac4e59b89c390d",
+      "license": "Apache-2.0",
+      "auto_install": true,
+      "required": true,
+      "purpose": "Distinctive visual design and frontend implementation. Mandatory before project visual work."
+    },
+    {
+      "id": "taste-skill",
+      "tasks": ["website", "full-site", "visual-research"],
+      "source": "https://github.com/leonxlnx/taste-skill/archive/c184364c58658b2f131b4ae8bd3d206cabb3deee.zip",
+      "revision": "c184364c58658b2f131b4ae8bd3d206cabb3deee",
+      "license": "MIT",
+      "auto_install": true,
+      "purpose": "Taste critique and reference-mechanism extraction."
+    },
+    {
+      "id": "agent-browser",
+      "tasks": ["browser", "website", "full-site", "visual-research"],
+      "source": "https://github.com/vercel-labs/agent-browser/archive/d01253d9db28d75080e36da3c1c31ef89454731e.zip",
+      "revision": "d01253d9db28d75080e36da3c1c31ef89454731e",
+      "license": "Apache-2.0",
+      "auto_install": true,
+      "purpose": "Browser automation and exploration; project Playwright remains the test baseline."
+    },
+    {
+      "id": "brag",
+      "tasks": ["video"],
+      "source": "https://github.com/latent-spaces/brag/archive/c893c5ed52aed84e3e2ee56787de869fccdae6b0.zip",
+      "revision": "c893c5ed52aed84e3e2ee56787de869fccdae6b0",
+      "license": "MIT",
+      "auto_install": true,
+      "purpose": "Storyboard and render short project walkthrough/launch films when requested."
+    },
+    {
+      "id": "web-design-guidelines",
+      "tasks": ["frontend", "website", "full-site", "review"],
+      "source": "https://github.com/vercel-labs/agent-skills/tree/063bee9/skills/web-design-guidelines",
+      "revision": "063bee9",
+      "license": "unverified at pinned revision",
+      "auto_install": false,
+      "purpose": "Optional web-interface review. Do not redistribute/install automatically until upstream terms are verified; use frontend-design and the project accessibility rules meanwhile."
+    }
+  ],
+  "tools": [
+    {
+      "id": "agent-browser-cli",
+      "tasks": ["browser", "website", "full-site", "visual-research"],
+      "command": "agent-browser",
+      "version": "0.38.1",
+      "license": "Apache-2.0",
+      "install": ["npm", "install", "--global", "agent-browser@0.38.1"],
+      "post_install": ["agent-browser", "install"],
+      "auto_install": true,
+      "fallback": "project Playwright CLI / Playwright tests"
+    },
+    {
+      "id": "ffmpeg",
+      "tasks": ["video", "visual-research"],
+      "command": "ffmpeg",
+      "license": "LGPL-2.1-or-later/GPL-2.0-or-later build-dependent",
+      "auto_install": false,
+      "fallback": "document unavailable video operations; no silent package-manager or codec install"
+    }
+  ],
+  "manual_review": ["web-design-guidelines", "paid services", "MCP servers", "model-provider keys", "plugins with write/deploy capabilities"]
+}

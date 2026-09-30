@@ -8,8 +8,9 @@ import { spawnSync } from 'node:child_process';
 function fixture(t) {
   const root = mkdtempSync(join(tmpdir(), 'uibuilder-scaffold-'));
   t.after(() => rmSync(root, { recursive: true, force: true }));
-  for (const dir of ['scripts', 'pipelines/portfolio', 'templates/docs', 'templates/prompts', 'templates/marketing-starter/node_modules', 'templates/marketing-starter/.git', 'templates/marketing-starter/.next', 'templates/marketing-starter/security/semgrep']) mkdirSync(join(root, dir), { recursive: true });
+  for (const dir of ['scripts', 'pipelines/portfolio', 'templates/docs', 'templates/prompts', 'templates/marketing-starter/node_modules', 'templates/marketing-starter/.git', 'templates/marketing-starter/.next', 'templates/marketing-starter/security/semgrep', 'templates/marketing-starter/scripts']) mkdirSync(join(root, dir), { recursive: true });
   cpSync(new URL('../../scripts/new-project.mjs', import.meta.url), join(root, 'scripts/new-project.mjs'));
+  cpSync(new URL('../../scripts/agent-bootstrap.mjs', import.meta.url), join(root, 'scripts/agent-bootstrap.mjs'));
   cpSync(new URL('../../templates/marketing-starter/security/semgrep/ui-builder.yml', import.meta.url), join(root, 'templates/marketing-starter/security/semgrep/ui-builder.yml'));
   cpSync(new URL('../../templates/marketing-starter/security/semgrep/LICENSE', import.meta.url), join(root, 'templates/marketing-starter/security/semgrep/LICENSE'));
   writeFileSync(join(root, 'pipelines/portfolio/stack.json'), '{}');
@@ -21,6 +22,10 @@ function fixture(t) {
   writeFileSync(join(root, 'templates/docs/BACKLINKS.json'), '{"site":"{{slug}}"}');
   writeFileSync(join(root, 'templates/docs/BACKLINKS.schema.json'), '{}');
   writeFileSync(join(root, 'templates/docs/VISUAL_OUTCOME.json'), '{"project":"{{slug}}"}');
+  cpSync(new URL('../../templates/docs/HANDOFF.schema.json', import.meta.url), join(root, 'templates/docs/HANDOFF.schema.json'));
+  cpSync(new URL('../../templates/docs/AGENT_BOOTSTRAP.md', import.meta.url), join(root, 'templates/docs/AGENT_BOOTSTRAP.md'));
+  cpSync(new URL('../../templates/docs/AGENT_BOOTSTRAP.json', import.meta.url), join(root, 'templates/docs/AGENT_BOOTSTRAP.json'));
+  cpSync(new URL('../../templates/marketing-starter/scripts/agent-bootstrap.mjs', import.meta.url), join(root, 'templates/marketing-starter/scripts/agent-bootstrap.mjs'));
   writeFileSync(join(root, 'templates/prompts/PRODUCTION_READINESS_AUDIT.md'), '# Audit {{slug}}');
   return { root, run: (...args) => spawnSync(process.execPath, [join(root, 'scripts/new-project.mjs'), ...args], { encoding: 'utf8', env: { ...process.env, UIBUILDER_SKIP_GITHUB: '1', GIT_AUTHOR_NAME: 'UIBuilder Test', GIT_AUTHOR_EMAIL: 'uibuilder@example.invalid', GIT_COMMITTER_NAME: 'UIBuilder Test', GIT_COMMITTER_EMAIL: 'uibuilder@example.invalid' } }) };
 }
@@ -38,6 +43,10 @@ test('scaffold creates an external independent Git repository and copies only cl
   assert.equal(readFileSync(join(dest, 'docs/PRODUCT.md'), 'utf8'), '# sample');
   assert.equal(JSON.parse(readFileSync(join(dest, 'docs/BACKLINKS.json'), 'utf8')).site, 'sample');
   assert.equal(existsSync(join(dest, 'docs/BACKLINKS.schema.json')), true);
+  assert.equal(existsSync(join(dest, 'docs/AGENT_BOOTSTRAP.json')), true);
+  assert.equal(existsSync(join(dest, 'docs/HANDOFF.schema.json')), true);
+  assert.equal(existsSync(join(dest, 'docs/AGENT_BOOTSTRAP.md')), true);
+  assert.equal(existsSync(join(dest, 'scripts/agent-bootstrap.mjs')), true);
   assert.equal(JSON.parse(readFileSync(join(dest, 'docs/VISUAL_OUTCOME.json'), 'utf8')).project, 'sample');
   assert.equal(readFileSync(join(dest, 'docs/prompts/PRODUCTION_READINESS_AUDIT.md'), 'utf8'), '# Audit sample');
   assert.equal(existsSync(join(dest, 'security/semgrep/ui-builder.yml')), true);

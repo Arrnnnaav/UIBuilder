@@ -76,8 +76,8 @@ G1 approves scope/wireframes. G2 approves the visual system. G2.5 approves an ex
 
 ## Near-term completion work
 
-1. Prepare paired G2 visual HTML/Markdown for portfolio direction options, including the owner-requested skating theme and project-film actions; wait for explicit owner selection before design-law updates.
-2. Use the timecoded source ledger in `D:\UiBuildProj\portfolio\docs/TASTE_REPORT.md`; test any identified live sites at desktop/mobile before promotion from REVIEWED.
-3. Restore the portfolio's missing `docs/G3_EVIDENCE.json`, rerun the formal gate on final source, and address any failure. The earlier separate test results are useful evidence, but the formal gate is pending.
-4. Prepare `RELEASE_REVIEW.md` with exact target and local walkthrough, then seek G3.5 approval. No new external deploy before it.
+1. Portfolio's paired G2 visual review is ready in `D:\UiBuildProj\portfolio\docs\DESIGN_REVIEW.md` and `.html`, with hashes in `docs/STATE.md`. Wait for the owner's direction choice and approval before changing the production design law or UI.
+2. After G2, create the original local interaction prototype and paired G2.5 review; wait for approval before implementation.
+3. The former portfolio build's formal G3 evidence is still pending. Rebuild evidence only for the owner-approved redesign, then run the formal gate against the final source.
+4. Prepare the exact local release review and seek G3.5 approval before any external preview or production deployment.
 5. Evaluate Jev on representative labeled real tasks/link pairs before changing it from shadow mode. Keep Agent Reach optional; install only if it beats current public-source research flow.

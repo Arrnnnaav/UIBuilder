@@ -32,7 +32,7 @@ Standard `AGENTS.md` flow, with these specifics:
 - every service page has its own title, description, FAQ and CTA
 - the blog index and every post pass the audit, with Article schema and an author on each post
 
-## Frontend-only static mode (DECISIONS D14; reference: `projects/abizcreator`)
+## Frontend-only static mode (DECISIONS D14; reference site: `D:\UiBuildProj\abizcreator`)
 Use this mode when a client starts without a backend:
 - `next.config.ts` sets `output: "export"` and `images.unoptimized`. Headers move to `public/_headers`, which Cloudflare applies.
 - Remove the contact server action, Turnstile, Resend, rate limiting and Sentry. Contact goes through `components/contact/ContactChannels.tsx` (WhatsApp, tel, mailto), driven by `content/site.json.contact`.
