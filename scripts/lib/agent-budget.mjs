@@ -41,7 +41,8 @@ export function contextBudget(root) {
   const known = new Set(Object.keys(budget.agents));
   for (const agent of agents) if (!known.has(agent.name)) errors.push(`agents/${agent.name}.md: not in brain/agent-budget.json`);
   for (const name of known) if (!agents.some((agent) => agent.name === name)) errors.push(`agent-budget.json: "${name}" has no .claude/agents/${name}.md`);
-  const skillDirs = existsSync(join(root, '.claude', 'skills')) ? readdirSync(join(root, '.claude', 'skills')) : [];
+  // Names to look for in agent files: skills on disk plus git-ignored local-only ones that a fresh checkout lacks.
+  const skillDirs = [...new Set([...(existsSync(join(root, '.claude', 'skills')) ? readdirSync(join(root, '.claude', 'skills')) : []), ...Object.keys(budget.local_only_skills ?? {})])];
   for (const agent of agents) {
     const entry = budget.agents[agent.name];
     if (!entry) continue;
