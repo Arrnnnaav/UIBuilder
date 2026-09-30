@@ -5,9 +5,9 @@ UIBuilder is the harness for building, reviewing and shipping high-quality websi
 ## What the harness does
 
 ```text
-brief Ã¢â€ â€™ research Ã¢â€ â€™ UX Ã¢â€ â€™ design council Ã¢â€ â€™ owner review
-      Ã¢â€ â€™ interaction review Ã¢â€ â€™ implementation Ã¢â€ â€™ QA/security/perf/growth
-      Ã¢â€ â€™ release review Ã¢â€ â€™ deploy/domain checks Ã¢â€ â€™ learn/improve
+brief → research → UX → design council → owner review
+      → interaction review → implementation → QA/security/perf/growth
+      → release review → deploy/domain checks → learn/improve
 ```
 
 The Orchestrator owns state and dispatch. Specialist agents own bounded artifacts. Files are the contract, so a paused session can be resumed without relying on chat history.
@@ -17,6 +17,7 @@ The Orchestrator owns state and dispatch. Specialist agents own bounded artifact
 | Path | Purpose |
 |---|---|
 | [`AGENTS.md`](AGENTS.md) | Rulebook, stages, gates, agent ownership and quality contract |
+| [`docs/AGENT_BOOTSTRAP.md`](docs/AGENT_BOOTSTRAP.md) | Fresh-agent context/preflight sequence, pinned skill/tool sources and installation boundaries |
 | `.claude/agents/` | Specialist agent contracts |
 | `.claude/commands/` | `/build`, `/audit`, `/intake`, `/gate`, `/learn`, `/improve`, `/connect` and `/brag` |
 | `brain/` | Resources, patterns, preferences, tool router, lineage and learning records |
@@ -67,6 +68,20 @@ For provider-neutral dispatch, `node scripts/runtime.mjs packet <pipeline> <slug
 
 The `product-site` pipeline targets product marketing and launch sites (not application functionality). Its owner-reviewed visual scorecard records story, distinction, motion and usability separately from automated gates; `node scripts/visual-eval.mjs <project>/docs/VISUAL_OUTCOME.json` checks completeness and evidence references but cannot approve a gate.
 
+## Fresh-agent bootstrap
+
+Before specialist work, use the task-aware checker from either the harness or a scaffolded site:
+
+```powershell
+node scripts/agent-bootstrap.mjs --task website --project .
+node scripts/agent-bootstrap.mjs --task website --project . --install
+```
+
+Use the narrowest task and install only missing pinned entries. The free, license-reviewed
+allowlist and fallbacks are in `brain/agent-bootstrap.json` (copied into each site's `docs/`).
+Unknown-license/paid services, MCP servers, credentials and external write/deploy plugins remain
+manual and disabled. `brain/tools.json` remains the authority for per-agent tool permissions.
+
 ## The Brain
 
 The Brain is a controlled knowledge and routing layer, not an unbounded self-editing model.
@@ -80,14 +95,14 @@ The Brain is a controlled knowledge and routing layer, not an unbounded self-edi
 - `brain/builds/` stores project lineage, scores and feedback.
 - `brain/learning/` stores redacted traces, failure categories, proposals, evaluations and rollback versions.
 
-The default trust ladder is `NEW Ã¢â€ â€™ REVIEWED Ã¢â€ â€™ TESTED Ã¢â€ â€™ APPROVED Ã¢â€ â€™ TRUSTED`. Only `APPROVED` and `TRUSTED` resources are used by default. Jev can provide shadow-mode semantic hints after deterministic filtering; it cannot pass gates, bypass rights checks or deploy.
+The default trust ladder is `NEW → REVIEWED → TESTED → APPROVED → TRUSTED`. Only `APPROVED` and `TRUSTED` resources are used by default. Jev can provide shadow-mode semantic hints after deterministic filtering; it cannot pass gates, bypass rights checks or deploy.
 
 The improvement loop is:
 
 ```text
-trace Ã¢â€ â€™ feedback/objective checks Ã¢â€ â€™ failure category
-      Ã¢â€ â€™ bounded proposal Ã¢â€ â€™ baseline/candidate evaluation
-      Ã¢â€ â€™ exact owner review Ã¢â€ â€™ promote or reject Ã¢â€ â€™ monitor/rollback
+trace → feedback/objective checks → failure category
+      → bounded proposal → baseline/candidate evaluation
+      → exact owner review → promote or reject → monitor/rollback
 ```
 
 Run it with:
@@ -100,15 +115,22 @@ node scripts/improve.mjs evaluate brain/learning/candidates/router-v2-token-matc
 
 `UIBUILDER_LEARNING=0` restores the baseline selector. See [`docs/SELF_IMPROVING_BRAIN.md`](docs/SELF_IMPROVING_BRAIN.md).
 
+## Cost, quality and media controls
+
+- **Context and model budget:** `brain/agent-budget.json` sets each agent's model tier, stage-based skill loading and startup-token cap. `node scripts/context-budget.mjs` and `node scripts/validate-agents.mjs` enforce it (also in `health.mjs`).
+- **Resources:** every Brain resource maps to a domain through `brain/taxonomy.json`. Mechanism-only resources are usable once task words match; code, skill and tool resources need approval, a license and an enabled tool. `brain/tool-enable.json` is the owner switch for manually enabled tools.
+- **Premium bar:** `brain/playbooks/taste-core.md` (rules and pre-flight), `premium-bar.md` (seven-dimension scorecard) and `immersive-playbook.md` (scroll film, 3D, story sequences). `node scripts/premium-lint.mjs <slug>` checks the mechanical bans on a site.
+- **Paid media:** `node scripts/media-generate.mjs` renders clips through Runway Dev or the Gemini API. It is a dry run by default and needs an explicit approval at or above the estimate. `node scripts/media-preflight.mjs` reports what is ready, `node scripts/media-inbox-check.mjs` verifies clips made by hand in a free studio, and `templates/docs/MEDIA_REQUEST.md` is the step-by-step card the owner follows. Providers, prices and terms: [`docs/MEDIA_PROVIDERS.md`](docs/MEDIA_PROVIDERS.md); setup and fallbacks: [`docs/OWNER_SETUP.md`](docs/OWNER_SETUP.md).
+
 ## Product promotion with `/brag`
 
 `/brag <slug> [product|company]` prepares a promotional package for a shipped product or company site. It reads approved project evidence and writes reviewable files under the external site repository:
 
-- `docs/launch/BRAG_BRIEF.md` Ã¢â‚¬â€ audience, promise, proof and campaign angle
-- `docs/launch/PROMO_COPY.md` Ã¢â‚¬â€ hero, feature, social and email variants
-- `docs/launch/LAUNCH_SCRIPT.md` Ã¢â‚¬â€ short promotional video/storyboard script
-- `docs/launch/SHOT_LIST.md` Ã¢â‚¬â€ product-led scenes and required captures
-- `docs/launch/BRAG_HANDOFF.json` Ã¢â‚¬â€ sources, evidence, rights and open approvals
+- `docs/launch/BRAG_BRIEF.md` — audience, promise, proof and campaign angle
+- `docs/launch/PROMO_COPY.md` — hero, feature, social and email variants
+- `docs/launch/LAUNCH_SCRIPT.md` — short promotional video/storyboard script
+- `docs/launch/SHOT_LIST.md` — product-led scenes and required captures
+- `docs/launch/BRAG_HANDOFF.json` — sources, evidence, rights and open approvals
 
 The command can use the `brag` tool for a launch video, poster or share copy when available. It does not invent product claims, copy reference assets, change the website or deploy. A promotional landing page is a normal product scope change and must pass G1/G2/G2.5/G3/G3.5.
 
