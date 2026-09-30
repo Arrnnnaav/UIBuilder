@@ -7,6 +7,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawn, spawnSync } from "node:child_process";
 import { validate } from "./lib/mini-schema.mjs";
+import { preflightErrors, visualSkillErrors, referenceErrors } from "./lib/preflight.mjs";
 import { validateEvidence, validatePerf, monitoringKeys } from "./lib/g3-evidence.mjs";
 import { checkOwnerGate } from "./lib/owner-gates.mjs";
 import { validateConceptHtml, validateDesignReviewMarkdown } from "./lib/design-review.mjs";
@@ -43,7 +44,15 @@ const handoff = (agent) => {
   const p = doc(`handoff/${agent}.json`);
   if (!existsSync(p)) return [false, "missing"];
   try {
-    const errs = validate(JSON.parse(readFileSync(join(root, "templates/docs/HANDOFF.schema.json"), "utf8")), JSON.parse(readFileSync(p, "utf8")));
+    const value = JSON.parse(readFileSync(p, "utf8"));
+    const brain = JSON.parse(readFileSync(join(root, "brain/resources.json"), "utf8"));
+    const resources = Array.isArray(brain) ? brain : brain.resources;
+    const errs = [
+      ...validate(JSON.parse(readFileSync(join(root, "templates/docs/HANDOFF.schema.json"), "utf8")), value),
+      ...preflightErrors(value),
+      ...visualSkillErrors(value),
+      ...referenceErrors(value, resources),
+    ];
     return [errs.length === 0, errs.slice(0, 3).join("; ")];
   } catch (e) {
     return [false, e.message];

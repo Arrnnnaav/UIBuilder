@@ -9,6 +9,18 @@
     "files_created": { "type": "array", "items": { "type": "string" } },
     "resources_used": { "type": "array", "items": { "type": "string" } },
     "patterns_used": { "type": "array", "items": { "type": "string" } },
+    "environment": {
+      "type": "object",
+      "properties": {
+        "bootstrap_task": { "type": "string", "enum": ["frontend", "website", "full-site", "visual-research", "browser", "video", "review"] },
+        "waiver": { "type": "string" },
+        "skills_checked": { "type": "array", "items": { "type": "string" } },
+        "skills_used": { "type": "array", "items": { "type": "string" } },
+        "tools_checked": { "type": "array", "items": { "type": "string" } },
+        "tools_used": { "type": "array", "items": { "type": "string" } },
+        "unavailable_and_fallbacks": { "type": "array", "items": { "type": "string" } }
+      }
+    },
     "run_id": { "type": ["string", "null"] },
     "risks": { "type": "array", "items": { "type": "string" } },
     "open_questions": { "type": "array", "items": { "type": "string" } },

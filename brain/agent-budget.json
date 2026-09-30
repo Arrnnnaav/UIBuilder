@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "_doc": "Single source for per-agent model tier, startup skill loads and context caps. Startup tokens = always_loaded files + the agent definition + SKILL.md of every skill in `load` (estimate: chars/4). `on_demand` skills are loaded only when a task step needs them. scripts/context-budget.mjs enforces caps; scripts/validate-agents.mjs enforces model and tool consistency. Change a tier or cap here with a plan/DECISIONS.md entry.",
+  "always_loaded": ["CLAUDE.md", "AGENTS.md"],
+  "default_cap_tokens": 12000,
+  "local_only_skills": { "web-design-guidelines": 308, "website-to-code": 2821, "monid": 5186 },
+  "builtin_tools": ["Read", "Write", "Edit", "Glob", "Grep", "Bash", "Skill", "NotebookEdit"],
+  "claude_tool_map": {
+    "WebSearch": "web_search",
+    "WebFetch": "web_search",
+    "mcp__plugin_playwright_playwright__": "playwright_mcp",
+    "mcp__stitch__": "stitch"
+  },
+  "agents": {
+    "design-director": {
+      "model": "opus",
+      "reason": "Owns the premium/taste bar: three divergent directions, critic synthesis and visual review. Wrong taste here is the most expensive rework.",
+      "load": {
+        "direction": ["frontend-design", "file:brain/playbooks/taste-core.md"],
+        "critic": ["frontend-design", "file:brain/playbooks/taste-core.md", "file:brain/playbooks/premium-bar.md", "web-design-guidelines"],
+        "review": ["frontend-design", "file:brain/playbooks/taste-core.md", "file:brain/playbooks/premium-bar.md", "web-design-guidelines"]
+      },
+      "on_demand": ["file:brain/playbooks/immersive-playbook.md", "taste-skill", "stitch-design-taste", "antislop-ui", "monid"],
+      "cap_tokens_by_mode": { "critic": 16000, "review": 16000, "direction": 14000 }
+    },
+    "frontend": {
+      "model": "opus",
+      "reason": "Implements immersive motion, scroll and interaction against DESIGN.md/MOTION.md; hardest code and costly to redo.",
+      "load": ["frontend-design", "file:brain/playbooks/taste-core.md"],
+      "on_demand": ["file:brain/playbooks/immersive-playbook.md", "taste-skill", "website-to-code", "antislop-ui"],
+      "cap_tokens": 14000
+    },
+    "taste-research": {
+      "model": "opus",
+      "reason": "Extracts mechanisms from video frames and live references; needs strong vision and judgment about originality and rights.",
+      "load": ["frontend-design", "file:brain/playbooks/taste-core.md"],
+      "on_demand": ["file:brain/playbooks/immersive-playbook.md", "file:brain/playbooks/premium-bar.md", "taste-skill", "web-design-guidelines", "agent-browser"],
+      "cap_tokens": 14000
+    },
+    "research": { "model": "sonnet", "reason": "Structured reference and competitor gathering with sources.", "load": [], "on_demand": ["agent-browser"] },
+    "ux": { "model": "sonnet", "reason": "Flows, IA and wireframes built from Brain patterns.", "load": [], "on_demand": [] },
+    "product-manager": { "model": "sonnet", "reason": "Scope and acceptance judgment; no gate authority.", "load": [], "on_demand": [] },
+    "backend": { "model": "sonnet", "reason": "Contact action, email, CMS and env, following a fixed recipe.", "load": [], "on_demand": [] },
+    "growth": { "model": "sonnet", "reason": "SEO/AEO/GEO data files and audit against fixed rules.", "load": [], "on_demand": ["fixing-metadata"] },
+    "ship": { "model": "sonnet", "reason": "Runs deterministic G3 commands; reasons only when one fails.", "load": [], "on_demand": ["security-review", "web-design-guidelines", "agent-browser", "monid"] },
+    "production-auditor": { "model": "sonnet", "reason": "Phased audit with evidence; repairs are low-risk and verified.", "load": [], "on_demand": ["security-review", "file:brain/playbooks/premium-bar.md"] },
+    "brain-evaluator": { "model": "sonnet", "reason": "Offline diagnosis and candidate evaluation over JSON records.", "load": [], "on_demand": [] },
+    "link-building": { "model": "sonnet", "reason": "Source-backed plan; weaker models risk inventing sources. Revisit after measured traces.", "load": [], "on_demand": [] },
+    "domain-ops": { "model": "haiku", "reason": "Read-only DNS/TLS verification that records command output; no authority to change records.", "load": [], "on_demand": [] }
+  }
+}

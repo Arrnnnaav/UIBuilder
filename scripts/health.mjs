@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Check the harness contracts without touching an external site repository.
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -14,13 +14,29 @@ const run = (name, args) => {
   add(name, result.status === 0, (result.stderr || result.stdout).trim().split(/\r?\n/).slice(-1)[0] || '');
 };
 
-for (const file of ['AGENTS.md', 'README.md', 'LICENSE', '.gitignore']) add(`required file ${file}`, existsSync(join(root, file)));
+for (const file of ['AGENTS.md', 'README.md', 'LICENSE', '.gitignore', 'docs/AGENT_BOOTSTRAP.md', 'brain/agent-bootstrap.json', 'scripts/agent-bootstrap.mjs', 'templates/docs/AGENT_BOOTSTRAP.md', 'templates/docs/AGENT_BOOTSTRAP.json', 'templates/marketing-starter/scripts/agent-bootstrap.mjs']) add(`required file ${file}`, existsSync(join(root, file)));
 for (const file of ['build.md', 'brag.md', 'gate.md', 'improve.md', 'intake.md', 'learn.md', 'connect.md']) {
   add(`command ${file}`, existsSync(join(root, '.claude', 'commands', file)));
 }
 for (const file of ['backend.md', 'brain-evaluator.md', 'design-director.md', 'domain-ops.md', 'frontend.md', 'growth.md', 'product-manager.md', 'research.md', 'ship.md', 'taste-research.md', 'ux.md']) {
   add(`agent ${file}`, existsSync(join(root, '.claude', 'agents', file)));
 }
+
+// Rulebook drift guards: keep AGENTS.md small and its §2 table in sync with .claude/agents/.
+const MAX_RULEBOOK_LINES = 120;
+const rulebook = readFileSync(join(root, 'AGENTS.md'), 'utf8');
+const rulebookLines = rulebook.split(/\r?\n/).length;
+add('AGENTS.md size', rulebookLines <= MAX_RULEBOOK_LINES, `${rulebookLines}/${MAX_RULEBOOK_LINES} lines`);
+const agentSection = rulebook.split(/^## 2\. Agents/m)[1]?.split(/^## 3\./m)[0] ?? '';
+for (const file of readdirSync(join(root, '.claude', 'agents')).filter((f) => f.endsWith('.md'))) {
+  const name = file.replace(/\.md$/, '');
+  add(`AGENTS.md §2 lists ${name}`, agentSection.includes(`| ${name} |`));
+}
+for (const file of readdirSync(join(root, '.claude', 'commands')).filter((f) => f.endsWith('.md'))) {
+  add(`AGENTS.md §8 lists /${file.replace(/\.md$/, '')}`, rulebook.includes(`/${file.replace(/\.md$/, '')}`));
+}
+run('context budget', ['scripts/context-budget.mjs']);
+run('agent tiers and tool routing', ['scripts/validate-agents.mjs']);
 run('brain validation', ['scripts/validate-brain.mjs']);
 run('contract validation', ['scripts/validate-contracts.mjs']);
 

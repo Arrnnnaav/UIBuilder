@@ -1,148 +1,97 @@
 # AGENTS.md — UIBuilder rulebook
 
-UIBuilder is the harness repository: it contains the multi-agent pipeline, Brain, tools,
-templates, evaluation and documentation used to design, build and verify websites. Site source
-does not live in this repository. All generated sites live in separate repositories under
-`D:\UiBuildProj`, one GitHub repository per site. Each site is handed to BusinessOS
-(`D:\PROJECTS\abc\business-os`) only for approved SEO/AEO/GEO maintenance. Every agent, human
-or AI, follows this file. If this file and a prompt disagree, this file wins; to change the
-rules, edit this file.
+UIBuilder is the **harness**: multi-agent pipeline, Brain, tools, templates, evaluation and docs for designing, building and verifying websites. Site source is never here. Each site is its own repo under `D:\UiBuildProj\<slug>`, handed to BusinessOS (`D:\PROJECTS\abc\business-os`) only for approved SEO/AEO/GEO maintenance. If this file and a prompt disagree, this file wins; change rules by editing this file.
 
-## 0. How work is tracked
-- Plans live in `plan/`, one file per phase (`plan/M0-setup.md` … `plan/M8-later.md`).
-- `plan/PROGRESS.md` is the single status board. After finishing a task, tick it and add
-  evidence: a command and its result, a URL, or a commit.
-- `plan/DECISIONS.md` records every decision that changes stack, scope or policy.
-- Don't start a phase until the previous phase's "Done when" is met, or PROGRESS.md records the waiver.
+Enforcement tags: **[gate]** script/gate blocks it · **[validate]** validator fails it · **[owner]** needs owner approval · **[honor]** trust + review; **[gate+honor]** partly checked, rest is review. Prefer turning `[honor]` rules into checks; delete ones that never matter.
+
+## 0. Where to look
+| Doing… | Read |
+|---|---|
+| Any new session | `docs/AGENT_BOOTSTRAP.md`, `plan/PROGRESS.md`, site `docs/STATE.md` |
+| Building a site | `.claude/commands/build.md`, `pipelines/<recipe>/PIPELINE.md` |
+| Checking a gate | `node scripts/gate.mjs <slug> <gate>`, §3–4 below |
+| Picking tools/skills | `brain/tools.json`, `docs/TOOL_AND_SKILL_ROUTING.md` |
+| Model tier / context cost | `brain/agent-budget.json`, `node scripts/context-budget.mjs` |
+| Premium bar, immersive media | `brain/playbooks/{taste-core,premium-bar,immersive-playbook}.md`, `node scripts/premium-lint.mjs <slug>`, `node scripts/media-preflight.mjs`, `scripts/media-generate.mjs`, `scripts/media-inbox-check.mjs`, `templates/docs/MEDIA_REQUEST.md`, `docs/MEDIA_PROVIDERS.md` (providers, prices, terms), `docs/OWNER_SETUP.md` (what to set up, fallbacks) |
+| Brain / learning | `docs/BRAIN_ARCHITECTURE.md`, `docs/SELF_IMPROVING_BRAIN.md`, `docs/RESOURCE_LIBRARY.md` |
+| Commands/CLI | `docs/COMMANDS.md` |
+
+Tracking: plans in `plan/` (one file per phase); `plan/PROGRESS.md` is the only status board (tick + evidence: command result, URL or commit); `plan/DECISIONS.md` logs every stack/scope/policy change. Don't start a phase before the previous "Done when" is met or PROGRESS records a waiver.
 
 ## 1. Core rules
-1. **Files are the contract.** Agents read and write files in `D:\UiBuildProj\<slug>\docs/`. No state passes through chat.
-2. **No production-site UI code before `DESIGN.md` and `WIREFRAMES.md` exist and gate G2 has passed.** Before G2, design-director may create only standalone visual-review HTML in `docs/`; it must not import app code, become an app route, call services, or ship. The owner sees this HTML and its short Markdown companion together.
-3. **Load the `frontend-design` skill before any visual step.** Also use `web-design-guidelines` and `taste-skill` when installed. If `frontend-design` is unavailable, use `frontend-ui-engineering` plus available taste/accessibility skills, and record the missing skill in the handoff.
-4. **References are mechanisms, not assets.** Take layout ratios, timing and interaction logic. Never copy another site's assets, fonts, copy or code.
-5. **Order: function first, polish second, 3D and media last.**
-   Every project must still have a distinctive, bespoke experience thesis and memorable, story-led motion/interaction. “Function first” controls implementation order; it does not authorize a generic or static template. Show at least two distinct concepts in paired offline HTML + concise Markdown at G2. Require owner choice before production UI. Keep the experience clear, performant, accessible, keyboard/touch operable, and respectful of reduced motion.
-6. **Tools go through the router.** An agent uses only the tools listed for it in `brain/tools.json`. A tool whose `enabled_if` isn't met is not used; use its `fallback`.
-7. **Minimal cost.** Default to free tiers. Before proposing any paid service, check the free-for-dev catalog (`brain/tools.json` → `free_tier_catalog`) and verify the provider's live pricing. Paid tools stay registered but disabled until the user enables them.
-8. **Every agent finishes by writing `docs/handoff/<agent>.json`** (schema in `templates/docs/HANDOFF.schema.json`).
-9. **Honest reporting.** Mark a gate passed only with command output as evidence.
-10. **Measured improvement.** Each specialist handoff includes a run trace recorded through `scripts/improve.mjs`; traces contain references and metrics, not raw client text or secrets. `/learn` stores feedback and failure categories. Offline `brain-evaluator` may propose and evaluate JSON-only routing candidates, but cannot rewrite policy, promote itself, change gates, or deploy. Owner review of exact proposal/evaluation hashes is required for promotion; `UIBUILDER_LEARNING=0` restores the baseline selector.
+1. **Files are the contract.** Agents read/write `D:\UiBuildProj\<slug>\docs/`; no state via chat. [validate]
+2. **Preflight first.** Every new agent/session runs `docs/AGENT_BOOTSTRAP.md` (`node scripts/agent-bootstrap.mjs --task <task> --project <site-path>`); `--install` only for missing approved items. Never auto-install unreviewed/paid services, MCP servers, credentials or write/deploy plugins. Record setup and fallbacks in the handoff (`environment.bootstrap_task`, `skills_checked`, `unavailable_and_fallbacks`; a legacy handoff may carry `environment.waiver` with a reason). [gate]
+3. **No production UI before `DESIGN.md` + `WIREFRAMES.md` + G2 pass.** Pre-G2 the design-director may make only standalone visual-review HTML (no app imports, routes, service calls or shipping), paired with a short Markdown. [gate]
+4. **Load `frontend-design` before any visual step**. Design agents load `brain/playbooks/taste-core.md` (distilled anti-slop rules, dials, pre-flight) instead of the full `taste-skill`; other skills load per stage from `brain/agent-budget.json`. If missing, use `frontend-ui-engineering` + accessibility skills and record the gap. Frontend, design-director and taste-research handoffs must list `frontend-design` in `environment.skills_used` (or the gap in `unavailable_and_fallbacks`). [gate]
+5. **References are mechanisms, not assets.** Take ratios, timing, interaction logic; never copy assets, fonts, copy or code. Handoff `resources_used` holds only Brain ids (not retired; code-type ones need a license); anything else goes in `inputs_used`. The gate checks that much; whether an agent actually copied is a review item. [gate+honor]
+6. **Function first, polish second, 3D/media last, but never generic.** Every project needs a bespoke experience thesis and story-led motion. G2 shows ≥2 distinct concepts (HTML + concise Markdown); owner chooses before production UI. Keep it fast, accessible, keyboard/touch operable, reduced-motion safe. [owner]
+7. **Tools go through the router.** An agent uses only its `brain/tools.json` tools; if `enabled_if` fails, use the `fallback`. [validate]
+8. **Minimal cost.** Free tiers first; check `free_tier_catalog` and live pricing before proposing paid; paid tools stay disabled until the owner enables them. [owner]
+9. **Every agent ends with `docs/handoff/<agent>.json`** (`docs/HANDOFF.schema.json`): bootstrap task, skills/tools used, unavailable items + fallbacks. [validate]
+10. **Honest reporting.** A gate passes only with command output as evidence. [gate]
+11. **Measured improvement.** Each handoff includes a trace via `scripts/improve.mjs` (references/metrics only, no raw client text or secrets). `brain-evaluator` may propose JSON-only routing candidates offline; it cannot change policy, gates or deploys, or promote itself. Promotion needs owner review of exact proposal/eval hashes. `UIBUILDER_LEARNING=0` restores baseline. [owner]
 
 ## 2. Agents
-Definitions are in `.claude/agents/*.md`. The main session is the Orchestrator.
-
+Definitions: `.claude/agents/*.md`. Main session = Orchestrator.
 | Agent | Owns | Writes |
 |---|---|---|
-| Orchestrator (main) | intake, state, gates, dispatch | `PRODUCT.md`, `STATE.md`, `BUILD_SPEC.json` |
-| product-manager | capability scope, acceptance, priorities and delivery review; no gate authority | `PRODUCT_REQUIREMENTS.md`, `ACCEPTANCE.md`, `PRIORITIES.md` |
-| research | references (≤5), competitors, the client's current site | `INSPIRATION.md`, `REFERENCE_BREAKDOWN.md` |
-| taste-research | local video/site visual mechanisms, rights, timecoded storyboards, original interaction briefs | `TASTE_REPORT.md`, `EXPERIENCE_REVIEW.md` |
+| Orchestrator | intake, state, gates, dispatch | `PRODUCT.md`, `STATE.md`, `BUILD_SPEC.json` |
+| product-manager | scope, acceptance, priorities, delivery review; no gate authority | `PRODUCT_REQUIREMENTS.md`, `ACCEPTANCE.md`, `PRIORITIES.md` |
+| research | ≤5 references, competitors, client's current site | `INSPIRATION.md`, `REFERENCE_BREAKDOWN.md` |
+| taste-research | local video/site mechanisms, rights, storyboards, original interaction briefs | `TASTE_REPORT.md`, `EXPERIENCE_REVIEW.md` |
 | ux | flows, IA, wireframes | `USER_FLOW.md`, `IA.md`, `WIREFRAMES.md` |
 | design-director | 3 isolated directions → hybrid → design system; visual review | `DESIGN.md`, `MOTION.md`, `tokens.css`, `VISUAL_REVIEW.md` |
-| production-auditor | cross-stack production-readiness audit, phased repair coordination, evidence and launch checklist; no gate/deploy authority | `PRODUCTION_READINESS_REPORT.md`, `LAUNCH_DAY_CHECKLIST.md`, `handoff/production-auditor.json` |
+| production-auditor | phased production-readiness audit + repairs; no gate/deploy authority | `PRODUCTION_READINESS_REPORT.md`, `LAUNCH_DAY_CHECKLIST.md` |
 | frontend | pages, components, `/styleguide` | `app/`, `components/` |
 | backend | contact action, email, CMS, env | `lib/`, `app/actions/`, `keystatic.config.ts` |
-| growth | SEO/AEO/GEO strategy, SEO data files, audit | `SEO_STRATEGY.md`, `content/seo/*`, `content/schema/*`, `content/faq/*`, `public/llms.txt`, `GROWTH_REPORT.md` |
-| link-building | source-backed backlinks, editorial targets, launch submissions and Search Console evidence; no publishing authority | `BACKLINKS.json`, `BACKLINK_PLAN.md`, `BACKLINK_REPORT.md`, `backlinks/*` |
+| growth | SEO/AEO/GEO strategy, data files, audit | `SEO_STRATEGY.md`, `content/seo/*`, `content/schema/*`, `content/faq/*`, `public/llms.txt`, `GROWTH_REPORT.md` |
+| link-building | source-backed backlink plan/evidence; no publishing authority | `BACKLINKS.json`, `BACKLINK_PLAN.md`, `BACKLINK_REPORT.md` |
 | ship | QA, a11y, security, perf, deploy, launch video | `QA_REPORT.md`, `SECURITY_REPORT.md`, `PERF_REPORT.md` |
-| domain-ops | owner-approved hostname, DNS, TLS, redirects, mail-auth and post-launch verification | `DOMAIN_PLAN.md`, `DOMAIN_REPORT.md` |
-| brain-evaluator | offline run diagnosis, candidate evaluation and monitoring; no gate or promotion authority | `brain/learning/diagnosis.json`, proposals and evaluation reports |
+| domain-ops | owner-approved hostname, DNS, TLS, redirects, mail-auth checks | `DOMAIN_PLAN.md`, `DOMAIN_REPORT.md` |
+| brain-evaluator | offline run diagnosis, candidate eval, monitoring; no gate/promotion authority | `brain/learning/*` reports and proposals |
 
-Design Council rule: run the three directions as **separate forked agents**, each with no
-access to the others. Only the critic sees all three.
+Design Council: run the three directions as **separate forked agents** with no access to each other; only the critic sees all three.
 
 ## 3. Stages and gates
 ```
-S1 Orchestrator + product-manager + growth(strategy) + link-building(plan) → PRODUCT.md, PRODUCT_REQUIREMENTS.md, ACCEPTANCE.md, PRIORITIES.md, SEO_STRATEGY.md, BACKLINK_PLAN.md
-S2 ‖ research ‖ taste-research ‖ ux(+growth IA) ‖ backend-base
-G1 brief + wireframes            — user approves
-S3 design-director: A | B | C (forks) → critic → DESIGN.md + DESIGN_REVIEW.md + DESIGN_REVIEW.html
-G2 design direction locked       — owner compares visual HTML + Markdown and approves exact hashes
-S3.5 original local interaction prototype + mobile/reduced-motion proof + paired review HTML/Markdown
-G2.5 experience direction        — user reviews and approves exact artifacts
-S4 ‖ frontend ‖ backend-domain ‖ growth(data files)
+S1 Orchestrator + product-manager + growth(strategy) + link-building(plan)
+S2 research ‖ taste-research ‖ ux(+growth IA) ‖ backend-base
+G1   brief + wireframes — owner approves
+S3 design-director A|B|C (forks) → critic → DESIGN.md + DESIGN_REVIEW.md/.html
+G2   direction locked — owner compares visual HTML + Markdown, approves exact hashes
+S3.5 original local interaction prototype + mobile/reduced-motion proof + paired review
+G2.5 experience direction — owner approves exact artifacts
+S4 frontend ‖ backend-domain ‖ growth(data files)      (starts after G2.5)
 S5 design-director visual review → polish (max 2 loops)
-S6 production-auditor (phased audit/repairs) → ship ‖ QA/a11y ‖ security ‖ perf ‖ growth audit ‖ link-building audit
-G3 Definition of Done            — automatic
-G3.5 final local release review   — user approves exact reviewed artifacts and target
-S7 ship deploy ‖ domain-ops DNS/TLS ‖ growth live SEO checks → /connect (BusinessOS) → launch video → /learn
+S6 production-auditor → ship ‖ QA/a11y ‖ security ‖ perf ‖ growth audit ‖ link-building audit
+G3   Definition of Done (§4) — automatic
+G3.5 final local release review — owner approves exact artifacts + named target
+S7 ship deploy ‖ domain-ops DNS/TLS ‖ growth live SEO → /connect → launch video → /learn   (after G3 + G3.5)
 ```
-S4 starts after G2.5; S7 starts after G3 and G3.5. G2/G2.5/G3.5 approvals live in `D:\UiBuildProj\<slug>\docs/approvals/` with hashes of the exact reviewed artifacts; agents cannot infer or write owner approval from silence. G2 includes `docs/DESIGN_REVIEW.md` and `docs/DESIGN_REVIEW.html`; present two or three visually distinct directions when there is a meaningful choice, recommend one, and let the owner compare them. G2.5 includes `docs/EXPERIENCE_REVIEW.md` and `docs/EXPERIENCE_REVIEW.html`. Any change to a reviewed file invalidates approval. Any external preview or production deployment requires G3.5 for its named target. Domain purchases and live DNS changes require separate explicit owner approval; see `plan/DOMAIN-LAUNCH.md`.
+Owner approvals live in `D:\UiBuildProj\<slug>\docs/approvals/` with hashes of exact reviewed artifacts. Agents never infer or write approval; any change to a reviewed file voids it. G2 needs `docs/DESIGN_REVIEW.md` + `.html` (2–3 distinct directions when there's a real choice, one recommended); G2.5 needs `docs/EXPERIENCE_REVIEW.md` + `.html`. Any external preview or deploy needs G3.5 for that named target. Domain purchase and live DNS changes need separate explicit owner approval (`plan/DOMAIN-LAUNCH.md`).
 
 ## 4. Definition of Done (G3)
-- **Build:** `tsc --noEmit`, `eslint` and `next build` pass. No console or hydration errors.
-- **E2E:** Playwright passes on every page, nav, the contact form (Turnstile test key), 404 and the error boundary. Run at 390px and 1440px, in Chromium and WebKit.
-- **Accessibility:** axe finds 0 serious/critical issues. Keyboard navigation works, contrast is AA, `prefers-reduced-motion` is respected.
-- **Performance:** Lighthouse ≥ 90 in every category on every page. LCP < 2.5s, CLS < 0.1.
-- **Security:** the `security-review` skill finds no high issues, the project's package-manager audit has no high findings, configured Semgrep SAST is triaged clean, and Gitleaks finds no committed secret. CSP is set, the contact route uses Zod and is rate-limited, and no secrets reach the client.
-- **Growth:**
-  - every route is in `content/seo/routes.json`
-  - JSON-LD is valid
-  - `llms.txt`, sitemap and robots are present
-  - key pages have answer-first FAQ blocks
-  - `seo.manifest.json` is valid
-  - `npm run seo:audit` finds 0 high issues
-- **Monitoring:** a Sentry test error arrives and a PostHog pageview is recorded, when keys exist. Without keys, both must no-op cleanly.
-- **Visual:** visual snapshots are committed and no raw colours appear outside the tokens (`npm run lint:tokens`).
+- **Build:** `tsc --noEmit`, `eslint`, `next build` pass; no console/hydration errors.
+- **E2E:** Playwright passes every page, nav, contact form (Turnstile test key), 404, error boundary; 390px + 1440px, Chromium + WebKit.
+- **A11y:** axe 0 serious/critical; keyboard works; AA contrast; `prefers-reduced-motion` respected.
+- **Perf:** Lighthouse ≥ 90 every category, every page; LCP < 2.5s; CLS < 0.1.
+- **Security:** `security-review` skill no highs; package audit no highs; Semgrep triaged clean; Gitleaks clean; CSP set; contact route Zod-validated + rate-limited; no secrets client-side.
+- **Growth:** every route in `content/seo/routes.json`; valid JSON-LD; `llms.txt`, sitemap, robots present; answer-first FAQ on key pages; valid `seo.manifest.json`; `npm run seo:audit` 0 high.
+- **Monitoring:** Sentry test error + PostHog pageview arrive when keys exist; no-op cleanly without keys.
+- **Visual:** snapshots committed; no raw colours outside tokens (`npm run lint:tokens`).
+- **Audit:** `/audit` report and handoff complete (`/build` runs it in S6; it cannot pass G3/G3.5 or deploy).
 
-## 5. Default stack (the golden stack; a recipe may drop parts)
-- **App:** Next.js App Router, TypeScript, Tailwind v4, shadcn/ui, Motion, Zod.
-- **Hosting:** personal/non-commercial sites on Vercel Hobby. Commercial clients on Cloudflare Workers (OpenNext) in a **client-owned** account.
-- **CMS:** Keystatic in GitHub mode for blogs and case studies.
-- **Contact:** a server action with Zod, Resend, Cloudflare Turnstile and a per-IP rate limit.
-- **Analytics and errors:** PostHog in cookieless mode, Sentry. Both are optional and switch on via env.
-- **Fonts:** Google Fonts or Fontshare only.
-- **Auth:** none on marketing sites. The SaaS recipe uses Clerk, with Better Auth as the $0 fallback.
+## 5. Default stack (a recipe may drop parts)
+Next.js App Router · TypeScript · Tailwind v4 · shadcn/ui · Motion · Zod. Hosting: personal sites on Vercel Hobby; commercial on Cloudflare Workers (OpenNext) in a **client-owned** account. CMS: Keystatic (GitHub mode). Contact: server action + Zod + Resend + Turnstile + per-IP rate limit. PostHog (cookieless) + Sentry, optional via env. Fonts: Google Fonts or Fontshare only. Auth: none on marketing sites (SaaS recipe: Clerk, fallback Better Auth). Static-first: keep first-viewport content out of client-only wrappers (mobile LCP).
 
 ## 6. SEO contract (lets BusinessOS maintain the site)
-SEO data lives in data files and is never hard-coded:
-- `content/seo/routes.json`: per-route title, description, canonical, robots and OG
-- `content/schema/*.json`: JSON-LD
-- `content/faq/*.json`: FAQ blocks, which also feed the FAQPage schema
-- `public/llms.txt`
-- `content/seo/crawlers.json`: AI crawler policy
-
-`seo.manifest.json` declares the editable paths. BusinessOS may change only those paths, through
-an owner-approved PR followed by a separate owner approval to publish. See the BusinessOS spec
-`docs/superpowers/specs/2026-09-25-git-site-connector-design.md`.
+SEO data lives in files, never hard-coded: `content/seo/routes.json` (title, description, canonical, robots, OG) · `content/schema/*.json` (JSON-LD) · `content/faq/*.json` (FAQ blocks, feed FAQPage schema) · `public/llms.txt` · `content/seo/crawlers.json` (AI crawler policy). `seo.manifest.json` lists editable paths; BusinessOS may change only those, via an owner-approved PR plus a separate publish approval (spec: BusinessOS `docs/superpowers/specs/2026-09-25-git-site-connector-design.md`).
 
 ## 7. Designer Brain (`brain/`)
-- `resources.json` holds each resource's category, usage_mode, best_for, trust, provenance and owner-editable `my_take`; see `docs/RESOURCE_LIBRARY.md`.
-- `patterns/*.json` holds patterns with provenance, scored per `project_type`.
-- `preferences.md` records the user's taste: what they approved and what they rejected.
-- `builds/<slug>.json` records the pipeline, resources and patterns used, the **lineage** (which source produced each section), scores and feedback.
-- `domains.json` maps each stage to specialist agents, outputs and resource categories. `scripts/recommend-resources.mjs` gives an explainable shortlist and a separate review queue. Jev may add shadow-mode semantic hints after deterministic filtering; it has no gate, rights or deployment authority.
-- `learning/` stores redacted run and feedback records, failure diagnosis, versioned resource-router candidates, separate eval cases, promotion receipts and rollback versions. `brain-evaluator` analyzes it offline. A passing fixture eval never overrides source rights, owner gates or real outcome review; see `docs/SELF_IMPROVING_BRAIN.md`.
-- The trust ladder is NEW → REVIEWED → TESTED → APPROVED → TRUSTED, with REJECTED and DEPRECATED as exits. Only APPROVED and TRUSTED resources are used by default.
-- `brain/playbooks/visual-storytelling.md` stores reusable, paraphrased mechanisms from the owner's design/video research. Read it for story-led portfolios, theme-based design and project films. Personal themes are opt-in and must come from the owner; never invent titles, dates, employers or results. The source ledger stays separate from app assets and never grants rights to copy video frames, code, prompts or layouts.
-
-## 9. Production-readiness audit
-- `/audit <slug>` uses `.claude/agents/production-auditor.md` and `templates/prompts/PRODUCTION_READINESS_AUDIT.md`. It discovers the real stack/commands, records baseline failures, audits in phases, applies verified low-risk fixes, routes specialist-owned work, and writes `docs/PRODUCTION_READINESS_REPORT.md` plus `docs/LAUNCH_DAY_CHECKLIST.md`.
-- It cannot pass G3/G3.5, publish, or deploy. Findings need evidence; changes requiring owner input or unsafe migrations stay open and explicit. It must not assume npm or add tools/dependencies without need.
-- `/build` runs this audit during S6 before final ship verification. Existing projects may use it independently at any stage.
+`resources.json` (rights, provenance, trust, `my_take`) · `patterns/*.json` · `preferences.md` (owner taste) · `builds/<slug>.json` (lineage, scores, feedback) · `domains.json` + `scripts/recommend-resources.mjs` (explainable shortlist; Jev hints are shadow-only after deterministic filtering, no authority) · `learning/` (redacted runs/feedback, diagnosis, router candidates, evals, receipts, rollback) · `playbooks/visual-storytelling.md` (paraphrased mechanisms; personal themes opt-in from the owner, never invent titles/dates/results).
+Trust ladder: NEW → REVIEWED → TESTED → APPROVED → TRUSTED (exits: REJECTED, DEPRECATED). Code, skill, dependency and tool resources need APPROVED/TRUSTED plus license/tool checks. Mechanism-only resources (inspiration/research/practice) are usable at any non-retired trust once task words match, unless `use_caution` or a license restriction keeps them in review: the owner keeps those (lightswind, mobbin, open-seo) and an agent that needs one asks the owner for approval, then records it in its handoff `decisions` (D45, D52). `taxonomy.json` maps raw categories so every resource reaches a domain. A passing fixture eval never overrides rights, owner gates or real outcome review.
 
 ## 8. Commands
-Projects must be scaffolded under `D:\UiBuildProj\<slug>` and initialized as independent Git
-repositories. The root command `node scripts/new-project.mjs <pipeline> <slug>` creates the
-external folder, commits the starter, and creates/pushes a private GitHub repository by default.
-GitHub CLI (`gh`) must be authenticated with `repo` and `workflow` scopes; run
-`gh auth refresh -h github.com -s workflow` if CI workflow pushes are rejected.
-`UIBUILDER_GITHUB_OWNER` selects the owner account.
-`UIBUILDER_PROJECTS_ROOT` may override the folder for another machine. Each project owns its GitHub remote, CI/CD workflows, deployment settings,
-secrets and site-specific rulebook; site CI runs from that project repository. Do not put site
-source, site CI, or site deployments inside the UIBuilder repository. Root CI checks the harness
-only. Use `/build <pipeline> <slug>` to work on the external project repository.
-
-- `/build <pipeline> <slug>` runs a full pipeline.
-- `/intake <links>` adds resources to the brain.
-- `/gate <slug> <G1|G2|G2.5|G3|G3.5>` checks a gate.
-- `/learn <slug>` writes build memory.
-- `/improve <status|category>` diagnoses verified failures and evaluates bounded Brain candidates offline.
-- `/brag <slug> [product|company]` prepares a source-backed promotional launch package; it does not bypass gates or deploy.
-- `/connect <slug>` hands the site to BusinessOS.
-- `/audit <slug>` runs the reusable phased production-readiness audit and repair workflow.
-- `/backlinks <slug> <init|validate|report>` manages source-backed backlink records without publishing.
-- `node scripts/runtime.mjs packet <pipeline> <slug> <stage> <agent>` emits a provider-neutral task packet; a CLI host executes it. `event` and `status` inspect the project's append-only execution ledger. The harness never auto-spawns background agents.
-- `node scripts/improve.mjs outcomes [slug]` reports measured run/feedback coverage without claiming causality.
-- `node scripts/migrate-site-security.mjs <slug>` previews additive scanner setup for an existing site. Add `--apply` only after reviewing the exact target and conflicts; existing files are never overwritten.
-- `node scripts/visual-eval.mjs <project>/docs/VISUAL_OUTCOME.json` validates an owner-authored visual review; it has no gate authority.
+Sites are scaffolded only under `D:\UiBuildProj\<slug>` as independent Git repos: `node scripts/new-project.mjs <pipeline> <slug>` (needs `gh` with `repo` + `workflow` scopes; `UIBUILDER_GITHUB_OWNER`, `UIBUILDER_PROJECTS_ROOT` override defaults). Each site owns its remote, CI/CD, secrets and rulebook; root CI checks the harness only.
+`/build <pipeline> <slug>` · `/intake <links>` · `/gate <slug> <G1|G2|G2.5|G3|G3.5>` · `/audit <slug>` · `/backlinks <slug> <init|validate|report>` · `/learn <slug>` · `/improve <status|category>` · `/brag <slug> [product|company]` · `/connect <slug>`.
+Utilities (details in `docs/COMMANDS.md`): `runtime.mjs packet|event|status` (host-run task packets; never auto-spawns agents) · `improve.mjs outcomes` · `migrate-site-security.mjs <slug> [--apply]` · `visual-eval.mjs <file>` · `agent-bootstrap.mjs --task <frontend|website|full-site|visual-research|browser|video|review>`.

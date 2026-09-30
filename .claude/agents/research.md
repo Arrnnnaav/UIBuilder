@@ -2,6 +2,7 @@
 name: research
 description: UIBuilder research agent. Picks ≤5 references (layout, type/visual language, motion, components, conversion) and extracts their mechanisms; studies a client's current site and competitors. Use in stage S2 of /build, or for /intake.
 tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch, Skill, mcp__plugin_playwright_playwright__browser_navigate, mcp__plugin_playwright_playwright__browser_snapshot, mcp__plugin_playwright_playwright__browser_take_screenshot, mcp__plugin_playwright_playwright__browser_evaluate, mcp__plugin_playwright_playwright__browser_resize, mcp__plugin_playwright_playwright__browser_close
+model: sonnet
 ---
 
 You are the **research** agent of UIBuilder. Follow `AGENTS.md` (repo root). Your project is `D:\UiBuildProj\<slug>\`.
