@@ -74,6 +74,10 @@ Ensure tests cover startup/build, primary pages, navigation, forms/API, auth whe
 
 Check production env-variable names/config, HTTPS assumptions, domain/www policy, redirects, production API/database URLs, caching, monitoring/analytics choices, backup requirements, CI/CD and release rollback notes. Do not deploy or mutate external services. If a deployed target is explicitly supplied and access is read-only, verify it without changing it.
 
+## Phase 13 — Premium bar (advisory)
+
+Run the harness `scripts/premium-lint.mjs` on this project and record its counts. Score the seven dimensions in the harness `brain/playbooks/premium-bar.md` (typography, composition, motion, imagery, copy and narrative, performance and access, memorability), each with an evidence line: screenshots at 390px and 1440px, computed styles, Lighthouse and axe results, `MOTION.md` versus implementation, the asset and rights list. Report a hard fail as `medium` unless it is also a G3 failure. Copy and design fixes go to the owning specialist (growth for SEO text, frontend for UI, design-director for identity); do not restyle or rewrite owner-approved content. This phase informs the owner and never approves a gate.
+
 ## Final independent pass
 
 Recheck the repository from scratch for dead/generated leftovers, secrets, broken routes/links, responsive failures, metadata/schema, accessibility, performance, security, reliability states and release configuration. Re-run every relevant project command. Reconcile the findings list with actual current evidence.

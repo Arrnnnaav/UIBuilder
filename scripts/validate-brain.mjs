@@ -5,6 +5,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { validate } from "./lib/mini-schema.mjs";
 import { loadActiveRouterConfig, validateRouterConfig } from './lib/learning-config.mjs';
+import { effectiveCategories } from './lib/resource-selector.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const brain = join(root, "brain");
@@ -34,6 +35,21 @@ for (const domain of domains) {
   }
 }
 
+// Every resource must be reachable from at least one domain through its categories or taxonomy aliases.
+const taxonomy = load(join(brain, 'taxonomy.json')).alias;
+const domainCategories = new Set(domains.flatMap((domain) => domain.categories ?? []));
+for (const [raw, targets] of Object.entries(taxonomy)) {
+  if (!Array.isArray(targets) || !targets.length) errors.push(`taxonomy.json ${raw}: alias must be a nonempty array`);
+  else if (!targets.some((target) => domainCategories.has(target))) errors.push(`taxonomy.json ${raw}: no alias reaches a domain (${targets.join(', ')})`);
+}
+let unreachable = 0;
+for (const resource of resources) {
+  if (!effectiveCategories(resource, taxonomy).some((category) => domainCategories.has(category))) {
+    unreachable++;
+    errors.push(`resources.json ${resource.id}: no domain reaches categories [${(resource.categories ?? []).join(', ')}]; add a taxonomy alias`);
+  }
+}
+
 // patterns (provenance must point at a known resource)
 const patternIds = new Set();
 for (const f of readdirSync(join(brain, "patterns")).filter((f) => f.endsWith(".json"))) {
@@ -55,6 +71,12 @@ for (const t of load(join(brain, "tools.json")).tools) {
   }
   if (!/^(always|env:|mcp:|cli:|user:enable)/.test(t.enabled_if ?? "")) errors.push(`tools.json ${t.id}: bad enabled_if`);
   toolIds.add(t.id);
+}
+const ownerEnabled = load(join(brain, 'tool-enable.json')).enabled;
+for (const id of Object.keys(ownerEnabled)) {
+  const tool = load(join(brain, 'tools.json')).tools.find((item) => item.id === id);
+  if (!tool) errors.push(`tool-enable.json: unknown tool ${id}`);
+  else if (tool.enabled_if !== 'user:enable') errors.push(`tool-enable.json: ${id} is not a user:enable tool (enabled_if=${tool.enabled_if})`);
 }
 for (const resource of resources) {
   if (resource.tool_id && !toolIds.has(resource.tool_id)) errors.push(`resources.json ${resource.id}: unknown tool ${resource.tool_id}`);
@@ -96,4 +118,4 @@ if (errors.length) {
   console.error(`\n✗ brain invalid (${errors.length} errors)`);
   process.exit(1);
 }
-console.log(`✓ brain valid — ${resourceIds.size} resources, ${patternIds.size} patterns, ${toolIds.size} tools, ${domainIds.size} domains, ${routerVersions} router configs`);
+console.log(`✓ brain valid — ${resourceIds.size} resources, ${patternIds.size} patterns, ${toolIds.size} tools, ${domainIds.size} domains, ${routerVersions} router configs, ${resourceIds.size - unreachable}/${resourceIds.size} resources reachable`);

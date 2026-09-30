@@ -12,6 +12,11 @@
     { "id": "production-readiness", "stages": ["S6", "post-build"], "agents": ["production-auditor"], "categories": ["quality", "security", "accessibility", "performance", "seo", "backend", "launch"], "outputs": ["PRODUCTION_READINESS_REPORT.md", "LAUNCH_DAY_CHECKLIST.md"] },
     { "id": "quality", "stages": ["S6"], "agents": ["ship"], "categories": ["quality", "security", "browser", "review"], "outputs": ["QA_REPORT.md", "SECURITY_REPORT.md", "PERF_REPORT.md"] },
     { "id": "launch", "stages": ["S7"], "agents": ["ship", "domain-ops"], "categories": ["launch", "video", "domain"], "outputs": ["DOMAIN_REPORT.md", "launch/"] },
-    { "id": "learning", "stages": ["post-run"], "agents": ["orchestrator", "brain-evaluator"], "categories": ["quality", "research", "routing"], "outputs": ["brain/learning/runs/", "brain/learning/diagnosis.json", "brain/learning/evaluations/"] }
+    { "id": "learning", "stages": ["post-run"], "agents": ["orchestrator", "brain-evaluator"], "categories": ["quality", "research", "routing"], "outputs": ["brain/learning/runs/", "brain/learning/diagnosis.json", "brain/learning/evaluations/"] },
+    { "id": "immersive", "stages": ["S2", "S3", "S3.5", "S4"], "agents": ["design-director", "frontend", "taste-research"], "categories": ["immersive", "interaction", "scroll", "webgl", "3d", "storytelling", "motion"], "outputs": ["MOTION.md", "EXPERIENCE_REVIEW.md", "prototypes/"] },
+    { "id": "media", "stages": ["S3.5", "S7"], "agents": ["design-director", "ship"], "categories": ["media", "video", "image_generation", "avatar", "studio"], "outputs": ["launch/", "media/"] },
+    { "id": "content", "stages": ["S1", "S3", "S4"], "agents": ["product-manager", "ux", "growth", "design-director"], "categories": ["content", "copy", "editorial", "writing"], "outputs": ["PRODUCT.md", "content/"] },
+    { "id": "platform", "stages": ["S2", "S4", "S7"], "agents": ["backend", "ship", "domain-ops"], "categories": ["platform", "auth", "database", "storage", "email", "hosting", "edge", "cms", "monitoring", "analytics"], "outputs": ["lib/", "keystatic.config.ts", "DOMAIN_PLAN.md"] },
+    { "id": "agent-systems", "stages": ["post-run"], "agents": ["orchestrator", "brain-evaluator"], "categories": ["agent-systems", "agent", "llm", "ai", "mcp", "evaluation"], "outputs": ["brain/learning/proposals/"] }
   ]
 }

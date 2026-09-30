@@ -4,6 +4,7 @@
  "resources": [
   {
    "id": "lightswind",
+   "use_caution": "License forbids use of its components in public website builders or UI generators; owner must clear before it is offered as ready.",
    "name": "Lightswind",
    "url": "https://lightswind.com",
    "type": "component_library",
@@ -113,11 +114,11 @@
     "landing"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
+   "trust": "APPROVED",
    "license": {"spdx":"MIT","url":"https://github.com/danielpetho/fancy/blob/main/LICENSE"},
    "maintenance": null,
    "my_take": "",
-   "notes": "MIT repository source; check each component's assets and dependencies before reuse.",
+   "notes": "MIT repository source; check each component's assets and dependencies before reuse. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "third-party assets, fonts, copy or separately licensed dependencies without verification",
    "used_in": [],
    "scores": {},
@@ -128,7 +129,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "vengeance-ui",
@@ -178,11 +179,11 @@
     "landing"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
+   "trust": "APPROVED",
    "license": {"spdx":"MIT","url":"https://github.com/harshjdhv/componentry/blob/main/LICENSE"},
    "maintenance": null,
    "my_take": "",
-   "notes": "MIT repository source; some components use GSAP under separate terms. Check per-component dependencies, rights, performance and accessibility.",
+   "notes": "MIT repository source; some components use GSAP under separate terms. Check per-component dependencies, rights, performance and accessibility. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "third-party assets, fonts, copy or separately licensed dependencies without verification",
    "used_in": [],
    "scores": {},
@@ -193,7 +194,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "motion",
@@ -482,6 +483,7 @@
   },
   {
    "id": "comfy",
+   "tool_id": "comfyui",
    "name": "ComfyUI",
    "url": "https://comfy.org",
    "type": "tool",
@@ -494,11 +496,11 @@
     "local media generation"
    ],
    "patterns": [],
-   "trust": "NEW",
-   "license": null,
+   "trust": "APPROVED",
+   "license": {"type":"hosted service terms","url":"https://comfy.org","attested_at":"2026-09-30","note":"Hosted service; SDK and package licenses are checked with the package manager when a dependency is added."},
    "maintenance": null,
    "my_take": "",
-   "notes": "Free locally; needs GPU.",
+   "notes": "Free locally; needs GPU. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -509,7 +511,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "lexspace",
@@ -997,11 +999,11 @@
     "rebuild a reference interaction"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
-   "license": null,
+   "trust": "APPROVED",
+   "license": {"type":"owner_attested","attested_at":"2026-09-30","note":"GitHub license API found no license file (404), so default copyright applies; owner attested permission. Vendored skill only; do not redistribute."},
    "maintenance": null,
    "my_take": "",
-   "notes": "Vendored in .claude/skills.",
+   "notes": "Vendored in .claude/skills. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1012,7 +1014,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "slam3r",
@@ -1085,11 +1087,11 @@
     "DESIGN.md families"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
-   "license": null,
+   "trust": "APPROVED",
+   "license": {"spdx":"MIT","url":"https://github.com/VoltAgent/awesome-design-md/blob/main/LICENSE","verified_via":"GitHub license API 2026-09-30"},
    "maintenance": null,
    "my_take": "",
-   "notes": "",
+   "notes": " Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1100,7 +1102,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "capacitor",
@@ -1115,13 +1117,13 @@
     "wrap web app as mobile"
    ],
    "patterns": [],
-   "trust": "NEW",
+   "trust": "APPROVED",
    "license": {
     "spdx": "MIT"
    },
    "maintenance": null,
    "my_take": "",
-   "notes": "",
+   "notes": " Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1132,7 +1134,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "pinchtab",
@@ -1164,6 +1166,7 @@
   },
   {
    "id": "heygen",
+   "tool_id": "heygen",
    "name": "HeyGen",
    "url": "https://app.heygen.com/",
    "type": "tool",
@@ -1177,11 +1180,11 @@
     "demo video"
    ],
    "patterns": [],
-   "trust": "NEW",
-   "license": null,
+   "trust": "APPROVED",
+   "license": {"type":"hosted service terms","url":"https://app.heygen.com/","attested_at":"2026-09-30","note":"Hosted service; SDK and package licenses are checked with the package manager when a dependency is added."},
    "maintenance": null,
    "my_take": "",
-   "notes": "Paid; registered in tools.json, disabled.",
+   "notes": "Paid; registered in tools.json, disabled. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1192,7 +1195,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "clerk",
@@ -1208,10 +1211,10 @@
    ],
    "patterns": [],
    "trust": "APPROVED",
-   "license": null,
+   "license": {"type":"hosted service terms","url":"https://clerk.com","attested_at":"2026-09-30","note":"Hosted service; SDK and package licenses are checked with the package manager when a dependency is added."},
    "maintenance": null,
    "my_take": "",
-   "notes": "SaaS recipe default; not used on marketing sites.",
+   "notes": "SaaS recipe default; not used on marketing sites. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1222,7 +1225,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "sentry",
@@ -1238,10 +1241,10 @@
    ],
    "patterns": [],
    "trust": "APPROVED",
-   "license": null,
+   "license": {"type":"hosted service terms","url":"https://sentry.io","attested_at":"2026-09-30","note":"Hosted service; SDK and package licenses are checked with the package manager when a dependency is added."},
    "maintenance": null,
    "my_take": "",
-   "notes": "",
+   "notes": " Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1252,7 +1255,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "posthog",
@@ -1268,10 +1271,10 @@
    ],
    "patterns": [],
    "trust": "APPROVED",
-   "license": null,
+   "license": {"type":"hosted service terms","url":"https://posthog.com","attested_at":"2026-09-30","note":"Hosted service; SDK and package licenses are checked with the package manager when a dependency is added."},
    "maintenance": null,
    "my_take": "",
-   "notes": "Cookieless mode on marketing sites.",
+   "notes": "Cookieless mode on marketing sites. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1282,7 +1285,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "supabase",
@@ -1299,10 +1302,10 @@
    ],
    "patterns": [],
    "trust": "APPROVED",
-   "license": null,
+   "license": {"type":"hosted service terms","url":"https://supabase.com","attested_at":"2026-09-30","note":"Hosted service; SDK and package licenses are checked with the package manager when a dependency is added."},
    "maintenance": null,
    "my_take": "",
-   "notes": "",
+   "notes": " Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1313,7 +1316,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "resend",
@@ -1330,10 +1333,10 @@
    ],
    "patterns": [],
    "trust": "APPROVED",
-   "license": null,
+   "license": {"type":"hosted service terms","url":"https://resend.com","attested_at":"2026-09-30","note":"Hosted service; SDK and package licenses are checked with the package manager when a dependency is added."},
    "maintenance": null,
    "my_take": "",
-   "notes": "",
+   "notes": " Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1344,7 +1347,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "cloudflare-workers",
@@ -1362,10 +1365,10 @@
    ],
    "patterns": [],
    "trust": "APPROVED",
-   "license": null,
+   "license": {"type":"hosted service terms","url":"https://workers.cloudflare.com","attested_at":"2026-09-30","note":"Hosted service; SDK and package licenses are checked with the package manager when a dependency is added."},
    "maintenance": null,
    "my_take": "",
-   "notes": "",
+   "notes": " Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1376,7 +1379,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "vercel",
@@ -1393,10 +1396,10 @@
    ],
    "patterns": [],
    "trust": "APPROVED",
-   "license": null,
+   "license": {"type":"hosted service terms","url":"https://vercel.com","attested_at":"2026-09-30","note":"Hosted service; SDK and package licenses are checked with the package manager when a dependency is added."},
    "maintenance": null,
    "my_take": "",
-   "notes": "",
+   "notes": " Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1407,7 +1410,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "rate-limiting",
@@ -1575,11 +1578,11 @@
     "architecture diagrams"
    ],
    "patterns": [],
-   "trust": "NEW",
-   "license": null,
+   "trust": "APPROVED",
+   "license": {"spdx":"MIT","url":"https://github.com/tt-a1i/archify/blob/main/LICENSE","verified_via":"GitHub license API 2026-09-30"},
    "maintenance": null,
    "my_take": "",
-   "notes": "",
+   "notes": " Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1590,7 +1593,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "apache-maka",
@@ -1687,18 +1690,18 @@
    "categories": [
     "design_to_code"
    ],
-   "usage_mode": "optional_tool",
+   "usage_mode": "code_reference",
    "best_for": [
     "rebuild from screenshot"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
+   "trust": "APPROVED",
    "license": {
     "spdx": "MIT"
    },
    "maintenance": null,
    "my_take": "",
-   "notes": "",
+   "notes": " Owner-attested approval 2026-09-30 (D47). Reclassified from optional_tool: study the screenshot-to-code technique only; never regenerate a reference site's layout or code (rule 5). Running it needs the owner's own model key and a local server.",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1709,7 +1712,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "keystatic",
@@ -1753,16 +1756,16 @@
    "categories": [
     "performance"
    ],
-   "usage_mode": "optional_tool",
+   "usage_mode": "practice",
    "best_for": [
     "perf monitoring"
    ],
    "patterns": [],
-   "trust": "NEW",
-   "license": null,
+   "trust": "APPROVED",
+   "license": {"type":"hosted service terms","url":"https://gtmetrix.com/","attested_at":"2026-09-30","note":"Hosted service; SDK and package licenses are checked with the package manager when a dependency is added."},
    "maintenance": null,
    "my_take": "",
-   "notes": "Lighthouse CI is the free default.",
+   "notes": "Lighthouse CI is the free default. Owner-attested approval 2026-09-30 (D47). Reclassified from optional_tool: a manual owner-run cross-check of a deployed URL. Not automated; Lighthouse remains the gate.",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1773,7 +1776,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "littlebird",
@@ -1816,11 +1819,11 @@
     "agent role prompts"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
-   "license": null,
+   "trust": "APPROVED",
+   "license": {"spdx":"MIT","url":"https://github.com/msitarzewski/agency-agents/blob/main/LICENSE","verified_via":"GitHub license API 2026-09-30"},
    "maintenance": null,
    "my_take": "",
-   "notes": "",
+   "notes": " Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1831,10 +1834,11 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "codebase-memory-mcp",
+   "tool_id": "codebase_memory_mcp",
    "name": "codebase-memory-mcp",
    "url": "https://github.com/DeusData/codebase-memory-mcp",
    "type": "mcp",
@@ -1846,11 +1850,11 @@
     "large repos"
    ],
    "patterns": [],
-   "trust": "NEW",
-   "license": null,
+   "trust": "APPROVED",
+   "license": {"spdx":"MIT","url":"https://github.com/DeusData/codebase-memory-mcp/blob/main/LICENSE","verified_via":"GitHub license API 2026-09-30"},
    "maintenance": null,
    "my_take": "",
-   "notes": "",
+   "notes": " Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1861,7 +1865,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "onorca",
@@ -1907,13 +1911,13 @@
     "redesign"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
+   "trust": "APPROVED",
    "license": {
     "spdx": "MIT"
    },
    "maintenance": null,
    "my_take": "",
-   "notes": "Vendored.",
+   "notes": "Vendored. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1924,7 +1928,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "web-design-guidelines",
@@ -1940,11 +1944,11 @@
     "ui review"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
-   "license": null,
+   "trust": "APPROVED",
+   "license": {"type":"owner_attested","attested_at":"2026-09-30","note":"Upstream repo vercel-labs/agent-skills has no license file (GitHub license API 404); owner attested permission. Do not redistribute."},
    "maintenance": null,
    "my_take": "",
-   "notes": "Vendored.",
+   "notes": "Vendored. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1955,7 +1959,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "awesome-claude-design",
@@ -1971,11 +1975,11 @@
     "design families"
    ],
    "patterns": [],
-   "trust": "NEW",
-   "license": null,
+   "trust": "APPROVED",
+   "license": {"spdx":"MIT","url":"https://github.com/rohitg00/awesome-claude-design/blob/main/LICENSE","verified_via":"GitHub license API 2026-09-30"},
    "maintenance": null,
    "my_take": "",
-   "notes": "",
+   "notes": " Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -1986,7 +1990,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "agent-skills-addy",
@@ -2003,11 +2007,11 @@
     "review"
    ],
    "patterns": [],
-   "trust": "NEW",
-   "license": null,
+   "trust": "APPROVED",
+   "license": {"spdx":"MIT","url":"https://github.com/addyosmani/agent-skills/blob/main/LICENSE","verified_via":"GitHub license API 2026-09-30"},
    "maintenance": null,
    "my_take": "",
-   "notes": "Marketplace already registered in user settings.",
+   "notes": "Marketplace already registered in user settings. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -2018,7 +2022,7 @@
     "path": "C:/Users/user/Downloads/links.docx",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "ponytail",
@@ -2081,6 +2085,7 @@
   },
   {
    "id": "google-adk-python",
+   "tool_id": "google_adk",
    "name": "Google ADK (Agent Development Kit, Python)",
    "url": "https://github.com/google/adk-python",
    "type": "framework",
@@ -2096,7 +2101,7 @@
     "agent evals"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
+   "trust": "APPROVED",
    "license": {
     "spdx": "Apache-2.0"
    },
@@ -2106,7 +2111,7 @@
     "stars": 21631
    },
    "my_take": "",
-   "notes": "Candidate runtime only if UIBuilder becomes a hosted product (M8). Not for V1: Claude Code is the runtime (DECISIONS D10). Python, Gemini-first, per-token API cost. Compare against Claude Agent SDK (reuses .claude/agents + skills) and Vercel eve before choosing.",
+   "notes": "Candidate runtime only if UIBuilder becomes a hosted product (M8). Not for V1: Claude Code is the runtime (DECISIONS D10). Python, Gemini-first, per-token API cost. Compare against Claude Agent SDK (reuses .claude/agents + skills) and Vercel eve before choosing. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -2117,7 +2122,7 @@
     "url": "https://github.com/google/adk-python",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": "2026-09-25"
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "tagsen",
@@ -2149,7 +2154,7 @@
    "failure_count": 0,
    "provenance": {
     "type": "research_agent",
-    "path": "projects/abizcreator/docs/REFERENCE_BREAKDOWN.md",
+    "path": "${UIBUILDER_PROJECTS_ROOT}/abizcreator/docs/REFERENCE_BREAKDOWN.md",
     "observed_at": "2026-09-25"
    },
    "last_reviewed": null
@@ -2176,7 +2181,7 @@
    "license": null,
    "maintenance": null,
    "my_take": "",
-   "notes": "Methodology before results: config table -> data/execution -> chart with series-toggle sparkline rail -> plain-language takeaway -> reproduce link. All-mono, single 16/24 size, hierarchy by weight + underline only. Measured 2026-09-25 for projects/portfolio.",
+   "notes": "Methodology before results: config table -> data/execution -> chart with series-toggle sparkline rail -> plain-language takeaway -> reproduce link. All-mono, single 16/24 size, hierarchy by weight + underline only. Measured 2026-09-25 for the portfolio project.",
    "do_not_copy": "assets, fonts, copy, chart code, exact layout, brand colours",
    "used_in": [],
    "scores": {},
@@ -2184,7 +2189,7 @@
    "failure_count": 0,
    "provenance": {
     "type": "research_agent",
-    "path": "projects/portfolio/docs/REFERENCE_BREAKDOWN.md",
+    "path": "${UIBUILDER_PROJECTS_ROOT}/portfolio/docs/REFERENCE_BREAKDOWN.md",
     "found_via": "WebSearch 'PlanetScale blog benchmarks Postgres latency charts methodology page'",
     "observed_at": "2026-09-25"
    },
@@ -2213,7 +2218,7 @@
    "license": null,
    "maintenance": null,
    "my_take": "",
-   "notes": "Widely shared visual essays (HN/Lobsters). 748px measure (~80ch) at 18.67/28; charts 480px centred with mono axis type; series separated by dash pattern (solid/dashed/dotted) not colour alone; inline coloured legend tokens in prose match the viz. Web components (Lit + SVG). Measured 2026-09-25 for projects/portfolio.",
+   "notes": "Widely shared visual essays (HN/Lobsters). 748px measure (~80ch) at 18.67/28; charts 480px centred with mono axis type; series separated by dash pattern (solid/dashed/dotted) not colour alone; inline coloured legend tokens in prose match the viz. Web components (Lit + SVG). Measured 2026-09-25 for the portfolio project.",
    "do_not_copy": "assets, fonts, copy, simulation code, exact layout",
    "used_in": [],
    "scores": {},
@@ -2221,7 +2226,7 @@
    "failure_count": 0,
    "provenance": {
     "type": "research_agent",
-    "path": "projects/portfolio/docs/REFERENCE_BREAKDOWN.md",
+    "path": "${UIBUILDER_PROJECTS_ROOT}/portfolio/docs/REFERENCE_BREAKDOWN.md",
     "found_via": "WebSearch 'samwho.dev load balancing interactive visual essay Hacker News'",
     "observed_at": "2026-09-25"
    },
@@ -2266,6 +2271,7 @@
   },
   {
    "id": "better-stack",
+   "tool_id": "better_stack_uptime",
    "name": "Better Stack (uptime monitoring)",
    "url": "https://betterstack.com/uptime",
    "type": "service",
@@ -2279,11 +2285,11 @@
     "uptime monitoring + status page for shipped sites"
    ],
    "patterns": [],
-   "trust": "NEW",
-   "license": null,
+   "trust": "APPROVED",
+   "license": {"type":"hosted service terms","url":"https://betterstack.com/uptime","attested_at":"2026-09-30","note":"Hosted service; SDK and package licenses are checked with the package manager when a dependency is added."},
    "maintenance": null,
    "my_take": "",
-   "notes": "Free plan includes 10 monitors, per free-for-dev (Monitoring section, 2026-09-25). Verify limits before use.",
+   "notes": "Free plan includes 10 monitors, per free-for-dev (Monitoring section, 2026-09-25). Verify limits before use. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -2294,7 +2300,7 @@
     "url": "https://github.com/ripienaar/free-for-dev",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "formboost",
@@ -2304,16 +2310,16 @@
    "categories": [
     "forms"
    ],
-   "usage_mode": "optional_tool",
+   "usage_mode": "practice",
    "best_for": [
     "contact/quote form on frontend-only static sites without our own backend"
    ],
    "patterns": [],
-   "trust": "NEW",
-   "license": null,
+   "trust": "APPROVED",
+   "license": {"type":"hosted service terms","url":"https://formboost.app","attested_at":"2026-09-30","note":"Hosted service; SDK and package licenses are checked with the package manager when a dependency is added."},
    "maintenance": null,
    "my_take": "",
-   "notes": "500 free submissions/month with spam protection, per free-for-dev (Forms section, 2026-09-25). Candidate for an ABizCreator quote form if one is wanted despite D14. Verify limits and data residency first.",
+   "notes": "500 free submissions/month with spam protection, per free-for-dev (Forms section, 2026-09-25). Candidate for an ABizCreator quote form if one is wanted despite D14. Verify limits and data residency first. Owner-attested approval 2026-09-30 (D47). Reclassified from optional_tool: a documented option for static sites without a backend. Confirm free-tier limits and data residency first and record the choice in DECISIONS.",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -2324,7 +2330,7 @@
     "url": "https://github.com/ripienaar/free-for-dev",
     "observed_at": "2026-09-25"
    },
-   "last_reviewed": null
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "scroll-world",
@@ -2341,7 +2347,7 @@
     "future immersive scroll storytelling after performance and content gates"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
+   "trust": "APPROVED",
    "license": {
     "spdx": "MIT"
    },
@@ -2351,7 +2357,7 @@
     "stars": 9487
    },
    "my_take": "",
-   "notes": "Paid video chain by default; do not use in S4 portfolio or without explicit enablement.",
+   "notes": "Paid video chain by default; do not use in S4 portfolio or without explicit enablement. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -2362,7 +2368,7 @@
     "url": "https://github.com/oso95/scroll-world",
     "observed_at": "2026-09-26"
    },
-   "last_reviewed": "2026-09-26"
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "crawlee",
@@ -2379,7 +2385,7 @@
     "structured crawling of client sites when lightweight fetch is insufficient"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
+   "trust": "APPROVED",
    "license": {
     "spdx": "Apache-2.0"
    },
@@ -2389,7 +2395,7 @@
     "stars": 25895
    },
    "my_take": "",
-   "notes": "Node/TypeScript crawler. Evaluate crawl scope, robots and compute cost before adoption.",
+   "notes": "Node/TypeScript crawler. Evaluate crawl scope, robots and compute cost before adoption. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -2400,7 +2406,7 @@
     "url": "https://github.com/apify/crawlee",
     "observed_at": "2026-09-26"
    },
-   "last_reviewed": "2026-09-26"
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "crawl4ai",
@@ -2417,7 +2423,7 @@
     "self-hosted extraction of LLM-ready content from reference sites"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
+   "trust": "APPROVED",
    "license": {
     "spdx": "Apache-2.0"
    },
@@ -2427,7 +2433,7 @@
     "stars": 84259
    },
    "my_take": "",
-   "notes": "Python runtime; research candidate, not needed for current static portfolio build.",
+   "notes": "Python runtime; research candidate, not needed for current static portfolio build. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -2438,10 +2444,11 @@
     "url": "https://github.com/unclecode/crawl4ai",
     "observed_at": "2026-09-26"
    },
-   "last_reviewed": "2026-09-26"
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "firecrawl",
+   "tool_id": "firecrawl_api",
    "name": "Firecrawl",
    "url": "https://github.com/firecrawl/firecrawl",
    "type": "service",
@@ -2455,7 +2462,7 @@
     "hosted search, scrape and crawl where local tools fall short"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
+   "trust": "APPROVED",
    "license": {
     "spdx": "AGPL-3.0"
    },
@@ -2465,7 +2472,7 @@
     "stars": 184650
    },
    "my_take": "",
-   "notes": "API costs and self-hosting obligations require separate review. Registered disabled.",
+   "notes": "API costs and self-hosting obligations require separate review. Registered disabled. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -2476,7 +2483,7 @@
     "url": "https://github.com/firecrawl/firecrawl",
     "observed_at": "2026-09-26"
    },
-   "last_reviewed": "2026-09-26"
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "open-telemetry",
@@ -2523,7 +2530,7 @@
     "smooth-scrolling mechanics in future media-heavy pages"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
+   "trust": "APPROVED",
    "license": {
     "spdx": "MIT"
    },
@@ -2533,7 +2540,7 @@
     "stars": 16018
    },
    "my_take": "",
-   "notes": "Do not add to the portfolio by default; native scrolling and reduced-motion behavior are safer for its current design.",
+   "notes": "Do not add to the portfolio by default; native scrolling and reduced-motion behavior are safer for its current design. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -2544,7 +2551,7 @@
     "url": "https://github.com/darkroomengineering/lenis",
     "observed_at": "2026-09-26"
    },
-   "last_reviewed": "2026-09-26"
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "haikei",
@@ -2592,7 +2599,7 @@
     "studying accessible, restrained component motion"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
+   "trust": "APPROVED",
    "license": {
     "spdx": "MIT"
    },
@@ -2602,7 +2609,7 @@
     "stars": 6379
    },
    "my_take": "",
-   "notes": "Use mechanisms only when DESIGN.md calls for them; existing Motion dependency covers the portfolio.",
+   "notes": "Use mechanisms only when DESIGN.md calls for them; existing Motion dependency covers the portfolio. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -2613,10 +2620,11 @@
     "url": "https://github.com/ibelick/motion-primitives",
     "observed_at": "2026-09-26"
    },
-   "last_reviewed": "2026-09-26"
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "doop",
+   "tool_id": "doop_mcp",
    "name": "Doop",
    "url": "https://github.com/kgoedecke/doop",
    "type": "design_tool",
@@ -2630,7 +2638,7 @@
     "future collaborative canvas explorations"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
+   "trust": "APPROVED",
    "license": {
     "spdx": "AGPL-3.0"
    },
@@ -2640,7 +2648,7 @@
     "stars": 761
    },
    "my_take": "",
-   "notes": "Not part of the file-based design contract; evaluate license and hosting before enabling.",
+   "notes": "Not part of the file-based design contract; evaluate license and hosting before enabling. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -2651,7 +2659,7 @@
     "url": "https://github.com/kgoedecke/doop",
     "observed_at": "2026-09-26"
    },
-   "last_reviewed": "2026-09-26"
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "anti-slop",
@@ -2668,7 +2676,7 @@
     "UI and copy critique after project-specific DESIGN.md is applied"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
+   "trust": "APPROVED",
    "license": {
     "spdx": "MIT"
    },
@@ -2678,7 +2686,7 @@
     "stars": 3735
    },
    "my_take": "",
-   "notes": "Corrected the misspelled owner in the failed screenshot intake. Project skills installed; do not let generic rules override approved DESIGN.md.",
+   "notes": "Corrected the misspelled owner in the failed screenshot intake. Project skills installed; do not let generic rules override approved DESIGN.md. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -2689,10 +2697,11 @@
     "url": "https://github.com/miqdadbadjuber/anti-slop",
     "observed_at": "2026-09-26"
    },
-   "last_reviewed": "2026-09-26"
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "reticle",
+   "tool_id": "reticle_mcp",
    "name": "Reticle",
    "url": "https://github.com/reticlehq/reticle",
    "type": "dev_tool",
@@ -2706,15 +2715,15 @@
     "future interactive runtime verification if Playwright proves insufficient"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
-   "license": null,
+   "trust": "APPROVED",
+   "license": {"type":"owner_attested","attested_at":"2026-09-30","note":"GitHub reports a custom license (NOASSERTION); owner attested it is acceptable. Read LICENSE before any redistribution."},
    "maintenance": {
     "last_push": "2026-09-25",
     "archived": false,
     "stars": 870
    },
    "my_take": "",
-   "notes": "Per-package license: SDK Apache-2.0, server protected; requires app instrumentation. Defer while Playwright works.",
+   "notes": "Per-package license: SDK Apache-2.0, server protected; requires app instrumentation. Defer while Playwright works. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -2725,7 +2734,7 @@
     "url": "https://github.com/reticlehq/reticle",
     "observed_at": "2026-09-26"
    },
-   "last_reviewed": "2026-09-26"
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "ui-skills",
@@ -2743,7 +2752,7 @@
     "targeted S5/S6 design, accessibility, metadata and motion review"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
+   "trust": "APPROVED",
    "license": {
     "spdx": "MIT"
    },
@@ -2753,7 +2762,7 @@
     "stars": 9109
    },
    "my_take": "",
-   "notes": "Installed improve-ui, fixing-accessibility, fixing-metadata and fixing-motion-performance; use only as review aids under DESIGN.md.",
+   "notes": "Installed improve-ui, fixing-accessibility, fixing-metadata and fixing-motion-performance; use only as review aids under DESIGN.md. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "",
    "used_in": [],
    "scores": {},
@@ -2764,7 +2773,7 @@
     "url": "https://github.com/ibelick/ui-skills",
     "observed_at": "2026-09-26"
    },
-   "last_reviewed": "2026-09-26"
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "rauno-invisible-interaction-details",
@@ -3099,14 +3108,15 @@
     "usage_mode": "optional_tool",
     "tool_id": "agent_reach_public",
     "best_for": ["retrieving public video and social references with source URLs"],
-    "trust": "REVIEWED",
+    "trust": "APPROVED",
     "license": {"spdx":"MIT","url":"https://github.com/Panniantong/Agent-Reach/blob/main/LICENSE"},
     "my_take": "",
-    "notes": "CLI only through tool router; do not install its broad skill or import browser cookies. Not currently installed.",
+    "notes": "CLI only through tool router; do not install its broad skill or import browser cookies. Not currently installed. Owner-attested approval 2026-09-30 (D47).",
     "provenance": {"type":"intake","url":"https://github.com/Panniantong/Agent-Reach","observed_at":"2026-09-28"}
    },
    {
     "id": "typesafe-jev",
+    "caveat": "Advisory shadow hint only. It has no authority over gates, rights, security, licensing, publishing or deployment; deterministic checks decide.",
     "name": "TypeSafe Jev structured decisions",
     "url": "https://docs.typesafe.ai/introduction",
     "type": "decision_api",
@@ -3114,10 +3124,10 @@
     "usage_mode": "optional_tool",
     "tool_id": "jev_advisory",
     "best_for": ["advisory task routing", "internal-link relevance hypotheses", "research candidate triage"],
-    "trust": "TESTED",
+    "trust": "APPROVED",
     "license": {"type":"hosted API terms","url":"https://typesafe.ai/"},
     "my_take": "",
-    "notes": "Live synthetic probe returned HTTP 200 with jev-1.13.0. Shadow mode only until a labeled evaluation demonstrates value. Owner provided ignored key. Never authorizes gates, security, licensing or deployment.",
+    "notes": "Live synthetic probe returned HTTP 200 with jev-1.13.0. Shadow mode only until a labeled evaluation demonstrates value. Owner provided ignored key. Never authorizes gates, security, licensing or deployment. Owner-attested approval 2026-09-30 (D47).",
     "provenance": {"type":"intake","url":"https://docs.typesafe.ai/llms.txt","observed_at":"2026-09-28"}
    },
    {
@@ -3136,6 +3146,7 @@
    },
    {
     "id": "mobbin",
+    "use_caution": "No verified license; the claimed free MCP is unverified. Study only what you can view publicly.",
     "name": "Mobbin",
     "url": "https://mobbin.com/",
     "type": "design_reference_library",
@@ -3194,6 +3205,7 @@
    },
    {
     "id": "open-seo",
+    "use_caution": "Hosted option and DataForSEO-backed features cost money; existing local audit stays the default.",
     "name": "OpenSEO",
     "url": "https://github.com/every-app/open-seo",
     "type": "seo_tool",
@@ -3400,14 +3412,14 @@
     "scanning current files and Git history"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
+   "trust": "APPROVED",
    "license": {
     "spdx": "MIT",
     "url": "https://github.com/gitleaks/gitleaks/blob/master/LICENSE"
    },
    "maintenance": "Feature-complete; security patches continue per upstream README reviewed 2026-09-29.",
    "my_take": "",
-   "notes": "UIBuilder CI runs the official CLI container with a pinned digest and redacted output. A match means investigate and rotate the credential; deleting the file alone does not make an exposed secret safe.",
+   "notes": "UIBuilder CI runs the official CLI container with a pinned digest and redacted output. A match means investigate and rotate the credential; deleting the file alone does not make an exposed secret safe. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "n/a — use the scanner only under its license",
    "used_in": [],
    "scores": {},
@@ -3418,7 +3430,7 @@
     "url": "https://github.com/gitleaks/gitleaks",
     "observed_at": "2026-09-29"
    },
-   "last_reviewed": "2026-09-29"
+   "last_reviewed": "2026-09-30"
   },
   {
    "id": "semgrep-community-edition",
@@ -3438,14 +3450,14 @@
     "JavaScript and TypeScript security review"
    ],
    "patterns": [],
-   "trust": "REVIEWED",
+   "trust": "APPROVED",
    "license": {
     "spdx": "LGPL-2.1-or-later",
     "url": "https://github.com/semgrep/semgrep/blob/develop/LICENSE"
    },
    "maintenance": null,
    "my_take": "",
-   "notes": "The engine is free and local. Semgrep-maintained community rules are not used here because their license restricts use to internal business purposes; CI runs original UIBuilder rules under Apache-2.0.",
+   "notes": "The engine is free and local. Semgrep-maintained community rules are not used here because their license restricts use to internal business purposes; CI runs original UIBuilder rules under Apache-2.0. Owner-attested approval 2026-09-30 (D47).",
    "do_not_copy": "n/a — use the scanner only under its license",
    "used_in": [],
    "scores": {},
@@ -3456,7 +3468,244 @@
     "url": "https://github.com/semgrep/semgrep",
     "observed_at": "2026-09-29"
    },
-   "last_reviewed": "2026-09-29"
+   "last_reviewed": "2026-09-30"
+  },
+  {
+   "patterns": [],
+   "maintenance": null,
+   "my_take": "",
+   "do_not_copy": "provider assets, prompts and terms text",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "last_reviewed": "2026-09-30",
+   "id": "runway-dev-api",
+   "name": "Runway Dev API (model router)",
+   "url": "https://docs.dev.runwayml.com/",
+   "type": "api_service",
+   "categories": [
+    "video",
+    "image_generation",
+    "media"
+   ],
+   "usage_mode": "optional_tool",
+   "tool_id": "runway_api",
+   "best_for": [
+    "one key for Seedance 2, Veo 3.1, Wan 3, Hailuo 3 video",
+    "stills with Seedream or Gemini image",
+    "scroll-scrubbed film clips"
+   ],
+   "trust": "APPROVED",
+   "license": {
+    "type": "hosted service terms",
+    "url": "https://runwayml.com/terms-of-use",
+    "attested_at": "2026-09-30",
+    "note": "Owner attested approval 2026-09-30; read the provider terms before shipping generated assets."
+   },
+   "provenance": {
+    "type": "research",
+    "url": "https://docs.dev.runwayml.com/guides/pricing/",
+    "observed_at": "2026-09-30"
+   },
+   "notes": "Official pricing page read 2026-09-30: credits $0.01; wan3 480p 5 credits/s, 720p 10, 1080p 20; seedance2 480p/720p 36/s; seedance2_fast 29/s; seedance2_mini 16/s (64 minimum); veo3.1_fast no audio 10/s, veo3.1 no audio 20/s; hailuo3 768p 10/s; gen4_turbo 5/s; images muse_image 1, gen4_image_turbo 2, seedream5_lite 4, gemini_image3_pro 20. No free API credits confirmed; the free credits on app.runwayml.com are for the app, not the API. scroll-world has no Runway backend, so it needs an adapter. Owner attested approval 2026-09-30 (D53)."
+  },
+  {
+   "patterns": [],
+   "maintenance": null,
+   "my_take": "",
+   "do_not_copy": "provider assets, prompts and terms text",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "last_reviewed": "2026-09-30",
+   "id": "gemini-veo-api",
+   "name": "Gemini API: Veo 3.1 and Nano Banana 2",
+   "url": "https://ai.google.dev/gemini-api/docs/pricing",
+   "type": "api_service",
+   "categories": [
+    "video",
+    "image_generation",
+    "media"
+   ],
+   "usage_mode": "optional_tool",
+   "tool_id": "gemini_media_api",
+   "best_for": [
+    "cheapest first-party Veo video",
+    "stills with Nano Banana 2",
+    "scroll-scrubbed film clips"
+   ],
+   "trust": "APPROVED",
+   "license": {
+    "type": "hosted service terms",
+    "url": "https://ai.google.dev/gemini-api/terms",
+    "attested_at": "2026-09-30",
+    "note": "Owner attested approval 2026-09-30; read the provider terms before shipping generated assets."
+   },
+   "provenance": {
+    "type": "research",
+    "url": "https://ai.google.dev/gemini-api/docs/pricing",
+    "observed_at": "2026-09-30"
+   },
+   "notes": "Official pricing read 2026-09-30: no free tier for Veo or image output. Veo 3.1 Lite $0.05/s 720p and $0.08/s 1080p; Fast $0.10/s and $0.12/s; Standard $0.40/s. Gemini 3.1 Flash Image $0.067 per 1K image, Flash Lite Image $0.034. Paid tier data is not used to improve products. Third-party blogs that claim a free image tier are outdated. Confirm first/last-frame support before using it for seams. Owner attested approval 2026-09-30 (D53)."
+  },
+  {
+   "patterns": [],
+   "maintenance": null,
+   "my_take": "",
+   "do_not_copy": "provider assets, prompts and terms text",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "last_reviewed": "2026-09-30",
+   "id": "google-flow",
+   "name": "Google Flow (Veo studio)",
+   "url": "https://labs.google/fx/tools/flow",
+   "type": "studio",
+   "categories": [
+    "video",
+    "media",
+    "studio"
+   ],
+   "usage_mode": "practice",
+   "best_for": [
+    "free previz clips with Veo 3.1 Lite and Fast",
+    "concept boards before paid generation"
+   ],
+   "trust": "APPROVED",
+   "license": {
+    "type": "hosted service terms",
+    "url": "https://labs.google/terms",
+    "attested_at": "2026-09-30",
+    "note": "Owner attested approval 2026-09-30; read the provider terms before shipping generated assets."
+   },
+   "provenance": {
+    "type": "research",
+    "url": "https://support.google.com/flow/answer/16526234",
+    "observed_at": "2026-09-30"
+   },
+   "notes": "Google Flow help: 50 credits per day free, no rollover; credits cover Veo 3.1 Lite, Fast and Quality generations. No public API, so the owner runs it by hand and drops files in docs/media/. Third-party reports say free-tier output has a visible Made with Veo watermark and limited commercial rights: use for previz, not shipped assets, until Google terms are checked. Owner attested approval 2026-09-30 (D53)."
+  },
+  {
+   "patterns": [],
+   "maintenance": null,
+   "my_take": "",
+   "do_not_copy": "provider assets, prompts and terms text",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "last_reviewed": "2026-09-30",
+   "id": "google-stitch",
+   "name": "Google Stitch",
+   "url": "https://stitch.withgoogle.com/",
+   "type": "design_tool",
+   "categories": [
+    "design",
+    "ui",
+    "design_to_code"
+   ],
+   "usage_mode": "optional_tool",
+   "tool_id": "stitch",
+   "best_for": [
+    "UI concept screens from a prompt",
+    "HTML export and Figma export",
+    "official MCP handoff to coding agents"
+   ],
+   "trust": "APPROVED",
+   "license": {
+    "type": "hosted service terms",
+    "url": "https://stitch.withgoogle.com/",
+    "attested_at": "2026-09-30",
+    "note": "Owner attested approval 2026-09-30; read the provider terms before shipping generated assets."
+   },
+   "provenance": {
+    "type": "research",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-ai-ui-design/",
+    "observed_at": "2026-09-30"
+   },
+   "notes": "Free Google Labs beta. The official MCP server (https://stitch.googleapis.com/mcp) is configured at user scope as stitch with 15 tools; design-director may use all but delete_project and works only in its own uibuilder-<slug> projects (verified 2026-09-30). Reported free limits conflict between sources: 400 daily credits versus 550 generations a month. Use for concept exploration; DESIGN.md stays the authority. Owner attested approval 2026-09-30 (D53)."
+  },
+  {
+   "patterns": [],
+   "maintenance": null,
+   "my_take": "",
+   "do_not_copy": "provider assets, prompts and terms text",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "last_reviewed": "2026-09-30",
+   "id": "nvidia-nim-trial",
+   "name": "NVIDIA API Catalog (NIM trial)",
+   "url": "https://build.nvidia.com/",
+   "type": "api_service",
+   "categories": [
+    "image_generation",
+    "media",
+    "ai"
+   ],
+   "usage_mode": "optional_tool",
+   "tool_id": "nvidia_nim_trial",
+   "use_caution": "NVIDIA trial terms allow prototyping, research, development and testing only and bar using the API or generated content in production. Use for pre-G2 concept exploration only; never ship its output.",
+   "best_for": [
+    "free concept images before G2",
+    "testing prompts cheaply"
+   ],
+   "trust": "APPROVED",
+   "license": {
+    "type": "hosted service terms",
+    "url": "https://assets.ngc.nvidia.com/products/api-catalog/legal/NVIDIA%20API%20Trial%20Terms%20of%20Service.pdf",
+    "attested_at": "2026-09-30",
+    "note": "Owner attested approval 2026-09-30; read the provider terms before shipping generated assets."
+   },
+   "provenance": {
+    "type": "research",
+    "url": "https://assets.ngc.nvidia.com/products/api-catalog/legal/NVIDIA%20API%20Trial%20Terms%20of%20Service.pdf",
+    "observed_at": "2026-09-30"
+   },
+   "notes": "Free trial credits (reported 1,000, more on request; unverified) with an OpenAI-compatible API and an nvapi- key. Its video models are physical-AI (Cosmos), not marketing footage. Kept in review by owner decision D52 style: ask the owner before use. Owner attested approval 2026-09-30 (D53)."
+  },
+  {
+   "patterns": [],
+   "maintenance": null,
+   "my_take": "",
+   "do_not_copy": "provider assets, prompts and terms text",
+   "used_in": [],
+   "scores": {},
+   "success_count": 0,
+   "failure_count": 0,
+   "last_reviewed": "2026-09-30",
+   "id": "fal-ai",
+   "name": "fal.ai model API",
+   "url": "https://fal.ai/models/bytedance/seedance-2.0/text-to-video",
+   "type": "api_service",
+   "categories": [
+    "video",
+    "image_generation",
+    "media"
+   ],
+   "usage_mode": "optional_tool",
+   "tool_id": "fal_api",
+   "best_for": [
+    "Seedance 2.0 and many other models by HTTP API",
+    "pay-as-you-go without a subscription"
+   ],
+   "trust": "APPROVED",
+   "license": {
+    "type": "hosted service terms",
+    "url": "https://fal.ai/terms",
+    "attested_at": "2026-09-30",
+    "note": "Owner attested approval 2026-09-30; read the provider terms before shipping generated assets."
+   },
+   "provenance": {
+    "type": "research",
+    "url": "https://fal.ai/models/bytedance/seedance-2.0/text-to-video",
+    "observed_at": "2026-09-30"
+   },
+   "notes": "Official model page read 2026-09-30: Seedance 2.0 720p $0.3034/s, 720p fast $0.2419/s, 1080p $0.682/s. Pay as you go; new-account promotional credits only. Community MCP servers exist but are unvetted. Owner attested approval 2026-09-30 (D53)."
   }
   ]
 }

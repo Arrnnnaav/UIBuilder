@@ -21,6 +21,7 @@ if (!domain || !words.length) {
 } else {
   const resources = JSON.parse(readFileSync(join(root, 'brain/resources.json'), 'utf8')).resources;
   const tools = JSON.parse(readFileSync(join(root, 'brain/tools.json'), 'utf8')).tools;
+  const ownerEnabled = JSON.parse(readFileSync(join(root, 'brain/tool-enable.json'), 'utf8')).enabled;
   const availableTools = new Set(tools.filter(tool => {
     if (!tool.agents.some(agent => domain.agents.includes(agent))) return false;
     if (tool.enabled_if === 'always') return true;
@@ -28,8 +29,9 @@ if (!domain || !words.length) {
       const binary = tool.enabled_if.slice(4);
       return cliAvailable(binary);
     }
-    return false; // env, MCP and owner enables need explicit per-run verification.
+    if (tool.enabled_if === 'user:enable') return tool.id in ownerEnabled;
+    return false; // env and MCP tools need explicit per-run verification (keys, logins).
   }).map(tool => tool.id));
   console.log(JSON.stringify(recommend(resources, domain, words.join(' '),
-    { availableTools, config: loadActiveRouterConfig(root) }), null, 2));
+    { availableTools, config: loadActiveRouterConfig(root), taxonomy: JSON.parse(readFileSync(join(root, 'brain/taxonomy.json'), 'utf8')).alias }), null, 2));
 }

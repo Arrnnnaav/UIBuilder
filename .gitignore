@@ -1,5 +1,4 @@
 # Local agent and test state
-/projects/
 /.playwright-mcp/
 /.ruff_cache/
 /.git-metadata-backup/
@@ -7,6 +6,7 @@
 
 # Vendored skill files without redistribution terms
 /.claude/skills/website-to-code/
+/.claude/skills/monid/
 /.claude/skills/web-design-guidelines/
 
 # Dependencies and generated output

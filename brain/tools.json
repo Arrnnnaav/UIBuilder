@@ -15,7 +15,8 @@
         "taste-research",
         "design-director",
         "ship",
-        "growth"
+        "growth",
+        "production-auditor"
       ],
       "cost": "free",
       "enabled_if": "mcp:playwright",
@@ -88,7 +89,8 @@
         "growth",
         "frontend",
         "backend",
-        "domain-ops"
+        "domain-ops",
+        "link-building"
       ],
       "cost": "free",
       "enabled_if": "always",
@@ -211,7 +213,7 @@
       "enabled_if": "user:enable",
       "fallback": "design_director_html_mockups",
       "approval": false,
-      "notes": "Google Stitch has no API here, so it is manual: the agent writes the prompt (stitch-design-taste skill), the user pastes the result back."
+      "notes": "Google Stitch is a free Google Labs beta. Manual loop today: the agent writes the prompt (stitch-design-taste skill), the user pastes the result back. Google also documents an official Stitch MCP server (stitch.withgoogle.com/docs/mcp); the MCP server `stitch` (https://stitch.googleapis.com/mcp, X-Goog-Api-Key header) was added at user scope on 2026-09-30 and lists 15 tools. design-director may use everything except delete_project, works only in projects it created (one per fork: uibuilder-<slug>-direction-<A|B|C>, so forks never see each other's screens; uibuilder-<slug>-critic for the critic), and treats output as pre-G2 concept material, never production UI. The key lives in the owner's ~/.claude.json, never in this repo. Reported free limits conflict between sources (400 daily credits vs 550 generations a month), so treat them as unverified."
     },
     {
       "id": "lighthouse_ci",
@@ -487,17 +489,77 @@
       "enabled_if": "user:enable",
       "fallback": "static_hero",
       "approval": true,
-      "notes": "Deferred by function-first order; no use in the approved portfolio design."
+      "notes": "Owner-enabled 2026-09-30 (D47). Use only when the approved experience thesis calls for a scroll-scrubbed film (see brain/playbooks/immersive-playbook.md); the video chain needs Monid or Higgsfield spend approved per run. Its template copy patterns (eyebrow, tag pills per section) yield to brain/playbooks/taste-core.md."
     },
     {
       "id": "monid_video",
       "capabilities": ["video_generation"],
       "agents": ["design-director", "ship"],
       "cost": "paid per clip; verify live pricing before use",
-      "enabled_if": "user:enable",
+      "enabled_if": "cli:monid",
+      "fallback": "higgsfield_cli",
+      "approval": true,
+      "notes": "Default video-chain biller for scroll-world (Seedance 2.0, per-clip USD). `@monid-ai/cli` 0.1.7 is installed globally (MIT, pinned). The owner adds the API key themselves (`monid keys add -k <key> -l main` from app.monid.ai) and should set a workspace budget or run cap. Reference: .claude/skills/monid/SKILL.md. Run node scripts/media-preflight.mjs before any spend."
+    },
+    {
+      "id": "runway_api",
+      "capabilities": ["video_generation", "image_generation", "model_router"],
+      "agents": ["design-director", "ship"],
+      "cost": "prepaid credits at $0.01 each (official docs 2026-09-30); no free API credits confirmed",
+      "enabled_if": "env:RUNWAYML_API_SECRET",
       "fallback": "static_hero",
       "approval": true,
-      "notes": "Optional dependency of scroll-world, never installed or enabled by intake."
+      "notes": "Runway Dev API is a model router on one key: wan3, seedance2 / seedance2_fast / seedance2_mini, veo3.1 / veo3.1_fast, hailuo3, gen4_turbo, plus image models (muse_image, gen4_image_turbo, seedream5_lite, gemini_image3_pro). Prices in docs/MEDIA_PROVIDERS.md. App credits on app.runwayml.com are separate from API credits. Use `node scripts/media-generate.mjs --provider runway ...` (dry run by default; `--run --approve-credits N` to spend; over 100 credits needs the owner). Live-verified 2026-09-30: veo3.1_fast, 4s, first and last frame, 40 credits, output matched both frames. First/last frames work on seedance2, seedance2_fast, seedance2_mini, veo3.1 and veo3.1_fast only. Env var RUNWAYML_API_SECRET confirmed. The scroll-world skill still has no Runway backend, so chains are assembled clip by clip with this script."
+    },
+    {
+      "id": "gemini_media_api",
+      "capabilities": ["video_generation", "image_generation"],
+      "agents": ["design-director", "ship"],
+      "cost": "pay as you go, no free tier for Veo or image output (ai.google.dev pricing 2026-09-30): Veo 3.1 Lite $0.05/s 720p, Fast $0.10/s, Standard $0.40/s; Nano Banana 2 about $0.067 per 1K image",
+      "enabled_if": "env:GEMINI_API_KEY",
+      "fallback": "static_hero",
+      "approval": true,
+      "notes": "First-party Google API for Veo 3.1 and Gemini image models. Paid tier data is not used to improve products. Use `node scripts/media-generate.mjs --provider gemini ...` (same dry-run and spend guard; `--approve-usd`). Request shape taken from the official SDK; NOT live-tested (no key yet). lastFrame is accepted for veo-3.1-fast and veo-3.1 only; Lite is refused because its support is unconfirmed. Durations are 4, 6 or 8 seconds, and 1080p needs 8. Needs billing enabled."
+    },
+    {
+      "id": "fal_api",
+      "capabilities": ["video_generation", "image_generation"],
+      "agents": ["design-director", "ship"],
+      "cost": "pay as you go; Seedance 2.0 720p $0.3034/s, 720p fast $0.2419/s, 1080p $0.682/s (fal model page 2026-09-30); promotional credits only",
+      "enabled_if": "env:FAL_KEY",
+      "fallback": "runway_api",
+      "approval": true,
+      "notes": "Broad model catalog. Community MCP servers for fal exist but are unvetted; use the HTTP API or the official client instead of adding one without review."
+    },
+    {
+      "id": "nvidia_nim_trial",
+      "capabilities": ["image_generation", "concept_exploration"],
+      "agents": ["design-director"],
+      "cost": "free trial credits (reported 1,000, unverified); trial terms bar production use",
+      "enabled_if": "env:NVIDIA_API_KEY",
+      "fallback": "static_hero",
+      "approval": true,
+      "notes": "build.nvidia.com API Catalog trial: NVIDIA's terms allow prototyping, research, development and testing only, and bar using the API or generated content in production or for real end users. Use for pre-G2 concept exploration only and never ship its output. Its video models are physical-AI (Cosmos), not marketing footage. Not an MCP or CLI route."
+    },
+    {
+      "id": "google_flow_manual",
+      "capabilities": ["previz_video"],
+      "agents": ["design-director", "taste-research"],
+      "cost": "free 50 credits per day (Google Flow help); paid plans from about $4.99/month",
+      "enabled_if": "user:enable",
+      "fallback": "static_hero",
+      "approval": false,
+      "notes": "Owner-run studio at labs.google/fx/tools/flow; no API, so the agent cannot drive it. Free-tier output reportedly carries a visible Made with Veo watermark and limited commercial rights (third-party reports; read Google's terms). Use for previz and concept boards; final assets come from a paid API or approved owner-licensed source. Owner drops files in docs/media/ and the agent logs them in MEDIA_LEDGER.md."
+    },
+    {
+      "id": "higgsfield_cli",
+      "capabilities": ["image_generation", "video_generation", "brand_kit_import"],
+      "agents": ["design-director", "ship"],
+      "cost": "paid credits (stills about 15 each, video about 40-55; verify live pricing before use)",
+      "enabled_if": "cli:higgsfield",
+      "fallback": "static_hero",
+      "approval": true,
+      "notes": "Official @higgsfield/cli 1.1.26 installed globally (MIT, vendor-published). Required by scroll-world for scene stills even when Monid bills the video chain. Login is interactive OAuth that only the owner can run: `higgsfield auth login`, then `higgsfield workspace set <id>`. State the credit estimate and get owner approval before a batch. Run node scripts/media-preflight.mjs first."
     },
     {
       "id": "firecrawl_api",

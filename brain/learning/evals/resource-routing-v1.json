@@ -10,6 +10,9 @@
       "expected_ready": [
         "rate-limiting"
       ],
+      "forbidden_ready": [
+        "webdev-animation-rendering-guide"
+      ],
       "forbidden_review": [
         "webdev-animation-rendering-guide"
       ]
@@ -49,8 +52,7 @@
         "motion"
       ],
       "forbidden_ready": [
-        "lightswind",
-        "scroll-world"
+        "lightswind"
       ]
     },
     {
@@ -85,8 +87,7 @@
       ],
       "forbidden_ready": [
         "lightswind"
-      ],
-      "expect_no_ready": true
+      ]
     },
     {
       "id": "decline_jev_shadow",
@@ -98,15 +99,20 @@
       ],
       "forbidden_ready": [
         "typesafe-jev"
-      ],
-      "expect_no_ready": true
+      ]
     },
     {
       "id": "decline_domain_change",
       "suite": "decline",
       "domain": "launch",
       "task": "domain dns tls",
-      "expect_no_ready": true
+      "expected_review": [
+        "heygen"
+      ],
+      "forbidden_ready": [
+        "heygen",
+        "comfy"
+      ]
     }
   ],
   "resource_catalog": "brain/resources.json at 4cfa790 (fixture snapshot)",

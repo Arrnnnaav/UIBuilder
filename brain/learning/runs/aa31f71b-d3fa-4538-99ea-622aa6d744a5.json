@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "run_id": "aa31f71b-d3fa-4538-99ea-622aa6d744a5",
+  "recorded_at": "2026-09-29T18:56:59.165Z",
+  "agent": "design-director",
+  "project": "portfolio",
+  "config_version": "router-v1",
+  "input_ref": "AGENTS.md",
+  "evidence_refs": [
+    "sha256:77c9451f650ab6e267dd4826086fd4258935ac99142fc1271bb6c69232907bf1",
+    "sha256:e3af91b0788c127046f703afab3f8fb5ce64dd19deb800195bf695b208a20f6e",
+    "sha256:73221fa6117b0d3fa72787bf4600d23f4854db4538a0c319076d4d82b5c21b9c"
+  ],
+  "tool_calls": [
+    {
+      "tool_id": "playwright_cli",
+      "status": "ok",
+      "duration_ms": null,
+      "cost_usd": 0,
+      "evidence_ref": "sha256:77c9451f650ab6e267dd4826086fd4258935ac99142fc1271bb6c69232907bf1"
+    }
+  ],
+  "output_ref": "sha256:7b16f93651f4cecae9e48742cb97d870e948ff49b577d3feaf381d1be95417cc",
+  "errors": [],
+  "metrics": {
+    "latency_ms": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "cost_usd": null
+  },
+  "outcome": {
+    "status": "pending",
+    "signals": [
+      {
+        "name": "browser_profiles_passed",
+        "value": 8,
+        "evidence_ref": "sha256:77c9451f650ab6e267dd4826086fd4258935ac99142fc1271bb6c69232907bf1"
+      },
+      {
+        "name": "serious_axe_violations",
+        "value": 0,
+        "evidence_ref": "sha256:77c9451f650ab6e267dd4826086fd4258935ac99142fc1271bb6c69232907bf1"
+      },
+      {
+        "name": "tool_policy_ok",
+        "value": true,
+        "evidence_ref": "sha256:46d5334ad9a243e4fd16da4b86d2a9d074b667ac75765945b1cf2257993c3b53"
+      },
+      {
+        "name": "tool_call_errors",
+        "value": 0,
+        "evidence_ref": "sha256:46d5334ad9a243e4fd16da4b86d2a9d074b667ac75765945b1cf2257993c3b53"
+      }
+    ]
+  },
+  "tool_policy_violations": [],
+  "failure_categories": []
+}

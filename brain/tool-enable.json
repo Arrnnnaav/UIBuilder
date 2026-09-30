@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "_doc": "Owner switch for router tools whose enabled_if is `user:enable`. A tool listed here counts as enabled for the shortlist and preflight. Listing a tool does NOT create credentials, accounts, servers or installs; tools that need a key, MCP login or hosted account stay unusable until that exists, and paid ones spend money only when their own key is set. Change this file with a plan/DECISIONS.md entry.",
+  "enabled": {
+    "stitch": "manual Google Stitch loop; no API, user pastes results back",
+    "antislop_review_skill": "vendored project skill, free",
+    "ui_skills_review": "vendored project skill, free",
+    "scroll_world_skill": "vendored project skill; its video chain still needs Monid or Higgsfield credentials",
+    "jev_advisory": "TYPESAFE_API_KEY present in root .env; shadow mode only",
+    "google_flow_manual": "owner-run free studio (50 credits per day) for previz; no API and no commercial-grade output on the free tier"
+  },
+  "attested_at": "2026-09-30",
+  "attested_by": "owner"
+}
