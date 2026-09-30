@@ -3,7 +3,8 @@
 **For:** a product's public marketing and launch website. This recipe does not build the product application itself.
 **Default hosting:** Vercel Hobby for personal/non-commercial work; commercial sites use a client-owned Cloudflare account.
 
-## Intake
+## Intake (discovery first, contract version 2)
+Start with the owner's starting facts, then audit comparable products' public sites with `node scripts/competitor-audit.mjs` and write the questions and suggested additions from that evidence into `docs/DISCOVERY.md` (the owner decides each addition; G1 checks the record). The list below is the fact base the discovery must end up with.
 
 Capture the product's actual job, audience, differentiator, proof, launch goal, current product screenshots or demo, brand constraints, ownership, and conversion action. Claims, roadmap items, customer logos, metrics, and endorsements require evidence or explicit client approval.
 

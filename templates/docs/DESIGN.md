@@ -15,3 +15,10 @@
 ## States (empty, loading, error)
 ## Responsive rules (390 / 768 / 1440)
 ## Anti-patterns for this project
+
+## Decision record
+Every choice that shapes how the site looks or moves gets a row: what was decided, the value, why, where the reason comes from and what was rejected. Sources (separate several with ;): `brief` (PRODUCT.md audience, tone, must-avoid), `competitor:<host>` (must appear in COMPETITOR_AUDIT.json), `resource:<brain id>`, `preference` (brain/preferences.md), `measured:<file>`, `owner`, `a11y`, `perf`, `rule:<name>` (e.g. rule:taste-core). Cover at least: accent and neutral colors, type pairing and scale, layout or spacing, hero, and imagery.
+
+| ID | Decision | Value | Reason | Source | Rejected alternative |
+|---|---|---|---|---|---|
+| D1 | | | | | |

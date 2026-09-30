@@ -8,6 +8,9 @@ import { fileURLToPath } from "node:url";
 import { spawn, spawnSync } from "node:child_process";
 import { validate } from "./lib/mini-schema.mjs";
 import { preflightErrors, visualSkillErrors, referenceErrors } from "./lib/preflight.mjs";
+import { loadHandoffs, loadPlan, mustUseErrors, planStatus } from "./lib/resource-plan.mjs";
+import { DISCOVERY_PIPELINES, loadAudit, validateDiscovery } from "./lib/discovery.mjs";
+import { competitorHostsFrom, validateRecord } from "./lib/decision-record.mjs";
 import { validateEvidence, validatePerf, monitoringKeys } from "./lib/g3-evidence.mjs";
 import { checkOwnerGate } from "./lib/owner-gates.mjs";
 import { validateConceptHtml, validateDesignReviewMarkdown } from "./lib/design-review.mjs";
@@ -67,8 +70,23 @@ if (gate === "G2" || gate === "G2.5" || gate === "G3.5") {
     check('G2.5 visual approval', earlier.length === 0, earlier.join('; '));
   }
 }
+// Contract version 2 (set by new-project.mjs) adds the adaptive discovery record and the design decision record.
+// Older sites have no contract_version and are not held to them.
+let buildSpec = {};
+try { buildSpec = JSON.parse(readFileSync(doc("BUILD_SPEC.json"), "utf8")); } catch {}
+const contractV2 = (buildSpec.contract_version ?? 1) >= 2;
+const competitorAudit = loadAudit(doc("COMPETITOR_AUDIT.json"));
+
 if (gate === "G1") {
   for (const f of ["PRODUCT.md", "SEO_STRATEGY.md", "INSPIRATION.md", "USER_FLOW.md", "IA.md", "WIREFRAMES.md"]) check(`docs/${f}`, ...filled(f));
+  if (contractV2 && DISCOVERY_PIPELINES.has(buildSpec.pipeline)) {
+    check("docs/DISCOVERY.md", ...filled("DISCOVERY.md"));
+    check("docs/COMPETITOR_MATRIX.md", existsSync(doc("COMPETITOR_MATRIX.md")), "run scripts/competitor-audit.mjs");
+    let discovery = "";
+    try { discovery = readFileSync(doc("DISCOVERY.md"), "utf8"); } catch {}
+    const problems = validateDiscovery(discovery, competitorAudit);
+    check("discovery: tailored questions answered, additions decided, competitors audited", problems.length === 0, problems.slice(0, 4).join("; "));
+  }
   for (const a of ["research", "ux", "growth"]) check(`handoff/${a}.json`, ...handoff(a));
   if (existsSync(doc("IA.md")) && existsSync(doc("WIREFRAMES.md"))) {
     const routes = [...readFileSync(doc("IA.md"), "utf8").matchAll(/^\|\s*`?(\/[^\s`|]*)`?\s*\|/gm)].map((m) => m[1]);
@@ -81,6 +99,16 @@ if (gate === "G1") {
 if (gate === "G2") {
   for (const x of ["A", "B", "C"]) check(`docs/directions/${x}.md`, existsSync(doc(`directions/${x}.md`)));
   for (const f of ["DESIGN.md", "MOTION.md"]) check(`docs/${f}`, ...filled(f));
+  if (contractV2) {
+    const resourceIds = new Set(JSON.parse(readFileSync(join(root, "brain/resources.json"), "utf8")).resources.map((r) => r.id));
+    const hosts = competitorHostsFrom(competitorAudit);
+    for (const [file, kind] of [["DESIGN.md", "design"], ["MOTION.md", "motion"]]) {
+      let text = "";
+      try { text = readFileSync(doc(file), "utf8"); } catch {}
+      const problems = validateRecord(text, kind, { resourceIds, competitorHosts: hosts });
+      check(`docs/${file} decision record (every choice has a sourced reason)`, problems.length === 0, problems.slice(0, 4).join("; "));
+    }
+  }
   check("docs/DESIGN_REVIEW.md", ...filled("DESIGN_REVIEW.md"));
   let reviewMarkdown = "";
   try { reviewMarkdown = readFileSync(doc("DESIGN_REVIEW.md"), "utf8"); } catch {}
@@ -114,6 +142,12 @@ const run = (label, cmd, env = {}) => {
 };
 
 if (gate === "G3") {
+  // Owner-declared must-use resources (docs/RESOURCE_PLAN.json) have to be used and explained in a handoff.
+  const plan = loadPlan(proj);
+  if (plan?.must_use?.length) {
+    const errors = mustUseErrors(planStatus(plan, loadHandoffs(proj)));
+    check("owner must-use resources used and explained", errors.length === 0, errors.join("; "));
+  }
   check("production-readiness report", ...filled("PRODUCTION_READINESS_REPORT.md"));
   check("handoff/production-auditor.json", ...handoff("production-auditor"));
   const cpus = { NEXT_BUILD_CPUS: process.env.NEXT_BUILD_CPUS ?? "2" };

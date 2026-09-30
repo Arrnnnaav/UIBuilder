@@ -54,7 +54,7 @@ const docs = join(dest, "docs");
 mkdirSync(join(docs, "handoff"), { recursive: true });
 mkdirSync(join(docs, "directions"), { recursive: true });
 for (const f of readdirSync(docsSrc)) {
-  if (!f.endsWith(".md") && !f.endsWith(".html") && !["AGENT_BOOTSTRAP.json", "BACKLINKS.json", "BACKLINKS.schema.json", "HANDOFF.schema.json", "VISUAL_OUTCOME.json"].includes(f)) continue;
+  if (!f.endsWith(".md") && !f.endsWith(".html") && !["AGENT_BOOTSTRAP.json", "BACKLINKS.json", "BACKLINKS.schema.json", "HANDOFF.schema.json", "RESOURCE_PLAN.json", "VISUAL_OUTCOME.json"].includes(f)) continue;
   writeFileSync(join(docs, f), readFileSync(join(docsSrc, f), "utf8").replaceAll("{{slug}}", slug));
 }
 const promptSrc = join(root, "templates/prompts");
@@ -66,7 +66,7 @@ for (const f of readdirSync(promptSrc)) {
 const stack = JSON.parse(readFileSync(join(root, "pipelines", pipeline, "stack.json"), "utf8"));
 writeFileSync(
   join(docs, "BUILD_SPEC.json"),
-  JSON.stringify({ slug, pipeline, created: new Date().toISOString().slice(0, 10), stack, stitch: false }, null, 2) + "\n",
+  JSON.stringify({ slug, pipeline, created: new Date().toISOString().slice(0, 10), contract_version: 2, stack, stitch: false }, null, 2) + "\n",
 );
 
 // package name

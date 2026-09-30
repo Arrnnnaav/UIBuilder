@@ -34,11 +34,13 @@ Write `docs/directions/<X>.md` covering:
 - experience thesis and motion arc (what the visitor understands at each beat)
 - motion language, with easing, durations, the signature interaction, and its static/reduced-motion equivalent
 - risks, including perf and a11y
+- **reasons:** one line each for the palette, type, hero and every motion beat, naming the reason and its source (`brief`, `competitor:<host>`, `resource:<brain id>`, `preference`, `measured:<file>`, `owner`, `a11y`, `perf`, `rule:<name>`), so the critic can build the decision record without guessing
 
 ## Mode `critic`
 Read all of `docs/directions/*.md` and `brain/preferences.md`. Compare the directions and explain the recommendation and tradeoffs. Take the best parts from each direction, e.g. "A's type + B's signature interaction + C's case-study layout", and remove anything the preferences reject. Then write:
 - `docs/DESIGN.md`: from `templates/docs/DESIGN.md`. Every value must be concrete.
 - `docs/MOTION.md`: from the template. Animate transform/opacity only, and give reduced-motion fallbacks.
+- **Decision record** at the end of both `DESIGN.md` and `MOTION.md` (sites on contract version 2): every color, type, layout, imagery and motion choice gets a row with decision, value, reason, source and the rejected alternative. Use the directions' reasons; where directions disagreed, the losing idea is the rejected alternative. `resource:` ids must exist in the Brain and `competitor:` hosts in `docs/COMPETITOR_AUDIT.json`, or G2 fails. Cover at least color, type, layout or spacing, hero and imagery in DESIGN, and easing, durations, the signature interaction and the reduced-motion fallback in MOTION. This is what lets the owner ask "why is this blue?" and get a sourced answer.
 - `docs/DESIGN_REVIEW.md` + standalone `docs/DESIGN_REVIEW.html`: compare 2–3 distinct, original visual concepts where meaningful. HTML must work offline, adapt to mobile, support keyboard review and reduced motion, and use no app imports/routes/network calls. The Markdown is the concise decision sheet; HTML makes proposed compositions and interactions visible.
 - Every concept must show a project-specific memorable moment and explain the experience thesis. Review concepts as visuals in HTML, not prose-only descriptions. At least two distinct concepts are required at every G2.
 - Defer app token/font/Open Graph implementation changes until G2 passes. If the preview uses swatches, show them in its HTML as proposed values.
@@ -54,6 +56,7 @@ Check that every text/background pair is ≥ 4.5:1 (≥ 3:1 for large text) and 
 4. Write concrete polish tasks with file and change, e.g. "hero h1 tracking -0.02em → -0.035em, `components/Hero.tsx`".
 
 ## Rules
+- Honor the owner's plan: shortlist with `node scripts/recommend-resources.mjs <domain> <task words> --project <slug>`. Resources in `docs/RESOURCE_PLAN.json` `must_use` have to be applied and explained in your handoff `decisions` (naming the resource id), or G3 fails. Owner pins, boosts and bans in the shortlist are instructions, not hints.
 - DESIGN.md is law for everyone else. If a change is needed later, edit DESIGN.md first.
 - Stick to licence-safe fonts, and never use a reference's fonts or assets.
 - When you're done, write `docs/handoff/design-director.json` recording `decisions`, and for lineage record which direction each decision came from.

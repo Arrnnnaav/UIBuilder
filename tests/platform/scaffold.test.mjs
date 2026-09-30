@@ -25,6 +25,9 @@ function fixture(t) {
   cpSync(new URL('../../templates/docs/HANDOFF.schema.json', import.meta.url), join(root, 'templates/docs/HANDOFF.schema.json'));
   cpSync(new URL('../../templates/docs/AGENT_BOOTSTRAP.md', import.meta.url), join(root, 'templates/docs/AGENT_BOOTSTRAP.md'));
   cpSync(new URL('../../templates/docs/AGENT_BOOTSTRAP.json', import.meta.url), join(root, 'templates/docs/AGENT_BOOTSTRAP.json'));
+  cpSync(new URL('../../templates/docs/DISCOVERY.md', import.meta.url), join(root, 'templates/docs/DISCOVERY.md'));
+  cpSync(new URL('../../templates/docs/RESOURCE_PLAN.json', import.meta.url), join(root, 'templates/docs/RESOURCE_PLAN.json'));
+  cpSync(new URL('../../templates/docs/MEDIA_REQUEST.md', import.meta.url), join(root, 'templates/docs/MEDIA_REQUEST.md'));
   cpSync(new URL('../../templates/marketing-starter/scripts/agent-bootstrap.mjs', import.meta.url), join(root, 'templates/marketing-starter/scripts/agent-bootstrap.mjs'));
   writeFileSync(join(root, 'templates/prompts/PRODUCTION_READINESS_AUDIT.md'), '# Audit {{slug}}');
   return { root, run: (...args) => spawnSync(process.execPath, [join(root, 'scripts/new-project.mjs'), ...args], { encoding: 'utf8', env: { ...process.env, UIBUILDER_SKIP_GITHUB: '1', GIT_AUTHOR_NAME: 'UIBuilder Test', GIT_AUTHOR_EMAIL: 'uibuilder@example.invalid', GIT_COMMITTER_NAME: 'UIBuilder Test', GIT_COMMITTER_EMAIL: 'uibuilder@example.invalid' } }) };
@@ -49,6 +52,15 @@ test('scaffold creates an external independent Git repository and copies only cl
   assert.equal(existsSync(join(dest, 'scripts/agent-bootstrap.mjs')), true);
   assert.equal(JSON.parse(readFileSync(join(dest, 'docs/VISUAL_OUTCOME.json'), 'utf8')).project, 'sample');
   assert.equal(readFileSync(join(dest, 'docs/prompts/PRODUCTION_READINESS_AUDIT.md'), 'utf8'), '# Audit sample');
+  const spec = JSON.parse(readFileSync(join(dest, 'docs/BUILD_SPEC.json'), 'utf8'));
+  assert.equal(spec.contract_version, 2, 'new sites are created under the discovery and decision-record contract');
+  const discovery = readFileSync(join(dest, 'docs/DISCOVERY.md'), 'utf8');
+  assert.match(discovery, /^# DISCOVERY — sample/);
+  assert.match(discovery, /## 3\. Tailored questions[\s\S]*## 4\. Suggested additions[\s\S]*## 5\. Fixed checks/);
+  const plan = JSON.parse(readFileSync(join(dest, 'docs/RESOURCE_PLAN.json'), 'utf8'));
+  assert.deepEqual({ version: plan.version, must_use: plan.must_use, prefer: plan.prefer, avoid: plan.avoid }, { version: 1, must_use: [], prefer: [], avoid: [] });
+  assert.match(plan._doc, /for sample/);
+  assert.match(readFileSync(join(dest, 'docs/MEDIA_REQUEST.md'), 'utf8'), /Media request card/);
   assert.equal(existsSync(join(dest, 'security/semgrep/ui-builder.yml')), true);
   assert.equal(existsSync(join(dest, 'security/semgrep/LICENSE')), true);
   const git = spawnSync('git', ['-C', dest, 'rev-parse', '--show-toplevel'], { encoding: 'utf8' });

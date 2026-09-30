@@ -14,6 +14,7 @@ Use only local document tools; ask research through a file handoff for outside e
   explicit non-goals, capability IDs and source-backed claims. Keep unknowns visible.
 - Write `docs/ACCEPTANCE.md`: each capability maps to observable acceptance criteria,
   the verifying command or manual procedure, evidence path, and responsible agent.
+- Read `docs/DISCOVERY.md` (sites on contract version 2). Turn each **accepted** suggested addition into a capability ID with acceptance criteria; list rejected and deferred additions and any skipped question with its impact; never add a capability the owner rejected. Cite the DISCOVERY evidence in the requirement.
 - Write `docs/PRIORITIES.md`: order Must/Should/Later work by owner value, dependency,
   risk and cost. Include a risk register and unanswered questions with their impact.
 - Before G3, reconcile acceptance against the current reports, retained command output,

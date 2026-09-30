@@ -7,6 +7,9 @@
 
 Every client is different. Pages and features come from the client's offer, which the S1/S2 research establishes. This recipe fixes only the structure and the quality bars.
 
+## Discovery (contract version 2)
+The brief is researched first and asked second. Start with only the owner's starting facts (company, offer, buyers, area, current URL, known competitors, anything they already want). `research` then audits the current site and 3 to 8 competitors with `node scripts/competitor-audit.mjs`, and the questions are written from that evidence, so every client gets different ones. Suggested additions come from what most competitors show that this client lacks, and the owner decides each. `docs/DISCOVERY.md` records all of it and G1 checks it. The list below is the minimum fact base the discovery must end up with, not a script to read out.
+
 ## Required inputs (S1 interview + research of the current site)
 - Company name, what they sell (products/services), and who buys it (segments)
 - Current site URL. The research agent studies it in S2 and writes `docs/CLIENT_SITE.md`.

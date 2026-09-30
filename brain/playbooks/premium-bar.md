@@ -34,6 +34,7 @@ Score with evidence, never adjectives. A score without an evidence line is inval
 Designed focus rings and selection color, pressed and disabled states, a real 404 and error page, loading skeletons matching the layout, an OG image and favicon that match the brand, consistent icon stroke, hanging punctuation and optical alignment in large type, image grading that matches the palette, considered page transitions, no layout shift when fonts load, dark and light both intentional.
 
 ## Verdict
+- **Hard fail on contract version 2 sites:** a missing or unsourced Decision record in `DESIGN.md` or `MOTION.md`. Taste that cannot be traced to a brief, a competitor finding, a Brain resource, a preference, a measurement or an owner instruction cannot be reviewed. Cite record ids (D1, M3) in each dimension's evidence line.
 - **Pass:** no hard fail, every dimension 3 or more, memorability 4 or more, average 4.0 or more (the same threshold `visual-eval.mjs` reports).
 - Otherwise list the three fixes with the largest score lift per effort and re-score after the loop (S5 allows at most 2 loops).
 - Write the table as: dimension, score, evidence line, top fix.
