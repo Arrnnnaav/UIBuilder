@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "_doc": "Owner-declared resource plan for {{slug}}. must_use resources have to appear in a handoff's resources_used and be explained in its decisions before G3; prefer boosts ranking; avoid moves a resource to the review queue for this project. tags describe the project (pipeline, profession, features) and match the owner's pin_for/avoid_for tags.",
+  "tags": [],
+  "must_use": [],
+  "prefer": [],
+  "avoid": [],
+  "notes": ""
+}

@@ -31,6 +31,21 @@ Example:
 
 The recommender includes `my_take` beside a resource when it prints ready items and the review queue. It currently does not change trust, rank, rights, tool availability, or gate outcomes based on that note. A note is useful guidance from the owner; it does not grant permission to reuse source code, assets, text, or media.
 
+## Structured owner controls (beyond the text note)
+
+The text in `my_take` is guidance the agent reads beside the resource. It does not change ranking, trust, rights or tools. To make a decision the selector obeys, use the owner controls, stored in `brain/owner-controls.json` with every change appended to `brain/owner-decisions.jsonl`:
+
+| Control | Effect |
+|---|---|
+| `boost` (-3 to 5) | raises or lowers ranking when the resource is relevant |
+| `pin_for` tags | always surfaced first for tasks or projects carrying that tag (for example `restaurant`, `booking`, `company-site`) |
+| `avoid_for` tags, `banned` | moved to the review queue with the reason shown |
+| `trust` | your trust level replaces the catalog value (a reason is required; raising a rights-cautioned resource also needs an explicit acknowledgement) |
+| `rights` | your clearance for use where the catalog has no license, or an explicit override of a license restriction (reason and acknowledgement required, license text stays visible) |
+| `tags` | your own labels for sorting the catalog |
+
+Set them with `node scripts/owner.mjs set <id> <field> <value> --reason "..."` (or the dashboard when it exists). Your clearance is a record of your decision, not a legal check; code you install into a site still gets a license check for that dependency. Per project, `docs/RESOURCE_PLAN.json` (`node scripts/resource-plan.mjs`) lists resources that must be used (enforced at G3 with an explanation in the handoff), preferred and avoided ones, and the project tags that pins and avoids match against.
+
 ## How to fill the catalog
 
 The easiest way to annotate the full library is through a spreadsheet:

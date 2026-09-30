@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import { validate } from "./lib/mini-schema.mjs";
 import { loadActiveRouterConfig, validateRouterConfig } from './lib/learning-config.mjs';
 import { effectiveCategories } from './lib/resource-selector.mjs';
+import { loadControls, logPath, validateControls, validateLog } from './lib/owner-controls.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const brain = join(root, "brain");
@@ -78,6 +79,8 @@ for (const id of Object.keys(ownerEnabled)) {
   if (!tool) errors.push(`tool-enable.json: unknown tool ${id}`);
   else if (tool.enabled_if !== 'user:enable') errors.push(`tool-enable.json: ${id} is not a user:enable tool (enabled_if=${tool.enabled_if})`);
 }
+errors.push(...validateControls(loadControls(root), [...resourceIds]));
+if (existsSync(logPath(root))) errors.push(...validateLog(readFileSync(logPath(root), 'utf8')));
 for (const resource of resources) {
   if (resource.tool_id && !toolIds.has(resource.tool_id)) errors.push(`resources.json ${resource.id}: unknown tool ${resource.tool_id}`);
 }
