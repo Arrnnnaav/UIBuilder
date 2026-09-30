@@ -50,7 +50,7 @@ No root `package.json`; scripts are plain Node 24 `.mjs`. Site repos use pnpm.
 - Caveman output style is active in chat; code, commits and docs are written normally.
 
 ## Current state (2026-09-30)
-- Harness work is committed on branch `harness/budget-brain-media` (cut from `experiment/astro-static-lcp-pilot` at 60732b9): agent bootstrap, slim rulebook with enforced checks, model tiers and context budget, usable Brain (taxonomy, taste core, premium bar), media adapter and request cards. Not pushed or merged; ask before either.
+- Harness work is merged into `main` (fast-forward, 9a4c08a, CI green: secret-scan, platform, sast) and pushed to `Arrnnnaav/UIBuilder`: agent bootstrap, slim rulebook with enforced checks, model tiers and context budget, usable Brain (taxonomy, taste core, premium bar), media adapter and request cards. Branch `harness/budget-brain-media` is also on the remote. Site repos (portfolio, demo, abizcreator) were not touched by the merge and keep their own uncommitted work. Ask before pushing or merging anything further.
 - Baseline green: health 56 checks, brain 119 resources / 19 patterns / 65 tools / 16 domains / 2 router configs, contracts 14 roles, platform tests 72.
 - Live-verified: Runway `veo3.1_fast` first+last frame clip (40 credits; balance 460 left). Not live-tested: Gemini (needs the owner's key and billing). Monid balance about $1. Higgsfield installed but not logged in.
 - Owner-pending: rotate the Runway, Monid and Stitch keys that were pasted in chat; Higgsfield login (optional); decide the three cautioned resources per use (lightswind, mobbin, open-seo).
